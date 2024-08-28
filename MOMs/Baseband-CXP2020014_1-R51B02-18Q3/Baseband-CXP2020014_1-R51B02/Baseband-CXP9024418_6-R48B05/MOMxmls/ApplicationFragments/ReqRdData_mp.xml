@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Nov 10, 2017 8:38:38 AM using:
+	* com.ericsson.ecim.m2m 2.14.10.201706160627
+	* com.ericsson.ecim.dsl 2.14.10.201706160627
+	* com.ericsson.ecim.edm 2.14.10.201706160627
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle/>
+        <momSubTitle/>
+        <momIdentity>
+            <docNum/>
+            <docLang/>
+            <docRev/>
+            <docDate/>
+        </momIdentity>
+    </momMetaData>
+    <mim author="ecsaber" contact="" correction="0" date="" docNo="" name="ReqRdData" namespace="urn:com:ericsson:ecim:ReqRdData" namespacePrefix="reqrddata" organization="" release="0" revision="" version="1">
+        <description>ReqRdData mom</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="ReqRdData_RdData_requestedRelativeOutputPower">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRdData_RdData_minimumRelativeOutputPower">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRdData_RdData_actualRelativeOutputPower">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <class name="RdData">
+            <description> This MO models Radio Dot Data (RdData).</description>
+            <root/>
+            <attribute name="rdDataId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="requestedRelativeOutputPower">
+                <description>Requested transceiver output power relative to the output power set for SectorCarrier. Requested output power is rounded to closest possible value due to power setting granularity. If changes of requested relative output power are too small, they do not affect result of output power from transceiver.
+</description>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRdData_RdData_requestedRelativeOutputPower">
+                        <defaultValue>100</defaultValue>
+                        <mimName>ReqRdData</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="minimumRelativeOutputPower">
+                <description>Minimum requested relative output power that given transceiver is capable of. 
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRdData_RdData_minimumRelativeOutputPower">
+                        <mimName>ReqRdData</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="actualRelativeOutputPower">
+                <description>Transceiver output power relative to output power set for SectorCarrier. It can differ from requested output power if another node requested it.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRdData_RdData_actualRelativeOutputPower">
+                        <mimName>ReqRdData</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Transceiver_to_RdData">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transceiver">
+                        <mimName>ReqTransceiver</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RdData">
+                        <mimName>ReqRdData</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

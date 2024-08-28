@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqAlarmPort" namespace="urn:com:ericsson:ecim:ReqAlarmPort" namespacePrefix="reqalarmport" organization="" release="1" revision="0" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcPerceivedSeverity">
+            <description>This parameter provides an indication of how it is perceived that the capability of the managed object has been affected.</description>
+            <enumMember name="CRITICAL">
+                <description>The Critical severity level indicates that a service affecting condition has occurred and an immediate corrective action is required. Such a severity can be reported, for example, when a managed object becomes totally out of service and its capability must be restored.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="MAJOR">
+                <description>The Major severity level indicates that a service affecting condition has developed and an urgent corrective action is required. Such a severity can be reported, for example, when there is a severe degradation in the capability of the managed object and its full capability must be restored.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="MINOR">
+                <description>The Minor severity level indicates the existence of a non-service affecting fault condition and that corrective action should be taken in order to prevent a more serious (for example, service affecting) fault. Such a severity can be reported, for example, when the detected alarm condition is not currently degrading the capacity of the managed object. </description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="WARNING">
+                <description>The Warning severity level indicates the detection of a potential or impending service affecting fault, before any significant effects have been felt. Action should be taken to further diagnose (if necessary) and correct the problem in order to prevent it from becoming a more serious service affecting fault.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqAlarmPort_AlarmPort_alarmSlogan">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>63</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>63</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAlarmPort_AlarmPort_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="AlarmPort">
+            <description>This MO models an Alarm Port. It is used to detect a fault indication from external equipment and report it as external alarm to the Network Management System.</description>
+            <root/>
+            <attribute name="alarmPortId">
+                <description>The value component of the RDN. The value shall match the the number on the physical port.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="activeExternalAlarm">
+                <description>Indicates that an active alarm was sent and an external alarm exists on the port.</description>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="alarmSlogan">
+                <description>Specifies the alarm. Used in additional text in the alarm ExternalAlarm.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAlarmPort_AlarmPort_alarmSlogan">
+                        <mimName>ReqAlarmPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.&#13;
+ </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAlarmPort_AlarmPort_userLabel">
+                        <mimName>ReqAlarmPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="normallyOpen">
+                <description>The active state of the alarm port:&#13;
+true = Closing the circuit generates an alarm.&#13;
+false = Opening the circuit generates an alarm.  </description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>Defines the administrative state.&#13;
+&#13;
+Note: State "SHUTTING_DOWN" will immediately be switched to "LOCKED".</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>ReqAlarmPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqAlarmPort</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqAlarmPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="perceivedSeverity">
+                <description>The severity level of the alarm ExternalAlarm.</description>
+                <dataType>
+                    <enumRef name="ApcPerceivedSeverity">
+                        <defaultValue>MINOR</defaultValue>
+                        <mimName>ReqAlarmPort</mimName>
+                    </enumRef>
+                </dataType>
+                <takesEffect> At next generated alarm</takesEffect>
+            </attribute>
+            <attribute name="alarmInExternalMe">
+                <description>In primary node: whether to distribute alarm status to a secondary node sharing the external equipment or not.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_AlarmPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AlarmPort">
+                        <mimName>ReqAlarmPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

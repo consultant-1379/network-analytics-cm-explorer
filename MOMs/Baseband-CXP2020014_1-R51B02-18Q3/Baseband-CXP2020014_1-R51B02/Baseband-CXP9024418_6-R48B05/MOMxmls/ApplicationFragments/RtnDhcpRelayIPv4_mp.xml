@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2015 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Jun 30, 2015 10:56:11 AM using:
+	* com.ericsson.ecim.m2m 2.12.0.201410170020
+	* com.ericsson.ecim.dsl 2.12.0.201410170020
+	* com.ericsson.ecim.edm 2.12.0.201410170020
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>G</dtdVersion>
+  <momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate/>
+    </momIdentity>
+    <createdBy>
+      <signature>EAB/FJP/TA UABJOCL</signature>
+    </createdBy>
+    <approvedBy>
+      <signature>EAB/FJP/TA UABJOCL</signature>
+    </approvedBy>
+  </momMetaData>
+  <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="6" date="" docNo="" name="RtnDhcpRelayIPv4" namespace="urn:com:ericsson:ecim:RtnDhcpRelayIPv4" namespacePrefix="rtndhcprelayipv4" organization="" release="0" revision="" variant="Model" version="2">
+    <description>DhcpRelay MOM</description>
+    <domainExtension domain="ECIM">
+      <extension name="immNamespace" value="NONE"/>
+    </domainExtension>
+    <class name="DhcpRelayIPv4">
+      <description>Dhcp-relay is a feature that makes it possible for a router to relay dhcp-traffic between a dhcp-client and a dhcp-server.</description>
+      <root/>
+      <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $subnet in @subnet satisfies (count(../DhcpRelayIPv4[($subnet = @subnet)]) eq 1)'><value-of select="."/> Subnet shall not be duplicated!</assert>
+		<assert test='every $subnet in @subnet satisfies not($subnet/../@loopback)'><value-of select="."/> Loopback interfaces are not allowed in Subnet!</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+      <attribute name="dhcpRelayIPv4Id">
+        <description>The value component of the RDN.</description>
+        <mandatory/>
+        <noNotification/>
+        <restricted/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="subnet">
+        <description>The IP subnets that the DHCP relay agent shall serve.</description>
+        <mandatory/>
+        <dataType>
+          <sequence>
+            <moRef name="ManagedObject"/>
+            <minLength>1</minLength>
+          </sequence>
+        </dataType>
+        <dependencies>Subnet shall point to AddressIpv4 instances within the same Router where the DhcpRelayIpv4 is contained.
+Subnet shall point to an AddressIpv4 that is the one and only AddressIpv4 on that InterfaceIpv4.</dependencies>
+        <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+        <takesEffect>DHCP-relay-application will be restarted when attribute is changed, so external products using dhcp-relay might get impacted during the restart.</takesEffect>
+      </attribute>
+      <attribute name="server">
+        <description>The peers of the DHCP servers that the DHCP packets shall be relayed to.</description>
+        <mandatory/>
+        <dataType>
+          <sequence>
+            <moRef name="ManagedObject"/>
+            <minLength>1</minLength>
+            <maxLength>10</maxLength>
+          </sequence>
+        </dataType>
+        <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+        <takesEffect>DHCP-relay-application will be restarted when attribute is changed, so external products using dhcp-relay might get impacted during the restart.</takesEffect>
+      </attribute>
+    </class>
+    <relationship name="DhcpRelayIPv4_server_to_PeerIPv4_reservedBy">
+      <biDirectionalAssociation>
+        <associationEnd name="server">
+          <hasClass name="PeerIPv4">
+            <mimName>RtnRoutesPeerIPv4</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>10</max>
+          </cardinality>
+          <isReserving/>
+        </associationEnd>
+        <associationEnd name="reservedBy">
+          <hasClass name="DhcpRelayIPv4">
+            <mimName>RtnDhcpRelayIPv4</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+          </cardinality>
+        </associationEnd>
+      </biDirectionalAssociation>
+    </relationship>
+    <relationship name="DhcpRelayIPv4_subnet_to_AddressIPv4_reservedBy">
+      <biDirectionalAssociation>
+        <associationEnd name="subnet">
+          <hasClass name="AddressIPv4">
+            <mimName>RtnL3InterfaceIPv4</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+          </cardinality>
+          <isReserving/>
+        </associationEnd>
+        <associationEnd name="reservedBy">
+          <hasClass name="DhcpRelayIPv4">
+            <mimName>RtnDhcpRelayIPv4</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+          </cardinality>
+        </associationEnd>
+      </biDirectionalAssociation>
+    </relationship>
+  </mim>
+  <interMim>
+    <relationship name="Router_to_DhcpRelayIPv4">
+      <domainExtension domain="CoreMW">
+        <extension name="splitImmDn" value="false"/>
+      </domainExtension>
+      <containment>
+        <parent>
+          <hasClass name="Router">
+            <mimName>RtnL3Router</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="DhcpRelayIPv4">
+            <mimName>RtnDhcpRelayIPv4</mimName>
+          </hasClass>
+          <cardinality>
+            <min>0</min>
+          </cardinality>
+        </child>
+        <noNotification/>
+      </containment>
+    </relationship>
+  </interMim>
+</models>

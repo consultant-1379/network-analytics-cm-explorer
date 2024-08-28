@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Apr 4, 2016 9:07:31 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="ReqSyncPort" namespace="urn:com:ericsson:ecim:ReqSyncPort" namespacePrefix="reqsyncport" organization="" release="5" revision="" variant="Model" version="2">
+        <description>SyncPort</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqSyncPort_SyncPort_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="SyncPort">
+            <description>This MO represents a physical connector for connecting a discrete synchronization signal.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="SyncPort"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron"> 
+	<pattern>
+		<rule> 
+		<assert test='every $syncPortId in @syncPortId satisfies (($syncPortId eq "1") or ($syncPortId eq "SYNC") or ($syncPortId eq "SYNC_A") or ($syncPortId eq "SYNC_B"))'> syncPortId can be 1, SYNC, SYNC_A or SYNC_B </assert> 
+		<assert test='not(@syncPortId eq "1" and count(../SyncPort) gt 1)'> SyncPort=1 cannot coexist with other SyncPort at the same time! </assert> 
+ 		<assert test='not(@syncPortId eq "SYNC" and count(../SyncPort) gt 1)'> SyncPort=SYNC cannot coexist with other SyncPort at the same time! </assert> 
+		</rule> 
+	</pattern> 
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron"> 
+	<pattern>
+		<rule> 
+		<assert test='every $syncPortId in @syncPortId satisfies (($syncPortId eq "1") or ($syncPortId eq "SYNC") or ($syncPortId eq "SYNC_A") or ($syncPortId eq "SYNC_B"))'> syncPortId can be 1, SYNC, SYNC_A or SYNC_B </assert> 
+		<assert test='not(@syncPortId eq "1" and count(../SyncPort) gt 1)'> SyncPort=1 cannot coexist with other SyncPort at the same time! </assert> 
+ 		<assert test='not(@syncPortId eq "SYNC" and count(../SyncPort) gt 1)'> SyncPort=SYNC cannot coexist with other SyncPort at the same time! </assert> 
+		</rule> 
+	</pattern> 
+</schema>]]></dependenciesScript>
+            <attribute name="syncPortId">
+                <description>The value component of the RDN.
+
+Shall match the corresponding connector label on the unit.
+For details on which units support which sync ports, see the description of the relevant unit.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <dependencies>syncPortId can be SYNC, SYNC_A or SYNC_B.</dependencies>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqSyncPort_SyncPort_userLabel">
+                        <mimName>ReqSyncPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqSyncPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqSyncPort</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_SyncPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SyncPort">
+                        <mimName>ReqSyncPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

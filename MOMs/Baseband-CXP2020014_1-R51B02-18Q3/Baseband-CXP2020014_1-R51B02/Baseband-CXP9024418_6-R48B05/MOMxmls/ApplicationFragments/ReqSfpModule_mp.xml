@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Aug 2, 2017 11:16:00 AM using:
+	* com.ericsson.ecim.m2m 2.14.10.201706160627
+	* com.ericsson.ecim.dsl 2.14.10.201706160627
+	* com.ericsson.ecim.edm 2.14.10.201706160627
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle/>
+        <momSubTitle/>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>xuguusu</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>xuguusu</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="xuguusu" contact="xuguusu" correction="3" date="" docNo="" name="ReqSfpModule" namespace="urn:com:ericsson:ecim:ReqSfpModule" namespacePrefix="reqsfpmodule" organization="" release="0" revision="" version="1">
+        <description>ReqSfpModule.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <struct name="SfpProductData">
+            <description>Sfp product data.</description>
+            <structMember name="manufacturerDesignation">
+                <description>The manufacturer designation of the SFP module. </description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_manufacturerDesignation">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="manufacturerId">
+                <description>The manufacturer ID of the SFP module. </description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_manufacturerId">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="manufacturerRevision">
+                <description>The manufacturer revision of the SFP module. </description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_manufacturerRevision">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="negotiatedBitRate">
+                <description>The rate that the SFP module has negotiated. </description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_negotiatedBitRate">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productionDate">
+                <description>The production date of the SFP module.
+</description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_productionDate">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productNumber">
+                <description>The product number of the SFP module. States "Non-Ericsson" when information not available.
+</description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_productNumber">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The product version of the SFP module. States "Non-Ericsson" when information not available</description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_productRevision">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>The serial number of the SFP module.</description>
+                <derivedDataTypeRef name="ReqSfpModule_SfpProductData_serialNumber">
+                    <mimName>ReqSfpModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimVersion" value="2"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimVersion" value="2"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimVersion" value="2"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqSfpModule_SfpProductData_manufacturerDesignation">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>16</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>16</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqSfpModule_SfpProductData_manufacturerId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>16</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>16</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqSfpModule_SfpProductData_manufacturerRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqSfpModule_SfpProductData_negotiatedBitRate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqSfpModule_SfpProductData_productionDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqSfpModule_SfpProductData_productNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>14</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>14</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqSfpModule_SfpProductData_productRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqSfpModule_SfpProductData_serialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>16</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>16</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="SfpModule">
+            <description>Created when an SFP-module is detected.
+PM counters are not applicable for TN ports. 
+ 
+The RDN of this MO is the same as for the related port MO.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="sfpModuleId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqSfpModule</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqSfpModule</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state.&#13;
+If set to SHUTTINGDOWN, the state will immediately be brought to LOCKED.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>UNLOCKED</defaultValue>
+                        <mimName>ReqSfpModule</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="productData">
+                <description>Information on the installed small form-factor pluggable (SFP) module.&#13;
+&#13;
+A blank value indicates the data is currently unavailable. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="SfpProductData">
+                        <mimName>ReqSfpModule</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_SfpModule">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SfpModule">
+                        <mimName>ReqSfpModule</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

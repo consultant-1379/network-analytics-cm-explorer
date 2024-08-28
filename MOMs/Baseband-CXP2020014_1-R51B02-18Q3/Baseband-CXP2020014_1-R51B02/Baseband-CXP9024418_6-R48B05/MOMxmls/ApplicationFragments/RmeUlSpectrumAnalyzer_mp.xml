@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on May 2, 2018 10:20:52 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="RmeUlSpectrumAnalyzer" namespace="urn:com:ericsson:ecim:RmeUlSpectrumAnalyzer" namespacePrefix="rmeulspectrumanalyzer" organization="" release="3" revision="" version="2">
+        <description>This MO is used when requesting Ul spectrum sampling for one specified radio unit and to store the sampling result file(s) in a SMRS Server. The MO also allows queries to be sent to any radio unit for availible Ul spectrum sampling capabilities.
+</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="UlsaCapabilityConfig">
+            <description>Returns value of action getUlsaSamplingCapability that fetches UL Spectrum Analyzer capabilities from the radio and returns the result in an array of struct UlsaCapabilityConfig.
+</description>
+            <structMember name="carrierRfPort">
+                <description>RfPort for RF branch. Port A equals 1, port B equals 2, and so on.</description>
+                <derivedDataTypeRef name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_carrierRfPort">
+                    <mimName>RmeUlSpectrumAnalyzer</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="numSpectrumTypes">
+                <description>Number of spectrum types for RF branch.</description>
+                <derivedDataTypeRef name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_numSpectrumTypes">
+                    <mimName>RmeUlSpectrumAnalyzer</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="numTriggerTypes">
+                <description>Number of trigger types for RF branch. 
+</description>
+                <derivedDataTypeRef name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_numTriggerTypes">
+                    <mimName>RmeUlSpectrumAnalyzer</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="minFrequency">
+                <description>Lower RF range for RF branch. Spectrum information parameter.
+
+</description>
+                <sequence>
+                    <uint32/>
+                    <minLength>0</minLength>
+                    <maxLength>64</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+            <structMember name="maxFrequency">
+                <description>Upper RF range for RF branch. Spectrum information parameter.
+</description>
+                <sequence>
+                    <int32/>
+                    <minLength>0</minLength>
+                    <maxLength>64</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+            <structMember name="flatGainBW">
+                <description>Flat gain portion of the bandwidth that can be configured for the associated carrier. Spectrum information parameter.
+</description>
+                <sequence>
+                    <uint32/>
+                    <minLength>0</minLength>
+                    <maxLength>64</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+            <structMember name="samplingRate">
+                <description>Different sampling rate values for adc and fb. Spectrum information parameter. 
+</description>
+                <sequence>
+                    <uint32/>
+                    <minLength>0</minLength>
+                    <maxLength>64</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+            <structMember name="maxNumSamplings">
+                <description>Number of sampling values in sample file. LTE 64K, WCDMA 40K spectrum information parameter.
+</description>
+                <sequence>
+                    <uint32/>
+                    <minLength>0</minLength>
+                    <maxLength>64</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+            <structMember name="trigger1DataDefined">
+                <description>Indicates if valid trigger1 data included for carrierRfPort.
+</description>
+                <boolean/>
+            </structMember>
+            <structMember name="minPower">
+                <description>Lower level of UL power range. Trigger information parameter.</description>
+                <derivedDataTypeRef name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_minPower">
+                    <mimName>RmeUlSpectrumAnalyzer</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="maxPower">
+                <description>Upper level of UL power range. Trigger information parameter.
+</description>
+                <derivedDataTypeRef name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_maxPower">
+                    <mimName>RmeUlSpectrumAnalyzer</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="UlSpectrumSamplingType">
+            <description>Shows the type of sampling operation last ordered.
+</description>
+            <enumMember name="SNAPSHOT_SAMPLING">
+                <description>A single sample is requested.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="CONTINUOUS_SAMPLING">
+                <description>Several samples are requested, one at a time, with an  interval according to attribute samplingInterval. When no interval is specified, best effort is used. </description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="CONDITIONAL_SAMPLING">
+                <description>A single sample is requested with a specific trigger condition specified. </description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="TcpStatus">
+            <description>The status of the TCP.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="9"/>
+                <extension name="originatingMimName" value="ReqAntennaSystem"/>
+            </domainExtension>
+            <enumMember name="UNKNOWN">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="STARTED">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FINISHED">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="InfoType">
+            <description>Information on the reason for an unsuccessful action startUlsaSampling.</description>
+            <enumMember name="UNDEFINED">
+                <description>Initial default value.
+</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="PARAMETERS_NOT_SUPPORTED">
+                <description>One or more parameters out of range.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TIMEOUT_AT_FILE_UPLOAD">
+                <description>Transfer of sample file exceeds time limit.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="NO_CARRIERS_SETUP_ON_RADIO">
+                <description>No active carriers on radio.
+</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="CONDITIONAL_MEASUREMENT_TIMEOUT">
+                <description>Trigger condition not fulfilled within time limit.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="RADIO_IS_BUSY_WITH_ANOTHER_SAMPLING">
+                <description>Conditional sampling already started in radio.
+</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="NO_CONTACT_WITH_RADIO">
+                <description>No access to specified radio.
+</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NO_RESOURCES">
+                <description>Radio unable to set up sampling configuration.
+</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="NO_CONTACT_WITH_RADIO_MEASUREMENT_SERVER">
+                <description>No contact with radio measurement server.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="NO_VALID_LICENSE">
+                <description>No feature license available on the node.</description>
+                <value>9</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_ipAddress">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_username">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_password">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_targetRfPort">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_centerFrequency">
+            <baseType>
+                <uint32>
+                    <unit>kHz</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_displayedBandwidth">
+            <baseType>
+                <uint32>
+                    <unit>kHz</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_resolutionBandwidth">
+            <baseType>
+                <uint32>
+                    <unit>Hz</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_samplingInterval">
+            <baseType>
+                <uint32>
+                    <unit>s(seconds)</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_samplingTimeout">
+            <baseType>
+                <uint32>
+                    <unit>s(seconds)</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_triggerTimeOfDay">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_startUlsaSampling_powerLevel">
+            <baseType>
+                <int32>
+                    <unit>dBm</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_stopUlsaSampling_targetRfPort">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="UlSpectrumAnalyzer_getUlsaSamplingCapability_targetRadioUnit">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_carrierRfPort">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>8</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>8</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_numSpectrumTypes">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>64</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>64</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_numTriggerTypes">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>4</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>4</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_minPower">
+            <baseType>
+                <int32>
+                    <unit>dBm</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeUlSpectrumAnalyzer_UlsaCapabilityConfig_maxPower">
+            <baseType>
+                <int32>
+                    <unit>dBm</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="UlSpectrumAnalyzer">
+            <description>This MO is used when requesting Ul spectrum sampling for one specified radio unit and to store the sampling result file(s) in a SMRS Server. The MO also allows queries to be sent to any radio unit for availible Ul spectrum sampling capabilities.
+</description>
+            <root/>
+            <action name="startUlsaSampling">
+                <description>The action requests one or several UL Spectrum samples to be collected from the radio unit and stored on a SMRS server.                                                                                                                                                
+</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="1"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="ipAddress">
+                    <description>IP address for SMRS server, used for Measurement Files. Required for all sampling types. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_ipAddress">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="username">
+                    <description>User name for connecting to the SMRS server. Required for all sampling types. 
+</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_username">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="password">
+                    <description>Password for connecting to the SMRS server. Required for all sampling types.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_password">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="uploadDirectory">
+                    <description>Path to the directory in the SMRS server where sampling results are stored. Required for all sampling types.                    </description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <parameter name="targetRfPort">
+                    <description>RF port to be used for sampling. The LDN value of the targeted RfPort. Required for all sampling types. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_targetRfPort">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="samplingType">
+                    <description>Type of sampling. Possible values "SNAPSHOT_SAMPLING", "CONTINUOUS_SAMPLING" or "CONDITIONAL_SAMPLING".</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="UlSpectrumSamplingType">
+                            <defaultValue>SNAPSHOT_SAMPLING</defaultValue>
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <parameter name="centerFrequency">
+                    <description>The value must be specified in range of parameters minFrequency and maxFrequency received as a return value from action getUlsaSamplingCapability. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_centerFrequency">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="displayedBandwidth">
+                    <description>Value "0" means display is not required. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_displayedBandwidth">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="resolutionBandwidth">
+                    <description>Must be a non-zero positive number. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_resolutionBandwidth">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="samplingInterval">
+                    <description>Specifies the delay time after one sampling finished until start of next sampling for samplingType "CONTINUOUS_SAMPLING". The parameter has no meaning for other samplingTypes. Value "0" means continuous best effort. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_samplingInterval">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="samplingTimeout">
+                    <description>Maximum waiting time for a specified trigger condition to happen or the maximum duration of a continuous sampling type. Range 10-7200. Recommended value "1000" seconds for "CONDITIONAL_SAMPLING" and "3600" seconds for "CONTINUOUS_SAMPLING". The parameter has no meaning for samplingType “SNAPSHOT_SAMPLING”. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_samplingTimeout">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="triggerTimeOfDay">
+                    <description> Specifies the time in form "hh:mm:ss.sss" when a sampling shall be requested from radio. Used for "CONDITIONAL_SAMPLING", the parameter has no meaning for other samplingTypes. Value “ff:ff:ff.fff” means “not used”. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_triggerTimeOfDay">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="powerLevel">
+                    <description>Power trigger threshold at antenna reference point. Used for "CONDITIONAL_SAMPLING", the parameter has no meaning for other samplingTypes. The value must be specified in range of parameters minPower and maxPower received from action getUlsaSamplingCapability. For a CONDITIONAL_SAMPLING measurement trigger “powerLevel” is valid when parameter “triggerTimeOfDay” is set to “ff:ff:ff.fff”.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_startUlsaSampling_powerLevel">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="stopUlsaSampling">
+                <description>Action to stop a continuous sampling or pre-empt a conditional sampling.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="2"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="targetRfPort">
+                    <description>The LDN value of the targeted RfPort to stop the sampling.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_stopUlsaSampling_targetRfPort">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="getUlsaSamplingCapability">
+                <description>The action fetches Ul Spectrum Analyzer capabilities from the radio and returns the result in an array of struct UlsaCapabilityConfig. When the radio has no measurable spectrum types in any RF branch, the size of the returning array equals 0.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <sequence>
+                        <structRef name="UlsaCapabilityConfig">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </returnType>
+                <parameter name="targetRadioUnit">
+                    <description>The targetRadioUnit is set to the LDN for the radio FieldReplaceableUnit MO.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="UlSpectrumAnalyzer_getUlsaSamplingCapability_targetRadioUnit">
+                            <mimName>RmeUlSpectrumAnalyzer</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <attribute name="ulSpectrumAnalyzerId">
+                <description>The value component of the RDN.
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="info">
+                <description>Information on the reason for unsuccessful action startUlsaSampling.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="InfoType">
+                        <mimName>RmeUlSpectrumAnalyzer</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="targetRfPort">
+                <description>Shows the RfPort last targeted for sample request. Value is LDN of the targeted RfPort. Before any sampling is requested, the value is "".</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="samplingType">
+                <description>Shows the type of sampling operation last ordered. Before any sample is requested, the value is "".</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="UlSpectrumSamplingType">
+                        <mimName>RmeUlSpectrumAnalyzer</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="ulSpectrumSamplingStatus">
+                <description>Status of latest sampling operation, initiated with action startUlsaSampling. </description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="TcpStatus">
+                        <mimName>RmeUlSpectrumAnalyzer</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="NodeSupport_to_UlSpectrumAnalyzer">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="NodeSupport">
+                        <mimName>RmeSupport</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="UlSpectrumAnalyzer">
+                        <mimName>RmeUlSpectrumAnalyzer</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

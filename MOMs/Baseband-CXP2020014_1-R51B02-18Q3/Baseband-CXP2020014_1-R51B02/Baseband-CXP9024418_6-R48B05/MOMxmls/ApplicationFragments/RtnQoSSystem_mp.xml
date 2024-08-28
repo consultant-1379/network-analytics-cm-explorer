@@ -1,0 +1,1712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Dec 12, 2017 4:16:01 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RtnQoSSystem" namespace="urn:com:ericsson:ecim:RtnQoSSystem" namespacePrefix="rtnqossystem" organization="" release="5" revision="" variant="Model" version="5">
+        <description>QoS system providing (hierarchical) scheduling, queue management, policing, and shaping. </description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_QoS_System"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_QoS_System" release="0" version="1"/>
+        <struct name="CbsInShaper">
+            <description>Union to wrap different unit forms for attribute committedBurstSize in Shaper. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="bytes">
+                <description>committedBurstSize expressed in bytes.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="CbsInBytesForShaper">
+                    <mimName>RtnQoSSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="CirInShaper">
+            <description>Union to wrap different unit forms for attribute committedInformationRate in Shaper. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="kbps">
+                <description>committedInformationRate expressed in kbps.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="CirInKbpsForShaper">
+                    <mimName>RtnQoSSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="MaxThresholdForRed">
+            <description>The maximum threshold for RED.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="percent">
+                <description>Maximum threshold expressed in percent of the maximum queue size.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="MaxThreshInPercentForRed">
+                    <mimName>RtnQoSSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="MinThresholdForRed">
+            <description>The minimum threshold for RED.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="percent">
+                <description>Minimum threshold expressed in percent of the maximum queue size.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="MinThreshInPercentForRed">
+                    <mimName>RtnQoSSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="QueueSizeForRed">
+            <description>The queue size for RED.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="bytes">
+                <description>queueSize expressed in bytes.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="QueueSizeInBytes">
+                    <mimName>RtnQoSSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="QueueSizeForTailDrop">
+            <description>The queue size for TailDrop.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <isExclusive/>
+            <structMember name="bytes">
+                <description>queueSize expressed in bytes.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="QueueSizeInBytes">
+                    <mimName>RtnQoSSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <derivedDataType name="CbsInBytesForShaper">
+            <description>Data type for attribute committedBurstSize for Shaper. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint64>
+                    <unit>byte</unit>
+                </uint64>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="CirInKbpsForShaper">
+            <description>Data type for attribute committedInformationRate for Shaper. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint64>
+                    <range>
+                        <min>0</min>
+                        <max>0</max>
+                        <min>100</min>
+                        <max>20000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>0</max>
+                        </subrange>
+                        <subrange>
+                            <min>100</min>
+                            <max>20000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>kbps</unit>
+                </uint64>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ExponentForRed">
+            <description>The data type for the averaging weight factor used by the RED drop mechanism.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>8</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>8</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="MaxThreshInPercentForRed">
+            <description>Data type for the attribute maxThreshold expressed in percent for RED.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>percent</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="MinThreshInPercentForRed">
+            <description>Data type for the attribute minThreshold expressed in percent for RED.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>percent</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="QueueSizeInBytes">
+            <description>Data type for attribute queueSize. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnQoSLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint64>
+                    <range>
+                        <min>0</min>
+                        <max>250000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>250000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>byte</unit>
+                </uint64>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_DscpSetToPCP_dscpSet">
+            <baseType>
+                <string>
+                    <validValues>^(([0-9]|[0-5][0-9]|6[0-3])(, ([0-9]|[0-5][0-9]|6[0-3]))*)$</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_DscpSetToPCP_pcp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_DscpSetToPCP_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_DscpToPCPMap_defaultPCP">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_DscpToPCPMap_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_PcpSetToQueue_pcpSet">
+            <baseType>
+                <string>
+                    <validValues>^([0-7](, [0-7])*)$</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_PcpToQueueMap_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_QueueRed_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_QueueTailDrop_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_SchedulerDwrr_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_SchedulerSp_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQoSSystem_Shaper_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="DscpSetToPCP">
+            <description>Mapping of a set of DSCP values to a PCP.</description>
+            <attribute name="dscpSet">
+                <description>A set of DSCP values.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_DscpSetToPCP_dscpSet">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dscpSetToPCPId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="pcp">
+                <description>The PCP value.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_DscpSetToPCP_pcp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_DscpSetToPCP_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="DscpToPCPMap">
+            <description>A DSCP to PCP map.</description>
+            <attribute name="defaultPCP">
+                <description>The default PCP is chosen if no match on DSCP value can be found.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_DscpToPCPMap_defaultPCP">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dscpToPCPMapId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_DscpToPCPMap_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="PcpSetToQueue">
+            <description>Mapping of a set of PCP values to a queue.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="PcpSetToQueue"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='contains(@queue, concat("EthernetPort=", ../../../../@ethernetPortId, ","))'> <value-of select="."/> Attribute queue shall point to a QueueTailDrop or QueueRed created within the same QueueSystem</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='contains(@queue, concat("EthernetPort=", ../../../../@ethernetPortId, ","))'> <value-of select="."/> Attribute queue shall point to a QueueTailDrop or QueueRed created within the same QueueSystem</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="pcpSet">
+                <description>A set of PCP values.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_PcpSetToQueue_pcpSet">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="pcpSetToQueueId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="queue">
+                <description>A reference to the queue.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Attribute queue shall point to a QueueTailDrop or QueueRed created within the same QueueSystem.</dependencies>
+            </attribute>
+        </class>
+        <class name="PcpToQueueMap">
+            <description>PCP to queue map.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="PcpToQueueMap"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='contains(@defaultQueue, concat("EthernetPort=", ../../../@ethernetPortId, ","))'> <value-of select="."/> Attribute defaultQueue shall point to a QueueTailDrop or QueueRed created within the same QueueSystem</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='contains(@defaultQueue, concat("EthernetPort=", ../../../@ethernetPortId, ","))'> <value-of select="."/> Attribute defaultQueue shall point to a QueueTailDrop or QueueRed created within the same QueueSystem</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="defaultQueue">
+                <description>The default queue is chosen if no match on PCP value can be found.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Attribute defaultQueue shall point to a QueueTailDrop or QueueRed created within the same QueueSystem.</dependencies>
+            </attribute>
+            <attribute name="pcpToQueueMapId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_PcpToQueueMap_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="QoSClassifier">
+            <description>Container of QoS Classifier schemes.</description>
+            <attribute name="qosClassifierId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="QueueRed">
+            <description>The queue that uses the Random Early Detection (RED) packet-dropping strategy.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="QueueRed"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='exists(@queueSize/@bytes)'> Queue size is not specified </assert>
+		<assert test='exists(@minThreshold/@percent)'> Min Threshold is not specified </assert>
+		<assert test='exists(@maxThreshold/@percent)'> Max Threshold is not specified </assert>
+		<assert test='@minThreshold/@percent le @maxThreshold/@percent' > Min Threshold should be less than or equal to Max Threshold </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='exists(@queueSize/@bytes)'> Queue size is not specified </assert>
+		<assert test='exists(@minThreshold/@percent)'> Min Threshold is not specified </assert>
+		<assert test='exists(@maxThreshold/@percent)'> Max Threshold is not specified </assert>
+		<assert test='@minThreshold/@percent le @maxThreshold/@percent' > Min Threshold should be less than or equal to Max Threshold </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="exponentWeight">
+                <description>The averaging weight factor used by the RED drop mechanism.
+
+The weight factor is used when calculating the average queue length and it is represented as the parameter n in the following formula:
+
+average_queue_length = old_average_queue_length * (1 - 2^-n) + current_queue_length * 2^-n, where 2^-n means: 2 raised to the power of –n.
+
+The averaging weight factor controls the sensitivity to bursts and rapid changes in the current queue length. Setting the averaging weight factor too high causes the average queue length to respond too slowly to changes in the current queue size, thus not reacting to congestion. Setting the averaging weight factor too low causes the average queue length to respond too fast to changes in the actual queue size, thus overreacting to bursts and dropping packets unnecessarily.
+
+Guideline: The egress bandwidth and the average packet size should influence the choice of this attribute value.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ExponentForRed">
+                        <defaultValue>8</defaultValue>
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="maxThreshold">
+                <description>The maximum threshold for RED.
+
+When the average queue length is above the minimum threshold, RED starts dropping packets. The rate of packet drop increases linearly as the average queue length increases until the average queue length reaches the maximum threshold.
+
+When the average queue length is above the maximum threshold, all packets are dropped.</description>
+                <mandatory/>
+                <dataType>
+                    <structRef name="MaxThresholdForRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="minThreshold">
+                <description>The minimum threshold for RED.
+
+When the average queue length is above the minimum threshold, RED starts dropping packets. The rate of packet drop increases linearly as the average queue length increases until the average queue length reaches the maximum threshold.
+
+When the average queue length is above the maximum threshold, all packets are dropped.</description>
+                <mandatory/>
+                <dataType>
+                    <structRef name="MinThresholdForRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </structRef>
+                </dataType>
+                <dependencies>minThreshold should be less than or equal to maxThreshold.</dependencies>
+            </attribute>
+            <attribute name="order">
+                <description>Unique index amongst children of the parent scheduler’s configuration for each input, if the parent node is a scheduler.
+If the parent scheduler is a strict priority scheduler, this index denotes the priority.</description>
+                <dataType>
+                    <uint16>
+                        <defaultValue>0</defaultValue>
+                    </uint16>
+                </dataType>
+            </attribute>
+            <attribute name="queueRedId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="queueSize">
+                <description>Maximum queue length. </description>
+                <mandatory/>
+                <dataType>
+                    <structRef name="QueueSizeForRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_QueueRed_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="QueueSystem">
+            <description>Quality of Service (QoS) queue system. 
+
+Bandwidth and sizes (burst sizes, queue sizes) include the complete Ethernet frame.&#13;
+
+Dependencies: Must have one child element.&#13;
+</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="QueueSystem"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper)) eq 1'> <value-of select="."/> Must have one child element </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))) satisfies $order eq 0'> <value-of select="."/> Attribute order of child to QueueSystem must be 0 </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper)) eq 1'> <value-of select="."/> Must have one child element </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))) satisfies $order eq 0'> <value-of select="."/> Attribute order of child to QueueSystem must be 0 </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="queueSystemId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="QueueTailDrop">
+            <description>The queue that uses the tail-drop packet-dropping strategy. </description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="QueueTailDrop"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='exists(@queueSize/@bytes)'> Queue size is not specified </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='exists(@queueSize/@bytes)'> Queue size is not specified </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="order">
+                <description>Unique index amongst children of the parent scheduler’s configuration for each input, if the parent node is a scheduler.
+
+If the parent scheduler is a strict priority scheduler, this index denotes the priority. </description>
+                <dataType>
+                    <uint16>
+                        <defaultValue>0</defaultValue>
+                    </uint16>
+                </dataType>
+            </attribute>
+            <attribute name="queueSize">
+                <description>Maximum queue length.</description>
+                <mandatory/>
+                <dataType>
+                    <structRef name="QueueSizeForTailDrop">
+                        <mimName>RtnQoSSystem</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="queueTailDropId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_QueueTailDrop_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="SchedulerDwrr">
+            <description>Deficit Weighted Round Robin (DWRR) scheduler. 
+In the hierarchical QoS context, a scheduler can directly contain multiple queues and schedulers as its children, to construct the hierarchical tree.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="SchedulerDwrr"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) eq count(@schedulingWeight))'> <value-of select="."/> Number of weights does not match number of children </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))) satisfies count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) gt $order'> <value-of select="."/> Attribute order has too high value for child</assert>
+		<assert test='are-distinct-values(concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))))'> <value-of select="."/> Attribute order of children are not unique </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) eq count(@schedulingWeight))'> <value-of select="."/> Number of weights does not match number of children </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))) satisfies count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) gt $order'> <value-of select="."/> Attribute order has too high value for child</assert>
+		<assert test='are-distinct-values(concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))))'> <value-of select="."/> Attribute order of children are not unique </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="order">
+                <description>Unique index amongst children to parent scheduler’s configuration per input, in case the parent node is a scheduler.
+
+If the parent scheduler is strict priority scheduler, this index denotes the priority.</description>
+                <dataType>
+                    <uint16>
+                        <defaultValue>0</defaultValue>
+                    </uint16>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="schedulerDwrrId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="schedulingWeight">
+                <description>Specifies the scheduling weight.</description>
+                <dataType>
+                    <sequence>
+                        <uint32/>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_SchedulerDwrr_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="SchedulerSp">
+            <description>SP (strict priority) scheduler.  &#13;
+In hierarchical QoS context, a scheduler is allowed to directly contain multiple queues, and/or schedulers, and/or shapers as its children to construct the hierarchical tree.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="SchedulerSp"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $nChildren in count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) satisfies $nChildren gt 0 and $nChildren le 4'> <value-of select="."/> Number of child elements should be between 1-4 </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))) satisfies count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) gt $order'> <value-of select="."/> Attribute order has too high value for child</assert>
+		<assert test='are-distinct-values(concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))))'> <value-of select="."/> Attribute order of children are not unique </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $nChildren in count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) satisfies $nChildren gt 0 and $nChildren le 4'> <value-of select="."/> Number of child elements should be between 1-4 </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))) satisfies count(QueueTailDrop) + count(QueueRed) + count(SchedulerSp) + count(SchedulerDwrr) + count(Shaper) gt $order'> <value-of select="."/> Attribute order has too high value for child</assert>
+		<assert test='are-distinct-values(concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, concatenate(SchedulerDwrr/@order, Shaper/@order)))))'> <value-of select="."/> Attribute order of children are not unique </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="order">
+                <description>Unique index amongst children to parent scheduler’s configuration per input, in case the parent node is a scheduler.
+
+If the parent scheduler is strict priority scheduler, this index denotes the priority.</description>
+                <dataType>
+                    <uint16>
+                        <defaultValue>0</defaultValue>
+                    </uint16>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="schedulerSpId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_SchedulerSp_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Shaper">
+            <description>A traffic shaping entity supporting: 1B1R.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Shaper"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(QueueTailDrop) + count(QueueRed) +count(SchedulerSp) + count(SchedulerDwrr)) eq 1'> <value-of select="."/> Must have one child element </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, SchedulerDwrr/@order))) satisfies $order eq 0'> <value-of select="."/> Attribute order of child to Shaper must be 0 </assert>
+		<assert test='exists(@committedInformationRate/@kbps)'> Committed Information Rate is not specified </assert>
+		<assert test='exists(@committedBurstSize/@bytes)'> Committed Burst Size is not specified </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(QueueTailDrop) + count(QueueRed) +count(SchedulerSp) + count(SchedulerDwrr)) eq 1'> <value-of select="."/> Must have one child element </assert>
+		<assert test='every $order in concatenate(QueueTailDrop/@order, concatenate(QueueRed/@order, concatenate(SchedulerSp/@order, SchedulerDwrr/@order))) satisfies $order eq 0'> <value-of select="."/> Attribute order of child to Shaper must be 0 </assert>
+		<assert test='exists(@committedInformationRate/@kbps)'> Committed Information Rate is not specified </assert>
+		<assert test='exists(@committedBurstSize/@bytes)'> Committed Burst Size is not specified </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="committedBurstSize">
+                <description>Committed burst size. </description>
+                <mandatory/>
+                <dataType>
+                    <structRef name="CbsInShaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="committedInformationRate">
+                <description>Committed information rate.</description>
+                <mandatory/>
+                <dataType>
+                    <structRef name="CirInShaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="order">
+                <description>Unique index amongst children to parent scheduler’s configuration per input, in case the parent node is a scheduler.
+
+If the parent scheduler is strict priority scheduler, this index denotes the priority.</description>
+                <dataType>
+                    <uint16>
+                        <defaultValue>0</defaultValue>
+                    </uint16>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="shaperId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQoSSystem_Shaper_userLabel">
+                        <mimName>RtnQoSSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="DscpToPCPMap_to_DscpSetToPCP">
+            <containment>
+                <parent>
+                    <hasClass name="DscpToPCPMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="DscpSetToPCP">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="PcpSetToQueue_queue_to_QueueRed_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="queue">
+                    <hasClass name="QueueRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PcpSetToQueue">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PcpSetToQueue_queue_to_QueueTailDrop_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="queue">
+                    <hasClass name="QueueTailDrop">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PcpSetToQueue">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PcpToQueueMap_defaultQueue_to_QueueRed_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="defaultQueue">
+                    <hasClass name="QueueRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PcpToQueueMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PcpToQueueMap_defaultQueue_to_QueueTailDrop_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="defaultQueue">
+                    <hasClass name="QueueTailDrop">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PcpToQueueMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PcpToQueueMap_to_PcpSetToQueue">
+            <containment>
+                <parent>
+                    <hasClass name="PcpToQueueMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PcpSetToQueue">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QoSClassifier_to_DscpToPCPMap">
+            <containment>
+                <parent>
+                    <hasClass name="QoSClassifier">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="DscpToPCPMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QoSClassifier_to_PcpToQueueMap">
+            <containment>
+                <parent>
+                    <hasClass name="QoSClassifier">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PcpToQueueMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QueueSystem_to_QoSClassifier">
+            <containment>
+                <parent>
+                    <hasClass name="QueueSystem">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QoSClassifier">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QueueSystem_to_QueueRed">
+            <containment>
+                <parent>
+                    <hasClass name="QueueSystem">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QueueSystem_to_QueueTailDrop">
+            <containment>
+                <parent>
+                    <hasClass name="QueueSystem">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueTailDrop">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QueueSystem_to_SchedulerDwrr">
+            <containment>
+                <parent>
+                    <hasClass name="QueueSystem">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QueueSystem_to_SchedulerSp">
+            <containment>
+                <parent>
+                    <hasClass name="QueueSystem">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QueueSystem_to_Shaper">
+            <containment>
+                <parent>
+                    <hasClass name="QueueSystem">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Shaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerDwrr_to_QueueRed">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerDwrr_to_QueueTailDrop">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueTailDrop">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerDwrr_to_SchedulerDwrr">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerDwrr_to_SchedulerSp">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerDwrr_to_Shaper">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Shaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerSp_to_QueueRed">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerSp_to_QueueTailDrop">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueTailDrop">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerSp_to_SchedulerDwrr">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerSp_to_SchedulerSp">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="SchedulerSp_to_Shaper">
+            <containment>
+                <parent>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Shaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Shaper_to_QueueRed">
+            <containment>
+                <parent>
+                    <hasClass name="Shaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueRed">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Shaper_to_QueueTailDrop">
+            <containment>
+                <parent>
+                    <hasClass name="Shaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueTailDrop">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Shaper_to_SchedulerDwrr">
+            <containment>
+                <parent>
+                    <hasClass name="Shaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerDwrr">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Shaper_to_SchedulerSp">
+            <containment>
+                <parent>
+                    <hasClass name="Shaper">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SchedulerSp">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="EthernetPort_to_QueueSystem">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QueueSystem">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

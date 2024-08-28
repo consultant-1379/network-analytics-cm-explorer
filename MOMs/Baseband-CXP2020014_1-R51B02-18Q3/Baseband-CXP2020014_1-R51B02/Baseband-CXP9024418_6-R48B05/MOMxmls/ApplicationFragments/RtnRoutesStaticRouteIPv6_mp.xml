@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Mar 13, 2018 1:48:18 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="0" date="" docNo="" name="RtnRoutesStaticRouteIPv6" namespace="urn:com:ericsson:ecim:RtnRoutesStaticRouteIPv6" namespacePrefix="rtnroutesstaticrouteipv6" organization="" release="14" revision="" variant="Model" version="1">
+        <description>Configure IPv6 Static Routes.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_Routes_StaticRouteIPv6"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="1"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_Routes_StaticRouteIPv6" release="1" version="1"/>
+        <derivedDataType name="DistanceValueType">
+            <description>Distance Value Type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <int16>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                </int16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="EcimEmpty">
+            <description>This type represents a leaf that has no value, it conveys information by its presence or absence.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <boolean/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Ipv6AddressStr">
+            <description>IPv6 address string, controlled by a regular expression.&#13;
+&#13;
+Address should be specified in colon separated hexadecimal notation as described in RFC 4291 section 2.2 items 1-3, but without leading 0s.&#13;
+IPv6 addresses shall have a length range of 3-39 characters.&#13;
+Valid characters: 0123456789abcdefABCDEF:&#13;
+&#13;
+Example: FF01::101, 2001:DB8:0:0:8:800:200C:417A</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="Ipv6RouteAddressAndPrefixLengthStr">
+            <description>’IPv6 network address’/’prefix length’ string.
+
+Example: 2001:db8:c0f:fee::/64
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*)/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*)/([0-9]|[1-9][0-9]|1[0-1][0-9]|12[0-8])$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <class name="Dst">
+            <description>Represents IPv6 destination of routes defined by one or more NextHop child MOs.
+</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Dst"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='are-distinct-values(./NextHop/@reference)'><value-of select="."/> Attribute reference of NextHop MO must be unique under same Dst MO.</assert>
+		<assert test='are-distinct-values(./NextHop/@adminDistance)'><value-of select="."/> Attribute adminDistance of NextHop MO must be unique under same Dst MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='are-distinct-values(./NextHop/@reference)'><value-of select="."/> Attribute reference of NextHop MO must be unique under same Dst MO.</assert>
+		<assert test='are-distinct-values(./NextHop/@adminDistance)'><value-of select="."/> Attribute adminDistance of NextHop MO must be unique under same Dst MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="dst">
+                <description>IPv6 destination prefix for routes defined by NextHop child MOs.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv6RouteAddressAndPrefixLengthStr">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dstId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="NextHop">
+            <description>Contains information about route defined by this MO and its parent Dst MO.
+
+Dependencies:
+Max number of NextHop MOs are 10000 within all RouteTableIpv6Static MOs in node.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="NextHop"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $ref in @reference satisfies (contains(@reference, concat("Router=", ../../../@routerId, ",")))'><value-of select="."/> Attribute reference in NextHop MO must not be under different Router MO. </assert>
+		<assert test='every $ref in @reference satisfies (contains(@reference, "InterfaceIPv6=") and contains($ref/@encapsulation, "IpsecTunnel="))'><value-of select="."/> Attribute reference in NextHop MO can only refer to InterfaceIPv6 MO that has IpsecTunnel MO as encapsulation reference. </assert>
+		<assert test='not(not(@discard) and not(@address) and not(@reference)) and ((@discard and not(@address) and not(@reference)) or (not(@discard) and @address and not(@reference)) or (not(@discard) and not(@address) and @reference))'><value-of select="."/> One of attributes address, discard or reference must be set, only one of them at same time. </assert>
+		<assert test='(count(../NextHop[(@discard)]) le 1)'> <value-of select="."/> Only one NextHop MO with discard set is allowed under Dst MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $ref in @reference satisfies (contains(@reference, concat("Router=", ../../../@routerId, ",")))'><value-of select="."/> Attribute reference in NextHop MO must not be under different Router MO. </assert>
+		<assert test='every $ref in @reference satisfies (contains(@reference, "InterfaceIPv6=") and contains($ref/@encapsulation, "IpsecTunnel="))'><value-of select="."/> Attribute reference in NextHop MO can only refer to InterfaceIPv6 MO that has IpsecTunnel MO as encapsulation reference. </assert>
+		<assert test='not(not(@discard) and not(@address) and not(@reference)) and ((@discard and not(@address) and not(@reference)) or (not(@discard) and @address and not(@reference)) or (not(@discard) and not(@address) and @reference))'><value-of select="."/> One of attributes address, discard or reference must be set, only one of them at same time. </assert>
+		<assert test='(count(../NextHop[(@discard)]) le 1)'> <value-of select="."/> Only one NextHop MO with discard set is allowed under Dst MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="address">
+                <description>IP address of nexthop of this route.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv6AddressStr">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>One of attributes address, discard or reference must be set, only one of them at same time.
+Must not coincide with address configured on InterfaceIPv6 MO on this router.
+Must be unique under same Dst MO.</dependencies>
+            </attribute>
+            <attribute name="adminDistance">
+                <description>Defines priority of this MO relative to other NextHop MOs under the same Dst MO.
+
+Defines priority of this MO relative to routes to the same destination network learned from dynamic routing protocols.
+
+Used to select the preferred path when two or more routes lead to the same destination.</description>
+                <dataType>
+                    <derivedDataTypeRef name="DistanceValueType">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Two NextHop MOs under the same Dst MO cannot have the same adminDistance.</dependencies>
+            </attribute>
+            <attribute name="bfdMonitoring">
+                <description>Controls whether availability of this route depends on BFD session that monitors nexthop.
+
+If set to true, availability of this route depends on session state, if BFD session monitors nexthop.
+
+If set to false, availability of this route does not depend on session state, even when BFD session monitors nexthop.
+
+To enable BFD monitoring of nexthop, see details in InterfaceIPv6::bfdStaticRoutes and PeerIPv6::bfdStaticRoutes.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="discard">
+                <description>Packets with destination that matches this route are discarded.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="EcimEmpty">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>One of attributes address, discard or reference must be set, only one of them at same time.
+Only one NextHop MO with discard set is allowed under Dst MO.</dependencies>
+            </attribute>
+            <attribute name="nextHopId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="reference">
+                <description>Applicable only if IpSec functionality is supported on node.
+
+Used to route traffic from inner network through IPsec VPN connection.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>One of attributes address, discard or reference must be set, only one of them at same time.
+Can only refer to InterfaceIPv6 MO that has IpsecTunnel MO as encapsulation reference.
+Must be unique under same Dst MO.
+Must not be under different Router MO. </dependencies>
+            </attribute>
+        </class>
+        <class name="RouteTableIPv6Static">
+            <description>Contains manually defined IPv6 static routes defined by Dst MOs and their child NextHop MOs.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Router"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	 <pattern>
+		<rule>
+		<assert test='count(./Dst/NextHop) le 10000'><value-of select="."/>Max number of NextHop MOs are 10000 under RouteTableIPv6Static MO exceeded.</assert>
+		</rule>
+	 </pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	 <pattern>
+		<rule>
+		<assert test='count(./Dst/NextHop) le 10000'><value-of select="."/>Max number of NextHop MOs are 10000 under RouteTableIPv6Static MO exceeded.</assert>
+		</rule>
+	 </pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="routeTableIPv6StaticId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Dst_to_NextHop">
+            <containment>
+                <parent>
+                    <hasClass name="Dst">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="NextHop">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="NextHop_reference_to_InterfaceIPv6_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="reference">
+                    <hasClass name="InterfaceIPv6">
+                        <mimName>RtnL3InterfaceIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="NextHop">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RouteTableIPv6Static_to_Dst">
+            <containment>
+                <parent>
+                    <hasClass name="RouteTableIPv6Static">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Dst">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_RouteTableIPv6Static">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RouteTableIPv6Static">
+                        <mimName>RtnRoutesStaticRouteIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

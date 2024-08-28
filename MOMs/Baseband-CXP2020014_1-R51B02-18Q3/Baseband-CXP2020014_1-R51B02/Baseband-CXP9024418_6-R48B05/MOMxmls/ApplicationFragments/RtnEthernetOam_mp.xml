@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Nov 29, 2016 2:37:24 PM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJERPE" contact="EAB/FJP/TA UABJERPE" correction="0" name="RtnEthernetOam" namespace="urn:com:ericsson:ecim:RtnEthernetOam" namespacePrefix="rtnethernetoam" organization="" release="3" variant="Model" version="2">
+        <description>ECIM Transport Bridging Model.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="EthernetOamAlarmConfig">
+            <description>Specification of the defects that raise the Ethernet OAM Service Fault alarm. </description>
+            <structMember name="errorAlarmTrigger">
+                <description>Specifies whether the alarm is raised for a configuration error defect. </description>
+                <boolean>
+                    <defaultValue>false</defaultValue>
+                </boolean>
+                <preliminary/>
+            </structMember>
+            <structMember name="rdiAlarmTrigger">
+                <description>Specifies whether the alarm is raised for an RDI defect. </description>
+                <boolean>
+                    <defaultValue>false</defaultValue>
+                </boolean>
+                <preliminary/>
+            </structMember>
+            <structMember name="remoteAlarmTrigger">
+                <description>Specifies whether the alarm is raised for a remote defect.</description>
+                <boolean>
+                    <defaultValue>false</defaultValue>
+                </boolean>
+                <preliminary/>
+            </structMember>
+            <structMember name="xConAlarmTrigger">
+                <description>Specifies whether the alarm is raised for a cross-connect defect.</description>
+                <boolean>
+                    <defaultValue>false</defaultValue>
+                </boolean>
+                <preliminary/>
+            </structMember>
+        </struct>
+        <struct name="MepDefect">
+            <description>Maintenance association End Point (MEP) defects.</description>
+            <structMember name="errorCcmDefect">
+                <description>Connection error defect detected, when local MEP has received at least one invalid CCM.</description>
+                <boolean/>
+            </structMember>
+            <structMember name="rdiCcmDefect">
+                <description>RDI defect detected, when remote MEP, for which timer has not expired since valid CCM was received, has reported RDI bit in its latest CCM.</description>
+                <boolean/>
+            </structMember>
+            <structMember name="remoteCcmDefect">
+                <description>Remote defect detected, when local MEP has not received valid CCMs from at least one of its defined remote MEPs.</description>
+                <boolean/>
+            </structMember>
+            <structMember name="xConCcmDefect">
+                <description>Cross-connect defect detected, when local MEP has received at least one CCM from either another MAID or from lower MD level.</description>
+                <boolean/>
+            </structMember>
+        </struct>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="MaintenanceAssociationType">
+            <description>Type and format of maintenance association name.</description>
+            <enumMember name="PRIMARY_VID">
+                <description>Maintenance association name used in CFM messages, given by attribute vid.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="STRING">
+                <description>Maintenance association name is specified as a string of 1 to 45 characters.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="INTEGER">
+                <description>Maintenance association name is specified as integer (0-65535) within quotation marks.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="MaintenanceDomainType">
+            <description>Type and format of maintenance domain name.</description>
+            <enumMember name="NO_NAME">
+                <description>No format specified, maintenanceDomainName has no meaning.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DNS_BASED">
+                <description>Domain name specified as globally unique text string of 1 to 43 characters derived from DNS name.
+Domain name is case-sensitive regarding DNS-based maintenance domains.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="MAC">
+                <description>Domain name given as MAC address + 2 octet (unsigned) integer, separated by dot (.).
+
+Example: 12:23:34:45:56:67.123</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="STRING">
+                <description>Domain name specified as string of 1 to 43 characters.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="RemoteMepState">
+            <description>State of remote MEP state machine.</description>
+            <enumMember name="RMEP_IDLE">
+                <description>Momentary state during reset.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="RMEP_START">
+                <description>Timer has not expired since state machine was reset, and no valid CCM has yet been received.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="RMEP_FAILED">
+                <description>Timer has expired since state machine was last reset, and since latest valid CCM was received.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="RMEP_OK">
+                <description>Timer has not expired since valid CCM was received.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="RtnEthernetOam_EthernetOamLocalMep_ccmInterval">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>100</min>
+                        <max>100</max>
+                        <min>1000</min>
+                        <max>1000</max>
+                        <min>10000</min>
+                        <max>10000</max>
+                        <min>60000</min>
+                        <max>60000</max>
+                        <min>600000</min>
+                        <max>600000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>100</min>
+                            <max>100</max>
+                        </subrange>
+                        <subrange>
+                            <min>1000</min>
+                            <max>1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>10000</min>
+                            <max>10000</max>
+                        </subrange>
+                        <subrange>
+                            <min>60000</min>
+                            <max>60000</max>
+                        </subrange>
+                        <subrange>
+                            <min>600000</min>
+                            <max>600000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnEthernetOam_EthernetOamLocalMep_maintenanceDomainLevel">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnEthernetOam_EthernetOamLocalMep_maintenanceDomainName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>43</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>43</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnEthernetOam_EthernetOamLocalMep_mepIdentifier">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>8191</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>8191</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnEthernetOam_EthernetOamLocalMep_pcp">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnEthernetOam_EthernetOamLocalMep_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnEthernetOam_EthernetOamRemoteMep_mepIdentifier">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>8191</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>8191</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnEthernetOam_EthernetOamRemoteMep_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="EthernetOamLocalMep">
+            <description>Ethernet OAM Local Maintenance association End Point.
+
+Represents MEP for Ethernet OAM service. MEP is local to DU.
+
+Ethernet OAM Service includes support for Connectivity Fault Management (CFM) capabilities for detecting, isolating, and reporting L2 connectivity faults.
+</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="EthernetOamLocalMep"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">]]>&#13;<![CDATA[
+    <pattern>]]>&#13;<![CDATA[
+         <rule>
+<assert test='((count(@encapsulation/@reservedBy[matches(., ".*,InterfaceIPv[46]=.*")]) gt 0) or (count(@encapsulation/@reservedBy[matches(., ".*,Bridge=.*")]) gt 0))'><value-of select ="."/>,encapsulation must refer to a VlanPort, EthernetPort or LagPort, which is referenced by an InterfaceIPv4, InterfaceIPv6 or Bridge.</assert>
+	<assert test='are-distinct-values(@encapsulation/@reservedBy[matches(., ".*,EthernetOamLocalMep=.*")]/@maintenanceDomainLevel)'><value-of select ="."/>: All EthernetOamLocalMep MOs with encapsulation="<value-of select ="@encapsulation"/>" must have a unique maintenanceDomainLevel.</assert>
+	<assert test='not(@maintenanceAssociationType eq 0 and string-length(@maintenanceAssociationName) gt 0)'><value-of select ="."/> If maintenanceAssociationType is set to PRIMARY_VID the maintenanceAssociationName must be empty.</assert>
+	<assert test='not(@maintenanceDomainType eq 0 and string-length(@maintenanceDomainName) gt 0)'><value-of select ="."/> If maintenanceDomainType is set to NO_NAME the maintenanceDomainName must be empty.</assert>
+	<assert test='not(@maintenanceDomainType eq 0 and string-length(@maintenanceAssociationName) gt 45)'><value-of select ="."/> If maintenanceDomainType is set to NO_NAME the maintenanceAssociationName must be at most 45 characters.</assert>
+	<assert test='not((@maintenanceAssociationType eq 0 or @maintenanceAssociationType eq 2) and string-length(@maintenanceDomainName) gt 42)'><value-of select ="."/> If maintenanceAssociationType is set to PRIMARY_VID or INTEGER the maintenanceDomainName must be at most 42 characters.</assert>
+	<assert test='not((@maintenanceAssociationType eq 1 and (@maintenanceDomainType eq 1 or @maintenanceDomainType eq 3)) and (string-length(@maintenanceDomainName) + string-length(@maintenanceAssociationName)) gt 44)'><value-of select ="."/> If maintenanceDomainType is set to DNS_BASED or STRING, the combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 characters.</assert>
+	<assert test='not((@maintenanceAssociationType eq 1 and @maintenanceDomainType eq 2) and string-length(@maintenanceAssociationName) gt 36)'><value-of select ="."/> If maintenanceDomainType is set to MAC, the combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 characters, where maintenanceDomainName has 8 characters.</assert>
+	<assert test='not(@maintenanceAssociationType eq 1 and string-length(@maintenanceAssociationName) eq 0)'><value-of select ="."/> If maintenanceAssociationType is set to STRING the maintenanceAssociationName length must be more than 0 chars.</assert>
+	<assert test='not((@maintenanceDomainType eq 1 or @maintenanceDomainType eq 3) and string-length(@maintenanceDomainName) eq 0)'><value-of select ="."/> If maintenanceDomainType is set to STRING or DNS_BASED the maintenanceDomainName length must be more than 0 chars.</assert>
+	<assert test='not(@maintenanceDomainType eq 2 and not (matches(@maintenanceDomainName, "[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}\.[0-9]{1,5}")))'><value-of select ="."/> If maintenanceDomainType is set to MAC the maintenanceDomainName must have the format "11:22:33:44:55:66.1234".</assert>
+	<assert test='not(@maintenanceAssociationType eq 2 and not (matches(@maintenanceAssociationName, "[0-9]{1,5}")))'><value-of select ="."/> If maintenanceAssociationType is set to INTEGER the maintenanceAssociationName must be an integer within the range 0-65535".</assert>
+	<assert test='not(@maintenanceAssociationType eq 0 and not((@encapsulation[matches(., ".*,VlanPort=.*")]) and (@encapsulation/@isTagged)))'><value-of select ="."/> If maintenanceAssociationType is set to PRIMARY_VID the attribute encapsulation must refer to a VlanPort MO and the VlanPort attribute isTagged must be set to true.</assert>
+	<assert test='are-distinct-values(EthernetOamRemoteMep/@mepIdentifier)'><value-of select ="."/> mepIdentifier must be unique among all EthernetOamRemoteMep MOs for an EthernetOamLocalMep MO.</assert>
+	<assert test='(every $remoteMepIdentifier in EthernetOamRemoteMep/@mepIdentifier satisfies ($remoteMepIdentifier ne @mepIdentifier))'><value-of select ="."/> mepIdentifier for an EthernetOamLocalMep MO can not be equal to a mepIdentifier of it's underlying EthernetOamRemoteMep MOs.</assert>
+	<assert test='not(@encapsulation[matches(., ".*,VlanPort=.*")] and @encapsulation/@lowLatencySwitching)'><value-of select ="."/> EthernetOamLocalMep MO cannot refer to VlanPort MO with lowLatencySwitching set to true.</assert>]]>&#13;<![CDATA[
+         </rule>]]>&#13;<![CDATA[
+      </pattern>]]>&#13;<![CDATA[
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">]]>&#13;<![CDATA[
+    <pattern>]]>&#13;<![CDATA[
+         <rule>
+<assert test='((count(@encapsulation/@reservedBy[matches(., ".*,InterfaceIPv[46]=.*")]) gt 0) or (count(@encapsulation/@reservedBy[matches(., ".*,Bridge=.*")]) gt 0))'><value-of select ="."/>,encapsulation must refer to a VlanPort, EthernetPort or LagPort, which is referenced by an InterfaceIPv4, InterfaceIPv6 or Bridge.</assert>
+	<assert test='are-distinct-values(@encapsulation/@reservedBy[matches(., ".*,EthernetOamLocalMep=.*")]/@maintenanceDomainLevel)'><value-of select ="."/>: All EthernetOamLocalMep MOs with encapsulation="<value-of select ="@encapsulation"/>" must have a unique maintenanceDomainLevel.</assert>
+	<assert test='not(@maintenanceAssociationType eq 0 and string-length(@maintenanceAssociationName) gt 0)'><value-of select ="."/> If maintenanceAssociationType is set to PRIMARY_VID the maintenanceAssociationName must be empty.</assert>
+	<assert test='not(@maintenanceDomainType eq 0 and string-length(@maintenanceDomainName) gt 0)'><value-of select ="."/> If maintenanceDomainType is set to NO_NAME the maintenanceDomainName must be empty.</assert>
+	<assert test='not(@maintenanceDomainType eq 0 and string-length(@maintenanceAssociationName) gt 45)'><value-of select ="."/> If maintenanceDomainType is set to NO_NAME the maintenanceAssociationName must be at most 45 characters.</assert>
+	<assert test='not((@maintenanceAssociationType eq 0 or @maintenanceAssociationType eq 2) and string-length(@maintenanceDomainName) gt 42)'><value-of select ="."/> If maintenanceAssociationType is set to PRIMARY_VID or INTEGER the maintenanceDomainName must be at most 42 characters.</assert>
+	<assert test='not((@maintenanceAssociationType eq 1 and (@maintenanceDomainType eq 1 or @maintenanceDomainType eq 3)) and (string-length(@maintenanceDomainName) + string-length(@maintenanceAssociationName)) gt 44)'><value-of select ="."/> If maintenanceDomainType is set to DNS_BASED or STRING, the combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 characters.</assert>
+	<assert test='not((@maintenanceAssociationType eq 1 and @maintenanceDomainType eq 2) and string-length(@maintenanceAssociationName) gt 36)'><value-of select ="."/> If maintenanceDomainType is set to MAC, the combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 characters, where maintenanceDomainName has 8 characters.</assert>
+	<assert test='not(@maintenanceAssociationType eq 1 and string-length(@maintenanceAssociationName) eq 0)'><value-of select ="."/> If maintenanceAssociationType is set to STRING the maintenanceAssociationName length must be more than 0 chars.</assert>
+	<assert test='not((@maintenanceDomainType eq 1 or @maintenanceDomainType eq 3) and string-length(@maintenanceDomainName) eq 0)'><value-of select ="."/> If maintenanceDomainType is set to STRING or DNS_BASED the maintenanceDomainName length must be more than 0 chars.</assert>
+	<assert test='not(@maintenanceDomainType eq 2 and not (matches(@maintenanceDomainName, "[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}\.[0-9]{1,5}")))'><value-of select ="."/> If maintenanceDomainType is set to MAC the maintenanceDomainName must have the format "11:22:33:44:55:66.1234".</assert>
+	<assert test='not(@maintenanceAssociationType eq 2 and not (matches(@maintenanceAssociationName, "[0-9]{1,5}")))'><value-of select ="."/> If maintenanceAssociationType is set to INTEGER the maintenanceAssociationName must be an integer within the range 0-65535".</assert>
+	<assert test='not(@maintenanceAssociationType eq 0 and not((@encapsulation[matches(., ".*,VlanPort=.*")]) and (@encapsulation/@isTagged)))'><value-of select ="."/> If maintenanceAssociationType is set to PRIMARY_VID the attribute encapsulation must refer to a VlanPort MO and the VlanPort attribute isTagged must be set to true.</assert>
+	<assert test='are-distinct-values(EthernetOamRemoteMep/@mepIdentifier)'><value-of select ="."/> mepIdentifier must be unique among all EthernetOamRemoteMep MOs for an EthernetOamLocalMep MO.</assert>
+	<assert test='(every $remoteMepIdentifier in EthernetOamRemoteMep/@mepIdentifier satisfies ($remoteMepIdentifier ne @mepIdentifier))'><value-of select ="."/> mepIdentifier for an EthernetOamLocalMep MO can not be equal to a mepIdentifier of it's underlying EthernetOamRemoteMep MOs.</assert>
+	<assert test='not(@encapsulation[matches(., ".*,VlanPort=.*")] and @encapsulation/@lowLatencySwitching)'><value-of select ="."/> EthernetOamLocalMep MO cannot refer to VlanPort MO with lowLatencySwitching set to true.</assert>]]>&#13;<![CDATA[
+         </rule>]]>&#13;<![CDATA[
+      </pattern>]]>&#13;<![CDATA[
+</schema>]]></dependenciesScript>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RtnEthernetOam</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="ccmEnabled">
+                <description>Whether MO transmits and receives CCM messages. </description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="ccmInterval">
+                <description>CCM interval to be used.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamLocalMep_ccmInterval">
+                        <defaultValue>1000</defaultValue>
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>Reference to underlying encapsulation that can be MO type EthernetPort, VlanPort or LagPort.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>VlanPort MO, to which this encapsulation refers, must be referenced by MO type InterfaceIPv4, InterfaceIPv6, or Bridge.
+If maintenanceAssociationType is set to PRIMARY_VID this attribute must refer to VlanPort MO, where attribute isTagged must be set to true.
+EthernetOamLocalMep MO cannot refer to VlanPort MO with lowLatencySwitching set to true.</dependencies>
+            </attribute>
+            <attribute name="ethernetOamAlarmConfig">
+                <description>Which defects raise CfmFault alarm.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <structRef name="EthernetOamAlarmConfig">
+                        <mimName>RtnEthernetOam</mimName>
+                    </structRef>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="ethernetOamLocalMepId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="maintenanceAssociationName">
+                <description>MA name.
+
+If maintenanceAssociationType is PRIMARY_VID, this attribute is not used. Primary VID, defined by underlying VlanPort MO, is used to identify CFM messages.
+
+Maximum length of maintenanceDomainName + maximum length of maintenanceAssociationName is 44 octets.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <dependencies>If maintenanceAssociationType is set to PRIMARY_VID this attribute must be empty.
+If maintenanceDomainType is set to NO_NAME this attribute must be at most 45 characters.
+If maintenanceDomainType is set to DNS_BASED or STRING, combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 chars.
+If maintenanceDomainType is set to MAC, combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 characters, where maintenanceDomainName has 8 characters.
+If maintenanceAssociationType is set to STRING this attribute length must be more than 0 characters.
+If maintenanceAssociationType is set to INTEGER this attribute must be integer within range 0-65535.
+</dependencies>
+            </attribute>
+            <attribute name="maintenanceAssociationType">
+                <description>Type and format of maintenanceAssociationName.
+
+If this attribute is set to PRIMARY_VID, encapsulation must refer to a VlanPort MO, where isTagged attribute must be set to true.</description>
+                <dataType>
+                    <enumRef name="MaintenanceAssociationType">
+                        <defaultValue>INTEGER</defaultValue>
+                        <mimName>RtnEthernetOam</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="maintenanceDomainLevel">
+                <description>MD level.
+
+Specifies nesting relationship between maintenance domains.
+
+For each value of this attribute, only one EthernetOamLocalMep MO can be configured for each MO type VlanPort, EthernetPort, or LagPort, that is referred by encapsulation attribute.
+</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamLocalMep_maintenanceDomainLevel">
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>All EthernetOamLocalMep MOs with same encapsulation that refers to MO type VlanPort, EthernetPort or LagPort MO, must have unique maintenanceDomainLevel.</dependencies>
+            </attribute>
+            <attribute name="maintenanceDomainName">
+                <description>MD name.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamLocalMep_maintenanceDomainName">
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>If maintenanceDomainType is set to NO_NAME this attribute must be empty.
+If maintenanceAssociationType is set to PRIMARY_VID or INTEGER this attribute must be at most 42 characters.
+If maintenanceDomainType is set to DNS_BASED or STRING, combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 chars.
+If maintenanceDomainType is set to MAC, combined length of maintenanceAssociationName and maintenanceDomainName must be at most 44 characters, where maintenanceDomainName has 8 characters.
+If maintenanceDomainType is set to STRING or DNS_BASED  this attribute length must be more than 0 characters.
+If maintenanceDomainType is set to MAC  this attribute must have format 11:22:33:44:55:66.1234.</dependencies>
+            </attribute>
+            <attribute name="maintenanceDomainType">
+                <description>Type and format of maintenanceDomainName.</description>
+                <dataType>
+                    <enumRef name="MaintenanceDomainType">
+                        <defaultValue>NO_NAME</defaultValue>
+                        <mimName>RtnEthernetOam</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="mepDefect">
+                <description>Indication of current defects.
+
+Specification: IEEE 802.1Q-2014</description>
+                <readOnly/>
+                <dataType>
+                    <structRef name="MepDefect">
+                        <mimName>RtnEthernetOam</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="mepIdentifier">
+                <description>Specifies the local MEP Identifier.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamLocalMep_mepIdentifier">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RtnEthernetOam</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="pcp">
+                <description>Priority value for frames originated from MEP.
+Replies to CFM requests from other nodes are assigned same PCP value as request message.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamLocalMep_pcp">
+                        <defaultValue>7</defaultValue>
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamLocalMep_userLabel">
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="EthernetOamRemoteMep">
+            <description>Ethernet OAM Remote Maintenance association End Point.
+
+Represents MEP for Ethernet OAM service in another node.
+
+Facilitates supervision of CCM from specific remote MEP.</description>
+            <attribute name="ethernetOamRemoteMepId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="failedOrOkTime">
+                <description>Time when Remote MEP state machine last entered either "RMEP_FAILED" or "RMEP_OK" state. Time is expressed as string containing Date and Time (UTC) in format yyyy-mm-dd hh:mm:ss
+
+Example: 2015-01-01 00:00:00 </description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="macAddress">
+                <description>MAC address of remote MEP discovered from incoming CCM frames.
+
+If no valid CCM has been received from remote MEP, attribute has value 00:00:00:00:00:00 .</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="mepIdentifier">
+                <description>Identifier of remote MEP.
+
+Must be unique among all EthernetOamRemoteMep MOs for EthernetOamLocalMep MO.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamRemoteMep_mepIdentifier">
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rdi">
+                <description>Whether RDI bit was set in latest valid CCM received from remote MEP.</description>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="remoteMepState">
+                <description>State of remote MEP state machine.
+
+State machine monitors reception of valid CCMs from remote MEP.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="RemoteMepState">
+                        <mimName>RtnEthernetOam</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use. &#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnEthernetOam_EthernetOamRemoteMep_userLabel">
+                        <mimName>RtnEthernetOam</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="EthernetOamLocalMep_encapsulation_to_EthernetPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetOamLocalMep">
+                        <mimName>RtnEthernetOam</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="EthernetOamLocalMep_encapsulation_to_VlanPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetOamLocalMep">
+                        <mimName>RtnEthernetOam</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="EthernetOamLocalMep_to_EthernetOamRemoteMep">
+            <containment>
+                <parent>
+                    <hasClass name="EthernetOamLocalMep">
+                        <mimName>RtnEthernetOam</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EthernetOamRemoteMep">
+                        <mimName>RtnEthernetOam</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>510</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_EthernetOamLocalMep">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EthernetOamLocalMep">
+                        <mimName>RtnEthernetOam</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>16</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>
+

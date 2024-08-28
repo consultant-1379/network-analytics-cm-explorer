@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2015 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Oct 7, 2015 9:17:00 AM using:
+	* com.ericsson.ecim.m2m 2.11.3.201409041218
+	* com.ericsson.ecim.dsl 2.11.3.201409041218
+	* com.ericsson.ecim.edm 2.11.3.201409041218
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>G</dtdVersion>
+  <momMetaData>
+    <momTitle>title</momTitle>
+    <momSubTitle>sub title</momSubTitle>
+    <momIdentity>
+      <docNum>0</docNum>
+      <docLang>English</docLang>
+      <docRev>0</docRev>
+      <docDate>date</docDate>
+    </momIdentity>
+  </momMetaData>
+  <mim author="" contact="" correction="0" date="" docNo="" name="RmeOnSiteActivities" namespace="urn:com:ericsson:ecim:RmeOnSiteActivities" namespacePrefix="rmeonsiteactivities" organization="" release="1" revision="" version="1">
+    <description>Contains information about activities on a site.</description>
+    <domainExtension domain="ECIM">
+      <extension name="immNamespace" value="NONE"/>
+    </domainExtension>
+    <enum name="TechnicianPresentType">
+      <description>Enum used for describing the site status of TP.</description>
+      <enumMember name="NOT_PRESENT">
+        <value>0</value>
+      </enumMember>
+      <enumMember name="PRESENT">
+        <value>1</value>
+      </enumMember>
+    </enum>
+    <class name="OnSiteActivities">
+      <description>Contains information about activities on a site.</description>
+      <systemCreated/>
+      <root/>
+      <action name="clearTechnicianPresent">
+        <description>Resets the attribute technicianPresent to NOT_PRESENT. &#13;
+Intended to be used when the technician has left the RBS site without announcing it.</description>
+        <domainExtension domain="CoreMW">
+          <extension name="admOpId" value="0"/>
+        </domainExtension>
+        <returnType>
+          <void/>
+        </returnType>
+      </action>
+      <attribute name="onSiteActivitiesId">
+        <description>The value component of the RDN.</description>
+        <mandatory/>
+        <noNotification/>
+        <restricted/>
+        <key/>
+        <dataType>
+          <string/>
+        </dataType>
+      </attribute>
+      <attribute name="technicianPresent">
+        <description>Indicates that a field technician on site has pushed the Maintenance Button.&#13;
+Its value is toggled by pressing the Maintenance button and can be remotely cleared with action NodeSupport::OnSiteActivities::clearTechnicianPresent.</description>
+        <readOnly/>
+        <dataType>
+          <enumRef name="TechnicianPresentType">
+            <mimName>RmeOnSiteActivities</mimName>
+          </enumRef>
+        </dataType>
+      </attribute>
+    </class>
+  </mim>
+  <interMim>
+    <relationship name="NodeSupport_to_OnSiteActivities">
+      <domainExtension domain="CoreMW">
+        <extension name="splitImmDn" value="false"/>
+      </domainExtension>
+      <containment>
+        <parent>
+          <hasClass name="NodeSupport">
+            <mimName>RmeSupport</mimName>
+          </hasClass>
+        </parent>
+        <child>
+          <hasClass name="OnSiteActivities">
+            <mimName>RmeOnSiteActivities</mimName>
+          </hasClass>
+          <cardinality>
+            <min>1</min>
+            <max>1</max>
+          </cardinality>
+        </child>
+      </containment>
+    </relationship>
+  </interMim>
+</models>

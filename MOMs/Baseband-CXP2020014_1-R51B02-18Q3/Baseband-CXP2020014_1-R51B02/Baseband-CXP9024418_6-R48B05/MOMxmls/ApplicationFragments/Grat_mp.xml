@@ -1,0 +1,2543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Nov 15, 2017 3:25:41 AM using:
+	* com.ericsson.ecim.m2m 2.14.10.201706160627
+	* com.ericsson.ecim.dsl 2.14.10.201706160627
+	* com.ericsson.ecim.edm 2.14.10.201706160627
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="elonmao" contact="erajfri" correction="2" date="" docNo="" name="Grat" namespace="urn:com:ericsson:ecim:Grat" namespacePrefix="grat" organization="" release="1" revision="0" version="5">
+        <description>The GSM MOM.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <enum name="AbisSoState">
+            <description>The different states for a Service Object (SO) in the Abis O&amp;M G31 model. 
+</description>
+            <enumMember name="RESET">
+                <description>Value used when the Abis Service Object is in state RESET.
+RESET is the initial state, which also is used by BSC to set the object in a defined state.
+</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="STARTED">
+                <description>Value used when the Abis Service Object is in state STARTED. </description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AbisAoState">
+            <description>The different states for an Application Object (AO) in the Abis O&amp;M G31 model. 
+</description>
+            <enumMember name="RESET">
+                <description>Value used when the Abis Application Object is in state RESET.
+RESET is the initial state, which also is used by BSC to set the object in a defined state with previous configuration cleared.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DISABLED">
+                <description>Value used when the Abis Application Object is in state DISABLE.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>Value used when the Abis Application Object is in state ENABLE.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimVersion" value="2"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="TfMode">
+            <description>Synchronization mode in the Cluster Group of the TF AO in Abis model towards BSC.
+Normally a result of BSC actions on the Abis OML.</description>
+            <enumMember name="MASTER">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="STANDALONE">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SLAVE">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="UNDEFINED">
+                <value>255</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimVersion" value="2"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="AbisOperCondition">
+            <description>The different operational conditions for a MO in Abis model towards BSC.</description>
+            <enumMember name="OPERATIONAL">
+                <description>Normal condition. Abis MO is fully operational. Default after Abis MO is reset.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>Abnormal condition. Abis MO is partially operational; it performs normal service but with reduced functionality or performance.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="NOT_OPERATIONAL">
+                <description>Abnormal condition. Abis MO is non-operational and cannot perform normal service.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimVersion" value="2"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="CombinedCellType">
+            <description>The different types for a Combined Cell, defines network scenario related to Combined Cell. Extension antenna sites with extension TRXs are used to provide coverage in areas where Main antenna site fails to provide coverage.
+Normally, use the same CombinedCellType value for all TRX in a GsmSector.</description>
+            <enumMember name="NON_COMBINED_CELL">
+                <description>For TRX without ExtTrx children in combined cell configuration.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="COMBINED_CELL_TYPE1">
+                <description>Combined cell with main antenna site that acts as dominant radio transmitter and defines outer cell coverage border. Radio propagation distance between extension antenna sites and main antenna site is shorter than 2 km.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="COMBINED_CELL_TYPE2">
+                <description>Combined cell with main antenna site that acts as dominant radio transmitter and defines outer cell coverage border. Radio propagation distance between at least one extension antenna site and main antenna site is longer than 2 km.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="COMBINED_CELL_TYPE3">
+                <description>Combined cell with no dominant main antenna site. Outer coverage border of combined cell is defined by aggregated coverage area of main and extension antenna sites. Distance between antenna sites in combined cell are relatively short, from few meters up to maximum distance of 2 km.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="COMBINED_CELL_TYPE4">
+                <description>Combined cell with no dominant main antenna site and used for high speed train. Outer coverage border of combined cell is defined by aggregated coverage area in main and extension antenna sites. Maximum distance between neighboring antenna sites in combined cell is in the order of 1-2 Km.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="AbisLinkState">
+            <description>The different states for the Abis links (OML/RSL).</description>
+            <enumMember name="DOWN">
+                <description>Value used when the Abis OML or RSL is not established or broken.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UP">
+                <description>Value used when the Abis OML or RSL is established.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="Ipv4UnicastAddressStr">
+            <description>IPv4 address string, controlled by a regular expression.&#13;
+&#13;
+Address is to be specified in dotted-quad decimal notation in accordance with RFC791, without leading 0s.&#13;
+IPv4 address within range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters. &#13;
+Valid characters: 0123456789.&#13;
+&#13;
+Regex:&#13;
+(^((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$)&#13;
+&#13;
+Examples: 1.1.1.1, 1.1.255.255 </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="ECIM_Transport_CommonLibrary"/>
+                <extension name="originatingMimVersion" value="1"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="Grat_BtsFunction_btsVersion">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>12</min>
+                        <max>12</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>12</min>
+                            <max>12</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_BtsFunction_gsmMcpaIpmCapacity">
+            <baseType>
+                <uint32/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_BtsFunction_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_GsmSector_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_GsmSector_abisClusterGroupId">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>2047</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>2047</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_arfcnMax">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>1023</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>1023</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_arfcnMin">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>1023</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>1023</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_frequencyBand">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>0</max>
+                        <min>2</min>
+                        <max>2</max>
+                        <min>3</min>
+                        <max>3</max>
+                        <min>5</min>
+                        <max>5</max>
+                        <min>8</min>
+                        <max>8</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>0</max>
+                        </subrange>
+                        <subrange>
+                            <min>2</min>
+                            <max>2</max>
+                        </subrange>
+                        <subrange>
+                            <min>3</min>
+                            <max>3</max>
+                        </subrange>
+                        <subrange>
+                            <min>5</min>
+                            <max>5</max>
+                        </subrange>
+                        <subrange>
+                            <min>8</min>
+                            <max>8</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_noOfRxAntennas">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>1</max>
+                        <min>2</min>
+                        <max>2</max>
+                        <min>4</min>
+                        <max>4</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>1</max>
+                        </subrange>
+                        <subrange>
+                            <min>2</min>
+                            <max>2</max>
+                        </subrange>
+                        <subrange>
+                            <min>4</min>
+                            <max>4</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_noOfTxAntennas">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>1</max>
+                        <min>2</min>
+                        <max>2</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>1</max>
+                        </subrange>
+                        <subrange>
+                            <min>2</min>
+                            <max>2</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_trxIndex">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>126</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>126</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_configuredMaxTxPower">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>10000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>mW</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_maxTxPowerCapability">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>700</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>700</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dBm</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_bscMaxTxPower">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>700</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>700</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dBm</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_reservedMaxTxPower">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>10000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>mW</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbAvgDeltaMeas2">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>1/10</multiplicationFactor>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbNoOfSamples2">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbAvgDeltaMeas1">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>1/10</multiplicationFactor>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbNoOfSamples1">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbSupTimeElapsed">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>600</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>600</max>
+                        </subrange>
+                    </ranges>
+                    <unit>minutes</unit>
+                    <multiplicationFactor>5</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbSupWindowSize">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>600</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>600</max>
+                        </subrange>
+                    </ranges>
+                    <unit>minutes</unit>
+                    <multiplicationFactor>5</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbMinNoOfSamples">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_Trx_rxImbAlarmThreshold">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>1/10</multiplicationFactor>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_AbisIp_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_AbisIp_gsmSectorName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>20</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>20</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_AbisIp_dscpSectorControlUL">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_AbisIp_keepAlivePeriod">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_AbisIp_maxRetransmission">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>10</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>10</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_AbisIp_retransmissionCap">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>10</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>10</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_AbisIp_initialRetransmissionPeriod">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>10</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>10</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_configuredMaxTxPower">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>10000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>mW</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_reservedMaxTxPower">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>10000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>mW</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_maxTxPowerCapability">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>700</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>700</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dBm</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_rxImbAlarmThreshold">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>1/10</multiplicationFactor>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_rxImbAvgDeltaMeas1">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>1/10</multiplicationFactor>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_rxImbMinNoOfSamples">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_rxImbNoOfSamples1">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_rxImbSupTimeElapsed">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>600</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>600</max>
+                        </subrange>
+                    </ranges>
+                    <unit>minutes</unit>
+                    <multiplicationFactor>5</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_rxImbSupWindowSize">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>600</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>600</max>
+                        </subrange>
+                    </ranges>
+                    <unit>minutes</unit>
+                    <multiplicationFactor>5</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_extTrxDistance">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>350</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>350</max>
+                        </subrange>
+                    </ranges>
+                    <unit>meters</unit>
+                    <multiplicationFactor>100</multiplicationFactor>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_extTrxRadius">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>20</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>20</max>
+                        </subrange>
+                    </ranges>
+                    <unit>meters</unit>
+                    <multiplicationFactor>100</multiplicationFactor>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_extAntSiteIndex">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Grat_ExtTrx_antSiteIndex">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <class name="BtsFunction">
+            <description>MO BtsFunction represents the GSM functionality in the Radio Node.</description>
+            <root/>
+            <attribute name="btsFunctionId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="btsVersion">
+                <description>BTS Version is composed of: &lt;Manufacturer Id&gt;&lt;BTS Generation&gt;&lt;BTS Revision&gt;&lt;BTS Variant&gt;.
+Used for fleet management by grouping different generations of BTS HW and to see which main GSM BSS SW level that is running.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_BtsFunction_btsVersion">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="gsmMcpaIpmCapacity">
+                <description>Used capacity units for the GSM MCPA Intelligent Power Management Baseband feature.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_BtsFunction_gsmMcpaIpmCapacity">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="release">
+                <description>The product release of the GSM managed function.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_BtsFunction_userLabel">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="GsmSector">
+            <description>A GSM Sector is a geographical area with GSM functionality.
+A GSM Sector is mapped to one Sector TG in BSC. 
+The MO GsmSector groups a number of TRXs, each represented by a MO Trx.
+The GSM Sector is, via its TRXs, tied to one or more SectorEquipmentFunctions with the same antenna location and antenna direction.
+The GSM Sector can handle TRXs for one or more frequency bands.
+However one TRX is always single band and connected to one SectorEquipmentFunction.
+Transport related data is configured in the MO AbisIp.</description>
+            <attribute name="gsmSectorId">
+                <description>The value component of the RDN.
+Sent to the BSC for Sector TG to GSM Sector correlation purposes.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_GsmSector_userLabel">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisScfState">
+                <description>State of the SCF SO in Abis model towards BSC.
+Normally a result of BSC actions on the Abis OML.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisSoState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTfState">
+                <description>State of the TF AO in Abis model towards BSC.
+Normally a result of BSC actions on the Abis OML.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisAoState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisAtState">
+                <description>State of the Abis Transport (AT) Administration Object (AO) in Abis model towards BSC.
+Normally a result of BSC actions on the Abis OML.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisAoState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisScfOmlState">
+                <description>Link State (OML) between the SCF SO and the BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisLinkState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="bscNodeIdentity">
+                <description>BSC node identity received from BSC over the Abis interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="bscTgIdentity">
+                <description>BSC TG identity received from BSC over the Abis interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="abisClusterGroupId">
+                <description>Cluster Group ID of the TF AO in Abis model towards BSC.
+Normally a result of BSC actions on the Abis OML.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_GsmSector_abisClusterGroupId">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTfMode">
+                <description>Synchronization mode in the Cluster Group of the TF AO in Abis model towards BSC.
+Normally a result of BSC actions on the Abis OML.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="TfMode">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisAtOperCondition">
+                <description>Operational condition of AT AO in Abis model towards BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisOperCondition">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisScfOperCondition">
+                <description>Operational condition of SCF SO in Abis model towards BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisOperCondition">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTfOperCondition">
+                <description>Operational condition of TF AO in Abis model towards BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisOperCondition">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Trx">
+            <description>This MO represents a GSM TRX and corresponding functionality for a GSM carrier on Air interface.
+GSM uses narrowband (&lt; 200 kHz bandwidth) channels in the air interface (one downlink and one uplink) handled by one TRX.
+A TRX handles normally 1 downlink carrier (TX) and 2 uplink carriers (RX) over a wide bandwidth by using frequency hopping.
+A MO Trx is connected to one SectorEquipmentFunction MO which represents the radio and antenna equipment.
+</description>
+            <attribute name="trxId">
+                <description>The value component of the RDN.
+Recommended values: 0-11, to allow trxId and trxIndex (TEI) to have the same numeric value.
+(trxId numeric values &gt;11 is converted to trxIndex &lt;12)</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+                <disturbances>Changing this attribute to LOCKED causes loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>Grat</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_userLabel">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisRxState">
+                <description>State of the RX AO in Abis model towards BSC.
+Normally a result of BSC actions on the Abis OML.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisAoState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTxState">
+                <description>State of TX AO in Abis model towards BSC.
+Normally a result of BSC actions on Abis OML.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisAoState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTrxcOmlState">
+                <description>Link state (OML) between the SO TRXC and the BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisLinkState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTrxcState">
+                <description>State of TRXC SO in Abis model towards BSC.
+Normally a result of BSC actions on Abis OML.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisSoState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTrxRslState">
+                <description>Link state (RSL) between the TRX and the BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisLinkState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTsState">
+                <description>According to the GSM standard a TRX has 8 TS numbered from 0 to 7 over Abis.
+Current state of TS AO in Abis Operation and Maintenance model towards BSC in the following order TS0, TS1, ..., TS6, TS7.
+Normally a result of BSC actions on the Abis OML.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AbisAoState">
+                            <mimName>Grat</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="arfcnMax">
+                <description>Highest frequency the TRX can use for a GSM carrier.
+Absolute Frequency Number (ARFCN) is a 3GPP defined attribute, which specifies a unique UL and DL frequency pair for each band.
+Frequency range specified by arfcnMin and arfcnMax must fit within the IBW of MCPA HW in the RUS.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_arfcnMax">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Frequency specified by arfcnMax must be higher than frequency specified by arfcnMin. 
+Must match frequencyBand attribute for this TRX.</dependencies>
+                <specification>3GPP 45.005, Frequency bands and channel arrangement.</specification>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="arfcnMin">
+                <description>Lowest frequency the TRX can use for a GSM carrier. 
+Absolute Frequency Number (ARFCN) is a 3GPP defined attribute, which specifies a unique UL and DL frequency pair for each band.
+Frequency range specified by arfcnMin and arfcnMax must fit within the IBW of MCPA HW in the RUS.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_arfcnMin">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Frequency specified by arfcnMin must be lower than frequency specified by arfcnMax. 
+Must match frequencyBand attribute for this TRX. </dependencies>
+                <specification>3GPP 45.005, Frequency bands and channel arrangement</specification>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="frequencyBand">
+                <description>Used to configure TRX frequency band.
+The frequency bands are according to 3GPP TS 37.104, Operating bands and Band Categories, (Band 0 is Ericsson defined).
+
+Possible Values:
+0 = GSM 900 MHz (GSM)
+2 = GSM 1900 MHz (PCS 1900)
+3 = GSM 1800 MHz (DCS 1800)
+5 = GSM 850 MHz (GSM 850)
+8 = GSM 900 MHz Extended (E-GSM)</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_frequencyBand">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Must match arfcnMin and arfcnMax.</dependencies>
+                <specification>3GPP TS 37.104, Operating bands and Band Categories</specification>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="noOfRxAntennas">
+                <description>Number of RX antennas used by the TRX.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_noOfRxAntennas">
+                        <defaultValue>2</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="noOfTxAntennas">
+                <description>Number of TX antennas used by the TRX.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_noOfTxAntennas">
+                        <defaultValue>1</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="trxIndex">
+                <description>Used both as OML L3 and OML/RSL/TFP/PGSL L2 address (TEI).
+Set to attribute trxId in this TRX if it is an unique number between 0..11 otherwise lowest unused number in range 0..11 is used.
+(Values 12-126 are reserved for future use)</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_trxIndex">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="sectorEquipmentFunctionRef">
+                <description>Reference to MO SectorEquipmentFunction instance, LDN.
+MO represents radio and antenna resources used by the TRX.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>The attribute frequencyBand in this TRX must match attribute eUtranFqBands in MO SectorEquipmentFunction.</dependencies>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="configuredMaxTxPower">
+                <description>Configured absolute power for TRX (equally distributed over noOfTxAntennas).</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_configuredMaxTxPower">
+                        <defaultValue>20000</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="maxTxPowerCapability">
+                <description>Power allocated for TRX, sum for noOfTxAntennas.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_maxTxPowerCapability">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="bscMaxTxPower">
+                <description>Amount of power requested for TRX (equally distributed over noOfTxAntennas) from the BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_bscMaxTxPower">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rfBranchRxRef">
+                <description>A list of references to MOs RfBranch and CcBranch instances, LDNs.
+These MOs represent the RF branches the TRX shall use for RX.
+If no reference is specified carrier allocation is based on the rfBranchRef in MO SectorEquipmentFunction.</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <maxLength>4</maxLength>
+                    </sequence>
+                </dataType>
+                <dependencies>Referenced RfBranch(es) or CcBranch(es) must belong to the same MO SectorEquipmentFunction that is referenced from this TRX.</dependencies>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rfBranchTxRef">
+                <description>List of references to MOs RfBranch instances, LDNs.
+MOs represents the RF branches (MCPA) TRX uses for TX.
+Used to group TRXs to a MCPA.
+If no reference is specified carrier allocation is based on the RF Branch MOM list, this is default behavior.</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="RfBranch">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </moRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+                <dependencies>Referenced RfBranch(es) must belong to the same MO SectorEquipmentFunction that is referenced from this TRX.</dependencies>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rfBranchTx">
+                <description>References to MO RfBranch(es) instances, LDN. 
+MO represents RF branch (MCPA) TRX uses for TX. 
+Identifies the RF branches (MCPA) for which PM counters are valid.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="RfBranch">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </moRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="reservedMaxTxPower">
+                <description>Power reserved in MCPA for this TRX (equally distributed over noOfTxAntennas).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_reservedMaxTxPower">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Value must be equal or lower than attribute configuredMaxTxPower.</dependencies>
+                <precondition>Feature GSM MCPA Intelligent Power Management Baseband must be active and administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="abisRxOperCondition">
+                <description>Operational condition of RX AO in Abis model towards BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisOperCondition">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTxOperCondition">
+                <description>Operational condition of TX AO in Abis model towards BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisOperCondition">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTrxcOperCondition">
+                <description>Operational condition of TRXC SO in Abis model towards BSC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AbisOperCondition">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="abisTsOperCondition">
+                <description>Operational condition of TS AO in Abis model towards BSC.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AbisOperCondition">
+                            <mimName>Grat</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rfBranchRx">
+                <description>References to MO RfBranch(es) instances, LDN.
+MO represents RF branch that TRX uses for RX. 
+One reference per used RX RfBranch. 
+Index vise the references can be interpreted as logical antennas.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <maxLength>4</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbAvgDeltaMeas2">
+                <description>Measured average delta imbalance between RX branches with index 2 and 3 in rfBranchRx attribute. Value updated every 5 minutes with traffic.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbAvgDeltaMeas2">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbNoOfSamples2">
+                <description>Number of samples the rxImbAvgDeltaMeas2 is based on.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbNoOfSamples2">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbAvgDeltaMeas1">
+                <description>Measured average delta imbalance between RX branches with index 0 and 1 in rfBranchRx attribute. Value updated every 5 minutes with traffic.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbAvgDeltaMeas1">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbNoOfSamples1">
+                <description>Number of samples the rxImbAvgDeltaMeas1 is based on.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbNoOfSamples1">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbSupTimeElapsed">
+                <description>Time elapsed of the supervision window time.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbSupTimeElapsed">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbSupWindowSize">
+                <description>Time over which RX path imbalance value is averaged in the supervision function.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbSupWindowSize">
+                        <defaultValue>288</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rxImbMinNoOfSamples">
+                <description>Minimum required number of samples within the supervision window to raise/cease a fault.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbMinNoOfSamples">
+                        <defaultValue>7000</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rxImbAlarmThreshold">
+                <description>Imbalance between RX branches required to raise/cease of a fault with severity MINOR.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_Trx_rxImbAlarmThreshold">
+                        <defaultValue>60</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="combinedCellType">
+                <description>Used to configure Combined Cell Type for TRX in a Combined Cell configuration.</description>
+                <dataType>
+                    <enumRef name="CombinedCellType">
+                        <defaultValue>NON_COMBINED_CELL</defaultValue>
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED.</precondition>
+            </attribute>
+        </class>
+        <class name="AbisIp">
+            <description>MO AbisIp handles configuration of L2TP tunnels for GSM Sector.
+The L2TP tunnels carry Abis traffic over the IP transport network between the GSM Sector and BSC.</description>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+                <disturbances>Changing this attribute to LOCKED causes loss of traffic, due to lost communication to BSC.</disturbances>
+            </attribute>
+            <attribute name="abisIpId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_AbisIp_userLabel">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Operational state of the L2TP control connection.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status of L2TP control connection.
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>Grat</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="bscBrokerIpAddress">
+                <description>BSC IP address the GSM Sector contacts when initial contact is made.
+
+</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4UnicastAddressStr">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="peerIpAddress">
+                <description>IP address GSM Sector is connected to.
+Is different from bscBrokerAddress if L2TP connection was redirected.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4UnicastAddressStr">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="gsmSectorName">
+                <description>gsmSectorName is used as identification when BSC is contacted.
+The gsmSectorName is sent as attribute HostName in L2TP message SCCRQ.
+The same name must be configured in the BSC.
+Default gsmSectorName is the same as gsmSectorId, last 20 characters.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_AbisIp_gsmSectorName">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="dscpSectorControlUL">
+                <description>DSCP code for L2TP control connection between the RBS and BSC.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_AbisIp_dscpSectorControlUL">
+                        <defaultValue>46</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="keepAlivePeriod">
+                <description>Number of seconds between L2TP keep-alive procedures.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_AbisIp_keepAlivePeriod">
+                        <defaultValue>1</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="maxRetransmission">
+                <description>Maximum number of retransmissions of L2TP control messages.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_AbisIp_maxRetransmission">
+                        <defaultValue>5</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="retransmissionCap">
+                <description>Maximum value of the exponentially increased interval between retransmission of L2TP control messages.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_AbisIp_retransmissionCap">
+                        <defaultValue>4</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="initialRetransmissionPeriod">
+                <description>Initial period from the original transmission to the first retransmission of L2TP control messages.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_AbisIp_initialRetransmissionPeriod">
+                        <defaultValue>1</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="ipv4Address">
+                <description>Reference to the MO AddressIPv4 which represents the IPv4 address which the GSM Sector uses.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </moRef>
+                </dataType>
+                <precondition>administrativeState must equal LOCKED</precondition>
+            </attribute>
+        </class>
+        <class name="ExtTrx">
+            <description>GSM extension TRX functionality on extension antenna site in a combined cell configuration. Extension antenna sites are used to provide coverage in areas where Main antenna site fails to provide coverage.</description>
+            <attribute name="operationalState">
+                <description>Operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>Grat</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>Grat</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="sectorEquipmentFunctionRef">
+                <description>Reference to MO SectorEquipmentFunction instance, LDN.
+MO represents radio and antenna resources used by the extension TRX. </description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>The attribute frequencyBand in parent main TRX which is also used for this extension TRX must match attribute eUtranFqBands in MO SectorEquipmentFunction.</dependencies>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="extTrxId">
+                <description>The value component of the RDN.
+Recommendation: naming convention for extTrxId: extTrxId=&lt;antSiteIndex&gt;_&lt;parent main trxIndex&gt; 
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="configuredMaxTxPower">
+                <description>Configured absolute power for this extension TRX. </description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_configuredMaxTxPower">
+                        <defaultValue>20000</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="reservedMaxTxPower">
+                <description>Power reserved in MCPA for this extension TRX. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_reservedMaxTxPower">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Value must be equal or lower than attribute configuredMaxTxPower.</dependencies>
+                <precondition>Feature GSM MCPA Intelligent Power Management Baseband must be active; and administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="maxTxPowerCapability">
+                <description>Power allocated for extension TRX.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_maxTxPowerCapability">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rfBranchRx">
+                <description>References to MO RfBranch(es) instances, LDN.
+MO represents RF branch that extension TRX uses for RX. 
+One reference per used RX RfBranch. 
+Index vise the references can be interpreted as logical antennas. </description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rfBranchRxRef">
+                <description>A list of references to MOs RfBranch and CcBranch instances, LDNs.
+These MOs represent the RF branches the extension TRX shall use for RX.
+If no reference is specified carrier allocation is based on the rfBranchRef in MO SectorEquipmentFunction. </description>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+                <dependencies>Referenced RfBranch(es) or CcBranch(es) must be referenced by the same MO SectorEquipmentFunction that is referenced from this extension TRX.</dependencies>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rfBranchTx">
+                <description>References to MO RfBranch(es) instances, LDN. 
+MO represents RF branch (MCPA) the extension TRX uses for TX. 
+Identifies the RF branches (MCPA) for which PM counters are valid.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="RfBranch">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </moRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rfBranchTxRef">
+                <description>List of references to MOs RfBranch instances, LDNs.
+MOs represents the RF branches (MCPA) the extension TRX uses for TX.
+Used to group extension TRXs to a MCPA.
+If no reference is specified carrier allocation is based on the RF Branch MOM list, this is default behavior. </description>
+                <dataType>
+                    <sequence>
+                        <moRef name="RfBranch">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </moRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+                <dependencies>Referenced RfBranch(es) must be referenced by the same MO SectorEquipmentFunction that is referenced from this extension TRX.</dependencies>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rxImbAlarmThreshold">
+                <description>Imbalance between RX branches required to raise/cease of a fault with severity MINOR. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_rxImbAlarmThreshold">
+                        <defaultValue>60</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rxImbAvgDeltaMeas1">
+                <description>Measured average delta imbalance between RX branches with index 0 and 1 in rfBranchRx attribute. Value updated every 5 minutes with traffic. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_rxImbAvgDeltaMeas1">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbMinNoOfSamples">
+                <description>Minimum required number of samples within the supervision window to raise/cease a fault. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_rxImbMinNoOfSamples">
+                        <defaultValue>7000</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="rxImbNoOfSamples1">
+                <description>Number of samples the rxImbAvgDeltaMeas1 is based on. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_rxImbNoOfSamples1">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbSupTimeElapsed">
+                <description>Time elapsed of the supervision window time. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_rxImbSupTimeElapsed">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxImbSupWindowSize">
+                <description>Time over which RX path imbalance value is averaged in the supervision function. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_rxImbSupWindowSize">
+                        <defaultValue>288</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_userLabel">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="extTrxDistance">
+                <description>Radio propagation distance between main antenna site and extension antenna site.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_extTrxDistance">
+                        <defaultValue>0</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="extTrxRadius">
+                <description>Planned size of the downlink radio coverage area for extension site expressed as an “Equal signal strength radius”. “Equal signal strength radius” is the distance from extension antenna site at which an MS is expected to receive equal signal strength contributions from main antenna site and extension antenna site if both main TX and extension TX are sending with nominal TX power.</description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_extTrxRadius">
+                        <defaultValue>1</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="extAntSiteIndex">
+                <description>Used for identifying a Extension Antenna Site in Combined cells site statistics in BSC and OSS/ENM. Normally use the same extAntSiteIndex value for all MO ExtTrx instances on an Extension Antenna Site.
+Recommended values 1..7. Value 0 is reserved for Main Antenna Site. Not recommended values 0 and 8..63 will be changed to 7, and these changes will affect PM data from BSC to OSS/ENM.
+Recommendation: Also to be used together with trxIndex attribute of parent main Trx in naming convention for extTrxId. extTrxId=&lt;extAntSiteIndex&gt;_&lt;parent main trxIndex&gt;. </description>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_extAntSiteIndex">
+                        <defaultValue>7</defaultValue>
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <obsolete/>
+                <statusInformation>Since 18.Q1. Use antSiteIndex instead.</statusInformation>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+            <attribute name="antSiteIndex">
+                <description>Used for identifying an Extension Antenna Site in Combined cells site statistics in BSC and OSS/ENM.  
+Normally use the same antSiteIndex value for all MO ExtTrx instances on an Extension Antenna Site.
+Recommendation: Also to be used together with trxIndex attribute of parent main Trx in naming convention for extTrxId. extTrxId=&lt;antSiteIndex&gt;_&lt;parent main trxIndex&gt;.
+</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Grat_ExtTrx_antSiteIndex">
+                        <mimName>Grat</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <precondition>administrativeState of parent main TRX must equal LOCKED</precondition>
+            </attribute>
+        </class>
+        <relationship name="BtsFunction_to_GsmSector">
+            <containment>
+                <parent>
+                    <hasClass name="BtsFunction">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="GsmSector">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="GsmSector_to_Trx">
+            <containment>
+                <parent>
+                    <hasClass name="GsmSector">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Trx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>12</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="GsmSector_to_AbisIp">
+            <containment>
+                <parent>
+                    <hasClass name="GsmSector">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AbisIp">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="AbisIp_ipv4Address_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ipv4Address">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="AbisIp">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Trx_sectorEquipmentFunctionRef_to_SectorEquipmentFunction_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="sectorEquipmentFunctionRef">
+                    <hasClass name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Trx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Trx_rfBranchTxRef_to_RfBranch_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchTxRef">
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>2</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Trx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Trx_rfBranchRxRef_to_RfBranch_reservedBy">
+            <preliminary/>
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchRxRef">
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Trx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Trx_rfBranchRxRef_to_CcBranch_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchRxRef">
+                    <hasClass name="CcBranch">
+                        <mimName>ReqCcBranch</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Trx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Trx_to_ExtTrx">
+            <containment>
+                <parent>
+                    <hasClass name="Trx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="ExtTrx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>11</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="ExtTrx_sectorEquipmentFunctionRef_to_SectorEquipmentFunction_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="sectorEquipmentFunctionRef">
+                    <hasClass name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="ExtTrx">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="ManagedElement_to_BtsFunction">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ManagedElement">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="BtsFunction">
+                        <mimName>Grat</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

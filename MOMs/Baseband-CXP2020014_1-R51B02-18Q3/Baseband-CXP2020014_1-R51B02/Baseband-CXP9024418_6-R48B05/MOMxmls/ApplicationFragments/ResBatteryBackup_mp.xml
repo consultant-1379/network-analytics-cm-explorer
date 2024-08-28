@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ResBatteryBackup" namespace="urn:com:ericsson:ecim:ResBatteryBackup" namespacePrefix="resbatterybackup" organization="" release="1" revision="" version="5">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="ApcBatteryTestStatus">
+            <description>.</description>
+            <structMember name="estimatedRemainingBackupTime">
+                <description>Calculated estimate of remaining backup time&#13;
+Dependencies: The value is only defined if a battery capacity test is executed. The parameter value is undefined if a battery backup time test is executed. The parameter value is undefined if parameter testState is PENDING.&#13;
+Unit: 1 minute&#13;
+Undefined value: -1&#13;
+</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestStatus_estimatedRemainingBackupTime">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="measuredConsumedCapacityInTest">
+                <description>Measured total consumed capacity from test start until execution of this action&#13;
+Dependencies: The parameter value is undefined if parameter testState is PENDING.&#13;
+Unit: 1 Ah&#13;
+Undefined value: -1</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestStatus_measuredConsumedCapacityInTest">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="measuredElapsedTime">
+                <description>Time from test start until execution of this action&#13;
+Dependencies: The parameter value is undefined if parameter testState is PENDING.&#13;
+Unit: 1 minute&#13;
+Undefined value: -1</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestStatus_measuredElapsedTime">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="testState">
+                <description>Current state of battery test.&#13;
+</description>
+                <enumRef name="ApcBatteryTestState">
+                    <mimName>ResBatteryBackup</mimName>
+                </enumRef>
+            </structMember>
+        </struct>
+        <struct name="ApcBatteryTestResult">
+            <description>.</description>
+            <structMember name="estimatedBatteryStateOfHealth">
+                <description>Estimated state-of-health of the tested battery. State-Of-Health is calculated as: estimatedNominalBatteryCapacity / referenceBatteryCapacity * 100&#13;
+Dependencies: The parameter value is undefined if a battery backup time test was executed.&#13;
+Unit: 1 %&#13;
+Undefined value: -1&#13;
+</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestResult_estimatedBatteryStateOfHealth">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="estimatedNominalBatteryCapacity">
+                <description>Estimated nominal battery capacity of the tested battery&#13;
+Dependencies: The parameter value is undefined if a battery backup time test was executed.&#13;
+Unit: 1 Ah&#13;
+Undefined value: -1&#13;
+</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestResult_estimatedNominalBatteryCapacity">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="initiation">
+                <description>Describes how the battery test was initiated.&#13;
+</description>
+                <enumRef name="ApcBatteryTestInitiation">
+                    <mimName>ResBatteryBackup</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="measuredBackupTime">
+                <description>The measured time from test start until end of test&#13;
+Unit: 1 minute&#13;
+Undefined value: -1&#13;
+</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestResult_measuredBackupTime">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="measuredConsumedCapacity">
+                <description>Measured total consumed capacity from test start until end of test&#13;
+Unit: 1 Ah&#13;
+Undefined value: -1</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestResult_measuredConsumedCapacity">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="outcome">
+                <description>Outcome of the automatic evaluation of the battery test&#13;
+Possible values:&#13;
+• UNDEFINED&#13;
+• PASSED&#13;
+• FAILED</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isKey" value="true"/>
+                </domainExtension>
+                <enumRef name="ApcBatteryTestOutcome">
+                    <mimName>ResBatteryBackup</mimName>
+                </enumRef>
+                <dependencies>For a battery capacity test, the evaluation is done by comparing the estimatedBatteryStateOfHealth with the minimumStateOfHealth, if test mode is set to CONFIGURED. If testMode is set to AUTOMATIC, the estimatedBatteryStateOfHealth is compared with 70%.&#13;
+For a battery backup time test, the evaluation is done by comparing the measuredBackupTime with the minimumBackupTime.&#13;
+</dependencies>
+            </structMember>
+            <structMember name="startDate">
+                <description>The date the battery test was started. Format: "YYYYMMDD"&#13;
+Undefined value: "000000"</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestResult_startDate">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="startTime">
+                <description>The time the battery test was started. Format: "HH:MM", 24 h format&#13;
+Undefined value: "--:--"</description>
+                <derivedDataTypeRef name="ResBatteryBackup_ApcBatteryTestResult_startTime">
+                    <mimName>ResBatteryBackup</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="ApcBatteryTestOutcome">
+            <description/>
+            <enumMember name="UNDEFINED">
+                <description>No automatic evaluation was done due to forced initiation. The test result needs manual evaluation.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="PASSED">
+                <description>Test did not indicate underperforming batteries.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>Test indicated underperforming batteries and an alarm was raised.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcBatteryTestMode">
+            <description/>
+            <enumMember name="AUTOMATIC">
+                <description>Pre-defined values are used at the periodic test. </description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="CONFIGURED">
+                <description>User configured values are used at the periodic test.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="DISABLED">
+                <description>Periodic tests are disabled. </description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcBatteryTestState">
+            <description/>
+            <enumMember name="UNDEFINED">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="PENDING">
+                <description>On demand test is pending.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="IN_PROGRESS">
+                <description>Battery test is in progress. </description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcBatteryTestType">
+            <description>PERIODIC  &#13;
+ON_DEMAND  &#13;
+</description>
+            <enumMember name="PERIODIC">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ON_DEMAND">
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcChargingMode">
+            <description/>
+            <enumMember name="AUTOMATIC">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="USER_DEFINED">
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcMonth">
+            <description/>
+            <enumMember name="JANUARY">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FEBRUARY">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="MARCH">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="APRIL">
+                <value>4</value>
+            </enumMember>
+            <enumMember name="JUNE">
+                <value>6</value>
+            </enumMember>
+            <enumMember name="JULY">
+                <value>7</value>
+            </enumMember>
+            <enumMember name="AUGUST">
+                <value>8</value>
+            </enumMember>
+            <enumMember name="MAY">
+                <value>5</value>
+            </enumMember>
+            <enumMember name="SEPTEMBER">
+                <value>9</value>
+            </enumMember>
+            <enumMember name="OCTOBER">
+                <value>10</value>
+            </enumMember>
+            <enumMember name="NOVEMBER">
+                <value>11</value>
+            </enumMember>
+            <enumMember name="DECEMBER">
+                <value>12</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcBatteryTestInitiation">
+            <description/>
+            <enumMember name="UNDEFINED">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="AUTOMATIC_PERIODIC">
+                <description>Periodic test if testMode is AUTOMATIC.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="CONFIGURED_PERIODIC">
+                <description>Periodic test if testMode is CONFIGURED. </description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="MAINS_FAILURE_PERIODIC">
+                <description>Periodic test initiated from mains power failure.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="ON_DEMAND">
+                <description>Initiated via action startBatteryTest and parameter forced = false. </description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="ON_DEMAND_FORCED">
+                <description>Initiated via action startBatteryTest and parameter forced = true.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcBatteryType">
+            <description/>
+            <enumMember name="UNKNOWN">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="TYPE01">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TYPE02">
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryCurrent">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-9999</min>
+                        <max>-9999</max>
+                        <min>-1000</min>
+                        <max>1000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-9999</min>
+                            <max>-9999</max>
+                        </subrange>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>1000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>A</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryDisconnectTempCeaseOffset">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>20</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>20</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°C</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryInstallationDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>8</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>8</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryTemperature">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-55</min>
+                        <max>125</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-55</min>
+                            <max>125</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°C</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-600</min>
+                        <max>-380</max>
+                        <min>0</min>
+                        <max>0</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-600</min>
+                            <max>-380</max>
+                        </subrange>
+                        <subrange>
+                            <min>0</min>
+                            <max>0</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_boostChargeTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>48</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>48</max>
+                        </subrange>
+                    </ranges>
+                    <unit>h</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_boostChargeTriggerVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-500</min>
+                        <max>-420</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-500</min>
+                            <max>-420</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_chargeMaxCurrent">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>20</min>
+                        <max>1000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>20</min>
+                            <max>1000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>A</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_chargingVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-570</min>
+                        <max>-480</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-570</min>
+                            <max>-480</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_equalizeChargeCyclicInterval">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>365</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>365</max>
+                        </subrange>
+                    </ranges>
+                    <unit>day</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_equalizeChargeTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>24</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>24</max>
+                        </subrange>
+                    </ranges>
+                    <unit>h</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_increasedChargeVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-585</min>
+                        <max>-555</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-585</min>
+                            <max>-555</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_intermittentChargeConnectTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>72</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>72</max>
+                        </subrange>
+                    </ranges>
+                    <unit>h</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_intermittentChargeConnectVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-530</min>
+                        <max>-460</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-530</min>
+                            <max>-460</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_intermittentChargeDisconnectTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>2400</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>2400</max>
+                        </subrange>
+                    </ranges>
+                    <unit>h</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_minimumBackupTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>10080</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10080</max>
+                        </subrange>
+                    </ranges>
+                    <unit>minute</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_minimumStateOfHealth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_nextScheduledTestDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>8</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>8</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_nominalTemp">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>170</min>
+                        <max>280</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>170</min>
+                            <max>280</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°C</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_referenceBatteryCapacity">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Ah</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_tempCompMaxVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-570</min>
+                        <max>-480</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-570</min>
+                            <max>-480</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_tempCompMinVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-570</min>
+                        <max>-480</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-570</min>
+                            <max>-480</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_tempCompVoltageSlope">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-10000</min>
+                        <max>0</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-10000</min>
+                            <max>0</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V/°C</unit>
+                    <multiplicationFactor>0.001</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_testStartDay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>31</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>31</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_testStartTime">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>5</min>
+                        <max>5</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>5</min>
+                            <max>5</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryDisconnectTemp">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>40</min>
+                        <max>70</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>40</min>
+                            <max>70</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°C</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_elevatedChargeVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-573</min>
+                        <max>-555</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-573</min>
+                            <max>-555</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_floatChargeVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-555</min>
+                        <max>-510</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-555</min>
+                            <max>-510</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryDisconnectHighTemp">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>40</min>
+                        <max>60</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>40</min>
+                            <max>60</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°C</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_batteryDisconnectLevel">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_capacityAlarmLevel">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_estimatedRemainingBackupTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>minute</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_fullyChargedCapacity">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Ah</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_mainLoadDisconnectLevel">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_BatteryBackup_stateOfHealth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestResult_estimatedBatteryStateOfHealth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestResult_estimatedNominalBatteryCapacity">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>99999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>99999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Ah</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestResult_measuredBackupTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>99999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>99999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Minute</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestResult_measuredConsumedCapacity">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>99999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>99999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Ah</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestResult_startDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>8</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>8</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestResult_startTime">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>5</min>
+                        <max>5</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>5</min>
+                            <max>5</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestStatus_estimatedRemainingBackupTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>99999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>99999999</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestStatus_measuredConsumedCapacityInTest">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>99999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>99999999</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResBatteryBackup_ApcBatteryTestStatus_measuredElapsedTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>99999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>99999999</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="BatteryBackup">
+            <description>This MO models a battery backup controlled by a BFU or BPA unit.
+The functionality represented by this MO is dependent on the existence of a FieldReplaceableUnit MO of type BFU or BPA.
+From 18.Q1 the reservedBy attribute must be empty before MO can be deleted..</description>
+            <root/>
+            <action name="readBatteryTestResult">
+                <description>Action for reading out the result of a finished battery test. Output data is stored persistently. This means that the result can always be read for the last finished on demand test and periodic test separately. The action is valid for battery capacity and backup time tests.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <structRef name="ApcBatteryTestResult">
+                        <mimName>ResBatteryBackup</mimName>
+                    </structRef>
+                </returnType>
+                <parameter name="testType">
+                    <description>Type of battery test to read result for.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="ApcBatteryTestType">
+                            <mimName>ResBatteryBackup</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="readBatteryTestStatus">
+                <description>Action for reading out the status of an ongoing battery test (testState is IN_PROGRESS or PENDING). Valid for on demand test and periodic test. Valid for battery capacity and backup time tests. Updated values can be retrieved by issuing this action regularly during a test. Out parameter values are not stored persistently and can therefore only be read during a test. All out parameter values, except for testState, are undefined in testState PENDING.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="1"/>
+                </domainExtension>
+                <returnType>
+                    <structRef name="ApcBatteryTestStatus">
+                        <mimName>ResBatteryBackup</mimName>
+                    </structRef>
+                </returnType>
+            </action>
+            <action name="startBatteryTest">
+                <description>Starts an on demand battery capacity test or battery backup time test. A battery capacity test will go into testState PENDING if the batteries are not fully charged and in parameter forced is set to False. The test will in this case be initiated when the batteries are fully charged, if this occurs within 24 h.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="2"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="forced">
+                    <description>Specifies if forced initiation should be used or not. Forced initiation means that a number of pre-conditions are overridden and that the test can be started even if these pre-conditions are not fulfilled. Overridden pre-conditions:&#13;
+- batteries are considered fully charged&#13;
+- system is not running on batteries in case of battery time test&#13;
+No alarms are raised as a result of the battery test if parameter forced is set to true. Manual evaluation of the test result is needed.&#13;
+&#13;
+Dependencies: Attribute referenceBatteryCapacity is not updated as a result of the battery test if parameter forced is set to true. </description>
+                    <in/>
+                    <dataType>
+                        <boolean/>
+                    </dataType>
+                </parameter>
+                <dependencies>A battery capacity test will be executed if attribute sharedBattery is set to False and if attribute mainLoadUndervoltageDisconnect is -43 V or lower. Otherwise a backup time test will be executed.</dependencies>
+                <disturbances>The RBS is powered from the batteries during the test. This battery discharge will make the RBS more sensitive to mains power failure during the test. Repeated battery discharge will cause aging of the batteries.</disturbances>
+            </action>
+            <action name="startEqualizeCharging">
+                <description>Starts equalize charging.&#13;
+</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <action name="stopBatteryTest">
+                <description>Stops an ongoing battery capacity test or battery backup time test that was started via action startBatteryTest.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="4"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <action name="stopEqualizeCharging">
+                <description>Stops equalize charging.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="5"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <attribute name="batteryBackupId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="batteryCurrent">
+                <description>The total measured battery backup current. When the batteries are charging, the current is positive. When the batteries are discharging, the current is negative.
+Undefined value: -9999 indicates no contact with battery interfacing unit such as a BFU or BPA unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryCurrent">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="batteryDisconnectTempCeaseOffset">
+                <description>The offset for the disconnect temperature below which the battery will be reconnected. Applies to both main and priority loads. The battery is reconnected when batteryTemperature &lt; batteryDisconnectedTemp - batteryDisconnectTempCeaseOffset.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryDisconnectTempCeaseOffset">
+                        <defaultValue>5</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="batteryInstallationDate">
+                <description>The date when the batteries in the battery backup of the RBS were installed and taken into service. Format: YYYYMMDD.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryInstallationDate">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 18A. Replaced by installationDate in MO BatteryUnit. Planned to be removed.</statusInformation>
+                <dependencies>The date must not be a future date. Changing this attribute will cause the system to restart battery capacity test calculations and recalculate attribute referenceBatteryCapacity.</dependencies>
+            </attribute>
+            <attribute name="batteryTemperature">
+                <description>The current temperature reported by the battery temperature sensor installed on the battery.&#13;
+Undefined value represented by nil, indicates no contact with BFU, BFU has no battery or BFU has no temperature sensor.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryTemperature">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="batteryTestIsRunning">
+                <description>State whether a battery test is running or not.&#13;
+&#13;
+Possible values:&#13;
+- true: A battery test cycle has been started&#13;
+- false: Either the battery test is disabled or there is not any ongoing battery test. </description>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="batteryType">
+                <description>The type of battery to which the installed battery conforms. The type is related to the capabilities of the battery.</description>
+                <dataType>
+                    <enumRef name="ApcBatteryType">
+                        <defaultValue>TYPE01</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </enumRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated since 16A</statusInformation>
+                <dependencies>batteryType = UNKNOWN is valid only when chargingMode = USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="batteryVoltage">
+                <description>The measured battery voltage. It is equal to the attribute systemVoltage, PowerdDistribution MO, when the battery is connected.&#13;
+0 means the battery is disconnected. &#13;
+Undefined value represented by nil, indicates no contact with the battery interfacing unit, such as a BFU or a BPA unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryVoltage">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="boostChargeTime">
+                <description>The time in boost charge. Value zero (0) means that boost charging is disabled.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_boostChargeTime">
+                        <defaultValue>5</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED</dependencies>
+            </attribute>
+            <attribute name="boostChargeTriggerVoltage">
+                <description>Defines the trigger voltage for boost charge. When the trigger voltage is surpassed during discharge, the consecutive charging is boost charging.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_boostChargeTriggerVoltage">
+                        <defaultValue>-470</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="chargeMaxCurrent">
+                <description>Maximum allowed battery current during charging. The maximum battery current is limited if the maximum current supported by the BFU is lower than this defined value.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_chargeMaxCurrent">
+                        <defaultValue>80</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="chargingMode">
+                <description>The type of battery charging used. If charging is user-defined, the charging algorithm and parameters must be specified. If chargingMode = AUTOMATIC, the following attributes are not used:&#13;
+• floatChargeVoltage&#13;
+• tempCompVoltageSlope&#13;
+• nominalTemp&#13;
+• tempCompMinVoltage&#13;
+• tempCompMaxVoltage&#13;
+• elevatedChargeVoltage&#13;
+• boostChargeTime&#13;
+• boostChargeTriggerVoltage&#13;
+• equalizeChargeTime&#13;
+• equalizeChargeCyclicInterval&#13;
+• intermittentChargeConnectVoltage&#13;
+• intermittentChargeConnectTime&#13;
+• intermittentChargeDisconnectTime</description>
+                <dataType>
+                    <enumRef name="ApcChargingMode">
+                        <defaultValue>AUTOMATIC</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="chargingVoltage">
+                <description>The desired battery voltage for charging at 25 degrees Celsius.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_chargingVoltage">
+                        <defaultValue>-545</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated since 16A, replaced by FloatChargeVoltage</statusInformation>
+                <dependencies>This attribute is relevant only when attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="equalizeChargeCyclicInterval">
+                <description>The number of days between equalize charging. The cycle is reset at restart.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_equalizeChargeCyclicInterval">
+                        <defaultValue>30</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="equalizeChargeTime">
+                <description>The time in equalize charge. Value zero (0) means that equalize charging is disabled. To enable equalize charging, the value must be set to a number other than zero (0).</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_equalizeChargeTime">
+                        <defaultValue>4</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.&#13;
+</dependencies>
+            </attribute>
+            <attribute name="increasedChargeVoltage">
+                <description>The charge voltage used at boost charging and equalize charging.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_increasedChargeVoltage">
+                        <defaultValue>-564</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated since 16A, replaced by ElevatedChargeVoltage</statusInformation>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="intermittentChargeConnectTime">
+                <description>Defines the period following disconnection after which the battery is reconnected. Used in intermittent charging.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_intermittentChargeConnectTime">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="intermittentChargeConnectVoltage">
+                <description>Defines the minimum battery voltage level allowed for a disconnected battery. When minimum level is reached, the battery is reconnected. Used in intermittent charging.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_intermittentChargeConnectVoltage">
+                        <defaultValue>-500</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="intermittentChargeDisconnectTime">
+                <description>Defines the time until the batteries are disconnected (during this time the batteries are connected). Value zero (0) means that intermittent charging is not enabled.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_intermittentChargeDisconnectTime">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="minimumBackupTime">
+                <description>The minimum requirement for backup time for the installed batteries when conducting a battery backup time test. An alarm is raised if measured backup time is shorter than minimumBackupTime.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_minimumBackupTime">
+                        <defaultValue>60</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if sharedBattery is set to true.</dependencies>
+            </attribute>
+            <attribute name="minimumStateOfHealth">
+                <description>The minimum value for the State-of-Health of the battery backup system. An alarm is raised if stateOfHealth value for the battery backup system is lower than minimumStateOfHealth value.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_minimumStateOfHealth">
+                        <defaultValue>70</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>The attribute is only relevant if sharedBattery is set to false.</dependencies>
+            </attribute>
+            <attribute name="nextScheduledTestDate">
+                <description>Date of next scheduled periodic battery test. Format: "YYYYMMDD".</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_nextScheduledTestDate">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>The value is undefined if testMode has the value DISABLED.</dependencies>
+            </attribute>
+            <attribute name="nominalTemp">
+                <description>Nominal temperature for temperature compensated charging.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_nominalTemp">
+                        <defaultValue>250</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="referenceBatteryCapacity">
+                <description>The initial nominal battery capacity. The value is extracted from intelligent batteries as a sum of all installed batteries’ nominal capacity. For batteries that cannot communicate, the value is calculated at the first battery capacity test. If  the capacity value becomes significantly higher at a succeeding battery capacity test, the value is replaced with the highest value.
+
+Undefined value: -1 indicates that no value has been retrieved.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_referenceBatteryCapacity">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>The value is either the sum of all battery units initial nominal capacity or the result of the first conducted battery capacity test of the battery system. A battery capacity test can only be executed if the attribute sharedBattery = false.</dependencies>
+            </attribute>
+            <attribute name="sharedBattery">
+                <description>Indicates if the RBS shares a battery with another RBS or other power consumer on the site. The setting of this attributes has a great impact on the system behavior. </description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <dependencies>If sharedBattery is set to True a backup time test will be used as battery test. A battery capacity test cannot be executed if shared batteries are used.</dependencies>
+            </attribute>
+            <attribute name="tempCompMaxVoltage">
+                <description>The maximum voltage allowed for temperature compensated charging.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_tempCompMaxVoltage">
+                        <defaultValue>-569</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="tempCompMinVoltage">
+                <description>The minimum voltage allowed for temperature compensated charging.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_tempCompMinVoltage">
+                        <defaultValue>-528</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="tempCompVoltageSlope">
+                <description>A compensation factor that expresses the amount of voltage changes caused by temperature. Used in temperature compensated charging. Higher temperature gives a lower charging voltage. Fixed battery charging is achieved by assigning this attribute the value zero.&#13;
+Example: The default value -96 = -0.096 V per 1 degree Celsius, gives that a 10 degree temperature increase changes the voltage from e.g. -50.000 V to -49.040 V.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_tempCompVoltageSlope">
+                        <defaultValue>-96</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="testMode">
+                <description>The mode of the battery test. </description>
+                <dataType>
+                    <enumRef name="ApcBatteryTestMode">
+                        <defaultValue>DISABLED</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>The following attributes are only relevant if testMode is set to CONFIGURED: testStartDay, testStartTime, testStartMonths and minimumStateOfHealth.</dependencies>
+                <disturbances>Depending on values of other BatteryBackup attributes, changing this attribute can start a battery test which can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="testStartDay">
+                <description>The day of month for periodic battery tests.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_testStartDay">
+                        <defaultValue>25</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>The attribute is relevant only when testMode has the value CONFIGURED. Combination of testStartDay and testStartMonths must be a valid date.</dependencies>
+            </attribute>
+            <attribute name="testStartMonths">
+                <description>The months in which periodic battery tests are performed. A battery test is performed in the months listed in the parameter. A month may be listed only once in the parameter.</description>
+                <dataType>
+                    <sequence>
+                        <enumRef name="ApcMonth">
+                            <mimName>ResBatteryBackup</mimName>
+                        </enumRef>
+                        <minLength>1</minLength>
+                        <maxLength>12</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>MARCH</defaultValue>
+                            <defaultValue>SEPTEMBER</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <dependencies>The attribute is only relevant if attribute testMode has the value CONFIGURED.</dependencies>
+            </attribute>
+            <attribute name="testStartTime">
+                <description>The time of day to start periodic battery tests. Format: HH:MM, 24-hour format.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_testStartTime">
+                        <defaultValue>01:00</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>The attribute is only relevant if testMode has the value CONFIGURED.</dependencies>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_userLabel">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ResBatteryBackup</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ResBatteryBackup</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="extendedSoftwareControl">
+                <description>Shows if the software has extended control over battery charging, that is, the BFU has a reduced autonomous behavior.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="batteryDisconnectTemp">
+                <description>The temperature at which the battery is disconnected. Applies to both main and priority loads. The battery is disconnected when batteryTemperature &gt; batteryDisconnectTemp.&#13;
+</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryDisconnectTemp">
+                        <defaultValue>60</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated since 16A, replaced by BatteryDisconnectHighTemp</statusInformation>
+            </attribute>
+            <attribute name="elevatedChargeVoltage">
+                <description>The charge voltage used at boost charging and equalize charging.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_elevatedChargeVoltage">
+                        <defaultValue>-570</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is only relevant if attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="floatChargeVoltage">
+                <description>The desired battery voltage for charging at 25 degrees Celsius.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_floatChargeVoltage">
+                        <defaultValue>-545</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>This attribute is relevant only when attribute chargingMode in MO BatteryBackup has the value USER_DEFINED.</dependencies>
+            </attribute>
+            <attribute name="batteryDisconnectHighTemp">
+                <description>The temperature at which the battery is disconnected. Applies to both main and priority loads. The battery is disconnected when batteryTemperature &gt; batteryDisconnectHighTemp.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryDisconnectHighTemp">
+                        <defaultValue>60</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="controlDomainRef">
+                <description>The cabinet or hwGroup where functions represented by this MO are deployed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="batteryDisconnectLevel">
+                <description>The relative level of the total capacity at which batteries are disconnected and node is shut down.
+Undefined value: -1 indicates that no value has been set. Batteries will not be disconnected.
+During deprecation period, a setting of the batteryDisconnectLevel is converted and mirrored to deprecated attribute priorityLoadUndervoltageDisconnect of MO PowerDistribution. Since the valid range of priorityLoadUndervoltageDisconnect does not span the entire range of batteryDisconnectLevel, a value of batteryDisconnectLevel that is beyond the upper range of priorityLoadUndervoltageDisconnect will result in a mirrored value that is the maximum value of priorityLoadUndervoltageDisconnect. It is the value of the batteryDisconnectLevel that is used in the application.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_batteryDisconnectLevel">
+                        <defaultValue>5</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="capacityAlarmLevel">
+                <description>The relative level of the total capacity at which an alarm for low remaining battery backup capacity is raised.
+Undefined value: -1 indicates that no value has been set. Alarm will not be raised.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_capacityAlarmLevel">
+                        <defaultValue>40</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="estimatedRemainingBackupTime">
+                <description>Estimated remaining backup time at current load conditions.
+Undefined value: -1 indicates that no value has been retrieved.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_estimatedRemainingBackupTime">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Attribute sharedBattery must be set to false and attribute referenceBatteryCapacity must not be undefined. 
+
+</dependencies>
+            </attribute>
+            <attribute name="fullyChargedCapacity">
+                <description>Current maximum capacity of the battery backup system.
+Undefined value: -1 indicates that no value has been retrieved.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_fullyChargedCapacity">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="mainLoadDisconnectLevel">
+                <description>The relative level of the total capacity at which the main load is disconnected.
+Undefined value: -1 indicates that no value has been set. Main load will not be disconnected.
+During deprecation period, a setting of the mainLoadDisconnectLevel is converted and mirrored to deprecated attribute mainLoadUndervoltageDisconnect of MO PowerDistribution. Since the valid range of mainLoadUndervoltageDisconnect does not span the entire range of mainLoadDisconnectLevel, a value of mainLoadDisconnectLevel that is beyond the upper range of mainLoadUndervoltageDisconnect will result in a mirrored value that is the maximum value of mainLoadUndervoltageDisconnect. It is the value of the mainLoadDisconnectLevel that is used in the application.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_mainLoadDisconnectLevel">
+                        <defaultValue>25</defaultValue>
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="stateOfHealth">
+                <description>State of health of the battery backup system.
+Undefined value: -1 indicates that no value has been retrieved.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ResBatteryBackup_BatteryBackup_stateOfHealth">
+                        <mimName>ResBatteryBackup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Batterybackup_controlDomainRef_to_Cabinet_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="controlDomainRef">
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="BatteryBackup">
+                        <mimName>ResBatteryBackup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Batterybackup_controlDomainRef_to_HwGroup_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="controlDomainRef">
+                    <hasClass name="HwGroup">
+                        <mimName>ReqHwGroup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="BatteryBackup">
+                        <mimName>ResBatteryBackup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="EquipmentSupportFunction_to_BatteryBackup">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="EquipmentSupportFunction">
+                        <mimName>ResEquipmentSupportFunction</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="BatteryBackup">
+                        <mimName>ResBatteryBackup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

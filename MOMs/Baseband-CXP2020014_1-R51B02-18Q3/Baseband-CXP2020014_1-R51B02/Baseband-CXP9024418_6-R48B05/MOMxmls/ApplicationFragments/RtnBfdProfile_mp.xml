@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Dec 12, 2017 2:27:32 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RtnBfdProfile" namespace="urn:com:ericsson:ecim:RtnBfdProfile" namespacePrefix="rtnbfdprofile" organization="" release="2" revision="" variant="Model" version="2">
+        <description>BFD Session Profile.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_BFD_BfdProfile"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_BFD_BfdProfile" release="0" version="1"/>
+        <derivedDataType name="RtnBfdProfile_BfdProfile_detectionMultiplier">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>10</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>10</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnBfdProfile_BfdProfile_dscp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnBfdProfile_BfdProfile_intervalRxMinRequired">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>10</min>
+                        <max>60000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>60000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnBfdProfile_BfdProfile_intervalTxMinDesired">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>10</min>
+                        <max>60000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>60000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnBfdProfile_BfdProfile_intervalTxSessionDown">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1000</min>
+                        <max>30000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1000</min>
+                            <max>30000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <class name="BfdProfile">
+            <description>This class defines the BFD Session Profile.</description>
+            <root/>
+            <attribute name="bfdProfileId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="detectionMultiplier">
+                <description>The Detection Time multiplier.
+
+The desired detection multiplier. The negotiated control packet transmission interval, multiplied by the multiplier, defines the detection time for this session, as seen by the remote system.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdProfile_BfdProfile_detectionMultiplier">
+                        <defaultValue>5</defaultValue>
+                        <mimName>RtnBfdProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 5880</specification>
+            </attribute>
+            <attribute name="dscp">
+                <description>The DSCP value to be placed in the IP header of control packets.
+The default value is CS6 (0x30).</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdProfile_BfdProfile_dscp">
+                        <defaultValue>48</defaultValue>
+                        <mimName>RtnBfdProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="intervalRxMinRequired">
+                <description>The minimum interval between received BFD control packets that the local system is capable of supporting.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdProfile_BfdProfile_intervalRxMinRequired">
+                        <defaultValue>100</defaultValue>
+                        <mimName>RtnBfdProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="intervalTxMinDesired">
+                <description>The preferred minimum desired interval that the local system uses when transmitting BFD control packets.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdProfile_BfdProfile_intervalTxMinDesired">
+                        <defaultValue>100</defaultValue>
+                        <mimName>RtnBfdProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="intervalTxSessionDown">
+                <description>The interval that the local system uses when transmitting BFD control packets during session down.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdProfile_BfdProfile_intervalTxSessionDown">
+                        <defaultValue>2000</defaultValue>
+                        <mimName>RtnBfdProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_BfdProfile">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="BfdProfile">
+                        <mimName>RtnBfdProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>64</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="Transport_to_BfdProfile">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="BfdProfile">
+                        <mimName>RtnBfdProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>64</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ResEnergyMeasurement" namespace="urn:com:ericsson:ecim:ResEnergyMeasurement" namespacePrefix="resenergymeasurement" organization="" release="0" revision="0" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ResEnergyMeasurement_EnergyMeasurement_energyConsumption">
+            <baseType>
+                <int32>
+                    <unit>kWh</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResEnergyMeasurement_EnergyMeasurement_powerConsumption">
+            <baseType>
+                <int32>
+                    <unit>W</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResEnergyMeasurement_EnergyMeasurement_startTime">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>14</min>
+                        <max>14</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>14</min>
+                            <max>14</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResEnergyMeasurement_EnergyMeasurement_stopTime">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>14</min>
+                        <max>14</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>14</min>
+                            <max>14</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResEnergyMeasurement_EnergyMeasurement_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="EnergyMeasurement">
+            <description>This MO displays the energy consumption for an RBS or part of an RBS.</description>
+            <root/>
+            <attribute name="energyMeasurementId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ResEnergyMeasurement</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="energyConsumption">
+                <description>The consumed energy for the specified units from startTime, in other words the sum of the consumption from all the included units in the energyMeterListRef attribute. </description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ResEnergyMeasurement_EnergyMeasurement_energyConsumption">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="energyMeterListRef">
+                <description>List with references to which energy meter shall be included in the calculation. &#13;
+Reference can be FieldReplaceableUnit  MO representing a PSU or EMU.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>1</minLength>
+                        <maxLength>32</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="powerConsumption">
+                <description>The present power consumption of the units listed in the energyMeterListRef attribute.&#13;
+An undefined value indicates that it is not possible to calculate a measurement for the present power consumption.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResEnergyMeasurement_EnergyMeasurement_powerConsumption">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="startTime">
+                <description>From when the energy consumption is calculated. If the field is left empty/undefined the system will start the measurements immediately at the creation of the MO.&#13;
+Format: YYYYMMDD hh:mm</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <restricted/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResEnergyMeasurement_EnergyMeasurement_startTime">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>startTime must be a date before stopTime.</dependencies>
+            </attribute>
+            <attribute name="stopTime">
+                <description>When the measurement shall stop counting. An attribute to let the operator keep the measurement even when the calculating has stopped. If an empty/undefined value is set it means the measurement shall continue forever, i.e. until MO is deleted.&#13;
+Format: YYYYMMDD hh:mm</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <restricted/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResEnergyMeasurement_EnergyMeasurement_stopTime">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>stopTime must be a later date than startTime.</dependencies>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResEnergyMeasurement_EnergyMeasurement_userLabel">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="EnergyMeasurement_energyMeterListRef_to_FieldReplaceableUnit_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="energyMeterListRef">
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>32</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EnergyMeasurement">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>32</max>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="EquipmentSupportFunction_to_EnergyMeasurement">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="EquipmentSupportFunction">
+                        <mimName>ResEquipmentSupportFunction</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EnergyMeasurement">
+                        <mimName>ResEnergyMeasurement</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

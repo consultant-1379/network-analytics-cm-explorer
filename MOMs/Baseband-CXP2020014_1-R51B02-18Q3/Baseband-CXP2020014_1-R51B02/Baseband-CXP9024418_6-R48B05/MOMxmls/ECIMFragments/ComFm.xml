@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Aug 18, 2017 9:07:42 AM using:
+	* com.ericsson.ecim.m2m 3.4.0.201705111308
+	* com.ericsson.ecim.dsl 3.4.0.201705111308
+	* com.ericsson.ecim.edm 3.4.0.201705111308
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>ComFm</momTitle>
+        <momSubTitle>ComFm</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>A</docRev>
+            <docDate>2016-10-28</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>eraasc</signature>
+        </createdBy>
+    </momMetaData>
+    <mim author="XSAIPAL" contact="EAB/FLE/CD SaiManogna Palvai" correction="0" date="2016-10-26" docNo="" name="ComFm" namespace="urn:com:ericsson:ecim:ComFm" namespacePrefix="comfm" organization="EAB/FLE/CD" release="1" revision="" version="12">
+        <description>The ComFm model fragment.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_FM"/>
+            <extension name="ecimMomVersion" value="4"/>
+            <extension name="ecimMomRelease" value="1"/>
+            <extension name="ecimMomCorrection" value="0"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_FM" release="1" version="4"/>
+        <struct name="AdditionalInformation">
+            <description>Data structure that contains two items of information, an identifier and a value.</description>
+            <structMember name="name">
+                <description>The identifier.</description>
+                <string/>
+            </structMember>
+            <structMember name="value">
+                <description>The value or description associated with the identifier.</description>
+                <string/>
+            </structMember>
+        </struct>
+        <enum name="EventType">
+            <description>General category for the alarm.</description>
+            <enumMember name="OTHER">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="COMMUNICATIONSALARM">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="QUALITYOFSERVICEALARM">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="PROCESSINGERRORALARM">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="EQUIPMENTALARM">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="ENVIRONMENTALALARM">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="INTEGRITYVIOLATION">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="OPERATIONALVIOLATION">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="PHYSICALVIOLATION">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="SECURITYSERVICEORMECHANISMVIOLATION">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="TIMEDOMAINVIOLATION">
+                <description>Defined by ITU-T X.733 and X.736.</description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="SeverityLevel">
+            <description>The possible alarm serverities.</description>
+            <enumMember name="CRITICAL">
+                <description>Aligned with ERICSSON-ALARM-MIB numbering.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="MAJOR">
+                <description>Aligned with ERICSSON-ALARM-MIB numbering.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="MINOR">
+                <description>Aligned with ERICSSON-ALARM-MIB numbering.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="WARNING">
+                <description>Aligned with ERICSSON-ALARM-MIB numbering.</description>
+                <value>6</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="DateTime">
+            <description>Represents the international standard for the representation of date and time ( ISO 8601).&#13;
+The string format is "YYYY-MM-DDThh:mm:ss.SSSZ" (excluding quotes).&#13;
+A DateTime string consists of a date part, a time part, and an optional time zone information part. The time zone part may be a "Z", representing the Coordinated Universal Time (UTC) time zone (equals to +00) or a time zone offset (for example, +02:00).&#13;
+If the time zone part is not present, the DateTime value represents local time.&#13;
+&#13;
+The following pattern describes the DateTime format:&#13;
+YYYY-MM-DDThh:mm:ss[.S+][Z|+-hh:mm]&#13;
+Where:&#13;
+YYYY = Four digit year&#13;
+MM = Two digit month (01=January, and so on)&#13;
+DD = Two digit day of month (01 through 31)&#13;
+T = Time designator (shows start of time component)&#13;
+hh = Two digits of hour (00 through 23, AM/PM not allowed)&#13;
+mm = Two digits of minute (00 through 59)&#13;
+ss = Two digits of second (00 through 59, leap second not allowed)&#13;
+S+ = One or more digits of decimal fraction of a second&#13;
+Z = Time is UTC&#13;
++- = + or - character indicating positive or negative offset to UTC &#13;
+&#13;
+DateTime values are compliant with ISO 8601 "Representation of dates and times" but are restricted according to RFC 3339 "Date and Time on the Internet: Timestamps". The DateTime format is further restricted as follows:&#13;
+- T and Z designators are upper case.&#13;
+- . (dot) is used to indicate start of fractions of seconds (ISO 8601 also allows comma)&#13;
+&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="8"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>19</min>
+                        <max>31</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>19</min>
+                            <max>31</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="ProbableCause">
+            <description>Probable cause as specified in ITU and ETSI recommendations.
+The values are aligned to the ERICSSON-ALARM-MIB.&#13;
+</description>
+            <baseType>
+                <uint32/>
+            </baseType>
+        </derivedDataType>
+        <class name="Fm">
+            <description>The root MOC of the Fault Management branch.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="fmId">
+                <description>Holds the name used when identifying the MO.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="lastSequenceNo">
+                <description>The last used sequence number for an alarm state change notification.
+The sequence numbers are consecutive. With this attribute, an external system can determine if a resynchronization operation is needed, such as following a loss and restore of a communications link.  </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint64/>
+                </dataType>
+            </attribute>
+            <attribute name="sumCritical">
+                <description>Shows the number of active alarms with perceived severity 'critical'.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="sumMajor">
+                <description>Shows the number of active alarms with perceived severity ‘major’.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="sumMinor">
+                <description>Shows the number of active alarms with perceived severity ‘minor’.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="sumWarning">
+                <description>Shows the number of active alarms with perceived severity ‘warning’.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="totalActive">
+                <description>Shows the total number of currently active alarms.
+This corresponds to the the total number of instantiated FmAlarm objects.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="lastChanged">
+                <description>The timestamp of when any alarm was last changed.
+With this attribute, an external system can determine if a resynchronization operation is needed, such as following a loss and restore of a communications link.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>ComFm</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="heartbeatInterval">
+                <description>The interval in seconds, with which a heartbeat notification is sent to all alarm consumers.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <uint32>
+                        <defaultValue>60</defaultValue>
+                    </uint32>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="FmAlarmModel">
+            <description>This is a container for grouping FM alarm types.
+</description>
+            <systemCreated/>
+            <attribute name="fmAlarmModelId">
+                <description>Holds the name used when identifying the MO.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="FmAlarmType">
+            <description>A specific kind of alarm that can be reported, for example "power failure".
+In an X.733 context it maps to event type, probable cause, and specific problem. The same principle is used for alert types as for alarm types.</description>
+            <systemCreated/>
+            <attribute name="fmAlarmTypeId">
+                <description>Holds the name used when identifying the MO.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="majorType">
+                <description>The attributes majorType and minorType are the two key attributes used to identify the alarm type.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="minorType">
+                <description>The attributes majorType and minorType are the two key attributes used to identify the alarm type.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="moClasses">
+                <description>A list of the Managed Object classes that can raise this alarm type.
+This attribute contains a comma seperated list of Managed Object classes types that use this alarm type. It is for information only.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <deprecated/>
+                <statusInformation>This attribute has no purpose and is not used by anyone.</statusInformation>
+            </attribute>
+            <attribute name="specificProblem">
+                <description>Provides further refinement to the information given by probableCause.
+Can be used to find an associated operating instruction (OPI).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="eventType">
+                <description>General category for the alarm type.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="EventType">
+                        <mimName>ComFm</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T X.733, X.736</specification>
+            </attribute>
+            <attribute name="probableCause">
+                <description>Qualifies and provides further information on the reason for the event.
+A standard set of probableCause values is provided in the ERICSSON-ALARM-PC-MIB.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ProbableCause">
+                        <mimName>ComFm</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>ITU-T M.3100, X.733, X.736; ETSI GSM 12.11.</specification>
+            </attribute>
+            <attribute name="isStateful">
+                <description>True indicates alarm. False indicates alert (stateless alarm).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="additionalText">
+                <description>Extra information that would not be contained by other FmAlarmType attributes. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="configuredSeverity">
+                <description>Gives the possibility to configure the perceived severity for all alarms of this type.
+If set, this value overrides the perceived severity provided by the alarming object. Setting this attribute has no impact on existing alarms, only new and updated ones.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="SeverityLevel">
+                        <mimName>ComFm</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>RFC3877</specification>
+            </attribute>
+            <attribute name="defaultSeverity">
+                <description>The default perceived severity for all alarms of this type.
+Not set means alarms of this type can be assigned different severities.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="SeverityLevel">
+                        <mimName>ComFm</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>RFC3877</specification>
+            </attribute>
+        </class>
+        <class name="FmAlarm">
+            <description>An FmAlarm instance represents an active alarm.
+An alarm is a persistent indication of a fault that clears only when the triggering condition has been resolved.&#13;
+</description>
+            <systemCreated/>
+            <attribute name="fmAlarmId">
+                <description>Holds the name used when identifying the MO.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="source">
+                <description>The distinguished name of the alarming object.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="lastEventTime">
+                <description>The timestamp of when the alarm was last updated.
+This is set at alarm information change or severity change.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>ComFm</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="sequenceNumber">
+                <description>A unique identity for every notification sent.
+This identity changes at every notification, that is, severity change and information change. It is not the same as the fmAlarmId as multiple notifications may be sent for one alarm instance.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <int64/>
+                </dataType>
+            </attribute>
+            <attribute name="activeSeverity">
+                <description>The perceived severity of the alarm.
+It may change during the alarm's lifetime.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="SeverityLevel">
+                        <mimName>ComFm</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>RFC3877</specification>
+            </attribute>
+            <attribute name="additionalText">
+                <description>Extra information about the alarm.
+It may change during the alarm's lifetime.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="majorType">
+                <description>The attributes majorType and minorType are the two key attributes used to identify the alarm type.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="minorType">
+                <description>The attributes majorType and minorType are the two key attributes used to identify the alarm type.  </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="specificProblem">
+                <description>Provides further refinement to the information given by probableCause.
+Can be used to find an associated operating instruction (OPI).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="eventType">
+                <description>General category for the alarm.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="EventType">
+                        <mimName>ComFm</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T X.733 X.736</specification>
+            </attribute>
+            <attribute name="probableCause">
+                <description>Qualifies and provides further information on the reason for the event.
+A standard set of probableCause values is provided in the ERICSSON-ALARM-PC-MIB.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ProbableCause">
+                        <mimName>ComFm</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="additionalInfo">
+                <description>Further information about the problem.
+The information is represented as a set of data structures with two items of information, an identifier and a value. It may change during the alarm's lifetime.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="AdditionalInformation">
+                            <mimName>ComFm</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="originalEventTime">
+                <description>The timestamp when the alarm was raised.
+This attribute is set when the alarm is raised and will not change during the alarm's lifetime.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>ComFm</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="originalSeverity">
+                <description>The perceived severity set when the alarm was raised.
+It will not change during the alarm's lifetime.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="SeverityLevel">
+                        <mimName>ComFm</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>RFC3877</specification>
+            </attribute>
+            <attribute name="originalAdditionalText">
+                <description>The additional text set when the alarm was raised.
+This attribute is set when the alarm is raised and will not change during the alarm's lifetime.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Fm_to_FmAlarmModel">
+            <containment>
+                <parent>
+                    <hasClass name="Fm">
+                        <mimName>ComFm</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="FmAlarmModel">
+                        <mimName>ComFm</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+        <relationship name="FmAlarmModel_to_FmAlarmType">
+            <containment>
+                <parent>
+                    <hasClass name="FmAlarmModel">
+                        <mimName>ComFm</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="FmAlarmType">
+                        <mimName>ComFm</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+        <relationship name="Fm_to_FmAlarm">
+            <containment>
+                <parent>
+                    <hasClass name="Fm">
+                        <mimName>ComFm</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="FmAlarm">
+                        <mimName>ComFm</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="SystemFunctions_to_Fm">
+            <containment>
+                <parent>
+                    <hasClass name="SystemFunctions">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Fm">
+                        <mimName>ComFm</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

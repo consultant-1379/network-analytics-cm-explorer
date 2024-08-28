@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Apr 4, 2018 2:32:56 PM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>ReqFieldReplaceableUnit</momTitle>
+        <momSubTitle/>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqFieldReplaceableUnit" namespace="urn:com:ericsson:ecim:ReqFieldReplaceableUnit" namespacePrefix="reqfieldreplaceableunit" organization="" release="3" revision="A" version="5">
+        <description>ReqFieldReplaceableUnit.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="HwTestResult">
+            <description>HwTest Result.</description>
+            <structMember name="timeStamp">
+                <description>Indicates when the test was executed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="DateTime">
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="hwTestStatus">
+                <description>Indicates the status of the last hardware test.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="HwTestStatusEnum">
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </enumRef>
+            </structMember>
+        </struct>
+        <struct name="PositionStruct">
+            <structMember name="altitude">
+                <description>Defines the altitude part of the position of the unit in meters. Use +/- values to denote height or depth. 
+
+Unit: 0.1 meter</description>
+                <derivedDataTypeRef name="ReqFieldReplaceableUnit_PositionStruct_altitude">
+                    <defaultValue>0</defaultValue>
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="geoDatum">
+                <description>Denotes the geodetic datum for this position.
+
+Example: WGS84 (World Geodetic System 1984) </description>
+                <derivedDataTypeRef name="ReqFieldReplaceableUnit_PositionStruct_geoDatum">
+                    <defaultValue>WGS84</defaultValue>
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="latitude">
+                <description>Defines the latitude part of the position of the unit. Use +/- values to denote north or south. 
+
+Unit: 0.000001 degrees</description>
+                <derivedDataTypeRef name="ReqFieldReplaceableUnit_PositionStruct_latitude">
+                    <defaultValue>0</defaultValue>
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="longitude">
+                <description>Defines the longitude part of the position of the unit. Use +/- values to denote east or west.</description>
+                <derivedDataTypeRef name="ReqFieldReplaceableUnit_PositionStruct_longitude">
+                    <defaultValue>0</defaultValue>
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="ProductData">
+            <description>Product data.</description>
+            <structMember name="productionDate">
+                <description>The date the product was produced.</description>
+                <string/>
+            </structMember>
+            <structMember name="productName">
+                <description>The name of the product.</description>
+                <string/>
+            </structMember>
+            <structMember name="productNumber">
+                <description>The product number of the product.</description>
+                <string/>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The revision state of the product.</description>
+                <string/>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>Unique number identifying the product instance.</description>
+                <string/>
+            </structMember>
+        </struct>
+        <struct name="SpecialIndicator">
+            <description>Special indicator data.</description>
+            <structMember name="indicatorStatus">
+                <description>The current status of the special Indicator.</description>
+                <enumRef name="IndicatorStatus">
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="indicatorName">
+                <description>The name of the special indicator.</description>
+                <derivedDataTypeRef name="ReqFieldReplaceableUnit_SpecialIndicator_indicatorName">
+                    <mimName>ReqFieldReplaceableUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="IndicatorStatus">
+            <description>IndicatorStatus.</description>
+            <enumMember name="NOT_APPLICABLE">
+                <description>The indicator is not supported.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>The indicator state is currently not available.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="OFF">
+                <description>The indicator is off.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="STEADY_ON">
+                <description>The indicator is on continuously.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="SLOW_BLINK">
+                <description>The indicator blinks slowly.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="FAST_BLINK">
+                <description>The indicator blinks quickly.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_STEADY_ON">
+                <description>The indicator blinks twice and is then on for a short time. This cycle is then repeated.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_OFF">
+                <description>The indicator blinks twice and is then off for a short time. This cycle is then repeated.</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="RestartRank">
+            <description>Restart ranks</description>
+            <enumMember name="RESTART_WARM">
+                <description>Restarts the MO with the same software. The software is not reloaded from the disk. The traffic is affected least as warm restart is faster and no hardware is reset.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="RESTART_COLD">
+                <description>Reloads the software from the disk, restarts the MO, and resets all hardware. The traffic is affected more than for a warm restart.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="RESTART_COLDWTEST">
+                <description>Reloads the software from the disk, restarts the MO, and resets and tests the hardware. The traffic is affected most.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="HwTestStatusEnum">
+            <description>HwTest Status Enum.</description>
+            <enumMember name="NO_TEST_RESULT">
+                <description>No result is availabe.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="TEST_RESULT_OK">
+                <description>Result is OK.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TEST_RESULT_CEF">
+                <description>Complete entity failure.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="TEST_RESULT_PEF">
+                <description>Partial entitiy failure.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="RestartReason">
+            <description> The restart reason.</description>
+            <enumMember name="PLANNED_RECONFIGURATION">
+                <description>Restart ordered to perform planned activities such as reconfigurations.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_NODE_EXTERNAL_PROBLEMS">
+                <description>Restart ordered to resolve node external problems. </description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_NODE_UPGRADE_PROBLEMS">
+                <description>Restart ordered to resolve upgrade problems. </description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_O_AND_M_ISSUE">
+                <description>Restart ordered to resolve O&amp;M issues. </description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_CYCLIC_RECOVERY">
+                <description>Restart ordered to stop further auto recovery attempts. </description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_LOCKED_RESOURCES">
+                <value>5</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_COLD_WITH_HW_TEST">
+                <description>Restart ordered to perform HW tests. </description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_CALL_PROCESSING_DEGRADATION">
+                <value>7</value>
+            </enumMember>
+            <enumMember name="UNPLANNED_LOW_COVERAGE">
+                <description>Restart ordered to improve Cell Availability. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="OPERATOR_CLASSIFIED_PROBLEMS">
+                <description>Restart ordered to resolve procedural errors or office environmental problems.&#13;
+Example: power, grounding, temperature, humidity or security problems. </description>
+                <value>31</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="DateTime">
+            <description>Represents the international standard for the representation of date and time ( ISO 8601).&#13;
+The string format is "YYYY-MM-DDThh:mm:ss.SSSZ" (excluding quotes).&#13;
+A DateTime string consists of a date part, a time part, and an optional time zone information part. The time zone part may be a "Z", representing the Coordinated Universal Time (UTC) time zone (equals to +00) or a time zone offset (for example, +02:00).&#13;
+If the time zone part is not present, the DateTime value represents local time.&#13;
+&#13;
+The following pattern describes the DateTime format:&#13;
+YYYY-MM-DDThh:mm:ss[.S+][Z|+-hh:mm]&#13;
+Where:&#13;
+YYYY = Four digit year&#13;
+MM = Two digit month (01=January, and so on)&#13;
+DD = Two digit day of month (01 through 31)&#13;
+T = Time designator (shows start of time component)&#13;
+hh = Two digits of hour (00 through 23, AM/PM not allowed)&#13;
+mm = Two digits of minute (00 through 59)&#13;
+ss = Two digits of second (00 through 59, leap second not allowed)&#13;
+S+ = One or more digits of decimal fraction of a second&#13;
+Z = Time is UTC&#13;
++- = + or - character indicating positive or negative offset to UTC &#13;
+&#13;
+DateTime values are compliant with ISO 8601 "Representation of dates and times" but are restricted according to RFC 3339 "Date and Time on the Internet: Timestamps". The DateTime format is further restricted as follows:&#13;
+- T and Z designators are upper case.&#13;
+- . (dot) is used to indicate start of fractions of seconds (ISO 8601 also allows comma)&#13;
+&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>19</min>
+                        <max>31</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>19</min>
+                            <max>31</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="Must be of the format YYYY-MM-DDTHH:MM:SS[.S+][Z|+-hh:mm] where T separates the time and the date parts and Z indicates the time zone in relation to UTC. Example 2000-08-01T17:17:34.1+01:00." format="posix_ere" name="Pattern Constraint"><![CDATA[^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="ReqFieldReplaceableUnit_FieldReplaceableUnit_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="FieldReplaceableUnit_writeRepairDelivNote_preparedBy">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>15</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>15</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="FieldReplaceableUnit_writeRepairDelivNote_stateCode">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>1</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>1</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="FieldReplaceableUnit_writeRepairDelivNote_trNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>10</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>10</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="FieldReplaceableUnit_writeRepairDelivNote_reference">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="FieldReplaceableUnit_writeRepairDelivNote_descriptionOfFault">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>64</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>64</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="FieldReplaceableUnit_writeRepairDelivNote_countryCode">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>2</min>
+                        <max>2</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>2</min>
+                            <max>2</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqFieldReplaceableUnit_SpecialIndicator_indicatorName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqFieldReplaceableUnit_PositionStruct_altitude">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-8388608</min>
+                        <max>8388607</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-8388608</min>
+                            <max>8388607</max>
+                        </subrange>
+                    </ranges>
+                    <unit>meter</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqFieldReplaceableUnit_PositionStruct_geoDatum">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>5</min>
+                        <max>5</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>5</min>
+                            <max>5</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqFieldReplaceableUnit_PositionStruct_latitude">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-90000000</min>
+                        <max>90000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-90000000</min>
+                            <max>90000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>degrees</unit>
+                    <multiplicationFactor>0.000001</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqFieldReplaceableUnit_PositionStruct_longitude">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-180000000</min>
+                        <max>180000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-180000000</min>
+                            <max>180000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>degrees</unit>
+                    <multiplicationFactor>0.000001</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="FieldReplaceableUnit">
+            <description> This MO models a Field Replaceable Unit (FRU).</description>
+            <root/>
+            <action name="restartUnit">
+                <description>Restarts the FRU.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="88"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="restartRank">
+                    <description>The restart rank.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="RestartRank">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <parameter name="restartReason">
+                    <description>The reason for the restart.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="RestartReason">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <parameter name="restartInfo">
+                    <description>A free text field where extra information can be added.</description>
+                    <domainExtension domain="ECIM">
+                        <extension name="isNillable" value="true"/>
+                    </domainExtension>
+                    <isNillable/>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <disturbances> Restart causes loss of traffic.</disturbances>
+            </action>
+            <action name="writeRepairDelivNote">
+                <description>Writes HW log entry. Only one HW log entry is allowed for each unit. The existing entries in the HW log are not updated.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="99"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="preparedBy">
+                    <description>Name of operator preparing the log entry.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="FieldReplaceableUnit_writeRepairDelivNote_preparedBy">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="stateCode">
+                    <description>The HW status when the failure occured:
+R = Repaired unit failed during installation or test.
+S = Unit in service failure occured.
+T = New unit failed during installation or test.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="FieldReplaceableUnit_writeRepairDelivNote_stateCode">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="trNumber">
+                    <description>If the unit has a connection with a trouble report, a reference to this must be supplied.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="FieldReplaceableUnit_writeRepairDelivNote_trNumber">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="reference">
+                    <description>Complaint reference.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="FieldReplaceableUnit_writeRepairDelivNote_reference">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="descriptionOfFault">
+                    <description>Specific description of the fault observed. It is also important that other external factors are described as well. For product safety reasons also specify fore, water damage and so on.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="FieldReplaceableUnit_writeRepairDelivNote_descriptionOfFault">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="countryCode">
+                    <description>Two letter country code.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="FieldReplaceableUnit_writeRepairDelivNote_countryCode">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="resetUnitInstallation">
+                <description>Uninstalls the corresponding FieldReplaceableUnit. Applicable only to FieldReplaceableUnits of type Radio Dot, and only when the unit has been physically removed. The action sets the availability status of the MO to NOT_INSTALLED.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <attribute name="fieldReplaceableUnitId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="climateZoneRef">
+                <description>Specifies in which climate controlled zone this FRU is. Either referring to a Cabinet MO (when in a cabinet), or being empty (for instance in the case of an External Radio).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 16A, replaced by positionRef. Has no functional behavior.</statusInformation>
+            </attribute>
+            <attribute name="operationalIndicator">
+                <description>The operational status of the FRU as shown by the optical operational indicator on the unit.&#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = The indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = No power.&#13;
+• STEADY_ON = Operational, the unit can perform its intended purpose.&#13;
+• SLOW_BLINK = Dependent resource missing, the unit is non-operational.&#13;
+• DOUBLE_FLASH_AND_STEADY_ON = Loading software, the unit is operational during software loading.&#13;
+• DOUBLE_FLASH_AND_OFF = Loading software, the unit is non-operational during software loading.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="IndicatorStatus">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="statusIndicator">
+                <description>The status of the managed element as shown by the optical status indicator on the unit.&#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = The indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = No faults exist in the managed element.&#13;
+• STEADY_ON = A fault exists in the managed element.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="IndicatorStatus">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="faultIndicator">
+                <description>The fault status of the FRU as shown by the optical fault indicator on the unit.&#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = The indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = No hardware fault.&#13;
+• STEADY_ON = Hardware fault.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="IndicatorStatus">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="maintenanceIndicator">
+                <description>The maintenance status of the FRU as shown by the optical maintenance indicator on the unit.&#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = The indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = Non-maintenance mode (unit unlocked).&#13;
+• STEADY_ON = Full maintenance mode (unit locked).&#13;
+• SLOW_BLINK = Removing ongoing traffic in the unit.&#13;
+• FAST_BLINK = Alarms suppressed in the managed element.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="IndicatorStatus">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="productData">
+                <description>The product data of the installed Unit.&#13;
+If the corresponding hardware unit is not installed yet, the struct contains empty strings.</description>
+                <readOnly/>
+                <dataType>
+                    <structRef name="ProductData">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description> Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqFieldReplaceableUnit_FieldReplaceableUnit_userLabel">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description> Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="hwTestResult">
+                <description>The test result from the latest restart of the FRU (with rank RESTART_COLDWTEST).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="HwTestResult">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="specialIndicator">
+                <description>The current status of special indicators on the unit.
+The possible status values and semantics of these vary depending on the name of the indicator.
+
+Possible values:
+Support Unit Fault Indicator
+• OFF = No associated support unit is faulty or inaccessible.
+• STEADY_ON = One or more associated support units are faulty or inaccessible.
+
+Battery Fault Indicator
+• NOT_AVAILABLE = The indicator state is currently unavailable.
+• OFF = The battery is connected and no fault exists in the unit.
+• STEADY_ON = The battery is potentially faulty and must be examined.
+• SLOW_BLINK = The battery is manually disconnected or the circuit breaker has tripped and the battery is disconnected from the system voltage.
+
+Power Distribution Fault Indicator
+• NOT_AVAILABLE = The indicator state is currently not available.
+• OFF = No power distribution fault.
+• STEADY_ON = The PDU has lost contact with at least one ECM in the same sub-rack
+• SLOW_BLINK = Power distribution fault.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="SpecialIndicator">
+                            <mimName>ReqFieldReplaceableUnit</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="positionRef">
+                <description>Specifies position of the FRU. Refers to a Cabinet MO, a Shelf MO, a HwGroup MO, or it is empty, for example in an External Radio.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="positionInformation">
+                <description>The position of a FieldReplaceableUnit. It can be:
+
+- On a shelf
+- Not on a shelf but inside or outside the cabinet
+- Be part of a HW group
+- At a remote site
+
+If the hardware is contained on a shelf, the attribute position is used. Otherwise this attribute can be used, for example, to provide the address of a remote site, or to indicate that the unit is installed in connection to a specific shelf.</description>
+                <dataType>
+                    <sequence>
+                        <string/>
+                        <minLength>0</minLength>
+                        <maxLength>255</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="supportUnitRef">
+                <description>Reference to support units connected to this FieldReplaceableUnit.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="positionCoordinates">
+                <description>The position of the FieldReplaceableUnit expressed as coordinates.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <structRef name="PositionStruct">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="isSharedWithExternalMe">
+                <description>Indicates if the unit represented by this MO is managed also by another ManagedElement, to which it is physically connected. The attribute needs to be set correctly to ensure proper Operation &amp; Maintenance of the shared unit. It should be noted that the attribute has no relation to the number of radio standards handled by the unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+        </class>
+        <relationship name="Cabinet_reservedBy_to_FieldReplaceableUnit_positionRef">
+            <biDirectionalAssociation>
+                <associationEnd name="positionRef">
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="HwGroup_reservedBy_to_FieldReplaceableUnit_positionRef">
+            <biDirectionalAssociation>
+                <associationEnd name="positionRef">
+                    <hasClass name="HwGroup">
+                        <mimName>ReqHwGroup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="SupportUnit_reservedBy_to_FieldReplaceableUnit_supportUnitRef">
+            <biDirectionalAssociation>
+                <associationEnd name="supportUnitRef">
+                    <hasClass name="SupportUnit">
+                        <mimName>ReqSupportUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Equipment_to_FieldReplaceableUnit">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

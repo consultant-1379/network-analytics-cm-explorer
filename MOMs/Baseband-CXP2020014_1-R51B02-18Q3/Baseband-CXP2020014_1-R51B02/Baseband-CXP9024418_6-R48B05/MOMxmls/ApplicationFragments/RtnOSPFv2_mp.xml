@@ -1,0 +1,1176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Dec 12, 2017 4:07:10 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+-->
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RtnOSPFv2" namespace="urn:com:ericsson:ecim:RtnOSPFv2" namespacePrefix="rtnospfv2" organization="" release="19" revision="" variant="Model" version="2">
+        <description>OSPFv2  MOM is responsible for describing all the parameters of  a OSPFv2 router instance.&#13;
+There are several OSPFv2 router instances.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_OSPFv2"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_OSPFv2" release="0" version="1"/>
+        <enum name="InterfaceNetworkType">
+            <description>OSPF area interface network type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            
+            <enumMember name="BROADCAST">
+                <description>Broadcast network.</description>
+                <value>1</value>
+            </enumMember>
+            
+            <enumMember name="POINT_TO_POINT">
+                <description>Point-to-point network.</description>
+                <value>3</value>
+            </enumMember>
+            
+        </enum>
+        <enum name="MetricType">
+            <description>Metric type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnOSPFv2Library"/>
+            </domainExtension>
+            <enumMember name="TYPE_1">
+                <description>OSPF external type 1 metric.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TYPE_2">
+                <description>OSPF external type 2 metric.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="OspfAuthentication">
+            <description>Authentication type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <enumMember name="NONE">
+                <description>No authentication.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="MD5">
+                <description>MD5 authentication.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="RouterType">
+            <description>Router type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnOSPFv2Library"/>
+            </domainExtension>
+            <enumMember name="STATIC">
+                <description>Static routes can be redistributed.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="CONNECTED">
+                <description>Connected routes can be redistributed.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="AreaIdType">
+            <description>Ospf Area Id.&#13;
+Regular expression representing an IPv4 address or 32 bit number used as a area Id.&#13;
+Area ID 0.0.0.0 is used for the OSPF backbone</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^(((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(429496729[0-5]|42949672[0-8][0-9]|4294967[01][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[01][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{8}|[1-9][0-9]{7}|[1-9][0-9]{6}|[1-9][0-9]{5}|[1-9][0-9]{4}|[1-9][0-9]{3}|[1-9][0-9]{2}|[1-9][0-9]|[0-9]))$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^(((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(429496729[0-5]|42949672[0-8][0-9]|4294967[01][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[01][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{8}|[1-9][0-9]{7}|[1-9][0-9]{6}|[1-9][0-9]{5}|[1-9][0-9]{4}|[1-9][0-9]{3}|[1-9][0-9]{2}|[1-9][0-9]|[0-9]))$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="DistanceValueType">
+            <description>OSPF distance value for routes external to the OSPF domain.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="HelloIntervalType">
+            <description>Interface hello interval.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="KeyAttributeType">
+            <description>Ospf KeyAttribute Type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <baseType>
+                <string/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Md5Password">
+            <description>The Md5Password type represents password used for MD5 authentication in OSPFv2.
+
+Alphanumeric characters are allowed in the string.
+
+Regexp: ^([A-Za-z0-9]+)$</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnOSPFv2Library"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>16</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>16</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([A-Za-z0-9]+)$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^([A-Za-z0-9]+)$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="ReferenceBandwidthType">
+            <description>Reference Bandwidth in megabits per second.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>4294967</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>4294967</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Mbps</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RouterDeadIntervalType">
+            <description>Interface router-dead interval.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RouterIdStr">
+            <description>The unique router ID of an OSPFv2 process instance.
+
+Dependencies: The value cannot be set to 0.0.0.0 or 0.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>253</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>253</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>(^((((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])))|(429496729[0-5]|42949672[0-8][0-9]|4294967[01][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[01][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{8}|[1-9][0-9]{7}|[1-9][0-9]{6}|[1-9][0-9]{5}|[1-9][0-9]{4}|[1-9][0-9]{3}|[1-9][0-9]{2}|[1-9][0-9]|[1-9]))$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^((((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|0?[1-9][0-9]|0?0?[1-9])))|(429496729[0-5]|42949672[0-8][0-9]|4294967[01][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[01][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{8}|[1-9][0-9]{7}|[1-9][0-9]{6}|[1-9][0-9]{5}|[1-9][0-9]{4}|[1-9][0-9]{3}|[1-9][0-9]{2}|[1-9][0-9]|[1-9]))$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RouterPriorityType">
+            <description>Interface Router Priority.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnOSPFLib"/>
+            </domainExtension>
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Area_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Interface_adminCost">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Interface_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Md5_md5Key">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Md5_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Ospfv2_instanceId">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Ospfv2_maxHoldTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>600000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>600000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Ospfv2_minHoldTime">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>600000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>600000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Ospfv2_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Redistribute_metric">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>16777214</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>16777214</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnOSPFv2_Redistribute_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="Area">
+            <description>Information related to the OSPF area of this router. </description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Area"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+  <pattern>
+    <rule>
+      <assert test='(@ospfAreaId ne "0.0.0.0" and @ospfAreaId ne "0") or ((count(./Stub) + count(./Nssa)) eq 0)'>
+      <value-of select="."/> If ospfAreaId is set to 0 the area MO is not allowed to have Stub or Nssa MOs below it
+      </assert>
+      <assert test='(count(./Stub) + count(./Nssa)) le 1'>
+      <value-of select="."/> Area MO can only have one area type (Stub or Nssa) child
+      </assert>
+    </rule>
+  </pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+  <pattern>
+    <rule>
+      <assert test='(@ospfAreaId ne "0.0.0.0" and @ospfAreaId ne "0") or ((count(./Stub) + count(./Nssa)) eq 0)'>
+      <value-of select="."/> If ospfAreaId is set to 0 the area MO is not allowed to have Stub or Nssa MOs below it
+      </assert>
+      <assert test='(count(./Stub) + count(./Nssa)) le 1'>
+      <value-of select="."/> Area MO can only have one area type (Stub or Nssa) child
+      </assert>
+    </rule>
+  </pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="areaId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="KeyAttributeType">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ospfAreaId">
+                <description>The area identifier as an integer (0..4294967295) or as an IPv4 address in decimal-dot notation.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="AreaIdType">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>If ospfAreaId is set to 0, this instance of the Area MO class must not have Stub or Nssa MOs as children.
+An instance of Area MO class can have only one area type, that is Stub MO or Nssa MO, as child.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+                <takesEffect>All Interface MOs are reconfigured. The OSPFv2 routes from these interfaces are removed from the routing table and traffic is impacted until OSPFv2 has converged.</takesEffect>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Area_userLabel">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Interface">
+            <description>Represents OSPF area interface.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Interface"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='@routerDeadInterval gt @helloInterval'><value-of select="."/> DeadInterval should always be greater than helloInterval. </assert>
+		<assert test='every $interfaceAddress in @interfaceAddress satisfies (count(../../../Ospfv2/Area/Interface[($interfaceAddress eq @interfaceAddress)]) eq 1)'><value-of select="."/> An AddressIPv4 MO can be referenced by only one OSPF Interface MO at a time. </assert>
+		<assert test='not((@interfaceAddress and (../../../@routerId ne @interfaceAddress/../../@routerId)))'><value-of select="."/> Only AddressIPv4 MO reference within the same router is allowed in Ospfv2. </assert>
+		<assert test='not(@authenticationType eq 2 and count(./Md5) eq 0)'><value-of select="."/> If authenticationType is MD5, Md5 MO must be configured. </assert>
+		<assert test='are-distinct-values(./Md5/@md5Key)'><value-of select="."/> md5Key must be unique within same OSPFv2 Interface.</assert>
+		<assert test='not((@interfaceAddress and @interfaceAddress/../@loopback) and (count(./Md5) ne 0))'><value-of select="."/> Md5 cannot be configured at loopback interface. </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='@routerDeadInterval gt @helloInterval'><value-of select="."/> DeadInterval should always be greater than helloInterval. </assert>
+		<assert test='every $interfaceAddress in @interfaceAddress satisfies (count(../../../Ospfv2/Area/Interface[($interfaceAddress eq @interfaceAddress)]) eq 1)'><value-of select="."/> An AddressIPv4 MO can be referenced by only one OSPF Interface MO at a time. </assert>
+		<assert test='not((@interfaceAddress and (../../../@routerId ne @interfaceAddress/../../@routerId)))'><value-of select="."/> Only AddressIPv4 MO reference within the same router is allowed in Ospfv2. </assert>
+		<assert test='not(@authenticationType eq 2 and count(./Md5) eq 0)'><value-of select="."/> If authenticationType is MD5, Md5 MO must be configured. </assert>
+		<assert test='are-distinct-values(./Md5/@md5Key)'><value-of select="."/> md5Key must be unique within same OSPFv2 Interface.</assert>
+		<assert test='not((@interfaceAddress and @interfaceAddress/../@loopback) and (count(./Md5) ne 0))'><value-of select="."/> Md5 cannot be configured at loopback interface. </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="adminCost">
+                <description>Cost of traversing this interface.
+
+This attribute overrides result of automatic cost calculation, performed by default (uses referenceBandwidth in Ospfv2 MO).
+Set this attribute to empty, to revert to automatic cost calculation.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Interface_adminCost">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="authenticationType">
+                <description>Authentication type of this interface.</description>
+                <dataType>
+                    <enumRef name="OspfAuthentication">
+                        <defaultValue>NONE</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>If set to MD5, Md5 MO must be configured.</dependencies>
+            </attribute>
+            <attribute name="bfdMonitoring">
+                <description>Controls whether availability of this route depends on BFD session that monitors OSPF Interface.
+
+If set to true, availability of this route depends on session state, if BFD session monitors OSPF Interface.
+If set to false, availability of this route does not depend on session state, when BFD session monitors OSPF Interface.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="helloInterval">
+                <description>Hello interval.
+
+Configure same hello interval for all routers in network. Shorter hello interval ensure faster detection of topological changes, but results in more routing traffic.</description>
+                <dataType>
+                    <derivedDataTypeRef name="HelloIntervalType">
+                        <defaultValue>10</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="interfaceAddress">
+                <description>Reference to AddressIPv4 MO that identifies layer 3 interface participating in OSPF.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>An AddressIPv4 MO can be referenced by only one OSPF Interface MO at a time.
+Only AddressIPv4 MO reference within the same router is allowed in Ospfv2.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+                <takesEffect>The Interface MO is reconfigured. The OSPFv2 routes from this interface are removed from the routing table and traffic is impacted until OSPFv2 has converged.</takesEffect>
+            </attribute>
+            <attribute name="interfaceId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="KeyAttributeType">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="networkType">
+                <description>Specifies the network type of this interface.
+
+For some settings, this attribute changes the OSPF behavior of electing the designated router, sending of database descriptions, and the content of LSAs. &#13;
+</description>
+                <dataType>
+                    <enumRef name="InterfaceNetworkType">
+                        <defaultValue>BROADCAST</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="passive">
+                <description>Enables the passive mode on this interface.
+
+If this attribute is set to true, this interface does not participate in OSPF, and does not send routing updates or establish adjacencies while the interface is still advertised to other routers. &#13;
+</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="routerDeadInterval">
+                <description>The router dead interval specifies the time after which the neighbor is declared as unavailable, if no hello packet is received during this interval.
+
+This value is advertised in the hello packets from the router and must be a multiple of helloInterval. The same value must be set on all interfaces in the network. &#13;
+</description>
+                <dataType>
+                    <derivedDataTypeRef name="RouterDeadIntervalType">
+                        <defaultValue>40</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>routerDeadInterval must be greater than helloInterval.</dependencies>
+            </attribute>
+            <attribute name="routerPriority">
+                <description>The router priority used on this interface.
+
+This priority used to determine the OSPF Designated Router (DR) for the network this interface is on. If two routers attempt to become the DR, the router with the higher router priority becomes the DR. If the router priority is the same for two routers, the router with the higher router ID takes precedence. Only routers with nonzero router priority values are eligible to become the designated or backup designated router.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RouterPriorityType">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Interface_userLabel">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Md5">
+            <description>Represents password and key-id used in MD5 algorithm to authenticate OSPF messages.
+
+Configuration of this class is only valid if authenticationType is set to MD5.
+Cannot be configured at loopback interface.</description>
+            <action name="setPassword">
+                <description>This action sets password that is used for MD5 authentication.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="password">
+                    <description>String to use as MD5 password.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="Md5Password">
+                            <mimName>RtnOSPFv2</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <attribute name="md5Id">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="md5Key">
+                <description>Key-id for MD5 authentication.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Md5_md5Key">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Must be unique within same OSPFv2 Interface.</dependencies>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Md5_userLabel">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Nssa">
+            <description>Specifies the OSPF area to be an NSSA (Not-So-Stubby Area).
+
+Disturbances: Changing this attribute causes traffic disturbances.
+Takes effect: All Interface MOs are reconfigured. The OSPFv2 routes from these interfaces are removed from the routing table and traffic is impacted until OSPFv2 has converged.</description>
+            <attribute name="nssaId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Ospfv2">
+            <description>Represents OSPFv2 routing instance.
+
+Dependencies:
+If AddressIPv4 MO with configurationMode DHCP exists within Router MO, this MO cannot be created.
+If IpsecTunnel MO exists within Router MO, this MO cannot be created.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Ospfv2"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $instanceId in @instanceId satisfies (count(../../Router/Ospfv2[($instanceId eq @instanceId)]) eq 1)'><value-of select="."/> Ospfv2 instanceId must be unique between different Ospfv2 processes</assert>
+		<assert test='are-distinct-values(./Redistribute/@routeType)'><value-of select="."/> Only one of each routeType is allowed, STATIC or CONNECTED</assert>
+		<assert test='minHoldTime le maxHoldTime'>maxHoldTime must be greater or equal to minHoldTime.</assert>
+		<assert test='not(count(../Ospfv2) gt 0 and count(../IpsecTunnel) gt 0)'><value-of select="."/> If IpsecTunnel MO exists within Router MO, Ospfv2 MO cannot be created.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $instanceId in @instanceId satisfies (count(../../Router/Ospfv2[($instanceId eq @instanceId)]) eq 1)'><value-of select="."/> Ospfv2 instanceId must be unique between different Ospfv2 processes</assert>
+		<assert test='are-distinct-values(./Redistribute/@routeType)'><value-of select="."/> Only one of each routeType is allowed, STATIC or CONNECTED</assert>
+		<assert test='minHoldTime le maxHoldTime'>maxHoldTime must be greater or equal to minHoldTime.</assert>
+		<assert test='not(count(../Ospfv2) gt 0 and count(../IpsecTunnel) gt 0)'><value-of select="."/> If IpsecTunnel MO exists within Router MO, Ospfv2 MO cannot be created.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="adminDistanceExternal">
+                <description>The administrative distance applied to routes redistributed from other routing domains.</description>
+                <dataType>
+                    <derivedDataTypeRef name="DistanceValueType">
+                        <defaultValue>110</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="adminDistanceInter">
+                <description>The administrative distance applied to routes learned in an OSPFv2 area different from the area that this router is located in.</description>
+                <dataType>
+                    <derivedDataTypeRef name="DistanceValueType">
+                        <defaultValue>110</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="adminDistanceIntra">
+                <description>The administrative distance applied to routes learned in the same OSPFv2 area as this router is located in.</description>
+                <dataType>
+                    <derivedDataTypeRef name="DistanceValueType">
+                        <defaultValue>110</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="instanceId">
+                <description>The ID of the OSPFv2 routing instance.</description>
+                <mandatory/>
+                <restricted/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Ospfv2_instanceId">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Ospfv2 instanceId must be unique between different Ospfv2 processes.</dependencies>
+            </attribute>
+            <attribute name="maxHoldTime">
+                <description>Maximum delay between receiving change to SPF calculation.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Ospfv2_maxHoldTime">
+                        <defaultValue>15000</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>maxHoldTime must be greater or equal to minHoldTime.</dependencies>
+            </attribute>
+            <attribute name="minHoldTime">
+                <description>Minimum delay between receiving change to SPF calculation.
+
+Adjust route-calculation timers using exponential back-off delays. This attribute, together with maxHoldTime, configures minimum and maximum delay time between receipt of topology change and calculation of SPF.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Ospfv2_minHoldTime">
+                        <defaultValue>50</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ospfv2Id">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="KeyAttributeType">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="referenceBandwidth">
+                <description>Specifies the reference bandwidth used by for automatic interface cost calculation indicated by the attribute operCost in class Interface.
+
+This calculation divides the reference bandwidth by the interface bandwidth. If adminCost is set in class Interface then no automatic cost calculation is done and the administratively set cost is used for that interface.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ReferenceBandwidthType">
+                        <defaultValue>100</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="routerId">
+                <description>Specified the value for the router ID to be used as a fixed ID for the OSPFv2 instance.
+
+If the OSPFv2 router ID is not configured, OSPF chooses the lowest loopback interface address. If there are no loopback interfaces then the lowest interface address is used. When reset to empty OSPFv2 reverts to automatic router ID assignment. The OSPFv2 router process is automatically restarted when the router ID is changed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RouterIdStr">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+                <takesEffect>The OSPFv2 process is restarted. All OSPFv2 routes are removed from the routing table and traffic is impacted until OSPFv2 has converged.</takesEffect>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Ospfv2_userLabel">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Redistribute">
+            <description>Represents types and metrics of routes to be redistributed by OSPFv2.
+
+Only one of each routeType is allowed, static or connected.</description>
+            <attribute name="metric">
+                <description>External route metric of redistributed route.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Redistribute_metric">
+                        <defaultValue>20</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="metricType">
+                <description>Metric-type of external route to be announced.</description>
+                <dataType>
+                    <enumRef name="MetricType">
+                        <defaultValue>TYPE_2</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="redistributeId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="routeType">
+                <description>Type of route to be redistributed.</description>
+                <dataType>
+                    <enumRef name="RouterType">
+                        <defaultValue>STATIC</defaultValue>
+                        <mimName>RtnOSPFv2</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnOSPFv2_Redistribute_userLabel">
+                        <mimName>RtnOSPFv2</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Stub">
+            <description>Specifies the OSPF area to be a stub area.
+
+Disturbances: Changing this attribute causes traffic disturbances.
+Takes effect: All Interface MOs are reconfigured. The OSPFv2 routes from these interfaces are removed from the routing table and traffic is impacted until OSPFv2 has converged.</description>
+            <attribute name="stubId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Area_to_Interface">
+            <containment>
+                <parent>
+                    <hasClass name="Area">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Interface">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Area_to_Nssa">
+            <containment>
+                <parent>
+                    <hasClass name="Area">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Nssa">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Area_to_Stub">
+            <containment>
+                <parent>
+                    <hasClass name="Area">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Stub">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Interface_interfaceAddress_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="interfaceAddress">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Interface">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Interface_to_Md5">
+            <containment>
+                <parent>
+                    <hasClass name="Interface">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Md5">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>2</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Ospfv2_to_Area">
+            <containment>
+                <parent>
+                    <hasClass name="Ospfv2">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Area">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="Ospfv2_to_Redistribute">
+            <containment>
+                <parent>
+                    <hasClass name="Ospfv2">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Redistribute">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>2</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_Ospfv2">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ospfv2">
+                        <mimName>RtnOSPFv2</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>32</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

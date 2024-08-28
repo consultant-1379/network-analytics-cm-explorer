@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Feb 13, 2018 10:29:54 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="qropers" contact="" correction="1" date="" docNo="" name="ReqRiPort" namespace="urn:com:ericsson:ecim:ReqRiPort" namespacePrefix="reqriport" organization="" release="2" revision="" version="5">
+        <description>ReqRiPort.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="SfpProductData">
+            <description>Information on the installed small form-factor pluggable (SFP) module on the Radio Interface (RI) link.</description>
+            <structMember name="manufacturerDesignation">
+                <description>The manufacturer designation of the SFP module. </description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_manufacturerDesignation">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="manufacturerId">
+                <description>The manufacturer ID of the SFP module. </description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_manufacturerId">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="manufacturerRevision">
+                <description>The manufacturer revision of the SFP module. </description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_manufacturerRevision">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="negotiatedBitRate">
+                <description>The maximum rate supported by the SFP module.</description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_negotiatedBitRate">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productionDate">
+                <description>The production date of the SFP module.
+</description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_productionDate">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productNumber">
+                <description>The product number of the SFP module.
+</description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_productNumber">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The product version of the SFP module. </description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_productRevision">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>The serial number of the SFP module.</description>
+                <derivedDataTypeRef name="ReqRiPort_SfpProductData_serialNumber">
+                    <mimName>ReqRiPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="TransmissionStandard">
+            <description>Transmission standard for communication between DU and RU.</description>
+            <enumMember name="CPRI">
+                <description>CPRI.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ETHERNET">
+                <description>Ethernet.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqRiPort_RiPort_preferredSfpProductNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>13</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>13</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_manufacturerDesignation">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>16</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>16</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_manufacturerId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>16</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>16</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_manufacturerRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_negotiatedBitRate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_productionDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>7</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_productNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>13</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>13</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_productRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiPort_SfpProductData_serialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>15</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>15</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="RiPort">
+            <description>RiPort.</description>
+            <root/>
+            <attribute name="riPortId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availabilityStatus.
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqRiPort</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqRiPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="sfpData">
+                <description>Information on the installed small form-factor pluggable (SFP) module on the Radio Interface (RI) link. A blank value indicates the data is currently unavailable. 
+
+Deprecated since 16B.
+Moved to SfpProductData in SfpModule.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="SfpProductData">
+                        <mimName>ReqRiPort</mimName>
+                    </structRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 16B</statusInformation>
+            </attribute>
+            <attribute name="sfpModuleRef">
+                <description>Refers to one SfpModule on the unit to which the port is connected. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="transmissionStandard">
+                <description>Shows if the RiPort has come up as CPRI or Ethernet.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="TransmissionStandard">
+                        <mimName>ReqRiPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state. 
+If set to SHUTTINGDOWN, the state is immediately brought to LOCKED.
+</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>UNLOCKED</defaultValue>
+                        <mimName>ReqRiPort</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute to LOCKED or SHUTTING_DOWN causes loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="preferredSfpProductNumber">
+                <description>Ericsson product number of the preferred SFP module for the RiPort.
+If SFP with different product number detected, alarm "SFP Product Number Mismatch" is issued.
+The default value, nil, means the SFP validation function is disabled.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRiPort_RiPort_preferredSfpProductNumber">
+                        <mimName>ReqRiPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="RiPort_sfpModuleRef_to_SfpModule_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="sfpModuleRef">
+                    <hasClass name="SfpModule">
+                        <mimName>ReqSfpModule</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RiPort">
+                        <mimName>ReqRiPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_RiPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RiPort">
+                        <mimName>ReqRiPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

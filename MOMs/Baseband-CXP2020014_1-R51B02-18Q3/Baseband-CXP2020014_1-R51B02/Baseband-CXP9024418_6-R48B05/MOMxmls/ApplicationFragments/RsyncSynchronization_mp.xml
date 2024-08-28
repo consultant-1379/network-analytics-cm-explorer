@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+        Copyright (c) 2015 Ericsson AB.
+        All rights reserved
+
+        DX ECIM Tool-chain generated this file on Dec 14, 2015 10:30:53 AM using:
+        * com.ericsson.ecim.m2m 2.14.5.201511210257
+        * com.ericsson.ecim.dsl 2.14.5.201511210257
+        * com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="2" date="" docNo="" name="RsyncSynchronization" namespace="urn:com:ericsson:ecim:RsyncSynchronization" namespacePrefix="rsyncsynchronization" organization="" release="3" revision="" variant="Model" version="1">
+        <description>ECIM Transport Synchronization Model.&#13;
+&#13;
+This is the root of Sync fragment.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="TelecomStandard">
+            <description>Telecom standard of the synchronization networks.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="OPTION_I">
+                <description>Option I synchronization networks for ETSI (European standard).</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="OPTION_II">
+                <description>Option II synchronization networks for ANSI (US standard).</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OPTION_III">
+                <description>Option III synchronization networks for TTC (Japanese standard).</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <class name="Synchronization">
+            <description>This MO class is the top class for synchronization management.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="fixedPosition">
+                <description>Specifies whether the node has a fixed position.
+
+If the node does not move this attribute is set to true. A GNSS receiver may lock its position to enhance the receiver performance.
+If the node may move, for example on a cruise ship, this attribute is set to false. A GNSS receiver needs to continuously track its position.
+</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="synchronizationId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="telecomStandard">
+                <description>Specifies the regional telecom standard option to I, II, or III for ETSI (European Standard) , ANSI (US Standard) or TTC (Japanese Standard) respectively.
+
+The attribute is not applicable, if RadioEquipmentClock::selectionProcessMode is set to QL_DISABLED.
+</description>
+                <dataType>
+                    <enumRef name="TelecomStandard">
+                        <defaultValue>OPTION_I</defaultValue>
+                        <mimName>RsyncSynchronization</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>If this attribute is changed, the attributes RadioEquipmentClockReference::adminQualityLevel and RadioEquipmentClock::minQualityLevel will change to the quality level value defined within the telecom option.</dependencies>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_Synchronization">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Synchronization">
+                        <mimName>RsyncSynchronization</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

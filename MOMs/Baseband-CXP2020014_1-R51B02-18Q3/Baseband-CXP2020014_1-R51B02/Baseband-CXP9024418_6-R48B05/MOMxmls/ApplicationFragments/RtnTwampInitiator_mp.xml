@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Mar 30, 2016 2:03:54 PM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RtnTwampInitiator" namespace="urn:com:ericsson:ecim:RtnTwampInitiator" namespacePrefix="rtntwampinitiator" organization="" release="4" revision="" variant="Model" version="1">
+        <description>ECIM Transport TWAMP Initiator MOM.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="ProfileType">
+            <description>Profile type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnTwampLibrary"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <enumMember name="FULL_RESOLUTION_50">
+                <description>Interval 1 min, active during 1 min, sending 3000 samples, at frequency 50 PPS.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FULL_RESOLUTION_10">
+                <description>Interval 1 min, active during 1 min, sending 600 samples, at frequency 10 PPS.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="ResponderType">
+            <description>Responder type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnTwampLibrary"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <enumMember name="LIGHT">
+                <description>TWAMP light stateful.&#13;
+&#13;
+Light (stateful) : the sequence number in the reflected packet is generated by the responder, which enables measurement of packet loss in forward and reverse direction.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="LIGHT_SL">
+                <description>TWAMP light stateless.&#13;
+&#13;
+Light-SL (stateless) : the sequence number is copied from the sender's test packet to the reflected packet, thus it is only possible to measure round trip packet loss.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="IpAddress">
+            <description>Regular expression pattern for IP assigned address, covering both IPv4 and IPv6.&#13;
+&#13;
+The type is ((IPv4 address)|(IPv6 address)), without leading 0s.&#13;
+&#13;
+IpV4 address = ((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))&#13;
+&#13;
+IPv6 address = (\s*((((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*)&#13;
+&#13;
+Matching example is: 192.168.21.3&#13;
+Another matching example is: 2001:db8:85a3:8d3:1319:8a2e:370:7348</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnFilterTypes"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>^(((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))|(\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*))$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^(((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))|(\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*))$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RtnTwampInitiator_TwampTestSession_dscp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnTwampInitiator_TwampTestSession_payload">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>41</min>
+                        <max>1472</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>41</min>
+                            <max>1472</max>
+                        </subrange>
+                    </ranges>
+                    <unit>byte</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnTwampInitiator_TwampTestSession_srcUdpPort">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>4032</min>
+                        <max>4063</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>4032</min>
+                            <max>4063</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnTwampInitiator_TwampTestSession_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="TwampInitiator">
+            <description>Two-Way Active Measurement Protocol (TWAMP) Initiator.
+
+Grouping all defined TwampTestSession MOs on a specific Router MO to make it possible to lock or unlock all TwampTestSession MOs.</description>
+            <root/>
+            <attribute name="administrativeState">
+                <description>The administrative state.
+
+If set to LOCKED, all TwampTestSession MOs are immediately stopped.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RtnTwampInitiator</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="twampInitiatorId">
+                <description>Value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="TwampTestSession">
+            <description>Two-Way Active Measurement Protocol (TWAMP) session sender in a TWAMP light architecture, according to RFC 5357.
+
+When activated, the TWAMP test packets will send towards a specified TWAMP session responder IP address and UDP port.
+
+Dependencies: The combination of srcUdpPort, srcIpAddress, dstUdpPort and dstIpAddress for TwampTestSession must be unique in the same router.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="TwampTestSession"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $srcUdpPort in @srcUdpPort satisfies (every $srcIpAddress in @srcIpAddress satisfies (every $dstUdpPort in @dstUdpPort satisfies(every $dstIpAddress in @dstIpAddress satisfies(count(../TwampTestSession[($srcUdpPort eq @srcUdpPort) and ($srcIpAddress eq @srcIpAddress) and ($dstUdpPort eq @dstUdpPort) and ($dstIpAddress eq @dstIpAddress)]) eq 1))))'><value-of select="."/> The combination of srcUdpPort, srcIpAddress, dstUdpPort and dstIpAddress for TwampTestSession must be unique in the same router.</assert>
+		<assert test='contains(@srcIpAddress, concat("Router=", ../../@routerId, ","))'><value-of select="."/>TwampTestSession can refer only to a srcIpAddress in the same router.</assert>
+		<assert test='@mode eq "LIGHT"'><value-of select="."/> Only LIGHT mode supported in this release.</assert>]]>&#13;<![CDATA[
+		</rule>]]>&#13;<![CDATA[
+	</pattern>]]>&#13;<![CDATA[
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $srcUdpPort in @srcUdpPort satisfies (every $srcIpAddress in @srcIpAddress satisfies (every $dstUdpPort in @dstUdpPort satisfies(every $dstIpAddress in @dstIpAddress satisfies(count(../TwampTestSession[($srcUdpPort eq @srcUdpPort) and ($srcIpAddress eq @srcIpAddress) and ($dstUdpPort eq @dstUdpPort) and ($dstIpAddress eq @dstIpAddress)]) eq 1))))'><value-of select="."/> The combination of srcUdpPort, srcIpAddress, dstUdpPort and dstIpAddress for TwampTestSession must be unique in the same router.</assert>
+		<assert test='contains(@srcIpAddress, concat("Router=", ../../@routerId, ","))'><value-of select="."/>TwampTestSession can refer only to a srcIpAddress in the same router.</assert>
+		<assert test='@mode eq "LIGHT"'><value-of select="."/> Only LIGHT mode supported in this release.</assert>]]>&#13;<![CDATA[
+		</rule>]]>&#13;<![CDATA[
+	</pattern>]]>&#13;<![CDATA[
+</schema>]]></dependenciesScript>
+            <attribute name="administrativeState">
+                <description>The administrative state.
+
+If set to LOCKED, TwampTestSession MO is immediately stopped.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RtnTwampInitiator</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RtnTwampInitiator</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp">
+                <description>DSCP value of TWAMP IP test packet.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnTwampInitiator_TwampTestSession_dscp">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RtnTwampInitiator</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dstIpAddress">
+                <description>Destination IP address of the TWAMP responder.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="IpAddress">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dstUdpPort">
+                <description>Destination UDP port of the TWAMP responder.</description>
+                <mandatory/>
+                <dataType>
+                    <uint16/>
+                </dataType>
+            </attribute>
+            <attribute name="mode">
+                <description>Type of responder mode of the measurement done in the towards direction.</description>
+                <dataType>
+                    <enumRef name="ResponderType">
+                        <defaultValue>LIGHT</defaultValue>
+                        <mimName>RtnTwampInitiator</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>Only LIGHT mode supported in this release.</dependencies>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="payload">
+                <description>TWAMP test packet payload length.
+
+Example:
+If ethernet interface IPv4 traffic is tagged and the payload is set to 50, the IP packet size =78 and ethernet frame size =100.
+If ethernet interface IPv6 traffic is tagged and the payload is set to 50, the IP packet size =98 and ethernet frame size =120.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnTwampInitiator_TwampTestSession_payload">
+                        <defaultValue>50</defaultValue>
+                        <mimName>RtnTwampInitiator</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="profileType">
+                <description>TWAMP profile type.
+</description>
+                <dataType>
+                    <enumRef name="ProfileType">
+                        <defaultValue>FULL_RESOLUTION_10</defaultValue>
+                        <mimName>RtnTwampInitiator</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="srcIpAddress">
+                <description>Source IP address.
+
+Valid reference is an AddressIpv4 MO or an AddressIpv6 MO.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>This attribute can only refer to an AddressIPv4 MO or an AddressIPv6 MO in the same router.</dependencies>
+            </attribute>
+            <attribute name="srcUdpPort">
+                <description>Source of the UDP port to send and receive TWAMP test packets.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnTwampInitiator_TwampTestSession_srcUdpPort">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="twampTestSessionId">
+                <description>Value component of the RDN.
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnTwampInitiator_TwampTestSession_userLabel">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="TwampInitiator_to_TwampTestSession">
+            <containment>
+                <parent>
+                    <hasClass name="TwampInitiator">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TwampTestSession">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>500</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="TwampTestSession_srcIpAddress_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="srcIpAddress">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="TwampTestSession">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="TwampTestSession_srcIpAddress_to_AddressIPv6_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="srcIpAddress">
+                    <hasClass name="AddressIPv6">
+                        <mimName>RtnL3InterfaceIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="TwampTestSession">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_TwampInitiator">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TwampInitiator">
+                        <mimName>RtnTwampInitiator</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

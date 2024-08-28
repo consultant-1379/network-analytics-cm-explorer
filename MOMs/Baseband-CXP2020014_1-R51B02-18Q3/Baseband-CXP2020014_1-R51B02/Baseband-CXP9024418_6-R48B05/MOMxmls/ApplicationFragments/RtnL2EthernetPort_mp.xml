@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Apr 27, 2018 11:18:15 AM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="1" date="" docNo="" name="RtnL2EthernetPort" namespace="urn:com:ericsson:ecim:RtnL2EthernetPort" namespacePrefix="rtnl2ethernetport" organization="" release="20" revision="" variant="Model" version="2">
+        <description>Ethernet port.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L2_EthernetPort"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_L2_EthernetPort" release="0" version="1"/>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="EthPortOperatingMode">
+            <description>Operating modes specify speed, duplex and master or slave states.</description>
+            <enumMember name="ANY">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="10M_HALF">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="10M_FULL">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="100M_HALF">
+                <value>4</value>
+            </enumMember>
+            <enumMember name="100M_FULL">
+                <value>5</value>
+            </enumMember>
+            <enumMember name="1G_FULL">
+                <value>6</value>
+            </enumMember>
+            <enumMember name="1G_FULL_SLAVE">
+                <value>7</value>
+            </enumMember>
+            <enumMember name="1G_FULL_MASTER">
+                <value>8</value>
+            </enumMember>
+            <enumMember name="10G_FULL">
+                <value>9</value>
+            </enumMember>
+            <enumMember name="10G_FULL_MASTER">
+                <value>10</value>
+            </enumMember>
+            <enumMember name="10G_FULL_SLAVE">
+                <value>11</value>
+            </enumMember>
+            <enumMember name="40G_FULL">
+                <value>12</value>
+            </enumMember>
+            <enumMember name="100G_FULL">
+                <value>13</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="MacAddressStr">
+            <description>MAC address string, controlled by a regular expression.&#13;
+&#13;
+Address should be specified in colon separated hexadecimal notation as described in IEEE 802. &#13;
+MAC addresses shall have 17 characters.&#13;
+Valid characters: 0123456789abcdefABCDEF
+&#13;
+Example: 00:12:34:56:78:9A</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>17</min>
+                        <max>17</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>17</min>
+                            <max>17</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RtnL2EthernetPort_EthernetPort_holdDownTimer">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>100</min>
+                        <max>10000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>100</min>
+                            <max>10000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL2EthernetPort_EthernetPort_mtu">
+            <baseType>
+                <int32>
+                    <unit>B</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL2EthernetPort_EthernetPort_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="EthernetPort">
+            <description>Represents Ethernet MAC service access point.
+
+Dependencies: All EthernetPort MOs must be configured on same FieldReplaceableUnit MO.
+All EthernetPort MOs must be configured on primary core FieldReplaceableUnit MO.
+
+QueueSystem and egress traffic shaping has no effect on low latency traffic.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="EthernetPort"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $encapsulation in @encapsulation satisfies (contains($encapsulation, "TnPort=") and (exists($encapsulation)))'><value-of select="."/> EthernetPort MO can only refer to existing TnPort MO.</assert>
+		<assert test='every $encapsulation in @encapsulation satisfies (count(../EthernetPort[($encapsulation eq @encapsulation)]) eq 1)'><value-of select="."/>: Max one instance of EthernetPort MO can refer to the same TnPort MO Instance.</assert>
+		<assert test='every $fruId in ../EthernetPort/@encapsulation/../@fieldReplaceableUnitId satisfies $fruId = @encapsulation/../@fieldReplaceableUnitId'><value-of select="."/> All EthernetPort MOs must be configured on the same FieldReplaceableUnit.</assert>
+		<assert test='every $fruId in /ManagedElement/NodeSupport/MpClusterHandling/@primaryCoreRef/@fieldReplaceableUnitId satisfies $fruId = @encapsulation/../@fieldReplaceableUnitId'><value-of select="."/> All EthernetPort MOs must be configured on the primary core FieldReplaceableUnit.</assert>
+		<assert test='not((@admOperatingMode eq 1) and (not(@autoNegEnable)))'><value-of select="."/> When admOperatingMode is ANY, autoNegEnable attribute shall not be set to False.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv4 MO can reserve this port.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv6 MO can reserve this port.</assert>
+		<assert test='not((count(@reservedBy[matches(., ".*,VlanPort=.*")]) &gt; 0) and ((count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &gt; 0) or (count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &gt; 0)))'><value-of select ="."/> A VlanPort MO cannot refer to the same EthernetPort MO as InterfaceIPv4 MO or InterfaceIPv6 MO.</assert>
+		<assert test='not((@admOperatingMode eq 9) and (@autoNegEnable))'><value-of select="."/> When admOperatingMode is 10G_FULL, autoNegEnable attribute shall not be set to True.</assert>
+		<assert test='(count(QueueSystem/QoSClassifier/PcpToQueueMap) gt 1 and @egressQosQueueMap) or (count(QueueSystem/QoSClassifier/PcpToQueueMap) le 1)'><value-of select="."/> When more than one PcpToQueueMap MO for this EthernetPort MO is configured, attribute egressQosQueueMap must be set.</assert>
+		<assert test='not(@egressQosQueueMap) or contains(@egressQosQueueMap, concat("EthernetPort=", @ethernetPortId, ","))'><value-of select="."/> Attribute egressQosQueueMap shall refer to a PcpToQueueMap MO created for its own EthernetPort MO.</assert>
+		<assert test='every $r1 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies every $r2 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies $r1 eq $r2'><value-of select="."/> If InterfaceIPv4 MO and InterfaceIPv6 MO use the same EthernetPort MO as encapsulation they must reside in the same router.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,LagPort=.*")]) &lt; 2)'><value-of select="."/> Max one LagPort MO can reserve this port.</assert>
+		<assert test='not((count(@reservedBy[matches(., ".*,LagPort=.*")]) &gt; 0) and (count(@reservedBy) ne count(@reservedBy[matches(., ".*,(LagPort|SyncEthInput|PtpBcOcPort)=.*")])))'><value-of select ="."/> When EthernetPort MO is used as port in LagPort MO, only MO type SyncEthInput or PtpBcOcPort is allowed to be used.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $encapsulation in @encapsulation satisfies (contains($encapsulation, "TnPort=") and (exists($encapsulation)))'><value-of select="."/> EthernetPort MO can only refer to existing TnPort MO.</assert>
+		<assert test='every $encapsulation in @encapsulation satisfies (count(../EthernetPort[($encapsulation eq @encapsulation)]) eq 1)'><value-of select="."/>: Max one instance of EthernetPort MO can refer to the same TnPort MO Instance.</assert>
+		<assert test='every $fruId in ../EthernetPort/@encapsulation/../@fieldReplaceableUnitId satisfies $fruId = @encapsulation/../@fieldReplaceableUnitId'><value-of select="."/> All EthernetPort MOs must be configured on the same FieldReplaceableUnit.</assert>
+		<assert test='every $fruId in /ManagedElement/NodeSupport/MpClusterHandling/@primaryCoreRef/@fieldReplaceableUnitId satisfies $fruId = @encapsulation/../@fieldReplaceableUnitId'><value-of select="."/> All EthernetPort MOs must be configured on the primary core FieldReplaceableUnit.</assert>
+		<assert test='not((@admOperatingMode eq 1) and (not(@autoNegEnable)))'><value-of select="."/> When admOperatingMode is ANY, autoNegEnable attribute shall not be set to False.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv4 MO can reserve this port.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv6 MO can reserve this port.</assert>
+		<assert test='not((count(@reservedBy[matches(., ".*,VlanPort=.*")]) &gt; 0) and ((count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &gt; 0) or (count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &gt; 0)))'><value-of select ="."/> A VlanPort MO cannot refer to the same EthernetPort MO as InterfaceIPv4 MO or InterfaceIPv6 MO.</assert>
+		<assert test='not((@admOperatingMode eq 9) and (@autoNegEnable))'><value-of select="."/> When admOperatingMode is 10G_FULL, autoNegEnable attribute shall not be set to True.</assert>
+		<assert test='(count(QueueSystem/QoSClassifier/PcpToQueueMap) gt 1 and @egressQosQueueMap) or (count(QueueSystem/QoSClassifier/PcpToQueueMap) le 1)'><value-of select="."/> When more than one PcpToQueueMap MO for this EthernetPort MO is configured, attribute egressQosQueueMap must be set.</assert>
+		<assert test='not(@egressQosQueueMap) or contains(@egressQosQueueMap, concat("EthernetPort=", @ethernetPortId, ","))'><value-of select="."/> Attribute egressQosQueueMap shall refer to a PcpToQueueMap MO created for its own EthernetPort MO.</assert>
+		<assert test='every $r1 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies every $r2 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies $r1 eq $r2'><value-of select="."/> If InterfaceIPv4 MO and InterfaceIPv6 MO use the same EthernetPort MO as encapsulation they must reside in the same router.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,LagPort=.*")]) &lt; 2)'><value-of select="."/> Max one LagPort MO can reserve this port.</assert>
+		<assert test='not((count(@reservedBy[matches(., ".*,LagPort=.*")]) &gt; 0) and (count(@reservedBy) ne count(@reservedBy[matches(., ".*,(LagPort|SyncEthInput|PtpBcOcPort)=.*")])))'><value-of select ="."/> When EthernetPort MO is used as port in LagPort MO, only MO type SyncEthInput or PtpBcOcPort is allowed to be used.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <specification>IEEE 802.3</specification>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="admOperatingMode">
+                <description>Administrative operating mode of Ethernet port. Used both when auto-negotiation is enabled and disabled.</description>
+                <dataType>
+                    <enumRef name="EthPortOperatingMode">
+                        <defaultValue>1G_FULL</defaultValue>
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>MASTER and SLAVE options are only valid for ports of type External electrical interface.
+Configuration of invalid attributes might result in port not being operational.
+
+When configuring 1G/10G_FULL on External electrical interfaces:
+If MASTER or SLAVE is not specified and autoNegEnable= true, master or slave mode will be auto-negotiated.
+If MASTER or SLAVE is not specified and autoNegEnable= false, master or slave mode will be set to SLAVE.
+
+ANY can be used by autonegotiation to negotiate interface rate and master or slave settings.
+ANY can be used only if autonegotiation is enabled (attribute autoNegEnable is set to true).
+ANY must not be used with 10G SFP.</dependencies>
+                <specification>IEEE 802.3</specification>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="autoNegEnable">
+                <description>Whether auto-negotiation of operating mode is enabled or disabled for this Ethernet port.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+                <dependencies>If true, auto-negotiation is enabled.
+If false, auto-negotiation is disabled.</dependencies>
+                <specification>IEEE 802.3</specification>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+Details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RtnL2EthernetPort</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="egressQosClassification">
+                <description>Not supported in this release.
+
+DSCP to PCP map. Used to classify DSCP tagged packets to PCP value for egress traffic in order to be handled correctly by queue system.
+It can refer to an DscpPcpMap MO.
+
+Empty string means no classification is done on DSCP. That is, PCP value is trusted.
+Attribute is used for specific issues within QoS domain and should most often be empty.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Only one of egressQosMarking or egressQosClassification can be set for each MO.</dependencies>
+            </attribute>
+            <attribute name="egressQosMarking">
+                <description>Not supported in this release.
+
+DSCP to PCP map. Used to re-mark DSCP tagged packets to PCP value for egress traffic.
+It can refer to DscpPcpMap MO.
+
+Empty string means no re-marking is done on DSCP.
+Attribute is used for specific issues within QoS domain and should most often be empty.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Only one of egressQosMarking or egressQosClassification can be set for each MO.</dependencies>
+            </attribute>
+            <attribute name="egressQosQueueMap">
+                <description>PcpToQueueMap MO used by configuring EthernetPort MO.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>Reference to underlying encapsulation.
+
+Underlying encapsulation can be TnPort MO.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Only one EthernetPort MO can refer to same TnPort MO.
+Can only refer to existing TnPort MO.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ethernetPortId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="holdDownTimer">
+                <description>Delay until operationalState changes to ENABLED. Starts when physical port comes up.
+
+When attribute is empty, there is no hold-down timer for Ethernet port.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL2EthernetPort_EthernetPort_holdDownTimer">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ingressQosMarking">
+                <description>DSCP to DSCP and/or PCP to PCP map used to re-mark DSCP and/or PCP tagged packets.
+
+Empty string means no re-marking is done.
+Attribute is used to fix specific issues within QoS domain and should most often be empty.
+
+It can refer to DscpDscpMap and/or PcpPcpMap MO.</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="macAddress">
+                <description>Assigned individual MAC address.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="MacAddressStr">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="mtu">
+                <description>MTU.
+
+Largest PDU that Ethernet layer can pass on Ethernet port.
+PDU includes Ethernet header, Ethertype, payload and frame check sequence.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL2EthernetPort_EthernetPort_mtu">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>IEEE 802.3</specification>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="operOperatingMode">
+                <description>Operational speed, duplex, and master or slave state of Ethernet port.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="EthPortOperatingMode">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL2EthernetPort_EthernetPort_userLabel">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="EthernetPort_egressQosClassification_to_DscpPcpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="egressQosClassification">
+                    <hasClass name="DscpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="EthernetPort_egressQosMarking_to_DscpPcpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="egressQosMarking">
+                    <hasClass name="DscpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="EthernetPort_egressQosQueueMap_to_PcpToQueueMap_reservedBy">
+            <preliminary/>
+            <biDirectionalAssociation>
+                <associationEnd name="egressQosQueueMap">
+                    <hasClass name="PcpToQueueMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="EthernetPort_encapsulation_to_TnPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="TnPort">
+                        <mimName>ReqTnPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="EthernetPort_ingressQosMarking_to_DscpDscpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ingressQosMarking">
+                    <hasClass name="DscpDscpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="EthernetPort_ingressQosMarking_to_PcpPcpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ingressQosMarking">
+                    <hasClass name="PcpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_EthernetPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

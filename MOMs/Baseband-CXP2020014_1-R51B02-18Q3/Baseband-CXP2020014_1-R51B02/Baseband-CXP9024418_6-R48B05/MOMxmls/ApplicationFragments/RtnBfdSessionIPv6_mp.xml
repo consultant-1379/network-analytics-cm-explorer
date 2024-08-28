@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2015 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Dec 14, 2015 10:39:44 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="0" date="" docNo="" name="RtnBfdSessionIPv6" namespace="urn:com:ericsson:ecim:RtnBfdSessionIPv6" namespacePrefix="rtnbfdsessionipv6" organization="" release="1" revision="" variant="Model" version="1">
+        <description>IPv6 Bfd Session Information.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="BfdSessionDiagnosticCode">
+            <description>Common BFD diagnostic codes.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnBfdLib"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <enumMember name="NO_DIAG">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="CONTROL_DETECTION_TIME_EXPIRED">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="ECHO_FUNCTION_FAILED">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="NEIGHBOR_SIGNALED_SESSION_DOWN">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="FORWARDING_PLANE_RESET">
+                <value>4</value>
+            </enumMember>
+            <enumMember name="PATH_DOWN">
+                <value>5</value>
+            </enumMember>
+            <enumMember name="CONCATENATED_PATH_DOWN">
+                <value>6</value>
+            </enumMember>
+            <enumMember name="ADMIN_DOWN">
+                <value>7</value>
+            </enumMember>
+            <enumMember name="REVERSE_CONCATENATED_PATH_DOWN">
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="BfdSessionOperState">
+            <description>The operational states of a BFD session.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnBfdLib"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <enumMember name="ADMIN_DOWN">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DOWN">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="INIT">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FAILING">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="UP">
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="DateTime">
+            <description>Represents the International Standard for the representation of date and time ( ISO 8601) . &#13;
+The string format is "YYYY-MM-DDThh:mm:ss.SSSZ" (excluding quotes).&#13;
+A DateTime string consists of a date part, a time part, and an optional time zone information part. The time zone part may be a "Z" representing UTC time zone (equals to +00) or a time zone offset (e.g., +02:00).&#13;
+If the time zone part is not present, the DateTime value represents local time.&#13;
+&#13;
+The following pattern describes the DateTime format in detail:&#13;
+YYYY-MM-DDThh:mm:ss[.S+][Z|+-hh:mm]&#13;
+Where:&#13;
+YYYY = four digit year&#13;
+MM = two digit month (01=January, etc.)&#13;
+DD = two digit day of month (01 through 31)&#13;
+T = time designator (shows start of time component)&#13;
+hh = two digits of hour (00 through 23, AM/PM not allowed)&#13;
+mm = two digits of minute (00 through 59)&#13;
+ss = two digits of second (00 through 59, leap second not allowed)&#13;
+S+ = one or more digits of decimal fraction of a second&#13;
+Z = time is Coordinated Universal Time (UTC)&#13;
++- = + or - character indicating positive or negative offset to UTC &#13;
+&#13;
+DateTime values are compliant with ISO 8601 "Representation of dates and times" but are restricted according to RFC 3339 "Date and Time on the Internet: Timestamps". The DateTime format is further restricted:&#13;
+- T and Z designators are upper case.&#13;
+- . (dot) is used to indicate start of fractions of seconds (ISO 8601 also allows comma)&#13;
+&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>19</min>
+                        <max>31</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>19</min>
+                            <max>31</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RtnBfdSessionIPv6_BfdSessionIPv6_detectionTime">
+            <baseType>
+                <uint32>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnBfdSessionIPv6_BfdSessionIPv6_intervalRxNegotiated">
+            <baseType>
+                <uint32>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnBfdSessionIPv6_BfdSessionIPv6_intervalTxNegotiated">
+            <baseType>
+                <uint32>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <class name="BfdSessionIPv6">
+            <description>IPv6 BFD session information.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="addrDst">
+                <description>The remote IP address of the BFD session.</description>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="addrSrc">
+                <description>The local IP address of the BFD session.</description>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="bfdSessionIPv6Id">
+                <description>The value component of the RDN.
+
+The value of this attribute identifies a session between a pair of endpoints, defined by their IP addresses.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="detectionTime">
+                <description>The period of time lapsed without receiving BFD packets, after which the local endpoint will declare the session down. 
+
+RFC 5880 specifies that the Detection Time calculated in the local endpoint is equal to the value of the detection multiplier received from the remote endpoint, multiplied by the agreed transmit interval of the remote system.
+
+If the remote endpoint has a shorter detection time value, this will be the effective detection time for the session.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdSessionIPv6_BfdSessionIPv6_detectionTime">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 5880</specification>
+            </attribute>
+            <attribute name="diagCode">
+                <description>A diagnostic code that specifies the reason for the latest transition of sessionState from UP to another state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="BfdSessionDiagnosticCode">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="intervalRxNegotiated">
+                <description>The negotiated interval at which the local node expects to receive BFD control packets.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdSessionIPv6_BfdSessionIPv6_intervalRxNegotiated">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="intervalTxNegotiated">
+                <description>The negotiated interval at which the local node transmits BFD control packets.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnBfdSessionIPv6_BfdSessionIPv6_intervalTxNegotiated">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="localDiscriminator">
+                <description>The local discriminator for this BFD session used for unique identification.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="portSrc">
+                <description>The source UDP port for BFD session control packets.
+ 
+RFC5881 specifies the value to be within the range of 49152 through 65535.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <uint16/>
+                </dataType>
+                <specification>RFC 5881</specification>
+            </attribute>
+            <attribute name="remoteDiscriminator">
+                <description>The remote discriminator defined by the remote endpoint for this BFD session.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="remoteHeardFlag">
+                <description>This attribute specifies the status of BFD packet reception from the remote endpoint.
+
+This attribute is set to true if the local endpoint actively receives BFD packets from the remote endpoint. It is set to false if the local endpoint has not recently received BFD packets, i.e. within the detection time, or if the local endpoint is attempting to tear down the BFD session.
+
+The initial value is false.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="sessionState">
+                <description>The state of this BFD session.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="BfdSessionOperState">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>RFC 5880</specification>
+            </attribute>
+            <attribute name="timeDown">
+                <description>The system time value from the most recent occasion the last time communication with the neighbor was lost.
+
+This attribute is empty if no time down event exists.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="timeUp">
+                <description>The system time from the most recent occasion when the session started.
+
+This attribute is empty if no time up event exists.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_BfdSessionIPv6">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="BfdSessionIPv6">
+                        <mimName>RtnBfdSessionIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

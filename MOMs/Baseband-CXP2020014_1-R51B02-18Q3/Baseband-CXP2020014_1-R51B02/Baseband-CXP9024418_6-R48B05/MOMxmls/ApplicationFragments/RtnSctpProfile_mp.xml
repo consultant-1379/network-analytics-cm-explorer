@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Apr 24, 2018 3:34:03 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>ECIM_T SCTP</momTitle>
+        <momSubTitle>ECIM_T SCTP</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="0" date="" docNo="" name="RtnSctpProfile" namespace="urn:com:ericsson:ecim:RtnSctpProfile" namespacePrefix="rtnsctpprofile" organization="" release="6" revision="" variant="Model" version="2">
+        <description>SCTP Profile</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AlphaIndex">
+            <description>RTO alpha index.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="15"/>
+                <extension name="originatingMimName" value="RtnSctp"/>
+            </domainExtension>
+            <enumMember name="ALPHA_1_2ND">
+                <description>ALPHA_1_2ND -&gt; RTO.Alpha=1/2.&#13;
+</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="ALPHA_1_4TH">
+                <description>ALPHA_1_4TH -&gt; RTO.Alpha=1/4.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="ALPHA_1_8TH">
+                <description>ALPHA_1_8TH -&gt; RTO.Alpha=1/8.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="ALPHA_1_16TH">
+                <description>ALPHA_1_16TH -&gt; RTO.Alpha=1/16.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="BetaIndex">
+            <description>RTO beta index. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="15"/>
+                <extension name="originatingMimName" value="RtnSctp"/>
+            </domainExtension>
+            <enumMember name="BETA_1_2ND">
+                <description>BETA_1_2ND -&gt; RTO.Beta = 1/2.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="BETA_1_4TH">
+                <description>BETA_1_4TH -&gt; RTO.Beta = 1/4.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="BEAT_1_8TH">
+                <description>BEAT_1_8TH -&gt; RTO.Beta = 1/8.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="BETA_1_16TH">
+                <description>BETA_1_16TH -&gt; RTO.Beta = 1/16.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_assocMaxRtx">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>20</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>20</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_bundlingTimer">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>1000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>1000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_cookieLife">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>180</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>180</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_dscp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_hbMaxBurst">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>4</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>4</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_heartbeatInterval">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>10</min>
+                        <max>1800000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>1800000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_incCookieLife">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>180</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>180</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_initARWnd">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>1500</min>
+                        <max>1048576</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1500</min>
+                            <max>1048576</max>
+                        </subrange>
+                    </ranges>
+                    <unit>bytes</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_initialHeartbeatInterval">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>10</min>
+                        <max>1800000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>1800000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_initRto">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>10</min>
+                        <max>120000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>120000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxActivateThr">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxBurst">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>16384</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>16384</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxInitRt">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>16</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>16</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxInStreams">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>16384</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>16384</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxOutStreams">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>16384</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>16384</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxRto">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>11</min>
+                        <max>120000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>11</min>
+                            <max>120000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxSctpPduSize">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>1480</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>1480</max>
+                        </subrange>
+                    </ranges>
+                    <unit>bytes</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_maxShutdownRt">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>20</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>20</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_minActivateThr">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_minRto">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>10</min>
+                        <max>5000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>5000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_pathMaxRtx">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>20</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>20</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_primaryPathMaxRtx">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>20</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>20</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_sackTimer">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>500</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>500</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_thrTransmitBuffer">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>2048</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>2048</max>
+                        </subrange>
+                    </ranges>
+                    <unit>KB</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_thrTransmitBufferCongCeased">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_transmitBufferSize">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>2048</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>2048</max>
+                        </subrange>
+                    </ranges>
+                    <unit>KB</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnSctpProfile_SctpProfile_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="SctpProfile">
+            <description>The SctpProfile defines the configuration that controls the behaviour of an SctpEndpoint. &#13;
+&#13;
+The SctpProfile can be shared by one or more SctpEndpoint MOs.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="SctpProfile"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='@assocMaxRtx ge @pathMaxRtx'><value-of select="."/> assocMaxRtx must be &gt;= pathMaxRtx</assert>
+		<assert test='@initRto ge @minRto'><value-of select="."/> initRto must be &gt;= minRto</assert>
+		<assert test='@initRto le @maxRto'><value-of select="."/> initRto must be &lt;= maxRto</assert>
+		<assert test='@maxRto gt @minRto'><value-of select="."/> maxRto must be &gt; minRto</assert>
+		<assert test='@maxActivateThr ge @minActivateThr'><value-of select="."/> maxActivateThr must be &gt;= minActivateThr</assert>
+		<assert test='@primaryPathMaxRtx le @pathMaxRtx'><value-of select="."/> primaryPathMaxRtx must be &lt;= pathMaxRtx</assert>
+		<assert test='@thrTransmitBuffer le @transmitBufferSize'><value-of select="."/> thrTransmitBuffer must be &lt;= transmitBufferSize</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='@assocMaxRtx ge @pathMaxRtx'><value-of select="."/> assocMaxRtx must be &gt;= pathMaxRtx</assert>
+		<assert test='@initRto ge @minRto'><value-of select="."/> initRto must be &gt;= minRto</assert>
+		<assert test='@initRto le @maxRto'><value-of select="."/> initRto must be &lt;= maxRto</assert>
+		<assert test='@maxRto gt @minRto'><value-of select="."/> maxRto must be &gt; minRto</assert>
+		<assert test='@maxActivateThr ge @minActivateThr'><value-of select="."/> maxActivateThr must be &gt;= minActivateThr</assert>
+		<assert test='@primaryPathMaxRtx le @pathMaxRtx'><value-of select="."/> primaryPathMaxRtx must be &lt;= pathMaxRtx</assert>
+		<assert test='@thrTransmitBuffer le @transmitBufferSize'><value-of select="."/> thrTransmitBuffer must be &lt;= transmitBufferSize</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="alphaIndex">
+                <description>RTO alpha index.</description>
+                <dataType>
+                    <enumRef name="AlphaIndex">
+                        <defaultValue>ALPHA_1_8TH</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>RFC 4960, section 6.3.1</specification>
+            </attribute>
+            <attribute name="assocMaxRtx">
+                <description>Association maximum number of retransmissions packets.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_assocMaxRtx">
+                        <defaultValue>20</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>primaryPathMaxRtx &lt;= pathMaxRtx &lt;= assocMaxRtx</dependencies>
+                <specification>RFC 4960, section 6.3.1</specification>
+            </attribute>
+            <attribute name="betaIndex">
+                <description>RTO beta index. &#13;
+</description>
+                <dataType>
+                    <enumRef name="BetaIndex">
+                        <defaultValue>BETA_1_4TH</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>RFC 4960, section 6.3.1</specification>
+            </attribute>
+            <attribute name="bundlingActivated">
+                <description>States whether bundling is allowed for an endpoint.
+&#13;
+True: An endpoint bundles chunks by including multiple chunks in one outbound SCTP packet.&#13;
+False: Bundling is not used.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+                <specification>RFC 4960, section 6.10</specification>
+            </attribute>
+            <attribute name="bundlingAdaptiveActivated">
+                <description>States whether adaptive bundling is applied. 
+It is only applicable if bundlingActivated is set to true.
+According to traffic condition, SCTP bundles chunks by including multiple chunks in one outbound SCTP packet.
+
+True :  Adaptive bundling is enabled.
+False : Adaptive bundling is disabled.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="bundlingTimer">
+                <description>Maximum allowed bundling delay.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_bundlingTimer">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="cookieLife">
+                <description>Valid cookie life.
+A new value of the attribute does not apply to associations that are already established. </description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_cookieLife">
+                        <defaultValue>60</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 4960, section 5.1.3</specification>
+            </attribute>
+            <attribute name="dscp">
+                <description>The DSCP value. </description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_dscp">
+                        <defaultValue>40</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="hbMaxBurst">
+                <description>HB.MaxBurst value.
+A new value of the attribute does not apply to associations that are already established.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_hbMaxBurst">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 4960, section 5.4</specification>
+            </attribute>
+            <attribute name="heartbeatActivated">
+                <description>States whether heartbeat is activated.&#13;
+&#13;
+True: Activates heartbeats for SCTP endpoint.&#13;
+False: Disables heartbeats for SCTP endpoint.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+                <specification>RFC 4960, section 8.3</specification>
+            </attribute>
+            <attribute name="heartbeatInterval">
+                <description>SCTP heartbeat interval.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_heartbeatInterval">
+                        <defaultValue>2000</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 4960, section 8.3</specification>
+            </attribute>
+            <attribute name="incCookieLife">
+                <description>Allowed increment of parameter valid.Cookie.Life in local node.&#13;
+&#13;
+Applied when an increase of the parameter is requested from the remote node.
+A new value of the attribute does not apply to associations that are already established.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_incCookieLife">
+                        <defaultValue>30</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 4960, section 3.3.2.1</specification>
+            </attribute>
+            <attribute name="initARWnd">
+                <description>Value of the initial advertised receiver window credit (a_rwnd sent in the INIT message).
+
+If the value of this attribute is increased, it applies to both existing and new associations. If the value is decreased, it does not apply to associations that are already established.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_initARWnd">
+                        <defaultValue>16384</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="initialHeartbeatInterval">
+                <description>Period for acceptance of a heartbeat acknowledge message during path probing.&#13;
+&#13;
+It limits the intensity of heartbeats for path probing after association start-up.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_initialHeartbeatInterval">
+                        <defaultValue>500</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="initRto">
+                <description>RTO initial value.
+
+A new value of the attribute does not apply to associations that are already established.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_initRto">
+                        <defaultValue>200</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>minRto &lt;= initRto &lt;= maxRto</dependencies>
+                <specification>RFC 4960, section 6.3.1.</specification>
+            </attribute>
+            <attribute name="maxActivateThr">
+                <description>Maximum number of consecutive successful heartbeats.&#13;
+&#13;
+It must be sent over the data transfer path (DTP) before switchback can be performed.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxActivateThr">
+                        <defaultValue>65535</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>minActivateThr&lt;=maxActivateThr</dependencies>
+            </attribute>
+            <attribute name="maxBurst">
+                <description>Maximum number of burst packets.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxBurst">
+                        <defaultValue>4</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 4960, section 6.1</specification>
+            </attribute>
+            <attribute name="maxInitRt">
+                <description>Maximum number of retransmissions allowed for both INIT and COOKIE_ECHO chunks.
+
+A new value of the attribute does not apply to associations that are already established.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxInitRt">
+                        <defaultValue>8</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="maxInStreams">
+                <description>Maximum number of inbound streams to negotiate for an association. 
+
+A change to this attribute does not affect the existing associations. 
+To apply a new value, the endpoint must be re-created.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxInStreams">
+                        <defaultValue>2</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 4960, section 3.3.2</specification>
+            </attribute>
+            <attribute name="maxOutStreams">
+                <description>Maximum number of outbound streams to negotiate for an association. 
+
+A change to this attribute does not affect the existing associations. 
+To apply a new value, the endpoint must be re-created.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxOutStreams">
+                        <defaultValue>2</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>RFC 4960, section 3.3.2</specification>
+            </attribute>
+            <attribute name="maxRto">
+                <description>Maximum RTO.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxRto">
+                        <defaultValue>400</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>minRto &lt;= initRto &lt;= maxRto</dependencies>
+                <specification>RFC 4960, section 6.3.1</specification>
+            </attribute>
+            <attribute name="maxSctpPduSize">
+                <description>Maximum size of the SCTP PDU.&#13;
+&#13;
+This is equal to the size of IP MTU minus the size of IP overhead.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxSctpPduSize">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="maxShutdownRt">
+                <description>Maximum number of retransmissions during the shutdown phase of an association.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_maxShutdownRt">
+                        <defaultValue>5</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="minActivateThr">
+                <description>Minimum and initial number of consecutive successful heartbeats before switchback can be performed.&#13;
+&#13;
+The minimum and initial value for the number of consecutive successful heartbeats that must be sent over the preferred primary path before switchback can be performed.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_minActivateThr">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>minActivateThr&lt;=maxActivateThr</dependencies>
+            </attribute>
+            <attribute name="minRto">
+                <description>Minimum RTO.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_minRto">
+                        <defaultValue>100</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>minRto &lt;= initRto &lt;= maxRto</dependencies>
+                <specification>RFC 4960, section 6.3.1</specification>
+            </attribute>
+            <attribute name="noSwitchback">
+                <description>Recovery of the failed Primary Path does not invoke change of the (current) data transfer path. &#13;
+&#13;
+True: No switchback.&#13;
+False: Switchback.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="pathMaxRtx">
+                <description>Maximum number of consecutive retransmissions on an IP path.&#13;
+&#13;
+An IP path is defined by the pair of local and remote IP addresses.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_pathMaxRtx">
+                        <defaultValue>10</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="primaryPathAvoidance">
+                <description>Whether SCTP can avoid primary path usage when it didn't work for the latest transmission.&#13;
+&#13;
+True: Enable functionality. &#13;
+False: Disable functionality.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="primaryPathMaxRtx">
+                <description>Maximum value of the error counter of the current primary path before switchover.&#13;
+&#13;
+In case of enabled Primary Path Avoidance(PPA), if the error counter of the primary path exceeds this value, SCTP chooses another current primary path.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_primaryPathMaxRtx">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>primaryPathMaxRtx &lt;= pathMaxRtx &lt;= assocMaxRtx</dependencies>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="sackTimer">
+                <description>The time delay for sending the Selective Acknowledgement (SACK).&#13;
+&#13;
+Time is measured from receiving the DATA chunk to sending the SACK chunk.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_sackTimer">
+                        <defaultValue>10</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="sctpProfileId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="thrTransmitBuffer">
+                <description>Threshold of the transmit buffer size. 
+
+Upon exceeding this threshold the user of SCTP will be asked to stop sending data. This condition will persist until the occupancy of the transmit buffer drops below thrTransmitBufferCongCeased * thrTransmitBuffer.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_thrTransmitBuffer">
+                        <defaultValue>48</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>thrTransmitBuffer&lt;=transmitBufferSize</dependencies>
+            </attribute>
+            <attribute name="thrTransmitBufferCongCeased">
+                <description>Size of threshold of the transmit buffer in percentage when congestion cease indication is sent.&#13;
+&#13;
+See also description of attribute thrTransmitBuffer.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_thrTransmitBufferCongCeased">
+                        <defaultValue>85</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="transmitBufferSize">
+                <description>Size of the buffer used for storing data pending to be sent or retransmitted in an association.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_transmitBufferSize">
+                        <defaultValue>64</defaultValue>
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>thrTransmitBuffer&lt;=transmitBufferSize</dependencies>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnSctpProfile_SctpProfile_userLabel">
+                        <mimName>RtnSctpProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_SctpProfile">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SctpProfile">
+                        <mimName>RtnSctpProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

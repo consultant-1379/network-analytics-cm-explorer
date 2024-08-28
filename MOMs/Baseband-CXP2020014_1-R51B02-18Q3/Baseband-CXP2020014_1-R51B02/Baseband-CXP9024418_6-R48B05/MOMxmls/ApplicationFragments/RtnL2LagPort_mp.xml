@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Dec 12, 2016 3:55:28 PM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="2" date="" docNo="" name="RtnL2LagPort" namespace="urn:com:ericsson:ecim:RtnL2LagPort" namespacePrefix="rtnl2lagport" organization="" release="1" revision="" variant="Model" version="1">
+        <description>Lag Port</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="MacAddressStr">
+            <description>MAC address string, controlled by a regular expression.&#13;
+&#13;
+Address should be specified in colon separated hexadecimal notation as described in IEEE 802. &#13;
+MAC addresses shall have 17 characters.&#13;
+Valid characters: 0123456789abcdefABCDEF
+&#13;
+Example: 00:12:34:56:78:9A</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+                <extension name="originatingMimRelease" value="3"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>17</min>
+                        <max>17</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>17</min>
+                            <max>17</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RtnL2LagPort_LagPort_mtu">
+            <baseType>
+                <int32>
+                    <unit>B</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL2LagPort_LagPort_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="LagPort">
+            <description>Represents group of Ethernet link ports bundled together to act as single link, to provide link redundancy and increased bandwidth.
+
+Dependencies: EthernetPort MO that is encapsulated in LagPort MO, cannot be used for MO types VlanPort, InterfaceIPv4, or InterfaceIPv6.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name=""><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">]]>&#13;<![CDATA[
+	<pattern>]]>&#13;<![CDATA[
+		<rule>]]>&#13;<![CDATA[
+		 <assert test='every $encapsulation in @encapsulation satisfies (contains($encapsulation, "EthernetPort=") and (exists($encapsulation)))'><value-of select="."/> LagPort MO can only refer to existing EthernetPort MO.</assert>
+		 <assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv4 MO can reserve this port.</assert>
+		 <assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv6 MO can reserve this port.</assert>
+		 <assert test='every $r1 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies every $r2 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies $r1 eq $r2'><value-of select="."/> If InterfaceIPv4 MO and InterfaceIPv6 MO use same LagPort MO as encapsulation, they must reside in same router.</assert>
+		 <assert test='not((count(@reservedBy[matches(., ".*,VlanPort=.*")]) &gt; 0) and ((count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &gt; 0) or (count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &gt; 0)))'><value-of select ="."/> VlanPort MO cannot refer to same LagPort MO as InterfaceIPv4 MO or InterfaceIPv6 MO.</assert>]]>&#13;<![CDATA[
+		</rule>]]>&#13;<![CDATA[
+	</pattern>]]>&#13;<![CDATA[
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">]]>&#13;<![CDATA[
+	<pattern>]]>&#13;<![CDATA[
+		<rule>]]>&#13;<![CDATA[
+		 <assert test='every $encapsulation in @encapsulation satisfies (contains($encapsulation, "EthernetPort=") and (exists($encapsulation)))'><value-of select="."/> LagPort MO can only refer to existing EthernetPort MO.</assert>
+		 <assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv4 MO can reserve this port.</assert>
+		 <assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv6 MO can reserve this port.</assert>
+		 <assert test='every $r1 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies every $r2 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies $r1 eq $r2'><value-of select="."/> If InterfaceIPv4 MO and InterfaceIPv6 MO use same LagPort MO as encapsulation, they must reside in same router.</assert>
+		 <assert test='not((count(@reservedBy[matches(., ".*,VlanPort=.*")]) &gt; 0) and ((count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &gt; 0) or (count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &gt; 0)))'><value-of select ="."/> VlanPort MO cannot refer to same LagPort MO as InterfaceIPv4 MO or InterfaceIPv6 MO.</assert>]]>&#13;<![CDATA[
+		</rule>]]>&#13;<![CDATA[
+	</pattern>]]>&#13;<![CDATA[
+</schema>]]></dependenciesScript>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RtnL2LagPort</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+Details about operationalState.
+
+DEGRADED if some of encapsulated EthernetPort MOs cannot be used due to Ethernet or LACP problems.
+
+FAILED or DEPENDENCY_FAILED if none of encapsulated EthernetPort MOs can be used due to Ethernet or LACP problems.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RtnL2LagPort</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>List of references to underlying encapsulations.
+
+Underlying encapsulations can be EthernetPort MOs.
+All encapsulated EthernetPort MOs must have same value on admOperatingMode and admOperatingMode, equal to ANY is not allowed.</description>
+                <mandatory/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>1</minLength>
+                        <maxLength>4</maxLength>
+                    </sequence>
+                </dataType>
+                <dependencies>If EthernetPort MO is referenced by LagPort MO, EthernetPort MO may not be used by any other MOs except SyncEthInput MO or PtpBcOcPort MO for SyncE and PTP.
+Can only refer to existing EthernetPort MO.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="lacpEnabled">
+                <description>Specifies whether LACP is enabled or not on links in LAG.
+When true, LACP is enabled. When false LAG group is static and LACP is not used on ports.
+LACP is in active mode when enabled.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="lagPortId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="macAddress">
+                <description>Assigned individual MAC address.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="MacAddressStr">
+                        <mimName>RtnL2LagPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="mtu">
+                <description>MTU.
+
+Largest PDU that Ethernet layer can pass on Ethernet port.
+PDU includes Ethernet header, Ethertype, payload and frame check sequence.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL2LagPort_LagPort_mtu">
+                        <mimName>RtnL2LagPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>IEEE 802.3</specification>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RtnL2LagPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL2LagPort_LagPort_userLabel">
+                        <mimName>RtnL2LagPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="EthernetOamLocalMep_encapsulation_to_LagPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="LagPort">
+                        <mimName>RtnL2LagPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EthernetOamLocalMep">
+                        <mimName>RtnEthernetOam</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_encapsulation_to_LagPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="LagPort">
+                        <mimName>RtnL2LagPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv6_encapsulation_to_LagPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="LagPort">
+                        <mimName>RtnL2LagPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv6">
+                        <mimName>RtnL3InterfaceIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="LagPort_encapsulation_to_EthernetPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>4</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="LagPort">
+                        <mimName>RtnL2LagPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="VlanPort_encapsulation_to_LagPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="LagPort">
+                        <mimName>RtnL2LagPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_LagPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="LagPort">
+                        <mimName>RtnL2LagPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>2</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

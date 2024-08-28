@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Feb 21, 2018 9:29:44 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201801022028
+	* com.ericsson.ecim.dsl 2.16.0.201801022028
+	* com.ericsson.ecim.edm 2.16.0.201801022028
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>-</momTitle>
+        <momSubTitle>Manual LRAT MOM Fragment</momSubTitle>
+        <momIdentity>
+            <docNum>CXC1738572/27</docNum>
+            <docLang>-</docLang>
+            <docRev>R11A01</docRev>
+            <docDate>-</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="LratMce" namespace="urn:com:ericsson:ecim:LratMce" namespacePrefix="lratmce" organization="" release="9012" revision="R11A01" version="2">
+        <description>It contains the M3 connection classes.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME" />
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.
+It indicates why the operational state has changed its value.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2" />
+                <extension name="originatingMimRelease" value="4" />
+                <extension name="originatingMimName" value="ECIM_CommonLibrary" />
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure.
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both.
+The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.
+Alternatively, the availability status of the other resource is dependency locked.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.
+Alternatively, the availability status of the other resource is dependency shutting down.</description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OrderCode">
+            <enumMember name="RETAIN_EXISTING">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="RENEW_ALL_EXISTING">
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2" />
+                <extension name="originatingMimRelease" value="4" />
+                <extension name="originatingMimName" value="ECIM_CommonLibrary" />
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2" />
+                <extension name="originatingMimRelease" value="4" />
+                <extension name="originatingMimName" value="ECIM_CommonLibrary" />
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <exception name="DnsLookupOffException" />
+        <exception name="ServiceInoperableException" />
+        <derivedDataType name="LratMce_MceFunction_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratMce_TermPointToMmeM3_domainName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratMce_TermPointToMmeM3_ipAddress1">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>7</min>
+                        <max>15</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>7</min>
+                            <max>15</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratMce_TermPointToMmeM3_ipAddress2">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>7</min>
+                        <max>15</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>7</min>
+                            <max>15</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratMce_TermPointToMmeM3_ipv6Address1">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>2</min>
+                        <max>39</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>2</min>
+                            <max>39</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratMce_TermPointToMmeM3_ipv6Address2">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>2</min>
+                        <max>39</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>2</min>
+                            <max>39</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratMce_TermPointToMmeM3_usedIpAddress">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>2</min>
+                        <max>39</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>2</min>
+                            <max>39</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="MceFunction">
+            <description>This MO is the top level MO for MCE functions. It contains the M3 connection classes.</description>
+            <root />
+            <action name="updateMMEConnection">
+                <description>This action shall make it possible to order the RBS to make a new DNS lookup to get possible new MME Pool addresses. The orderCode has two different options:
+
+- Retain: This option will retain all connections that were included in DNS response and the connections that weren't included in the response will be removed. For the IP addresses that were unknown for the RBS, the RBS will establish connections to those MMEs.
+
+- Renew All existing: The RBS performs a DNS lookup. Release all M3 connections to the MMEs and connect to the MMEs that are included in the DNS response.
+
+This action should be used only when dnsLookupOnTai has the value ON. The action is rejected if dnsLookupState has the value OFF or if MBMS Service is inoperable.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0" />
+                </domainExtension>
+                <returnType>
+                    <void />
+                </returnType>
+                <parameter name="orderCode">
+                    <in />
+                    <dataType>
+                        <enumRef name="OrderCode">
+                            <mimName>LratMce</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <raisesException name="DnsLookupOffException" />
+                <raisesException name="ServiceInoperableException" />
+            </action>
+            <attribute name="mceFunctionId">
+                <description>The value component of the RDN.</description>
+                <mandatory />
+                <noNotification />
+                <restricted />
+                <key />
+                <dataType>
+                    <string />
+                </dataType>
+            </attribute>
+            <attribute name="useM3dnsFormat">
+                <description>This parameter specifies if the DNS lookup shall use the M3 or S1 format for the TAI domain name:
+m3mme.tac-lb&lt;tac-lb&gt;.tac-hb&lt;tac-hb&gt;.tac.epc.mnc&lt;mnc&gt;.mcc&lt;mcc&gt;.3gppnetwork.org (true)
+s1mme.tac-lb&lt;tac-lb&gt;.tac-hb&lt;tac-hb&gt;.tac.epc.mnc&lt;mnc&gt;.mcc&lt;mcc&gt;.3gppnetwork.org (false)</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+                <takesEffect>New connection</takesEffect>
+            </attribute>
+            <attribute name="release">
+                <description>The product release of the MceFunction</description>
+                <noNotification />
+                <readOnly />
+                <dataType>
+                    <string />
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Used for product free-text description. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true" />
+                </domainExtension>
+                <isNillable />
+                <dataType>
+                    <derivedDataTypeRef name="LratMce_MceFunction_userLabel">
+                        <mimName>LratMce</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="TermPointToMmeM3">
+            <description>Models the MME termination point of an M3 link between the RBS and the MME node.</description>
+            <attribute name="termPointToMmeM3Id">
+                <description>The value component of the RDN.</description>
+                <mandatory />
+                <noNotification />
+                <restricted />
+                <key />
+                <dataType>
+                    <string />
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState. This attribute is set by the application in the RBS.</description>
+                <readOnly />
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>LratMce</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state.
+Note: If this attribute is set to SHUTTING_DOWN, it will immediately go into the state LOCKED.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>LratMce</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute to LOCKED or SHUTTINGDOWN can cause loss of traffic. Loss of MBMS capability if Internal MCE is used.</disturbances>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+            <attribute name="domainName">
+                <description>The fully-qualified domain name of the MME.
+A valid domain name consists of 1 or more labels separated by dots (.).
+Valid characters for a label are limited to letters a - z, A - Z, digits 0 - 9, and the character - (dash). Character case is preserved. Length of a label may not exceed 255 characters.
+NOTE: The first and last character in the domain name must be one of the following alphanumeric characters a - z, A - Z or digits 0 - 9. For more information refer to RFC 952, 1101 and 1123.
+To set this attribute, administrativeState must be LOCKED.</description>
+                <dataType>
+                    <derivedDataTypeRef name="LratMce_TermPointToMmeM3_domainName">
+                        <defaultValue />
+                        <mimName>LratMce</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause loss of traffic. Possible loss of MBMS capability if Internal MCE is used.</disturbances>
+                <takesEffect>Object unlocked</takesEffect>
+            </attribute>
+            <attribute name="ipAddress1">
+                <description>The primary IP address of the MME. A unique IP address is required for each MME.
+The input format is four fields of digits, separated by dots. Each field consists of three digits. The value of each field must be in the range 0-255.
+To set this attribute, administrativeState must be LOCKED.</description>
+                <dataType>
+                    <derivedDataTypeRef name="LratMce_TermPointToMmeM3_ipAddress1">
+                        <defaultValue>0.0.0.0</defaultValue>
+                        <mimName>LratMce</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Object unlocked</takesEffect>
+            </attribute>
+            <attribute name="ipAddress2">
+                <description>The secondary IP address of the MME. A unique IP address is required for each MME.
+The input format is four fields of digits, separated by dots. Each field consists of three digits. The value of each field must be in the range 0-255.
+To set this attribute, administrativeState must be LOCKED.</description>
+                <dataType>
+                    <derivedDataTypeRef name="LratMce_TermPointToMmeM3_ipAddress2">
+                        <defaultValue>0.0.0.0</defaultValue>
+                        <mimName>LratMce</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Object unlocked</takesEffect>
+            </attribute>
+            <attribute name="ipv6Address1">
+                <description>The primary IPv6 address of the MME.
+The input format is eight fields, separated by colons. Each field consists of four hexadecimal characters. The value of each field must be in the range 0-FFFF. Leading zeroes can be omitted in a field, and multiple groups of 16 bits of zeroes can be compressed to ::. The :: can be used only once in an address.
+To set this attribute, administrativeState must be LOCKED.</description>
+                <dataType>
+                    <derivedDataTypeRef name="LratMce_TermPointToMmeM3_ipv6Address1">
+                        <defaultValue>::</defaultValue>
+                        <mimName>LratMce</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Object unlocked</takesEffect>
+            </attribute>
+            <attribute name="ipv6Address2">
+                <description>The secondary IPv6 address of the MME.
+The input format is eight fields, separated by colons. Each field consists of four hexadecimal characters. The value of each field must be in the range 0-FFFF. Leading zeroes can be omitted in a field, and multiple groups of 16 bits of zeroes can be compressed to ::. The :: can be used only once in an address.
+To set this attribute, administrativeState must be LOCKED.</description>
+                <dataType>
+                    <derivedDataTypeRef name="LratMce_TermPointToMmeM3_ipv6Address2">
+                        <defaultValue>::</defaultValue>
+                        <mimName>LratMce</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Object unlocked</takesEffect>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state. This attribute is set by the application in the RBS.</description>
+                <readOnly />
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>LratMce</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="usedIpAddress">
+                <description>The destination address used for initialization of the underlying SCTP association of the latest successful M3-Setup.
+
+The IP address can be an IPv4 or an IPv6 address.
+
+Note: usedIpAddress never changes during the lifetime of the SCTP association.</description>
+                <readOnly />
+                <dataType>
+                    <derivedDataTypeRef name="LratMce_TermPointToMmeM3_usedIpAddress">
+                        <mimName>LratMce</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="MceFunction_to_TermPointToMmeM3">
+            <containment>
+                <parent>
+                    <hasClass name="MceFunction">
+                        <mimName>LratMce</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TermPointToMmeM3">
+                        <mimName>LratMce</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>64</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true" />
+                    <extension name="canDelete" value="true" />
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="ManagedElement_to_MceFunction">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false" />
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ManagedElement">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="MceFunction">
+                        <mimName>LratMce</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true" />
+                    <extension name="canDelete" value="true" />
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

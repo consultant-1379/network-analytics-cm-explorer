@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+        Copyright (c) 2017 Ericsson AB.
+        All rights reserved
+
+        DX ECIM Tool-chain generated this file on Jun 26, 2017 11:32:41 AM using:
+        * com.ericsson.ecim.m2m 2.14.5.201511210257
+        * com.ericsson.ecim.dsl 2.14.5.201511210257
+        * com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="RsyncNodeGroupSyncMember" namespace="urn:com:ericsson:ecim:RsyncNodeGroupSyncMember" namespacePrefix="rsyncnodegroupsyncmember" organization="" release="7" revision="" variant="Model" version="1">
+        <description>Node group synchronization member.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="LocalNodeInfo">
+            <description>Local Node Information.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+                <extension name="originatingMimRelease" value="7"/>
+            </domainExtension>
+            <structMember name="hopsFromSyncProvider">
+                <description>The number of hops to reach the Synchronization Provider.
+
+If the Node Group Member is a Synchronization Provider, the value is zero.</description>
+                <derivedDataTypeRef name="RsyncSyncLibrary_LocalNodeInfo_hopsFromSyncProvider">
+                    <mimName>RsyncNodeGroupSyncMember</mimName>
+                </derivedDataTypeRef>
+                <preliminary/>
+            </structMember>
+            <structMember name="localState">
+                <description>The role and the state of the Node Group Member.</description>
+                <enumRef name="LocalStatus">
+                    <mimName>RsyncNodeGroupSyncMember</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="synchronizedTo">
+                <description>The neighbor node, to which a Synchronization Receiver is synchronized.
+
+The number is the Node Priority of the neighbor node. If the node is a Synchronization Provider, the attribute indicates the priority of this node.</description>
+                <derivedDataTypeRef name="RsyncSyncLibrary_LocalNodeInfo_synchronizedTo">
+                    <mimName>RsyncNodeGroupSyncMember</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="SyncProviderInfo">
+            <description>Synchronization Provider information.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+                <extension name="originatingMimRelease" value="7"/>
+            </domainExtension>
+            <structMember name="syncProviderNodePriority">
+                <description>The node priority of the Synchronization Provider as given by the attribute syncNodePriority for that node. If the node is a Synchronization Provider, the attribute indicates the priority of this node.</description>
+                <uint8/>
+            </structMember>
+            <structMember name="syncProviderState">
+                <description>The synchronization state of the Synchronization Provider.
+
+This information applies to a Synchronization Receiver. If the node has the role of Synchronization Provider, the detailed information on the state is in the RadioEquipmentClock MO.
+
+The synchronization state of the Synchronization Provider determines which services can be enabled on the node: Time-dependent services, Frequency-dependent services, or no services.</description>
+                <enumRef name="SyncProviderState">
+                    <mimName>RsyncNodeGroupSyncMember</mimName>
+                </enumRef>
+            </structMember>
+        </struct>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="LocalStatus">
+            <description>Node Group Member Local Status.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+                <extension name="originatingMimRelease" value="7"/>
+            </domainExtension>
+            <enumMember name="UNKNOWN">
+                <description>The synchronization state of the Node Group Member is unknown.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="SYNC_PROVIDER">
+                <description>The Node Group Member is a Synchronization Provider and is either locked to an external synchronization reference, or in holdover mode. The reference in use is indicated by currentRadioClockReference in the RadioEquipmentClock MO. The clock state is indicated by radioClockState in the RadioEquipmentClock MO.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SYNC_RECEIVER_TIME_LOCKED">
+                <description>The Node Group Member is a Synchronization Receiver that is radio-frame time-locked to another Node Group Member.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="SYNC_RECEIVER_TIME_HOLDOVER">
+                <description>The Node Group Member is a Synchronization Receiver in time holdover state. Services are maintained.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="ENTERING_NODE_GROUP">
+                <description>The Node Group Member is entering into a Node Group. The role in the Node Group is not yet defined.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="RiPortStatus">
+            <description>Radio Interface Port Status.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+                <extension name="originatingMimRelease" value="7"/>
+            </domainExtension>
+            <enumMember name="UNKNOWN">
+                <description>The synchronization status of the Radio Interface (RI) port is unknown.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="OK_ACTIVE">
+                <description>The Synchronization RI port is OK and is selected as active reference for the node.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="OK_NOT_ACTIVE">
+                <description>The Synchronization RI port is OK, but is not selected as active reference for the node.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="CPRI_LINK_NOT_AVAILABLE">
+                <description>The RI port configured as synchronization candidate is not available for synchronization.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_ERROR">
+                <description>The node cannot frequency-synchronize to the neighbor node connected to the RI port.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="PHASE_ERROR">
+                <description>The node cannot phase-synchronize to the neighbor node connected to the RI port.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="LOSS_OF_FREQUENCY_MEASUREMENTS">
+                <description>No measurements of frequency difference can be retrieved from the RI port.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="LOSS_OF_PHASE_MEASUREMENTS">
+                <description>No measurements of phase difference can be retrieved from the RI port.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_LOCKING">
+                <description>The Node Group Member is at the intermediate stage of frequency synchronization to the neighbor node connected to this RI port. The attribute syncRiPortStatus will be either OK_ACTIVE or OK_NOT_ACTIVE when frequency synchronization is successfully completed.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="CONNECTED_TO_RU_NOT_TO_NEIGHBOR">
+                <description>Connection can be set up with shared RU, communication with neighbor not possible.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="NO_SYNC_COMMUNICATION">
+                <description>Nodes are frequency aligned, there is no communication with neighbor.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="NODE_PRIORITY_COLLISION">
+                <description>Same syncNodePriority used in two or more nodes.</description>
+                <value>11</value>
+            </enumMember>
+            <enumMember name="SELECTION_MODE_MISMATCH">
+                <description>RI port disqualified due to selection mode mismatch.</description>
+                <value>12</value>
+            </enumMember>
+        </enum>
+        <enum name="SelectionMode">
+            <description>Specifies selection mode of node group sync member.</description>
+            <enumMember name="NODE_PRIORITY">
+                <description>Selection based on syncNodePriority value.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="REFERENCE_AND_NODE_PRIORITY">
+                <description>Selection based on best reference availability and syncNodePriority value.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="SyncProviderState">
+            <description>The synchronization state of the Synchronization Provider.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+                <extension name="originatingMimRelease" value="7"/>
+            </domainExtension>
+            <enumMember name="UNKNOWN">
+                <description>The synchronization state of the Synchronization Provider is unknown, or no Synchronization Provider is reported within the Node Group.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="TIME_MODE">
+                <description>The Synchronization Provider is operating in time-providing mode.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_MODE">
+                <description>The Synchronization Provider is operating in frequency-providing mode.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FREE_RUNNING">
+                <description>The Synchronization Provider has lost all external references and the frequency holdover period has expired. No other node has managed to take over the role of Synchronization Provider.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="RsyncNodeGroupSyncMember_NodeGroupSyncMember_syncNodePriority">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>1</min>
+                        <max>15</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>15</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncNodeGroupSyncMember_NodeGroupSyncMember_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncSyncLibrary_LocalNodeInfo_hopsFromSyncProvider">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncSyncLibrary_LocalNodeInfo_synchronizedTo">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>15</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>15</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <class name="NodeGroupSyncMember">
+            <description>A Node Group is a group of Ericsson RBS nodes that must be radio-frame synchronized to each other.
+
+The MO is created for each member of the Node Group. Each Node Group uses only one external synchronization reference. The node that uses the external synchronization reference is called the Synchronization Provider. The other nodes in the Node Group are called Synchronization Receivers. All Synchronization Receivers synchronize their radio-frame to the Synchronization Provider, either directly or to another Synchronization Receiver.</description>
+            <root/>
+            <action name="retryEntranceToNodeGroup">
+                <description>Retries entrance to the Node Group. Can be used if the automatic entrance to the Node Group has failed.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <disturbances>This action might cause traffic disturbances.</disturbances>
+            </action>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="localNodeInformation">
+                <description>Synchronization information on the Node Group Member itself.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <structRef name="LocalNodeInfo">
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="nodeGroupSyncMemberId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="selectionMode">
+                <description>Role selection mode of node group member.</description>
+                <dataType>
+                    <enumRef name="SelectionMode">
+                        <defaultValue>NODE_PRIORITY</defaultValue>
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="syncNodePriority">
+                <description>This number is used both as a way to identify a Node Group Member, and to give the node a priority value which is used when selecting the Synchronization Provider. Every Node Group Member must have a unique number. The value 1 has the highest priority.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncNodeGroupSyncMember_NodeGroupSyncMember_syncNodePriority">
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="syncProviderInformation">
+                <description>Provides information on the Synchronization Provider, that is the Node Group Member that is synchronizing to a reference external to the Node Group.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <structRef name="SyncProviderInfo">
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="syncRiPortCandidate">
+                <description>Reference list of RiPort MOs that are candidates to be used as synchronization reference for all nodes. For NGS startup procedure RiPort MO must be set as syncRiPortCandidate only when it is connected to other nodes in NGS, otherwise node startup is prolonged to its maximum value.</description>
+                <mandatory/>
+                <dataType>
+                    <sequence>
+                        <moRef name="RiPort">
+                            <mimName>ReqRiPort</mimName>
+                        </moRef>
+                        <minLength>1</minLength>
+                        <maxLength>18</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="syncRiPortStatus">
+                <description>The status of the Radio Interface (RI) ports configured as candidates for Node Group synchronization.
+
+The order of the Synchronization RI Ports is the same as for syncRiPortCandidate.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="RiPortStatus">
+                            <mimName>RsyncNodeGroupSyncMember</mimName>
+                        </enumRef>
+                        <minLength>1</minLength>
+                        <maxLength>18</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncNodeGroupSyncMember_NodeGroupSyncMember_userLabel">
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="NodeGroupSyncMember_SyncRiPortCandidate_to_RiPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="syncRiPortCandidate">
+                    <hasClass name="RiPort">
+                        <mimName>ReqRiPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>18</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="NodeGroupSyncMember">
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="RadioEquipmentClock_to_NodeGroupSyncMember">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="RadioEquipmentClock">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="NodeGroupSyncMember">
+                        <mimName>RsyncNodeGroupSyncMember</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

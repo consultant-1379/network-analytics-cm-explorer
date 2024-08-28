@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="2" date="" docNo="" name="ResPowerSupply" namespace="urn:com:ericsson:ecim:ResPowerSupply" namespacePrefix="respowersupply" organization="" release="2" revision="" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="SmartLoadSharingConfig">
+            <description>Configuration structure defining PSU Loads which trigger switching.</description>
+            <structMember name="lowLoadLevelTreshold">
+                <description>PSU load level. When reached, switches PSU to standby mode.</description>
+                <derivedDataTypeRef name="ResPowerSupply_SmartLoadSharingConfig_lowLoadLevelTreshold">
+                    <defaultValue>30</defaultValue>
+                    <mimName>ResPowerSupply</mimName>
+                </derivedDataTypeRef>
+                <deprecated/>
+                <statusInformation>Since 18.Q2. Replaced by lowLoadLevelThreshold</statusInformation>
+                <dependencies>highLoadLevelTreshold &gt;= lowLoadLevelTreshold*2+5</dependencies>
+                <takesEffect>Immediately</takesEffect>
+            </structMember>
+            <structMember name="highLoadLevelTreshold">
+                <description>PSU load level. When reached, switches another PSU to active mode.</description>
+                <derivedDataTypeRef name="ResPowerSupply_SmartLoadSharingConfig_highLoadLevelTreshold">
+                    <defaultValue>70</defaultValue>
+                    <mimName>ResPowerSupply</mimName>
+                </derivedDataTypeRef>
+                <deprecated/>
+                <statusInformation>Since 18.Q2. Replaced by highLoadLevelThreshold</statusInformation>
+                <dependencies>highLoadLevelTreshold &gt;= lowLoadLevelTreshold*2+5</dependencies>
+                <takesEffect>Immediately</takesEffect>
+            </structMember>
+            <structMember name="highLoadLevelThreshold">
+                <description>PSU load level. When reached, switches another PSU to active mode.</description>
+                <derivedDataTypeRef name="ResPowerSupply_SmartLoadSharingConfig_highLoadLevelThreshold">
+                    <defaultValue>70</defaultValue>
+                    <mimName>ResPowerSupply</mimName>
+                </derivedDataTypeRef>
+                <dependencies>highLoadLevelThreshold &gt;= lowLoadLevelThreshold*2+5</dependencies>
+                <takesEffect>Immediately</takesEffect>
+            </structMember>
+            <structMember name="lowLoadLevelThreshold">
+                <description>PSU load level. When reached, switches PSU to standby mode.</description>
+                <derivedDataTypeRef name="ResPowerSupply_SmartLoadSharingConfig_lowLoadLevelThreshold">
+                    <defaultValue>30</defaultValue>
+                    <mimName>ResPowerSupply</mimName>
+                </derivedDataTypeRef>
+                <dependencies>highLoadLevelThreshold &gt;= lowLoadLevelThreshold*2+5</dependencies>
+                <takesEffect>Immediately</takesEffect>
+            </structMember>
+        </struct>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ResPowerSupply_PowerSupply_nominalVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-570</min>
+                        <max>-480</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-570</min>
+                            <max>-480</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_PowerSupply_systemOvervoltageAlarmCeaseOffset">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>50</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>50</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_PowerSupply_systemUndervoltageAlarmLevel">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-480</min>
+                        <max>-380</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-480</min>
+                            <max>-380</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_PowerSupply_systemVoltage">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-600</min>
+                        <max>-380</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-600</min>
+                            <max>-380</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_PowerSupply_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_PowerSupply_systemUndervoltageAlarmCeaseOffset">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>50</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>50</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_PowerSupply_systemOvervoltageAlarmLevel">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-600</min>
+                        <max>-530</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-600</min>
+                            <max>-530</max>
+                        </subrange>
+                    </ranges>
+                    <unit>V</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_PowerSupply_multiplePowerSystem">
+            <baseType>
+                <boolean/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_SmartLoadSharingConfig_lowLoadLevelTreshold">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>10</min>
+                        <max>40</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>40</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_SmartLoadSharingConfig_highLoadLevelTreshold">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>55</min>
+                        <max>85</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>55</min>
+                            <max>85</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_SmartLoadSharingConfig_highLoadLevelThreshold">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>55</min>
+                        <max>85</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>55</min>
+                            <max>85</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResPowerSupply_SmartLoadSharingConfig_lowLoadLevelThreshold">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>10</min>
+                        <max>40</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>40</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="PowerSupply">
+            <description>This MO represents the logical resource providing configuration and supervision support for the cabinet power supply. Examples include configuration of charging algorithms and supervision levels and switching functions on/off etc.&#13;
+&#13;
+Dependencies: Can only exist in the node when the attribute supportSystemControl is set to true on a parent MO EquipmentSupportFunction.</description>
+            <root/>
+            <attribute name="powerSupplyId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="nominalVoltage">
+                <description>The desired system voltage.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResPowerSupply_PowerSupply_nominalVoltage">
+                        <defaultValue>-545</defaultValue>
+                        <mimName>ResPowerSupply</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Superseded by chargingVoltage when MO BatteryBackup is created</dependencies>
+            </attribute>
+            <attribute name="systemOvervoltageAlarmCeaseOffset">
+                <description>The offset for the system over voltage level below which the system over voltage alarm is ceased.&#13;
+The alarm cease condition is true when systemVoltage is below SystemOvervoltageAlarmLevel + SystemOvervoltageAlarmCeaseOffset.&#13;
+Example: The default values -575 + 5 = -570 (-57.0 V) gives an alarm cease if systemVoltage is e.g. -56.9 V.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResPowerSupply_PowerSupply_systemOvervoltageAlarmCeaseOffset">
+                        <defaultValue>5</defaultValue>
+                        <mimName>ResPowerSupply</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 18A. Planned to be removed.</statusInformation>
+            </attribute>
+            <attribute name="systemUndervoltageAlarmLevel">
+                <description>Alarm level for system undervoltage. &#13;
+The alarm is raised when systemVoltage is lower than SystemUndervoltageAlarmLevel.&#13;
+Example: The default value -475 (-47.5 V) gives an alarm if systemVoltage is e.g. -47.4 V.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResPowerSupply_PowerSupply_systemUndervoltageAlarmLevel">
+                        <defaultValue>-475</defaultValue>
+                        <mimName>ResPowerSupply</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 18A. Replaced by systemUndervoltageAlarmLevel on MO PowerDistribution. Planned to be removed.</statusInformation>
+                <dependencies>systemUndervoltageAlarmLevel &lt; mainLoadUnderVoltageDisconnect</dependencies>
+            </attribute>
+            <attribute name="systemVoltage">
+                <description>The measured system voltage. It is equal to the attribute batteryVoltage, MO BatteryBackup, when the battery is connected.&#13;
+Undefined value: indicates no connection with neither PDU, BFU nor PSU.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResPowerSupply_PowerSupply_systemVoltage">
+                        <mimName>ResPowerSupply</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 18A. Replaced by systemVoltage on MO PowerDistribution. Planned to be removed.</statusInformation>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResPowerSupply_PowerSupply_userLabel">
+                        <mimName>ResPowerSupply</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="systemUndervoltageAlarmCeaseOffset">
+                <description>The offset for the system under voltage level above which the system undervoltage alarm ceases. &#13;
+The alarm cease condition is true when systemVoltage is above SystemUndervoltageAlarmLevel - SystemUndervoltageAlarmCeaseOffset.&#13;
+Example: The default values -440 - 30 = -470 (-47.0 V) gives an alarm cease if systemVoltage is e.g. -47.1 V</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResPowerSupply_PowerSupply_systemUndervoltageAlarmCeaseOffset">
+                        <defaultValue>30</defaultValue>
+                        <mimName>ResPowerSupply</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 18A. Planned to be removed.</statusInformation>
+            </attribute>
+            <attribute name="systemOvervoltageAlarmLevel">
+                <description>Alarm level for system over voltage. &#13;
+The alarm active condition is true when systemVoltage is above SystemOvervoltageAlarmLevel.&#13;
+Example: The default value -575 (-57.5 V) gives an alarm if systemVoltage is e.g. -57.6 V.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ResPowerSupply_PowerSupply_systemOvervoltageAlarmLevel">
+                        <defaultValue>-575</defaultValue>
+                        <mimName>ResPowerSupply</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 18A. Replaced by systemOvervoltageAlarmLevel on MO PowerDistribution. Planned to be removed.</statusInformation>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ResPowerSupply</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ResPowerSupply</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="multiplePowerSystem">
+                <description>Indicates if all power supplies in the power domain provide the same load.&#13;
+&#13;
+true: Several power systems provide separate loads within same cabinet.&#13;
+Multiple sub-racks operate individually and form one power system each.&#13;
+false: All loads within same cabinet are powered from one power system.&#13;
+Multiple sub-racks are internally connected by a cabinet bus bar.&#13;
+</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="controlDomainRef">
+                <description>The cabinet or hwGroup where functions represented by this MO are deployed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="smartLoadSharingConfig">
+                <description>Configuration structure defining PSU Loads which trigger switching.</description>
+                <dataType>
+                    <structRef name="SmartLoadSharingConfig">
+                        <mimName>ResPowerSupply</mimName>
+                    </structRef>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+            <attribute name="smartLoadSharing">
+                <description>Parameter responsible for activating/deactivation Smart PSU load sharing</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+        </class>
+        <relationship name="PowerSupply_controlDomainRef_to_Cabinet_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="controlDomainRef">
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PowerSupply">
+                        <mimName>ResPowerSupply</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PowerSupply_controlDomainRef_to_HwGroup_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="controlDomainRef">
+                    <hasClass name="HwGroup">
+                        <mimName>ReqHwGroup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PowerSupply">
+                        <mimName>ResPowerSupply</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="EquipmentSupportFunction_to_PowerSupply">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="EquipmentSupportFunction">
+                        <mimName>ResEquipmentSupportFunction</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PowerSupply">
+                        <mimName>ResPowerSupply</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

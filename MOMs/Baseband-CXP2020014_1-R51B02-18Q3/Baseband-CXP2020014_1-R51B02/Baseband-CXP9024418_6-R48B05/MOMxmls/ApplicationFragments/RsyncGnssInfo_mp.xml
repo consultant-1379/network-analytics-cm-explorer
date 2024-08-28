@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+        Copyright (c) 2018 Ericsson AB.
+        All rights reserved
+
+        DX ECIM Tool-chain generated this file on Jul 10, 2018 8:38:58 AM using:
+        * com.ericsson.ecim.m2m 2.15.0.201710201249
+        * com.ericsson.ecim.dsl 2.15.0.201710201249
+        * com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RsyncGnssInfo" namespace="urn:com:ericsson:ecim:RsyncGnssInfo" namespacePrefix="rsyncgnssinfo" organization="" release="22" revision="" variant="Model" version="1">
+        <description>Indicates key data from the satellite receiver.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="GnssReceiverFw">
+            <description>Gnss receiver firmware struct.</description>
+            <structMember name="executingSlot">
+                <description>FW revision which is currently being executed on GRU04.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+            <structMember name="fwRevisionSlot0">
+                <description>FW revision in slot 0 on GRU04.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+            <structMember name="fwRevisionSlot1">
+                <description>FW revision in slot 1 on GRU04.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+            <structMember name="fwRevisionSlot2">
+                <description>FW revision in slot 2 on GRU04.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+        </struct>
+        <struct name="GnssReceiverProduct">
+            <description>GNSS receiver product data struct.</description>
+            <structMember name="additionalInfo">
+                <description>Additional info of connected GNSS receiver. Differs for GNSS receiver products.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+            <structMember name="productName">
+                <description>Type of connected GNSS receiver or RBS with embeded GNSS receiver.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+            <structMember name="productRevision">
+                <description>Product revision of connected GNSS receiver.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>Serial number of connected GNSS receiver.</description>
+                <string/>
+                <preliminary/>
+            </structMember>
+        </struct>
+        <struct name="SatelliteInfo">
+            <description>Information about satellites.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <structMember name="azimuth">
+                <description>Azimuth of satellite.</description>
+                <derivedDataTypeRef name="RsyncSyncLibrary_SatelliteInfo_azimuth">
+                    <mimName>RsyncGnssInfo</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="elevation">
+                <description>Elevation of satellite.</description>
+                <derivedDataTypeRef name="RsyncSyncLibrary_SatelliteInfo_elevation">
+                    <mimName>RsyncGnssInfo</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="satelliteIdentity">
+                <description>Satellite ID reported by GNSS receiver.
+
+Values 1 to 32 represent GPS satellites.
+Values 65 to 88 represent GLONASS satellites.
+Values 201 to 235 represent BDS satellites.</description>
+                <uint16/>
+            </structMember>
+            <structMember name="signalToNoiseRatio">
+                <description>Signal to noise ratio (SNR) of signal received from satellite.</description>
+                <derivedDataTypeRef name="RsyncSyncLibrary_SatelliteInfo_signalToNoiseRatio">
+                    <mimName>RsyncGnssInfo</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="UsedSatelliteInfo">
+            <description>List of satellite identities used for positioning.</description>
+            <structMember name="usedSatelliteIdentity">
+                <description>Satellite ID used for positioning and synchronization.</description>
+                <uint16/>
+                <preliminary/>
+            </structMember>
+        </struct>
+        <enum name="ControlPath">
+            <description>Control path of GNSS receiver.</description>
+            <enumMember name="UNKNOWN">
+                <description>Control path availability from Baseband to GNSS receiver unknown.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="CONTROL_PATH_EXIST">
+                <description>Control path exists from Baseband to GNSS receiver. Baseband can configure GNSS receiver.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="NO_CONTROL_PATH">
+                <description>No control path from Baseband to GNSS receiver. Baseband cannot configure GNSS receiver. Error in cable, connectors or caused by intermediate HW.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="UNSUPPORTED">
+                <description>GNSS receiver does not support control from Baseband. Applies to GPS01.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="FwUpgradeStatus">
+            <description>GNSS receiver firmware upgrade status.</description>
+            <enumMember name="UNKNOWN">
+                <description>Displayed at start-up phase and when there is no GNSS receiver connected.</description>
+                <value>0</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="UPGRADE_UNSUPPORTED">
+                <description>Connected GNSS receiver does not support firmware upgrade.</description>
+                <value>1</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="NO_CONTROL">
+                <description>Node is not in control of GNSS receiver.</description>
+                <value>2</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="DOWNLOAD_ONGOING">
+                <description>Downloading of firmware to GNSS receiver is ongoing.</description>
+                <value>3</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="EVALUATING_RESTART_PRECONDITIONS">
+                <description>Latest firmware is downloaded to GNSS receiver. Before ordering GNSS receiver to restart with latest firmware, but node is evaluating sky visibility to find a time window where GNSS receiver can lock to satellites.</description>
+                <value>4</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="SKY_VISIBILITY_LIMITED">
+                <description>Latest firmware downloaded. Node will not order GNSS receiver to restart on latest firmware due to too limited sky visibility.</description>
+                <value>5</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="RESTART_ORDERED">
+                <description>GNSS receiver ordered to restart with latest firmware.</description>
+                <value>6</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="OK">
+                <description>GNSS receiver use latest firmware.</description>
+                <value>7</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="FIRMWARE_REJECTED">
+                <description>GNSS receiver rejects firmware in UP.</description>
+                <value>8</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="FILE_TRANSFER_REJECTED">
+                <description>GNSS receiver rejected file transfer.</description>
+                <value>9</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="DOWNLOAD_FAILED">
+                <description>Download of firmware to GNSS receiver has failed, but it was not rejected.</description>
+                <value>10</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="FIRMWARE_MISMATCH">
+                <description>GNSS receiver is running older firmware than firmware in UP. GNSS receiver failed to start on firmware downloaded from UP, or user have by action ordered GNSS receiver to start from slot which does not contain latest firmware.</description>
+                <value>11</value>
+                <preliminary/>
+            </enumMember>
+        </enum>
+        <enum name="GnssInfoObservationPointMode">
+            <description>Observation point of GNSS receiver.</description>
+            <enumMember name="UNKNOWN">
+                <description>Observation point mode is not known. </description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="SURVEY">
+                <description>GNSS receiver is in survey mode, time and position are continuously calculated.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POSITION_HOLD">
+                <description>GNSS receiver locked to fixed position, which is used to calculate time.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="GnssRecControlAction">
+            <description>Actions of control.</description>
+            <enumMember name="RELEASE_CONTROL">
+                <description>Get control of GNSS receiver.</description>
+                <value>0</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="GET_CONTROL">
+                <description>Release control of GNSS receiver.</description>
+                <value>1</value>
+                <preliminary/>
+            </enumMember>
+        </enum>
+        <enum name="GnssReceiverResurveyAction">
+            <description>Action of gnssReceiverResurvey.</description>
+            <enumMember name="ENABLE">
+                <description>Enable automatic resurvey.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DISABLE">
+                <description>Disable automatic resurvey.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="EXECUTE">
+                <description>Initiate manual resurvey.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="CANCEL">
+                <description>Cancel manual resurvey in progress.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="STATUS">
+                <description>Display resurvey status and position information.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="GnssRefState">
+            <description>Status of GNSS receiver.</description>
+            <enumMember name="HW_FAULT">
+                <description>Hardware fault reported from the receiver.</description>
+                <value>0</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="OK">
+                <description>Indicates fully operational GNSS receiver.</description>
+                <value>1</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="NO_TIME">
+                <description>No time reported.</description>
+                <value>2</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="NO_MESSAGES">
+                <description>No messages received.</description>
+                <value>3</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="PROTOCOL_NOT_RECOGNIZED">
+                <description>The protocol used by the receiver is not recognised.</description>
+                <value>4</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="LOSS_OF_1PPS_SIGNAL">
+                <description>1PPS synchronization signal lost.</description>
+                <value>5</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="SYNCHRONIZED">
+                <description>GNSS receiver is synchronized to satellites.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_SYNCHRONIZED">
+                <description>GNSS receiver is not synchronized to satellites.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="UNKNOWN">
+                <description>No contact with GNSS receiver.</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="MultipleGnssStatus">
+            <description>Multiple GNSS feature status.</description>
+            <enumMember name="WANTED_GNSS_USED">
+                <description>Wanted satellite system used by GNSS receiver.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DISABLED_LICENSE">
+                <description>Wanted satellite system not used by GNSS receiver. Missing or deactivated Multiple GNSS Support license.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="GNSS_REC_UNREACHABLE">
+                <description>Wanted satellite system not used by GNSS receiver. Control path to GNSS receiver missing.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="WANTED_GNSS_UNSUPPORTED">
+                <description>Connected GNSS receiver does not support wanted satellite system. GPS03 receiver needed.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="GNSS_REC_CONFIG_FAULT">
+                <description>Wanted satellite system not used by GNSS receiver.
+
+Another node sharing GNSS receiver has configured it differently. Attribute multipleGnssWanted needs to be changed on one of nodes to get matching configuration.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="SatelliteSystem">
+            <description>Combination of satellite systems.</description>
+            <enumMember name="UNKNOWN">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="GPS">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="BDS">
+                <description>BeiDou Navigation Satellite System.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="GLONASS">
+                <value>3</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="GALILEO">
+                <value>4</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="GPS_GLONASS">
+                <value>17</value>
+            </enumMember>
+            <enumMember name="GPS_BDS">
+                <value>18</value>
+            </enumMember>
+            <enumMember name="GPS_GALILEO">
+                <value>19</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="GPS_QZSS">
+                <value>20</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="GPS_GLONASS_QZSS">
+                <value>30</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="GPS_BDS_QZSS">
+                <value>31</value>
+                <preliminary/>
+            </enumMember>
+            <enumMember name="GPS_GALILEO_QZSS">
+                <value>32</value>
+                <preliminary/>
+            </enumMember>
+        </enum>
+        <derivedDataType name="GnssInfo_gnssReceiverReset_slotNumber">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>2</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>2</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="GnssInfo_gnssReceiverRestartFromSlot_rollbackSlot">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>2</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>2</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="GnssInfo_gnssReceiverRestartFromSlot_slotNumber">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>2</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>2</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="GnssInfo_gnssReceiverResurvey_noOfSatellites">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>4</min>
+                        <max>24</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>4</min>
+                            <max>24</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncGnssInfo_GnssInfo_altitude">
+            <baseType>
+                <string/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncSyncLibrary_SatelliteInfo_azimuth">
+            <baseType>
+                <uint16>
+                    <unit>degree</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncSyncLibrary_SatelliteInfo_elevation">
+            <baseType>
+                <uint16>
+                    <unit>degree</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncSyncLibrary_SatelliteInfo_signalToNoiseRatio">
+            <baseType>
+                <int16>
+                    <unit>dB</unit>
+                </int16>
+            </baseType>
+        </derivedDataType>
+        <class name="GnssInfo">
+            <description>Represents connected GNSS receiver status, satellite systems used, synchronization to satellites and satellite visibility details.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="GnssInfo"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='not(@multipleGnssWanted eq 0)'> <value-of select="."/> UNKNOWN is not applicable for wanted satellite system. </assert>
+</rule>
+</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='not(@multipleGnssWanted eq 0)'> <value-of select="."/> UNKNOWN is not applicable for wanted satellite system. </assert>
+</rule>
+</pattern>
+</schema>]]></dependenciesScript>
+            <action name="gnssReceiverResurvey">
+                <description>Enable or disable automatic self-resurvey, or perform manual self-resurvey on connected GNSS receiver.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <string/>
+                </returnType>
+                <parameter name="action">
+                    <description>Selects action to perform.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="GnssReceiverResurveyAction">
+                            <mimName>RsyncGnssInfo</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <parameter name="noOfSatellites">
+                    <description>noOfSatellites can be in range 4..24, and is used only when action is set to execute.
+
+If action is executed successfully, result is empty string.
+If action failed, result is string with explanation.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="GnssInfo_gnssReceiverResurvey_noOfSatellites">
+                            <defaultValue>4</defaultValue>
+                            <mimName>RsyncGnssInfo</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="gnssReceiverReset">
+                <description>Initiate reset of connected GNSS receiver.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="1"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="action">
+                    <description>Set action to execute to initiate reset.</description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <parameter name="slotNumber">
+                    <description>GRU firmware slot number is used to restart GRU on particular firmware revision.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="GnssInfo_gnssReceiverReset_slotNumber">
+                            <defaultValue>0</defaultValue>
+                            <mimName>RsyncGnssInfo</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <deprecated/>
+                <statusInformation>Since 19.Q1. Planned to be removed. Replaced by gnssReceiverRestart.</statusInformation>
+            </action>
+            <action name="getGnssReceiverControl">
+                <description>Give node control of GNSS receiver.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="2"/>
+                </domainExtension>
+                <returnType>
+                    <string/>
+                </returnType>
+                <parameter name="action">
+                    <description>Set action to get or release control of GNSS receiver.
+
+If action is executed successfully, result is empty string.
+If action failed, result is string with explanation.
+
+Action fails in following cases:
+- Executed on node with connected GNSS receiver of older generation than GRU04.
+- GRU04 is connected to node, but node has no control over GRU04.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="GnssRecControlAction">
+                            <mimName>RsyncGnssInfo</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <preliminary/>
+            </action>
+            <action name="gnssReceiverRestart">
+                <description>Initiate restart of connected GNSS receiver.
+
+Action can be executed if GPS02, GPS03 or GRU04 receiver is connected to node.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3"/>
+                </domainExtension>
+                <returnType>
+                    <string/>
+                </returnType>
+                <parameter name="action">
+                    <description>Set action to initiate reset.
+
+If action is executed successfully, result is empty string.
+If action failed, result is string with explanation.
+
+Action fails if executed on node which has:
+- GPS01 connected.
+- GPS02, GPS03 or GRU04 connected, but there is no control path towards GNSS receiver.
+- GRU04 connected, but there is no control over GNSS receiver.</description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <preliminary/>
+            </action>
+            <action name="gnssReceiverRestartFromSlot">
+                <description>Initiate reset to different firmware slot on GRU04.
+
+Action can be executed only if GRU04 receiver is connected to node.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="4"/>
+                </domainExtension>
+                <returnType>
+                    <string/>
+                </returnType>
+                <parameter name="action">
+                    <description>Set action to initiate reset.</description>
+                    <in/>
+                    <dataType>
+                        <string>
+                            <defaultValue/>
+                        </string>
+                    </dataType>
+                </parameter>
+                <parameter name="slotNumber">
+                    <description>GNSS receiver firmware slot number is used to restart GNSS receiver on particular firmware revision.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="GnssInfo_gnssReceiverRestartFromSlot_slotNumber">
+                            <defaultValue>3</defaultValue>
+                            <mimName>RsyncGnssInfo</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="rollbackSlot">
+                    <description>If restart fails due to new defined slot number, GRU04 will autonomously restart to slot defined with rollbackSlot parameter.
+
+If action is executed successfully, result is empty string.
+If action failed, result is string with explanation.
+
+Action fails in following cases:
+- Executed on node with connected GNSS receiver of older generation than GRU04.
+- GRU04 is connected to node, but node has no control over GRU04.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="GnssInfo_gnssReceiverRestartFromSlot_rollbackSlot">
+                            <defaultValue>3</defaultValue>
+                            <mimName>RsyncGnssInfo</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <preliminary/>
+            </action>
+            <attribute name="altitude">
+                <description>Altitude of GNSS receiver antenna.
+
+In survey mode, instantaneous calculated altitude of antenna.
+In position-hold mode, altitude of antenna averaged over survey period.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncGnssInfo_GnssInfo_altitude">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="gnssInfoId">
+                <description>The value component of the RDN.
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="gnssRecControlPath">
+                <description>Control path status.
+
+Shows if control path exists.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="ControlPath">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="gnssReceiverControl">
+                <description>Node control status of GNSS receiver.</description>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="gnssReceiverFirmware">
+                <description>List of GNSS receiver firmware.</description>
+                <readOnly/>
+                <dataType>
+                    <structRef name="GnssReceiverFw">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </structRef>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="gnssReceiverFwUpgradeStatus">
+                <description>Status of last remote GNSS receiver firmware upgrade, or ongoing remote firmware upgrade.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="FwUpgradeStatus">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </enumRef>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="gnssReceiverProductData">
+                <description>Connected GNSS receiver.</description>
+                <readOnly/>
+                <dataType>
+                    <structRef name="GnssReceiverProduct">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </structRef>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="gnssReceiverStatus">
+                <description>Status of GNSS receiver.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="GnssRefState">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="hdop">
+                <description>Horizontal dilution of precision of reported antenna position.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="latitude">
+                <description>Latitude of GNSS receiver antenna.
+
+In survey mode, instantaneous calculated latitude of antenna.
+In position-hold mode, latitude of antenna averaged over survey period.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="longitude">
+                <description>Longitude of GNSS receiver antenna.
+
+In survey mode, instantaneous calculated longitude of antenna.
+In position-hold mode, longitude of antenna averaged over survey period.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="multipleGnssActual">
+                <description>Satellite systems used by GNSS receiver.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="SatelliteSystem">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="multipleGnssStatus">
+                <description>Multiple GNSS usage status.
+
+If wanted satellite system is used by GNSS receiver, or if there is mismatch between actual and wanted satellite system usage including possible mismatch cause.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="MultipleGnssStatus">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="multipleGnssWanted">
+                <description>Wanted satellite system to be used by GNSS receiver.
+
+GNSS receiver GPS03 starts by using GPS and GLONASS. It can be configured to use different satellite systems. Earlier GNSS receiver products support only GPS.
+
+Dependencies: UNKNOWN is not applicable for wanted satellite system.</description>
+                <dataType>
+                    <enumRef name="SatelliteSystem">
+                        <defaultValue>GPS_GLONASS</defaultValue>
+                        <mimName>RsyncGnssInfo</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="noOfSatellitesInUse">
+                <description>Number of satellites in use.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <int32/>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="noOfSatellitesInView">
+                <description>Number of satellites in view.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <int32/>
+                </dataType>
+            </attribute>
+            <attribute name="observationPointMode">
+                <description>Mode of observation point of GNSS receiver.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="GnssInfoObservationPointMode">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="pdop">
+                <description>Position dilution of precision of reported antenna position.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="satelliteInformation">
+                <description>Satellites in view.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="SatelliteInfo">
+                            <mimName>RsyncGnssInfo</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                        <maxLength>72</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="usedSatelliteInformation">
+                <description>Used satellites.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="UsedSatelliteInfo">
+                            <mimName>RsyncGnssInfo</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                        <maxLength>72</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+                <preliminary/>
+            </attribute>
+            <attribute name="vdop">
+                <description>Vertical dilution of precision of reported antenna position.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="TimeSyncIO_to_GnssInfo">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="TimeSyncIO">
+                        <mimName>RsyncTimeSyncIO</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="GnssInfo">
+                        <mimName>RsyncGnssInfo</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

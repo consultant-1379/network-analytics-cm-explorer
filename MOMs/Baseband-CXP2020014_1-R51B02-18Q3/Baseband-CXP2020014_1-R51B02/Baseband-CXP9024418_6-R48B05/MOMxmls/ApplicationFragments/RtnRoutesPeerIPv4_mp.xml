@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Dec 12, 2017 4:30:32 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="0" date="2015-01-09" docNo="" name="RtnRoutesPeerIPv4" namespace="urn:com:ericsson:ecim:RtnRoutesPeerIPv4" namespacePrefix="rtnroutespeeripv4" organization="" release="7" revision="" variant="Model" version="2">
+        <description>IPv4 Peer. &#13;
+&#13;
+Used when static route next hop is IP Address.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_Routes_PeerIPv4"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="1"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_Routes_PeerIPv4" release="1" version="1"/>
+        <enum name="BfdStaticRoutesInterfaceType">
+            <description>State of bfdStaticRoutes.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="Ipv4FqdnAddressStr">
+            <description>IPv4 address or fully qualified domain name.
+
+IPv4 address is specified in dotted-quad decimal notation in accordance with RFC791, without leading zeros.
+IPv4 address can be unicast address within range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters.
+Valid characters:
+0123456789
+
+Example:
+1.1.1.1,
+1.1.255.255
+
+Valid fully qualified domain name:
+- has maximum length 253 characters.
+- is not case-sensitive.
+- consists of one or more labels separated by dots (".").
+
+Minimum length of each label is one character and maximum length is 63 characters.
+Valid characters for label are:
+- letters 'a' - 'z', 'A' - 'Z', digits '0' - '9', and character '-' (hyphen).
+- first and last character in each label cannot be '-' (hyphen).
+
+Example:
+myhost.ericsson.com
+
+If string is valid IPv4 address, it is interpreted as IPv4 address.
+If string is not valid IPv4 address, it is interpreted as fully qualified domain name.</description>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>253</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>253</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>(^((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$)|(^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$)|(^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RouteKeyAttributeType">
+            <description>Route KeyAttribute Type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnRoutesLib"/>
+            </domainExtension>
+            <baseType>
+                <string/>
+            </baseType>
+        </derivedDataType>
+        <class name="PeerIPv4">
+            <description>Provides IPv4 peer information.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="PeerIPv4"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $address in @address satisfies (count(../PeerIPv4[($address eq @address)]) eq 1)'><value-of select="."/> This address must be unique among all PeerIPv4 MO addresses within the same Router MO.</assert>
+		<assert test='not((@bfdProfile and matches(@bfdProfile,".*,Router=.*,BfdProfile=.*") and (../@routerId ne @bfdProfile/../@routerId)))'><value-of select="."/> BfdProfile MO must not refer to a different Router MO.</assert>
+		<assert test ='not((count(@address[matches(.,"((0)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1) or (count(@address[matches(.,"((127)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1))'><value-of select="."/> IPv4 address can be unicast address within range [1-126,128-223].[0-255].[0-255].[0-255] </assert>
+		<assert test ='((count(@address[matches(.,"((0)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1) or (count(@address[matches(.,"((127)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1)) or not((count(@address[matches(.,"((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 0) and (count(@reservedBy) ne count(@reservedBy[matches(., ".*,IpsecTunnel=.*")])))'><value-of select="."/> Domain name is only valid for IPsec. </assert>
+		<assert test ='((count(@address[matches(.,"((0)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1) or (count(@address[matches(.,"((127)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1)) or not((count(@address[matches(.,"((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 0) and (count(../DnsClient) eq 0))'><value-of select="."/> If domain name is used, DnsClient MO must be configured in same Router MO </assert>
+		<assert test='every $address in @address satisfies (count(../InterfaceIPv4/AddressIPv4[substring-before(@address, "/") eq $address]) eq 0)'><value-of select="."/> Must not coincide with address configured on AddressIPv4 MO in this Router MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $address in @address satisfies (count(../PeerIPv4[($address eq @address)]) eq 1)'><value-of select="."/> This address must be unique among all PeerIPv4 MO addresses within the same Router MO.</assert>
+		<assert test='not((@bfdProfile and matches(@bfdProfile,".*,Router=.*,BfdProfile=.*") and (../@routerId ne @bfdProfile/../@routerId)))'><value-of select="."/> BfdProfile MO must not refer to a different Router MO.</assert>
+		<assert test ='not((count(@address[matches(.,"((0)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1) or (count(@address[matches(.,"((127)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1))'><value-of select="."/> IPv4 address can be unicast address within range [1-126,128-223].[0-255].[0-255].[0-255] </assert>
+		<assert test ='((count(@address[matches(.,"((0)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1) or (count(@address[matches(.,"((127)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1)) or not((count(@address[matches(.,"((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 0) and (count(@reservedBy) ne count(@reservedBy[matches(., ".*,IpsecTunnel=.*")])))'><value-of select="."/> Domain name is only valid for IPsec. </assert>
+		<assert test ='((count(@address[matches(.,"((0)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1) or (count(@address[matches(.,"((127)\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 1)) or not((count(@address[matches(.,"((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$")]) eq 0) and (count(../DnsClient) eq 0))'><value-of select="."/> If domain name is used, DnsClient MO must be configured in same Router MO </assert>
+		<assert test='every $address in @address satisfies (count(../InterfaceIPv4/AddressIPv4[substring-before(@address, "/") eq $address]) eq 0)'><value-of select="."/> Must not coincide with address configured on AddressIPv4 MO in this Router MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="address">
+                <description>IPv4 address or fully qualified domain name of peer.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4FqdnAddressStr">
+                        <mimName>RtnRoutesPeerIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Must not coincide with address configured on AddressIPv4 MO in this Router MO.
+Must be unique among all PeerIPv4 MO addresses within same Router MO.
+Domain name is only valid for IPsec.
+Must be IPv4 address, if this MO is referred by DhcpRelayIPv4 MO.
+Needs to be in connected subnet in order for BFD session to be setup. No BFD session is setup if domain name is used.
+If domain name is used, DnsClient MO must be configured in same Router MO. If domain name is resolved to multiple IPv4 addresses, detection of unreachable peer is delayed.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="bfdProfile">
+                <description>Reference to BfdProfile MO containing BFD parameters used for BFD sessions towards this IP peer.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Referred BfdProfile MO must belong to Transport MO or same Router MO.</dependencies>
+            </attribute>
+            <attribute name="bfdStaticRoutes">
+                <description>Enables/disables BFD monitoring of static routes with this peer as netxthop.
+
+If set to ENABLED, BFD monitoring is enabled for static routes where address of NextHop MO is equal to address of this PeerIPv4 MO.
+If bfdProfile is set on this MO, BFD session uses parameters configured in referred BfdProfile MO.
+If bfdProfile is not set on this MO, BFD session uses parameters configured in BfdProfile MO referred from InterfaceIPv4 MO bfdProfile attribute.
+If bfdProfile is not set on this MO and neither InterfaceIPv4 MO, BFD monitoring is not enabled.
+
+If set to DISABLED, BFD monitoring is disabled for static routes where address of NextHop MO is equal to address of this PeerIPv4 MO. This overrides bfdStaticRoutes attribute on InterfaceIPv4 MO.
+
+If not set, BFD monitoring can still be enabled towards this peer by setting bfdStaticRoutes attribute to ENABLED on InterfaceIPv4 MO. bfdProfile on this PeerIPv4 MO is in this case not used.
+
+If BFD monitoring is enabled, all static routes with this peer as nexthop are monitored, unless explicitly disabled per NextHop MO.
+
+BFD monitoring of PBR nexthops is not controlled by this attribute.
+If this attribute is set to ENABLED (that is BFD monitoring for static routes is enabled for this peer) and bfdProfile is set in this PeerIPv4 MO, BfdProfile MO referred from this PeerIPv4 MO is used also for PBR nexthops.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="BfdStaticRoutesInterfaceType">
+                        <mimName>RtnRoutesPeerIPv4</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="peerIPv4Id">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="RouteKeyAttributeType">
+                        <mimName>RtnRoutesPeerIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="PeerIPv4_bfdProfile_to_BfdProfile_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="bfdProfile">
+                    <hasClass name="BfdProfile">
+                        <mimName>RtnBfdProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PeerIPv4">
+                        <mimName>RtnRoutesPeerIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_PeerIPv4">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PeerIPv4">
+                        <mimName>RtnRoutesPeerIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

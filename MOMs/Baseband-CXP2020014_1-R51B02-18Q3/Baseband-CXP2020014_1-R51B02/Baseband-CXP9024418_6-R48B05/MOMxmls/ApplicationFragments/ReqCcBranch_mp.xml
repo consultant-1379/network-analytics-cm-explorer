@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2015 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Dec 13, 2015 4:33:54 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqCcBranch" namespace="urn:com:ericsson:ecim:ReqCcBranch" namespacePrefix="reqccbranch" organization="" release="0" revision="" version="1">
+        <description>This MO represents the functional "long antenna branch" between the Antenna Reference Point and the cross connected receiving radio unit. It conceptually includes an RfBranch and a CcLink.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <class name="CcBranch">
+            <description>This MO represents the functional "long antenna branch" between the Antenna Reference Point and the cross connected receiving radio unit. It conceptually includes an RfBranch and a CcLink.</description>
+            <root/>
+            <attribute name="ccBranchId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="ccLinkRef">
+                <description>Contains reference to the CcLink included in the CcBranch. The CcLink represents cross connect cable part of the CcBranch.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="CcLink">
+                        <mimName>ReqCcLink</mimName>
+                    </moRef>
+                </dataType>
+                <takesEffect> MO CcLink Lock/Unlock.</takesEffect>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rfBranchRef">
+                <description>Contains reference to the RfBranch included in the CcBranch. The RfBranch represents the RF feeder part of the CcBranch.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </moRef>
+                </dataType>
+                <takesEffect> MO CcLink Lock/Unlock.</takesEffect>
+            </attribute>
+        </class>
+        <relationship name="CcBranch_ccLinkRef_to_CcLink_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ccLinkRef">
+                    <hasClass name="CcLink">
+                        <mimName>ReqCcLink</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="CcBranch">
+                        <mimName>ReqCcBranch</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="CcBranch_rfBranchRef_to_RfBranch_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchRef">
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="CcBranch">
+                        <mimName>ReqCcBranch</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="AntennaUnitGroup_to_CcBranch">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="CcBranch">
+                        <mimName>ReqCcBranch</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>24</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

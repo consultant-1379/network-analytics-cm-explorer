@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jun 22, 2017 7:08:18 AM using:
+	* com.ericsson.ecim.m2m 2.14.9.201706010400
+	* com.ericsson.ecim.dsl 2.14.9.201706010400
+	* com.ericsson.ecim.edm 2.14.9.201706010400
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>-</momTitle>
+        <momSubTitle>Manual LRAT MOM Fragment</momSubTitle>
+        <momIdentity>
+            <docNum>CXC1738571/27</docNum>
+            <docLang>-</docLang>
+            <docRev>R9E01</docRev>
+            <docDate>-</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="LratBb" namespace="urn:com:ericsson:ecim:LratBb" namespacePrefix="lratbb" organization="" release="9020" revision="R9E01" version="1">
+        <description>Represents the baseband processing resource in a DU or Baseband used for the eNB application in the RBS. MO is created automatically when the first EUtranCell is unlocked. In DU, attribute autoConfigurationAllowed must be set to TRUE in MO ManagedElementData, to enable the auto-configuration function. MO can be deleted manually.
+
+The RDN of this MO is BbProcessingResource=1.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME" />
+        </domainExtension>
+        <derivedDataType name="LratBb_BbProcessingResource_bbProcessingResourceId">
+            <baseType>
+                <string />
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratBb_BbProcessingResource_licCapDistr">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratBb_BbProcessingResource_licPrbUnit">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>600</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>600</max>
+                        </subrange>
+                    </ranges>
+                    <unit>PRB</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="BbProcessingResource">
+            <description>Represents the baseband processing resource in a DU or Baseband used for the eNB application in the RBS. MO is created automatically when the first EUtranCell is unlocked. In DU, attribute autoConfigurationAllowed must be set to TRUE in MO ManagedElementData, to enable the auto-configuration function. MO can be deleted manually.
+
+The RDN of this MO is BbProcessingResource=1.</description>
+            <root />
+            <attribute name="bbProcessingResourceId">
+                <description>The value component of the RDN.</description>
+                <mandatory />
+                <noNotification />
+                <restricted />
+                <key />
+                <dataType>
+                    <derivedDataTypeRef name="LratBb_BbProcessingResource_bbProcessingResourceId">
+                        <mimName>LratBb</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="licCapDistr">
+                <description>Part of the licensed capacity a baseband processing resource is allowed to use. Relevant for eNB in dual DU configuration, i.e. ENodeBFunction supported by 2 or 3 DU, each with a BbProcessingResource. Dual DU is not supported with Baseband Unit.
+
+Default setup is ENodeBFunction::licCapDistrMethod=SYSTEM, and BbProcessingResource::licCapDistr=0. In runtime, licCapDistr then shows the distribution made automatically by the RBS.
+
+If ENodeBFunction::licCapDistrMethod=OPERATOR, licCapDistr decides the allowed capacity for each BbProcessingResource.</description>
+                <dataType>
+                    <derivedDataTypeRef name="LratBb_BbProcessingResource_licCapDistr">
+                        <defaultValue>0</defaultValue>
+                        <mimName>LratBb</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Can only be set if ENodeBFunction::licCapDistrMethod=OPERATOR. Then the sum for all (2 or 3) BbProcessingResource instances must be 100%.</dependencies>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+            <attribute name="licPrbUnit">
+                <description>Bin step size representing PRB license unit for the DL/UL distribution of PRB capacity usage.</description>
+                <dataType>
+                    <derivedDataTypeRef name="LratBb_BbProcessingResource_licPrbUnit">
+                        <defaultValue>25</defaultValue>
+                        <mimName>LratBb</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_BbProcessingResource">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false" />
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="BbProcessingResource">
+                        <mimName>LratBb</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true" />
+                    <extension name="canDelete" value="true" />
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

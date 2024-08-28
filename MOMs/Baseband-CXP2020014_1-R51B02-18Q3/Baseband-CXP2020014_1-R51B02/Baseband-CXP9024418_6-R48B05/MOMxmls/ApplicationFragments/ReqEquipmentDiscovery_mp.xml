@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Mar 14, 2017 7:44:42 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqEquipmentDiscovery" namespace="urn:com:ericsson:ecim:ReqEquipmentDiscovery" namespacePrefix="reqequipmentdiscovery" organization="" release="4" revision="" version="1">
+        <description>Used to perform AISG Device Scan. Scan finds all radio RF and RET ports in RBS. It lists all AISG units with their unique HW IDs and how they are connected. Operator can select file storage.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="DeviceScanDcVoltage">
+            <description>The value represents the nominal DC voltage supplied to the antenna system during device scan.
+Please note that choosing a higher voltage than the maximum voltage capability of the antenna equipment may cause permanent damage to the antenna equipment.
+Choosing a too low voltage may cause unsuccessful result for large installations due to maximum current supply limitation in the Radio.</description>
+            <enumMember name="DC_12V">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DC_17V">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="DC_30V">
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="TcpStatus">
+            <description>The status of the TCP.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ReqAntennaSystem"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="UNKNOWN">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="STARTED">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FINISHED">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="AisgDataRate">
+            <description>The bit rate used for communication with the AISG units.</description>
+            <enumMember name="BITRATE_9600">
+                <description>The transmission bit rate is 9600 bps.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="BITRATE_38400">
+                <description>The transmission bit rate is 38400 bps.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="BITRATE_115200">
+                <description>The transmission bit rate is 115200 bps.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="DeviceScanPortConfiguration">
+            <description>Port Configuration used for full device scan.</description>
+            <enumMember name="SCAN_ALL_PORTS_WITH_DEFAULT_VOLTAGE">
+                <description>All ports are scanned. No change to default voltage configuration. </description>
+                <value>1</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="SCAN_ALL_PORTS_WITH_CHOSEN_VOLTAGE">
+                <description>All ports are scanned using chosen voltage.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="SCAN_RET_PORT_ONLY">
+                <description>Sets output DC voltage to 0 for RF Ports. Only RET ports are scanned.</description>
+                <value>0</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="EcimPasswordString">
+            <description>This type enables secure handling of passwords.</description>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>20</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>20</max>
+                        </subrange>
+                    </stringLength>
+                    <isPassphrase/>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqEquipmentDiscovery_EquipmentDiscovery_sftpServerIpAddress">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqEquipmentDiscovery_EquipmentDiscovery_sftpServerPath">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqEquipmentDiscovery_EquipmentDiscovery_sftpUsername">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>254</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>254</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="EquipmentDiscovery_antennaDeviceScan_server">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="EquipmentDiscovery_antennaDeviceScan_path">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="EquipmentDiscovery_antennaDeviceScan_userName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>254</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>254</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="EquipmentDiscovery_antennaDeviceScan_password">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>20</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>20</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="EquipmentDiscovery">
+            <description>Used to perform AISG Device Scan. Scan finds all radio RF and RET ports in RBS. It lists all AISG units with their unique HW IDs and how they are connected. Operator can select file storage.</description>
+            <systemCreated/>
+            <root/>
+            <action name="antennaDeviceScan">
+                <description>Starts a scan of connected AISG units. The scan result is stored on the chosen FTP server. It contains the unique ID and device type of the detected units, and how the units are connected to the RBS. The result can be used to detect and correct configuration errors in the antenna system, such as the unique ID of cascaded ARET units.&#13;
+If any equipment connected to the antenna system is not rated for 30 Volts then there is a risk that it will be permanently damaged.&#13;
+Note that the scan result is incomplete if any of the connected devices are not operational. This also applies if the connection to any device is broken, or if any of the corresponding radio units do not support device scan.&#13;
+The state of the scan can be observed through attribute antennaDeviceScanStatus. A complete scan can take several minutes.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="dataRate">
+                    <description>The bit rate used for communication with the AISG units during device scan.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="AisgDataRate">
+                            <mimName>ReqEquipmentDiscovery</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <parameter name="portVoltage">
+                    <description>The value represents the nominal DC voltage supplied to the antenna system during device scan. &#13;
+Please note that choosing a higher voltage than the maximum voltage capability of the antenna equipment may cause permanent damage to the antenna equipment. &#13;
+Choosing a too low voltage may cause unsuccessful result for large installations due to maximum current supply limitation in the Radio.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="DeviceScanDcVoltage">
+                            <mimName>ReqEquipmentDiscovery</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <parameter name="server">
+                    <description>The IP address or hostname of the FTP server storing the file.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="EquipmentDiscovery_antennaDeviceScan_server">
+                            <mimName>ReqEquipmentDiscovery</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="path">
+                    <description>The file path where to store the result file.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="EquipmentDiscovery_antennaDeviceScan_path">
+                            <mimName>ReqEquipmentDiscovery</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="userName">
+                    <description>The user name to the FTP server storing the file.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="EquipmentDiscovery_antennaDeviceScan_userName">
+                            <mimName>ReqEquipmentDiscovery</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="password">
+                    <description>The password to the FTP server storing the file.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="EquipmentDiscovery_antennaDeviceScan_password">
+                            <mimName>ReqEquipmentDiscovery</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <deprecated/>
+                <statusInformation>Since L17A. Replaced by performFullAntennaDeviceScan. Planned to be removed.</statusInformation>
+            </action>
+            <action name="performFullAntennaDeviceScan">
+                <description>Scans connected AISG units and stores results on the SFTP location indicated by sftpServerIpAddress and sftpServerPath. Contains unique unit ID, device type and how units are connected to RBS. Result is used to detect and correct configuration errors in antenna system, such as unique ID of cascaded ARET units.&#13;
+SFTP credentials are stored in attributes: sftpServerIpAddress, sftpServerPath, sftpUsername and sftpPassword. Scan state can be observed through attribute antennaDeviceScanStatus. Complete scan can take several minutes.&#13;
+&#13;
+NOTE: Scan result is incomplete if any connected device is not operational. Also applies for broken connection to any device, or if corresponding radio units do not support device scan.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="1"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <dependencies>Must not be run simultaneously as downloadSoftware on AntennaNearUnit. </dependencies>
+                <specification>3GPP TS 25.462, V8.0.0 luant data link layer, device scan.</specification>
+                <disturbances>Executing this action can cause permanent damage to antenna system equipment, when using high values for parameter portVoltage</disturbances>
+                <precondition>Attribute antennaDeviceScanInBackground must be set to false.&#13;
+Action antennaDeviceScan on NodeMangementFunction not running.&#13;
+Action performFullAntennaDeviceScan on EquipmentDiscovery not running.&#13;
+Action downloadSoftware on AntennaNearUnit not running.&#13;
+Attributes sftpServerIpAddress, sftpServerPath, sftpUsername, sftpPassword, dataRate, portVoltage, portConfiguration must be specified.</precondition>
+            </action>
+            <attribute name="antennaDeviceScanStatus">
+                <description>Status of ongoing performFullAntennaDeviceScan operation and Antenna Device Scan in background.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="TcpStatus">
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="equipmentDiscoveryId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="antennaDeviceScanInBackground">
+                <description>If true, Antenna Device Scan is run periodically in background. Scan results contain only ALDs that are not configured. Only configured ports are scanned.&#13;
+Result file is stored in SFTP location indicated by sftpServerIpAddress and sftpServerPath.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <precondition>Attributes sftpServerIpAddress, sftpServerPath, sftpUsername, sftpPassword must be set in order to start Antenna Device Scan in background.</precondition>
+            </attribute>
+            <attribute name="sftpServerIpAddress">
+                <description>IP address or hostname of SFTP server that stores file.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqEquipmentDiscovery_EquipmentDiscovery_sftpServerIpAddress">
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Next full or background scan</takesEffect>
+            </attribute>
+            <attribute name="sftpServerPath">
+                <description>File path to result file.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqEquipmentDiscovery_EquipmentDiscovery_sftpServerPath">
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Next full or background scan</takesEffect>
+            </attribute>
+            <attribute name="sftpUsername">
+                <description>User name to SFTP server that stores file.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqEquipmentDiscovery_EquipmentDiscovery_sftpUsername">
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Next full or background scan</takesEffect>
+            </attribute>
+            <attribute name="sftpPassword">
+                <description>Password to SFTP server that stores file.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="EcimPasswordString">
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Next full or background scan</takesEffect>
+            </attribute>
+            <attribute name="dataRate">
+                <description>Bit rate used for communication with AISG units during execution of performFullAntennaDeviceScan action.&#13;
+Not used by Device Scan in background.</description>
+                <dataType>
+                    <enumRef name="AisgDataRate">
+                        <defaultValue>BITRATE_9600</defaultValue>
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </enumRef>
+                </dataType>
+                <takesEffect>Next full scan</takesEffect>
+            </attribute>
+            <attribute name="portVoltage">
+                <description>Nominal DC antenna voltage supplied to system during execution of performFullAntennaDeviceScan action.&#13;
+&#13;
+NOTE: High voltage can cause permanent damage to some antenna system equipment.&#13;
+Low voltage can cause unsuccessful result for large antenna system configurations.&#13;
+&#13;
+Not used by Device Scan in background.</description>
+                <dataType>
+                    <enumRef name="DeviceScanDcVoltage">
+                        <defaultValue>DC_12V</defaultValue>
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>High voltage can cause permanent damage to antenna system equipment.</disturbances>
+                <takesEffect>Next full scan</takesEffect>
+            </attribute>
+            <attribute name="portConfiguration">
+                <description>Can choose which ports are configured with given DC voltage.&#13;
+Not used by Device Scan in background.</description>
+                <dataType>
+                    <enumRef name="DeviceScanPortConfiguration">
+                        <defaultValue>SCAN_ALL_PORTS_WITH_CHOSEN_VOLTAGE</defaultValue>
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </enumRef>
+                </dataType>
+                <takesEffect>Next full scan</takesEffect>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="NodeSupport_to_EquipmentDiscovery">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="NodeSupport">
+                        <mimName>RmeSupport</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EquipmentDiscovery">
+                        <mimName>ReqEquipmentDiscovery</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Jun 16, 2016 7:22:49 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqCcLink" namespace="urn:com:ericsson:ecim:ReqCcLink" namespacePrefix="reqcclink" organization="" release="0" revision="" version="2">
+        <description> This MO represents the analog cross connect cable which is used to connect two radio units via their cross connect ports to enable antenna sharing.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqCcLink_CcLink_ulAttenuation">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-500</min>
+                        <max>500</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-500</min>
+                            <max>500</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCcLink_CcLink_ulTrafficDelay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>800000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>800000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCcLink_CcLink_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="CcLink">
+            <description>This MO represents the analog cross connect cable which is used to connect two radio units via their cross connect ports to enable antenna sharing.</description>
+            <root/>
+            <attribute name="ccLinkId">
+                <description>RDN value component.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState. Specification: ITU-T rec. X.731</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqCcLink</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state. Specification: ITU-T rec. X.731</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqCcLink</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of CcBranch MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state. If set to SHUTTINGDOWN, the state will immediately be brought to LOCKED.
+Specification: ITU-T rec. X.731</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>UNLOCKED</defaultValue>
+                        <mimName>ReqCcLink</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="rxInRfPortRef">
+                <description>Refers to the RfPort MO representing the physical cross connect port (RfPort=RXA_IO or RXB_IO) on the radio unit receiving the analogue uplink antenna stream from the cross connect cable.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </moRef>
+                </dataType>
+                <takesEffect>CcLink Lock/Unlock.</takesEffect>
+            </attribute>
+            <attribute name="rxOutRfPortRef">
+                <description>Refers to the RfPort MO representing the physical cross connect port (RfPort=RXA_IO, RXA_OUT or RXB_IO) on the radio unit receiving the analogue uplink antenna stream from the antenna and sends it to the cross connect cable.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </moRef>
+                </dataType>
+                <takesEffect>CcLink Lock/Unlock.</takesEffect>
+            </attribute>
+            <attribute name="ulAttenuation">
+                <description>Uplink attenuation of the cross-connect cable.
+The sequence contains 40 entries and each entry represents one 5-MHz interval.
+The first entry represents the attenuation value of the lowest frequency interval in the operating band, and so on.
+The number of intervals depends on the operating band.
+For information on the different operating bands, refer to 3GPP TS 36.104.
+The value range for each entry is -500 to -2, -1, 0-500 (-50 to 50 dB). Unused entries are set to -1.
+</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqCcLink_CcLink_ulAttenuation">
+                            <defaultValue>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</defaultValue>
+                            <mimName>ReqCcLink</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>40</minLength>
+                        <maxLength>40</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <takesEffect>lock/unlock of CcLink</takesEffect>
+            </attribute>
+            <attribute name="ulTrafficDelay">
+                <description>Uplink delay of the cross-connect cable.
+The sequence contains 40 entries and each entry represents one 5-MHz interval. The first entry represents the delay value of the lowest frequency interval in the operating band, and so on.
+The number of intervals used depends on the operating band.
+For information on the different operating bands, refer to 3GPP TS 36.104.
+The value range for each entry is 0-800000 (0-800000 ns). Unused entries are set to -1.
+NOTE: The range supported by individual radio units may be smaller and must be considered when configuring the antenna system. </description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqCcLink_CcLink_ulTrafficDelay">
+                            <defaultValue>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</defaultValue>
+                            <mimName>ReqCcLink</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>40</minLength>
+                        <maxLength>40</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <takesEffect>lock/unlock of CcLink</takesEffect>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqCcLink_CcLink_userLabel">
+                        <mimName>ReqCcLink</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="ccLink_rxInRfPortRef_to_rfPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rxInRfPortRef">
+                    <hasClass name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="CcLink">
+                        <mimName>ReqCcLink</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="ccLink_rxOutRfPortRef_to_rfPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rxOutRfPortRef">
+                    <hasClass name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="CcLink">
+                        <mimName>ReqCcLink</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Equiment_to_Cclink">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="CcLink">
+                        <mimName>ReqCcLink</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>24</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

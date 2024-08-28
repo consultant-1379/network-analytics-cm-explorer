@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqFanGroup" namespace="urn:com:ericsson:ecim:ReqFanGroup" namespacePrefix="reqfangroup" organization="" release="0" revision="0" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="ApcIndicatorStatus">
+            <description>Possible states for green, yellow and red indicators. Since the semantics of the different indicator states depend on the color of the indicator, the semantics is described as part of the corresponding indicator status attribute description.</description>
+            <enumMember name="NOT_APPLICABLE">
+                <description>The indicator is not supported. </description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>The indicator state is currently not available.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="OFF">
+                <description>The indicator is off.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="STEADY_ON">
+                <description>The indicator is on continuously.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="SLOW_BLINK">
+                <description>The indicator blinks slowly.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="FAST_BLINK">
+                <description>The indicator blinks quickly.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_STEADY_ON">
+                <description>The indicator blinks twice and is then on for a short time. This cycle is then repeated. </description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_OFF">
+                <description>The indicator blinks twice and is then off for a short time. This cycle is then repeated.</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqFanGroup_FanGroup_fanPort">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>10</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>10</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="FanGroup">
+            <description>This MO models a fan group.&#13;
+A fan group is one or more fans which are supervised and controlled as a group. The MO ID will &#13;
+match the physical fan group ID. Number of MOs created depends on cabinet type and climate &#13;
+system.&#13;
+&#13;
+The RDNs of these MOs are FanGroup=1, FanGroup=2, and so on. &#13;
+&#13;
+Dependencies: Can only exist in the node when the attribute supportSystemControl &#13;
+on MO EquipmentSupportFunction is set to true.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="fanGroupFaultIndicator">
+                <description>The current fault indicator status of the fan group shown by the optical fan group fault indicator on the Support Control Unit (SCU).&#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = This indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = Fans connected and no fault exists in this unit.&#13;
+• STEADY_ON = A fan fault exists in this unit.&#13;
+• SLOW_BLINK = A fan in this unit is disconnected. </description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="ApcIndicatorStatus">
+                        <mimName>ReqFanGroup</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="fanPort">
+                <description>The physical port where the fan is connected.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqFanGroup_FanGroup_fanPort">
+                        <mimName>ReqFanGroup</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="fanGroupId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <dependencies>Can only exist in the node when the attribute supportSystemControl on MO EquipmentSupportFunction is set to true.</dependencies>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Cabinet_to_FanGroup">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="FanGroup">
+                        <mimName>ReqFanGroup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

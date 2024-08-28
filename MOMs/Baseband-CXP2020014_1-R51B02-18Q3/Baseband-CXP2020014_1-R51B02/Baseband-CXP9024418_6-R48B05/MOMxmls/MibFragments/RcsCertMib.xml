@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>H</dtdVersion>
+  <mib name="RcsCertMib_CXP2020013_1" release="0" version="1">
+    <object parentDn="CertM=1">
+      <hasClass name="CertMCapabilities">
+        <mimName>ECIM_CertM</mimName>
+      </hasClass>
+      <slot name="certMCapabilitiesId">
+        <value>1</value>
+      </slot>
+      <slot name="enrollmentSupport">
+        <seqValue>
+          <value>0</value>
+          <value>1</value>
+          <value>3</value>
+        </seqValue>
+      </slot>
+      <slot name="fingerprintSupport">
+        <value>0</value>
+      </slot>
+      <slot name="keySupport">
+        <seqValue>
+          <value>0</value>
+          <value>1</value>
+          <value>2</value>
+          <value>3</value>
+          <value>4</value>
+          <value>5</value>
+          <value>6</value>
+          <value>7</value>
+          <value>8</value>
+          <value>10</value>
+          <value>11</value>
+          <value>12</value>
+          <value>13</value>
+        </seqValue>
+      </slot>
+    </object>
+  </mib>
+</models>

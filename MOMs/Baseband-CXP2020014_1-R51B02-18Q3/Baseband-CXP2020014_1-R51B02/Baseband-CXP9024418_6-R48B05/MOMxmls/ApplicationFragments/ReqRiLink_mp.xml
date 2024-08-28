@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on May 16, 2017 7:57:24 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqRiLink" namespace="urn:com:ericsson:ecim:ReqRiLink" namespacePrefix="reqrilink" organization="" release="3" revision="0" version="3">
+        <description>This Managed Object (MO) is used to configure and monitor a Radio Interface (RI) link. It contains references to the two Radio Interface Ports (RiPort) comprising the link.
+
+The two RiPort references must be provisioned to make the configuration of the radio interface connection complete.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="FronthaulDeviceLineRate">
+            <description>Line rate of CPRI link. Used if fronthaul device is adopted.</description>
+            <enumMember name="NOT_SET">
+                <description>Line rate not set by operator.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="CPRI_LINE_RATE_2">
+                <description>Line rate is CPRI line rate option 2, 1.2288 Gbps.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="CPRI_LINE_RATE_3">
+                <description>Line rate is CPRI line rate option 3, 2.4575 Gbps</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="CPRI_LINE_RATE_5">
+                <description>Line rate is CPRI line rate option 5, 4.9152 Gbps</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="CPRI_LINE_RATE_7">
+                <description>Line rate is CPRI line rate option 7, 9.8304 Gbps</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="CPRI_LINE_RATE_8">
+                <description>Line rate is CPRI line rate option 8, 10.1376 Gbps</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="RbsTransportType">
+            <description>The transport type and protocol of the Radio Interface(RI) link. Change of this parameter during network runtime will trigger restart of CPRI link.</description>
+            <enumMember name="CPRI_OVER_DWDM_LINEAR">
+                <description>CPRI over DWDM in Linear configuration</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="CPRI_OVER_DWDM_RING">
+                <description>CPRI over DWDM in Ring configuration</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="CPRI_OVER_CWDM_LINEAR">
+                <description>CPRI over CWDM in Linear configuration</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="CPRI_OVER_CWDM_RING">
+                <description>CPRI over CWDM in Ring configuration</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="CPRI_OVER_MICROWAVE_PTOP">
+                <description>CPRI over Microwave in Point to Point configuration</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="CPRI_OVER_MICROWAVE_PTOM">
+                <description>CPRI over Microwave in Point to Multi-point configuration</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="CPRI_OVER_GIGABIT_ETHERNET">
+                <description>CPRI over Gigabit ehternet configuration</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="NOT_SET">
+                <description>Operator does not set the transport type</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="CPRI_OVER_DIRECT_CABLE">
+                <description>CPRI over Direct Cable configuration</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqRiLink_RiLink_linkRate">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>10300</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10300</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Mbps</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRiLink_RiLink_linkTag">
+            <baseType>
+                <int64>
+                    <range>
+                        <min>0</min>
+                        <max>4294967295</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>4294967295</max>
+                        </subrange>
+                    </ranges>
+                </int64>
+            </baseType>
+        </derivedDataType>
+        <class name="RiLink">
+            <description>This Managed Object (MO) is used to configure and monitor a Radio Interface (RI) link. It contains references to the two Radio Interface Ports (RiPort) comprising the link.
+
+The two RiPort references must be provisioned to make the configuration of the radio interface connection complete.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name=""><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">]]>&#13;<![CDATA[
+    <pattern>]]>&#13;<![CDATA[
+         <rule context="Equipment">]]>&#13;<![CDATA[
+		 <assert test='are-distinct-values(concatenate(RiLink/riPortRef1, RiLink/riPortRef2))'>references on RiLink must be unique </assert>]]>&#13;<![CDATA[
+         </rule>]]>&#13;<![CDATA[
+      </pattern>]]>&#13;<![CDATA[
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">]]>&#13;<![CDATA[
+    <pattern>]]>&#13;<![CDATA[
+         <rule context="Equipment">]]>&#13;<![CDATA[
+		 <assert test='are-distinct-values(concatenate(RiLink/riPortRef1, RiLink/riPortRef2))'>references on RiLink must be unique </assert>]]>&#13;<![CDATA[
+         </rule>]]>&#13;<![CDATA[
+      </pattern>]]>&#13;<![CDATA[
+</schema>]]></dependenciesScript>
+            <attribute name="riLinkId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqRiLink</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="riPortRef1">
+                <description>Refers to one RiPort on the unit to which the link is connected. </description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="RiPort">
+                        <mimName>ReqRiPort</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="riPortRef2">
+                <description>Refers to the other RiPort on the unit to which the link is connected. </description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="RiPort">
+                        <mimName>ReqRiPort</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="linkRate">
+                <description>The negotiated link rate for a CPRI or Ethernet link.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRiLink_RiLink_linkRate">
+                        <mimName>ReqRiLink</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqRiLink</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="transportType">
+                <description>The transport type and protocol of the Radio Interface(RI) link.</description>
+                <dataType>
+                    <enumRef name="RbsTransportType">
+                        <defaultValue>NOT_SET</defaultValue>
+                        <mimName>ReqRiLink</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="linkTag">
+                <description>CPRI link tag (32 bits).
+The linkTag contains two parts - Node identity part (24 bits) followed by Link identity part (8 bits). 
+The node identity part is from the nodeTag attribute of CpriLinkTagging MO.
+
+If 0, there is no linkTag set for this CPRI link.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRiLink_RiLink_linkTag">
+                        <mimName>ReqRiLink</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="fronthaulDeviceLineRate">
+                <description>Line rate of CPRI link. Used if fronthaul device is adopted.</description>
+                <dataType>
+                    <enumRef name="FronthaulDeviceLineRate">
+                        <defaultValue>NOT_SET</defaultValue>
+                        <mimName>ReqRiLink</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="RiPort_reservedBy_to_RiLink_riPortRef1">
+            <biDirectionalAssociation>
+                <associationEnd name="riPortRef1">
+                    <hasClass name="RiPort">
+                        <mimName>ReqRiPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RiLink">
+                        <mimName>ReqRiLink</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RiPort_reservedBy_to_RiLink_riPortRef2">
+            <biDirectionalAssociation>
+                <associationEnd name="riPortRef2">
+                    <hasClass name="RiPort">
+                        <mimName>ReqRiPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RiLink">
+                        <mimName>ReqRiLink</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Equipment_to_RiLink">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RiLink">
+                        <mimName>ReqRiLink</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

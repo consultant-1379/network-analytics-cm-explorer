@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<feature>
+	<product-id>CNA 403 xxxx</product-id>
+	<feature-name>Ericsson-Alarm-POC</feature-name>
+	<release>16A</release>
+	<system-area>Alarm/POC</system-area>
+    <datasource-guid>a5d401fb-fab6-42a8-bb79-0cd6b62a5ee0</datasource-guid> 
+    <ericsson-library>true</ericsson-library>
+</feature>

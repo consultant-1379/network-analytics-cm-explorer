@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>H</dtdVersion>
+  <mib name="Hcrule_CXP2020013_1" release="0" version="1">
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>CommonFunction_CheckSynchronizationReference</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the synchronization reference status</value>
+      </slot>
+      <slot name="name">
+        <value>Check synchronization reference</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus and referenceStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>NodeBFunction_CheckNbapDedicatedLinkStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the dedicated channel Iub link status</value>
+      </slot>
+      <slot name="name">
+        <value>Check NBAP dedicated link status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>NodeBFunction_CheckWcdmaTraffic</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the number of active radio links in a cell</value>
+      </slot>
+      <slot name="name">
+        <value>Check WCDMA traffic</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Observe cell performance, no radio links may indicate a sleeping cell.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>ENodeBFunction_CheckX2LinkStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the termination point to eNodeB status</value>
+      </slot>
+      <slot name="name">
+        <value>Check X2 link status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>7</value>
+          <value>4</value>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>SystemFunction_CheckDiskSpace</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the available space on the archive disk</value>
+      </slot>
+      <slot name="name">
+        <value>Check disk space</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check the number of Upgrade Packages and Backups on disk as well as the Log size. Remove unused packages. Export and remove backups. Export logs to before they are truncated by the system. Follow the instructions for the 'Archive Disk Almost Full' alarm 0.</value>
+      </slot>
+      <slot name="severity">
+        <value>0</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>BtsFunction_CheckTrxStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the GSM TRX status</value>
+      </slot>
+      <slot name="name">
+        <value>Check TRX status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>CommonFunction_CheckSctrStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the sector status</value>
+      </slot>
+      <slot name="name">
+        <value>Check sector status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>SystemFunction_CheckFileServerConnection</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the configured URL and credentials for the current Upgrade Package</value>
+      </slot>
+      <slot name="name">
+        <value>Check file server connection</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check the configured 'url' and 'password' attributes on the current Upgrade Package MO and connectivity between the system and the file server.</value>
+      </slot>
+      <slot name="severity">
+        <value>0</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>CommonFunction_CheckSynchronizationClock</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the synchronization clock state</value>
+      </slot>
+      <slot name="name">
+        <value>Check synchronization clock</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check radioClockState attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>ENodeBFunction_CheckNbiotCllStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the NBIOT cell status</value>
+      </slot>
+      <slot name="name">
+        <value>Check NBIOT cell status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>7</value>
+          <value>4</value>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>NodeBFunction_CheckNodeBLocalCllStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the Node B Local cell status</value>
+      </slot>
+      <slot name="name">
+        <value>Check Node B Local cell status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>ENodeBFunction_CheckS1LinkStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the termination point to MME status</value>
+      </slot>
+      <slot name="name">
+        <value>Check S1 link status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>7</value>
+          <value>4</value>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>ENodeBFunction_CheckEutranFCllStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the EUTRAN FDD cell status</value>
+      </slot>
+      <slot name="name">
+        <value>Check EUTRAN FDD cell status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>7</value>
+          <value>4</value>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>ENodeBFunction_CheckEutranTCllStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the EUTRAN TDD cell status</value>
+      </slot>
+      <slot name="name">
+        <value>Check EUTRAN TDD cell status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>7</value>
+          <value>4</value>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>CommonFunction_CheckHardwareStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the hardware status and boards installed</value>
+      </slot>
+      <slot name="name">
+        <value>Check hardware status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>NodeBFunction_CheckNbapCommonLinkStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the common channel Iub link status</value>
+      </slot>
+      <slot name="name">
+        <value>Check NBAP common link status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>BtsFunction_CheckAbisLinkStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the L2TP tunnels status</value>
+      </slot>
+      <slot name="name">
+        <value>Check Abis link status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>CommonFunction_CheckFruStatus</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the Field Replaceable Unit status</value>
+      </slot>
+      <slot name="name">
+        <value>Check FRU status</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Check availabilityStatus attribute for more details and observe Alarms for failure indication. Resolve the problem that caused the resource being inoperable.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>5</value>
+          <value>7</value>
+          <value>4</value>
+        </seqValue>
+      </slot>
+    </object>
+    <object parentDn="HealthCheckM=1">
+      <hasClass name="HcRule">
+        <mimName>ECIM_HCM</mimName>
+      </hasClass>
+      <slot name="hcRuleId">
+        <value>ENodeBFunction_CheckLteTraffic</value>
+      </slot>
+      <slot name="description">
+        <value>Check for the users connected to the sectors (or cells) and the bearers that are up</value>
+      </slot>
+      <slot name="name">
+        <value>Check LTE traffic</value>
+      </slot>
+      <slot name="recommendedAction">
+        <value>Observe cell performance, no connected users may indicate a sleeping cell.</value>
+      </slot>
+      <slot name="severity">
+        <value>1</value>
+      </slot>
+      <slot name="administrativeState">
+        <value>1</value>
+      </slot>
+      <slot name="categories">
+        <seqValue>
+          <value>7</value>
+          <value>4</value>
+          <value>5</value>
+        </seqValue>
+      </slot>
+    </object>
+  </mib>
+</models>

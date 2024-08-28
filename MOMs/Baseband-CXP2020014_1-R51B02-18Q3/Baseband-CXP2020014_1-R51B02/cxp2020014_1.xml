@@ -1,0 +1,10 @@
+<configuration>
+    <product version="R51B02" id="CXP2020014_1" name="OSS_MOM_Baseband"/>
+    <date>2018-07-26T18:59:22</date>
+    <description>OSS MOM</description>
+    <type>oss mom</type>
+    <framework>
+        <product version="R48Y" id="CXS101547" name="RCPI"/>
+    </framework>
+    <contentinfo/>
+</configuration>

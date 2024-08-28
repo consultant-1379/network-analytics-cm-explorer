@@ -1,0 +1,1329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jun 11, 2018 12:06:11 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RsyncRadioEquipmentClock" namespace="urn:com:ericsson:ecim:RsyncRadioEquipmentClock" namespacePrefix="rsyncradioequipmentclock" organization="" release="29" revision="" variant="Model" version="3">
+        <description>Transport synchronization radio equipment clock.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="QualityLevelValue">
+            <description>Quality level value struct.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <structMember name="qualityLevelValueOptionI">
+                <description>Telecom option for European standard.</description>
+                <enumRef name="QualityLevelValueOptionI">
+                    <defaultValue>SSU_A</defaultValue>
+                    <mimName>RsyncRadioEquipmentClock</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="qualityLevelValueOptionII">
+                <description>Telecom option for United States standard.</description>
+                <enumRef name="QualityLevelValueOptionII">
+                    <defaultValue>STU</defaultValue>
+                    <mimName>RsyncRadioEquipmentClock</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="qualityLevelValueOptionIII">
+                <description>Telecom option for Japanese standard.</description>
+                <enumRef name="QualityLevelValueOptionIII">
+                    <defaultValue>UNK</defaultValue>
+                    <mimName>RsyncRadioEquipmentClock</mimName>
+                </enumRef>
+            </structMember>
+        </struct>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AssistanceState">
+            <description>Assistance information.</description>
+            <enumMember name="FEATURE_NOT_ACTIVATED">
+                <description>Assisted time holdover not activated.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="NO_ASSISTING_REF_QUALIFIED">
+                <description>Assisted time holdover activated. No assisting reference qualified to assist.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="ASSISTANCE_ACTIVE">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="ASSISTANCE_NOT_ACTIVE">
+                <description>Assisted time holdover activated. Ordinary time synchronization reference active.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="AssRefStatus">
+            <description>Status of assisting reference.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="NO_FAULT">
+                <description>Assisting reference has been evaluated and is able to assist in case of primary time synchronization failure.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="UNKNOWN">
+                <description>Status information not available.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="ASSISTING_REFERENCE_MONITORED">
+                <description>Assisting reference is monitored. Not ready to assist.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="QL_TOO_LOW">
+                <description>Quality level too low to improve time holdover performance.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="PTP_FAULT">
+                <description>Corresponding BoundaryOrdinaryClock MO and or PtpBcOcPort MO faulty. Check status attribute on these MOs to identify specific fault.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="NodeGroupRole">
+            <description>Role of Node Group Member.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="NOT_ACTIVATED_AS_NODE_GROUP_MEMBER">
+                <description>Node is not activated as Node Group Member.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ROLE_NOT_DEFINED">
+                <description>Node is configured as Node Group Member, and that role is not defined.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SYNC_PROVIDER">
+                <description>Node is in Synchronization Provider role within Node Group.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="SYNC_RECEIVER">
+                <description>Node is in Synchronization Receiver role within Node Group, and in contact with Synchronization Provider in same Node Group.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="QLFrom">
+            <description>Whether quality level received on Ethernet interface or from adminQuality is used.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="RECEIVED_QL">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="ADMIN_QL">
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="QualityLevel">
+            <description>Operational quality.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="PRC">
+                <description>Operational quality is PRC in option I.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="PRS">
+                <description>Operational quality is PRS in option II.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="STU_OR_UNK">
+                <description>Operational quality is STU in option II or UNK in option III.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="SSU_A_OR_TNC">
+                <description>Operational quality is SSU-A in option I or TNC in option II.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="SSU_B">
+                <description>Operational quality is SSU-B in option I.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="ST2">
+                <description>Operational quality is ST2 in option II.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="ST3E">
+                <description>Operational quality is ST3E in option II.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="ST3_OR_EEC2">
+                <description>Operational quality is ST3/EEC2 in option II.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="SEC_OR_EEC">
+                <description>Operational quality is SEC/EEC in options I or III.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="SMC_OR_EEC1">
+                <description>Operational quality is SMC/EEC1 in option II.</description>
+                <value>10</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="PROV">
+                <description>Operational quality is PROV in Option II. QL PROV is not supported. It is interpreted as invalid.</description>
+                <value>11</value>
+            </enumMember>
+            <enumMember name="DNU_OR_DUS">
+                <description>Operational quality is DNU/DUS (Do Not Use for Sync) in all options.</description>
+                <value>12</value>
+            </enumMember>
+            <enumMember name="INV">
+                <description>Operational quality is INV (Invalid) in all options.</description>
+                <value>13</value>
+            </enumMember>
+            <enumMember name="TCU_02">
+                <description>An Ericsson TCU02 or SIU is detected upstream.</description>
+                <value>14</value>
+            </enumMember>
+            <enumMember name="QL_UNKNOWN">
+                <description>Quality level cannot be retrieved or is undefined.</description>
+                <value>15</value>
+            </enumMember>
+            <enumMember name="SMC">
+                <description>Operational quality is SMC in option II.</description>
+                <value>17</value>
+            </enumMember>
+            <enumMember name="PRTC">
+                <description>Operational quality is PRTC in all options.</description>
+                <value>18</value>
+            </enumMember>
+            <enumMember name="GNSS">
+                <description>Operational quality is GNSS in all options.</description>
+                <value>19</value>
+            </enumMember>
+            <enumMember name="EPRTC">
+                <description>Operational quality is EPRTC in all options.</description>
+                <value>20</value>
+            </enumMember>
+            <enumMember name="EEEC">
+                <description>Operational quality is EEEC in all options.</description>
+                <value>21</value>
+            </enumMember>
+        </enum>
+        <enum name="QualityLevelValueOptionI">
+            <description>Telecom option for European standard.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="PRC">
+                <description>Primary Reference Clock. Third quality level.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SSU_A">
+                <description>Synchronization Supply Unit class A. Fourth quality level.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="SSU_B">
+                <description>Synchronization Supply Unit class B. Fifth quality level.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="SEC_EEC">
+                <description>Synchronous Equipment Clock/ Ethernet Equipment Clock. Seventh quality level.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="EPRTC">
+                <description>Enhanced Primary Reference Time Clock. Highest quality level.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="PRTC">
+                <description>Primary Reference Time Clock. Second quality level.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="EEEC">
+                <description>Enhanced Ethernet Equipment Clock. Sixth  quality level.</description>
+                <value>7</value>
+            </enumMember>
+        </enum>
+        <enum name="QualityLevelValueOptionII">
+            <description>Telecom option for United States standard.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="PRS">
+                <description>Primary Reference Source. Third quality level.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="STU">
+                <description>Synchronization Traceability Unknown. Fourth quality level.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="ST2">
+                <description>STratum 2 clock. Fifth quality level.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="TNC">
+                <description>Transit Node Clock. Sixth quality level.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="ST3E">
+                <description>STratum 3 Enhanced clock. Seventh quality level.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="ST3_EEC2">
+                <description>STratum 3 clock./  Ethernet Equipment Clock. Ninth quality level.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="SMC_EEC1">
+                <description>SONET Minimum Clock/ Ethernet Equipment Clock. Tenth quality level.</description>
+                <value>7</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="EPRTC">
+                <description>Enhanced Primary Reference Time Clock. Highest quality level.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="PRTC">
+                <description>Primary Reference Time Clock. Second quality level.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="EEEC">
+                <description>Enhanced Ethernet Equipment Clock. Eighth quality level.</description>
+                <value>10</value>
+            </enumMember>
+        </enum>
+        <enum name="QualityLevelValueOptionIII">
+            <description>Telecom option for Japanese standard.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="UNK">
+                <description>The quality level of the synchronization source is unknown. Third quality level.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SEC_EEC">
+                <description>Synchronous Equipment Clock/ Ethernet Equipment Clock. Fifth quality level.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="EPRTC">
+                <description>Enhanced Primary Reference Time Clock. Highest quality level.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="PRTC">
+                <description>Primary Reference Time Clock. Second quality level.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="EEEC">
+                <description>Enhanced Ethernet Equipment Clock. Fourth quality level.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="RadioEquipmentClockState">
+            <description>State of radio equipment clock. </description>
+            <enumMember name="FREE_RUNNING">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_LOCKED">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_HOLDOVER">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="TIME_OFFSET_LOCKED">
+                <value>4</value>
+            </enumMember>
+            <enumMember name="TIME_OFFSET_HOLDOVER">
+                <value>5</value>
+            </enumMember>
+            <enumMember name="RNT_TIME_LOCKED">
+                <value>6</value>
+            </enumMember>
+            <enumMember name="RNT_TIME_HOLDOVER">
+                <value>7</value>
+            </enumMember>
+            <enumMember name="UNKNOWN">
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="ReferenceStatus">
+            <description>Status of synchronization reference.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="NO_FAULT">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="QL_TOO_LOW">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="LOSS_OF_SIGNAL">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="LOSS_OF_ESMC">
+                <value>4</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="THOUSAND_BASE_T_NOT_SLAVE">
+                <value>5</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="NTP_FAULT">
+                <value>6</value>
+            </enumMember>
+            <enumMember name="PTP_FAULT">
+                <description>Corresponding BoundaryOrdinaryClock MO and or PtpBcOcPort MO is faulty, check status attribute on these MOs to identify specific fault.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="GNSS_FAULT">
+                <description>Detailed fault information found in attribute timeSyncIOStatus in TimeSyncIO MO.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="SYNCE_FAULT">
+                <description>Detailed fault information found in attribute syncEthStatus in SynEthInput MO.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="FREQ_DEVIATION">
+                <description>Frequency deviation exceeds maximum threshold defined in RadioEquipmentClock::freqDeviationThreshold.</description>
+                <value>10</value>
+            </enumMember>
+        </enum>
+        <enum name="SelectionProcessMode">
+            <description>Specifies if quality processing is enabled for input and output.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="QL_ENABLED">
+                <description>Quality processing is enabled for input and output.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="QL_DISABLED">
+                <description>Quality processing is disabled for input and output.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="SyncRefType">
+            <description>Type of synchronization reference.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="7"/>
+                <extension name="originatingMimName" value="RsyncSyncLibrary"/>
+            </domainExtension>
+            <enumMember name="SYNC_E">
+                <description>Synchronous Ethernet.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_PORT">
+                <description>Frequency synchronization via physical synchronization port.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="TIME_PORT">
+                <description>TIme synchronization via physical synchronization port.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="PTP_TIME">
+                <description>TIme synchronization via PTP port.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="PTP_FREQUENCY">
+                <description>Frequency synchronization via PTP port.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="NTP_FREQUENCY">
+                <description>Frequency synchronization via NTP port.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="GNSS_RECEIVER">
+                <description>Time synchronization via GNSS receiver.</description>
+                <value>7</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="RsyncRadioEquipmentClock_AssistingReference_priority">
+            <baseType>
+                <int8>
+                    <range>
+                        <min>1</min>
+                        <max>8</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>8</max>
+                        </subrange>
+                    </ranges>
+                </int8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncRadioEquipmentClock_RadioEquipmentClock_bfnOffset">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-5000000</min>
+                        <max>5000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-5000000</min>
+                            <max>5000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncRadioEquipmentClock_RadioEquipmentClock_freqDeviationThreshold">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>600</min>
+                        <max>5000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>600</min>
+                            <max>5000</max>
+                        </subrange>
+                    </ranges>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncRadioEquipmentClock_RadioEquipmentClockReference_holdOffTime">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>300</min>
+                        <max>5000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>300</min>
+                            <max>5000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ms</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncRadioEquipmentClock_RadioEquipmentClockReference_priority">
+            <baseType>
+                <int8>
+                    <range>
+                        <min>1</min>
+                        <max>8</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>8</max>
+                        </subrange>
+                    </ranges>
+                </int8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncRadioEquipmentClock_RadioEquipmentClockReference_waitToRestoreTime">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>800</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>800</max>
+                        </subrange>
+                    </ranges>
+                    <unit>second</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <class name="AssistingReference">
+            <description>Represents a time holdover assisting synchronization reference for radio equipment clock.
+
+Dependencies: Two or more AssistingReference MOs cannot refer to same BoundaryOrdinaryClock MO.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="AssistingReference"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $assistingReferenceId in @assistingReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../AssistingReference[contains($encapsulation, "BoundaryOrdinaryClock=") and ($assistingReferenceId ne @assistingReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more AssistingReference MOs cannot refer to same BoundaryOrdinaryClock MO.</assert>
+<assert test='every $encapsulation in @encapsulation satisfies (contains(@encapsulation, "BoundaryOrdinaryClock=") and (($encapsulation/@clockType eq 2) and ($encapsulation/@ptpProfile eq 4))) or not(exists(@encapsulation))'><value-of select="."/>  AssistingReference MO can only refer to BoundaryOrdinaryClock MO whose attributes clockType is SLAVE_ONLY_ORDINARY_CLOCK and ptpProfile is G_8275_2.</assert>
+</rule>
+</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $assistingReferenceId in @assistingReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../AssistingReference[contains($encapsulation, "BoundaryOrdinaryClock=") and ($assistingReferenceId ne @assistingReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more AssistingReference MOs cannot refer to same BoundaryOrdinaryClock MO.</assert>
+<assert test='every $encapsulation in @encapsulation satisfies (contains(@encapsulation, "BoundaryOrdinaryClock=") and (($encapsulation/@clockType eq 2) and ($encapsulation/@ptpProfile eq 4))) or not(exists(@encapsulation))'><value-of select="."/>  AssistingReference MO can only refer to BoundaryOrdinaryClock MO whose attributes clockType is SLAVE_ONLY_ORDINARY_CLOCK and ptpProfile is G_8275_2.</assert>
+</rule>
+</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="assistedReferenceStatus">
+                <description>Status of assisting synchronization reference.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AssRefStatus">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="assistingReferenceId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RsyncRadioEquipmentClock</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>Reference to underlying encapsulation.
+
+Underlying encapsulation can be BoundaryOrdinaryClock MO.
+
+Dependencies:
+Two or more AssistingReference MOs cannot refer to same BoundaryOrdinaryClock MO.
+AssistingReference MO can only refer to BoundaryOrdinaryClock MO whose attributes clockType is SLAVE_ONLY_ORDINARY_CLOCK and ptpProfile is G_8275_2.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="priority">
+                <description>Priority among assisting references.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncRadioEquipmentClock_AssistingReference_priority">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="receivedQualityLevel">
+                <description>Quality level of encapsulated MO.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="QualityLevel">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="RadioEquipmentClock">
+            <description>Represents clock for Radio Base Station. </description>
+            <root/>
+            <attribute name="bfnOffset">
+                <description>Offsets BFN from default position as calculated from the time synchronization reference.
+
+Positive offset means BFN is advanced.
+Negative offset means BFN is delayed.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncRadioEquipmentClock_RadioEquipmentClock_bfnOffset">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Node restart.</takesEffect>
+            </attribute>
+            <attribute name="clockOperQuality">
+                <description>Operational quality of selected synchronization reference.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="QualityLevel">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="clockSettledQuality">
+                <description>Settled quality of RadioEquipmentClock MO.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="QualityLevel">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="currentAssistingReference">
+                <description>Currently selected assisting reference for time synchronization.
+
+Empty if no assisting reference is selected.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <moRef name="AssistingReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="currentRadioClockReference">
+                <description>Currently selected reference to RadioEquipmentClock MO, is empty if no clock reference is selected.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <moRef name="RadioEquipmentClockReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="freqDeviationThreshold">
+                <description>Maximum frequency deviation threshold accepted for external synchronization references.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncRadioEquipmentClock_RadioEquipmentClock_freqDeviationThreshold">
+                        <defaultValue>5000</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="minQualityLevel">
+                <description>Minimum quality level for telecom standard options, that is required for a source to be accepted as active synchronization reference.</description>
+                <dataType>
+                    <structRef name="QualityLevelValue">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </structRef>
+                </dataType>
+                <dependencies>If telecomStandard attribute in Synchronization MO is changed, minQualityLevel is changed to quality level value defined within selected telecom standard.</dependencies>
+            </attribute>
+            <attribute name="nodeGroupRole">
+                <description>Role of node as Node Group Member.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="NodeGroupRole">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="radioClockPriorityTable">
+                <description>All configured synchronization reference MOs in priority order.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="RadioEquipmentClockReference">
+                            <mimName>RsyncRadioEquipmentClock</mimName>
+                        </moRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="radioClockState">
+                <description>State of RadioEquipmentClock MO.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="RadioEquipmentClockState">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="radioEquipmentClockId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="selectionProcessMode">
+                <description>Whether quality processing is enabled.</description>
+                <dataType>
+                    <enumRef name="SelectionProcessMode">
+                        <defaultValue>QL_ENABLED</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="timeSyncAssistanceState">
+                <description>Time synchronization assistance state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="AssistanceState">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="RadioEquipmentClockReference">
+            <description>Represents generic synchronization reference for radio equipment clock.
+
+Specific interface or protocol reference can use, is configured by encapsulation attribute.
+
+Dependencies:
+Two or more RadioEquipmentClockReference MOs cannot have same priority.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="RadioEquipmentClockReference"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $priority in @priority satisfies (count(../RadioEquipmentClockReference[($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($priority eq @priority)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot have same priority.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "FrequencySyncIO=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same FrequencySyncIO MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "TimeSyncIO=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same TimeSyncIO MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "SyncEthInput=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same SyncEthInput MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "BoundaryOrdinaryClock=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same BoundaryOrdinaryClock MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "NtpFrequencySync=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same NtpFrequencySync MO in attribute encapsulation.</assert>
+<assert test='every $encapsulation in @encapsulation satisfies contains(@encapsulation, "TimeSyncIO=") or contains(@encapsulation, "FrequencySyncIO=") or (contains(@encapsulation, "BoundaryOrdinaryClock=") and (($encapsulation/@clockType eq 1) or ($encapsulation/@clockType eq 2))) or contains(@encapsulation, "NtpFrequencySync=") or contains(@encapsulation, "SyncEthInput=") or not(exists(@encapsulation))'><value-of select="."/>  Attribute encapsulation of RadioEquipmentClockReference MO can only refer to MO type FrequencySyncIO, TimeSyncIO, NtpFrequencySync, SyncEthInput, or BoundaryOrdinaryClock with either clockType BOUNDARY_CLOCK or SLAVE_ONLY_ORDINARY_CLOCK.</assert>
+</rule>
+</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $priority in @priority satisfies (count(../RadioEquipmentClockReference[($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($priority eq @priority)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot have same priority.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "FrequencySyncIO=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same FrequencySyncIO MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "TimeSyncIO=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same TimeSyncIO MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "SyncEthInput=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same SyncEthInput MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "BoundaryOrdinaryClock=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same BoundaryOrdinaryClock MO in attribute encapsulation.</assert>
+<assert test='every $radioEquipmentClockReferenceId in @radioEquipmentClockReferenceId satisfies (every $encapsulation in @encapsulation satisfies (count(../RadioEquipmentClockReference[contains($encapsulation, "NtpFrequencySync=") and ($radioEquipmentClockReferenceId ne @radioEquipmentClockReferenceId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more RadioEquipmentClockReference MOs cannot refer to same NtpFrequencySync MO in attribute encapsulation.</assert>
+<assert test='every $encapsulation in @encapsulation satisfies contains(@encapsulation, "TimeSyncIO=") or contains(@encapsulation, "FrequencySyncIO=") or (contains(@encapsulation, "BoundaryOrdinaryClock=") and (($encapsulation/@clockType eq 1) or ($encapsulation/@clockType eq 2))) or contains(@encapsulation, "NtpFrequencySync=") or contains(@encapsulation, "SyncEthInput=") or not(exists(@encapsulation))'><value-of select="."/>  Attribute encapsulation of RadioEquipmentClockReference MO can only refer to MO type FrequencySyncIO, TimeSyncIO, NtpFrequencySync, SyncEthInput, or BoundaryOrdinaryClock with either clockType BOUNDARY_CLOCK or SLAVE_ONLY_ORDINARY_CLOCK.</assert>
+</rule>
+</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="administrativeState">
+                <description>The administrative state.
+</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="adminQualityLevel">
+                <description>Specifies the quality level value to override the received quality level, if useQLFrom is set to ADMIN_QL  for all three telecom options.</description>
+                <dataType>
+                    <structRef name="QualityLevelValue">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </structRef>
+                </dataType>
+                <dependencies>If the attribute telecomStandard in the MO class Synchronization is changed, adminQualityLevel will change to the quality level value defined within the  selected telecom standard.</dependencies>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.
+</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RsyncRadioEquipmentClock</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>Reference to underlying encapsulation.
+
+Underlying encapsulation can be MO type FrequencySyncIO, TimeSyncIO, SyncEthInput, BoundaryOrdinaryClock or NtpFrequencySync.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Two or more RadioEquipmentClockReference MOs cannot refer to same FrequencySyncIO MO.
+Two or more RadioEquipmentClockReference MOs cannot refer to same TimeSyncIO MO.
+Two or more RadioEquipmentClockReference MOs cannot refer to same SyncEthInput MO.
+Two or more RadioEquipmentClockReference MOs cannot refer to same BoundaryOrdinaryClock MO.
+Two or more RadioEquipmentClockReference MOs cannot refer to same NtpFrequencySync MO.
+
+Attribute encapsulation of RadioEquipmentClockReference MO can only refer to MO type FrequencySyncIO, TimeSyncIO, NtpFrequencySync, SyncEthInput, or BoundaryOrdinaryClock with either clockType BOUNDARY_CLOCK or SLAVE_ONLY_ORDINARY_CLOCK.</dependencies>
+                <disturbances>Changing this attribute can cause traffic disturbances.
+Applicable when reconfiguring from frequency synchronization to time synchronization.</disturbances>
+            </attribute>
+            <attribute name="holdOffTime">
+                <description>Time from fault detection to switch of reference.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncRadioEquipmentClock_RadioEquipmentClockReference_holdOffTime">
+                        <defaultValue>1000</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="operQualityLevel">
+                <description>Indicates the quality level used by the process for the synchronization reference selection.
+
+If useQLFrom is set to RECEIVED_QL, the quality level extracted from the underlying reference is indicated.
+If useQLFrom is set to ADMIN_QL, the quality level specified by the attribute adminQualityLevel is indicated.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="QualityLevel">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="priority">
+                <description>Specifies the priority of the synchronization reference.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncRadioEquipmentClock_RadioEquipmentClockReference_priority">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Two or more RadioEquipmentClockReference cannot have the same priority.</dependencies>
+                <specification>ITU-T G.781</specification>
+                <disturbances>Changing this attribute can cause traffic disturbances.
+Applicable when breaking following rule:
+Time synchronization references must have higher priority than frequency synchronization references.</disturbances>
+            </attribute>
+            <attribute name="radioEquipmentClockReferenceId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="receivedQualityLevel">
+                <description>Indicates the received quality level for the underlying reference.
+Note that some types of references lack quality level information.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="QualityLevel">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="referenceStatus">
+                <description>The status of a synchronization reference.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="ReferenceStatus">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="syncRefType">
+                <description>Type of synchronization reference.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="SyncRefType">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="useQLFrom">
+                <description>Whether quality level received from network or from adminQuality is used.</description>
+                <dataType>
+                    <enumRef name="QLFrom">
+                        <defaultValue>RECEIVED_QL</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="waitToRestoreTime">
+                <description>Time from fault cease to switch back to reference with higher priority.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncRadioEquipmentClock_RadioEquipmentClockReference_waitToRestoreTime">
+                        <defaultValue>60</defaultValue>
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="AssistingReference_encapsulation_to_BoundaryOrdinaryClock_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="BoundaryOrdinaryClock">
+                        <mimName>RsyncPtp</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="AssistingReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RadioEquipmentClock_to_AssistingReference">
+            <containment>
+                <parent>
+                    <hasClass name="RadioEquipmentClock">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AssistingReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="RadioEquipmentClock_to_RadioEquipmentClockReference">
+            <containment>
+                <parent>
+                    <hasClass name="RadioEquipmentClock">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RadioEquipmentClockReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="RadioEquipmentClockReference_encapsulation_to_BoundaryOrdinaryClock_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="BoundaryOrdinaryClock">
+                        <mimName>RsyncPtp</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RadioEquipmentClockReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RadioEquipmentClockReference_encapsulation_to_FrequencySyncIO_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="FrequencySyncIO">
+                        <mimName>RsyncFrequencySyncIO</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RadioEquipmentClockReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RadioEquipmentClockReference_encapsulation_to_NtpFrequencySync_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="NtpFrequencySync">
+                        <mimName>RsyncNtp</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RadioEquipmentClockReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RadioEquipmentClockReference_encapsulation_to_SyncEthInput_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="SyncEthInput">
+                        <mimName>RsyncSyncEthInput</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RadioEquipmentClockReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RadioEquipmentClockReference_encapsulation_to_TimeSyncIO_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="TimeSyncIO">
+                        <mimName>RsyncTimeSyncIO</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RadioEquipmentClockReference">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Synchronization_to_RadioEquipmentClock">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Synchronization">
+                        <mimName>RsyncSynchronization</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RadioEquipmentClock">
+                        <mimName>RsyncRadioEquipmentClock</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

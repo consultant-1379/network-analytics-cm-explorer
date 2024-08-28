@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqCabinet" namespace="urn:com:ericsson:ecim:ReqCabinet" namespacePrefix="reqcabinet" organization="" release="3" revision="0" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="ApcProductData">
+            <description>.&#13;
+</description>
+            <structMember name="productionDate">
+                <description>The production date is represented in two ways:&#13;
+&#13;
+- the preferred syntax is four-digits for the year, two digits for the month, and two digits for the day.&#13;
+Example: 19991231&#13;
+&#13;
+- the date is also be represented by two digits for the year, followed by the letter W for week, and two digits for the number of the week.&#13;
+Example: 99W52</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productionDate">
+                    <mimName>ReqCabinet</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productName">
+                <description>The name of the product.</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productName">
+                    <mimName>ReqCabinet</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productNumber">
+                <description>The product number of the product.&#13;
+&#13;
+Examples: ABC 101 001, CXC 123 456, 1/BFD 101 999&#13;
+</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productNumber">
+                    <mimName>ReqCabinet</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The revision state of the product.&#13;
+&#13;
+Examples: R1, R1A, R1A02, P7B </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productRevision">
+                    <mimName>ReqCabinet</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>The serial number of the product. </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_serialNumber">
+                    <mimName>ReqCabinet</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="ApcClimateControlMode">
+            <description/>
+            <enumMember name="NORMAL">
+                <description>Default mode.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="BATTERY_LIFE_EXTENSION">
+                <description>Improves battery life time. This mode may cause increased acoustic noise. This mode is only applicable for RBS with internal batteries.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="BOOST">
+                <description>Boosted cooling. This mode can cause increased acoustic noise and is applicable for RBS with integrated equipment not participating in climate control.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="ECO">
+                <description>Optimized for minimizing power consumption. Applicable for RBS6601.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcClimateRegulationSystem">
+            <description>The climate regulation system type.</description>
+            <enumMember name="NOT_APPLICABLE">
+                <description>Not Applicable (used by RBS types where type of climate regulation system is not a choice).</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DAC">
+                <description>Direct Air Cooling.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TS">
+                <description>Thermosiphon.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="HEX">
+                <description>Heat Exchanger.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcClimateSystem">
+            <description/>
+            <enumMember name="STANDARD">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="EXTENDED">
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqCabinet_Cabinet_sharedCabinetIdentifier">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>38</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>38</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_Cabinet_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productionDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>5</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>5</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>24</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>24</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>7</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>7</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_serialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>13</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>13</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="Cabinet">
+            <description>This MO represents the cabinet where the node is hosted.&#13;
+</description>
+            <root/>
+            <attribute name="cabinetId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="cabinetIdentifier">
+                <description>Unique identifier of the cabinet. An undefined value is shown as an empty string that indicates no contact with SCU, SUP or support system controlling node.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <dependencies>Reflects the value of attribute productData; productNumber and serialNumber on the FieldReplaceableUnit MO that represents a SCU/SUP.</dependencies>
+            </attribute>
+            <attribute name="climateControlMode">
+                <description>Specifies in which mode to run the climate control.</description>
+                <dataType>
+                    <enumRef name="ApcClimateControlMode">
+                        <defaultValue>NORMAL</defaultValue>
+                        <mimName>ReqCabinet</mimName>
+                    </enumRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 16A. Replaced by climateControlMode on MO Climate.</statusInformation>
+                <dependencies>Only valid in the node where the attribute supportSystemControl is set to true on the MO EquipmentSupportFunction with a functional MO referencing the Cabinet.</dependencies>
+            </attribute>
+            <attribute name="productData">
+                <description>Enclosure Product Information Data (PID). To guarantee that the data survives a main processor replacement, the data is stored persistently in both the database and in the corresponding Support Control Unit (SCU). Mismatches of stored data generate an alarm. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <structRef name="ApcProductData">
+                        <mimName>ReqCabinet</mimName>
+                    </structRef>
+                </dataType>
+                <dependencies>Must match the PID on the enclosure label. Possible to write in the node only when the attribute supportSystemControl is set to true on the MO EquipmentSupportFunction with a functional MO referencing the Cabinet. productName is limited to maximum 12 characters.</dependencies>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.&#13;
+</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="smokeDetector">
+                <description>Specifies if smoke detector is used or not in this cabinet.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <dependencies>Only valid in the node where the attribute supportSystemControl is set to true on the MO EquipmentSupportFunction with a functional MO referencing the Cabinet.</dependencies>
+            </attribute>
+            <attribute name="climateSystem">
+                <description>The type of climate system used, and indirectly the number of fan groups in the cabinet. </description>
+                <dataType>
+                    <enumRef name="ApcClimateSystem">
+                        <defaultValue>STANDARD</defaultValue>
+                        <mimName>ReqCabinet</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>Only possible to write when the attribute supportSystemControl is set to true on the MO EquipmentSupportFunction with a functional MO referencing the Cabinet.</dependencies>
+            </attribute>
+            <attribute name="climateRegulationSystem">
+                <description>The type of climate regulation system.</description>
+                <dataType>
+                    <enumRef name="ApcClimateRegulationSystem">
+                        <defaultValue>NOT_APPLICABLE</defaultValue>
+                        <mimName>ReqCabinet</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>Only possible to write when the attribute supportSystemControl is set to true on the MO EquipmentSupportFunction with a functional MO referencing the Cabinet.</dependencies>
+            </attribute>
+            <attribute name="sharedCabinetIdentifier">
+                <description>.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqCabinet_Cabinet_sharedCabinetIdentifier">
+                        <mimName>ReqCabinet</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqCabinet_Cabinet_userLabel">
+                        <mimName>ReqCabinet</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="positionRef">
+                <description>MO reference. Represents enclosure.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="alarmInExternalMe">
+                <description>In primary node: Whether to distribute alarm status to a secondary node sharing the cabinet or not. 
+In secondary node: Make received alarm visible from primary node or not.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Cabinet_positionRef_to_Cabinet_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="positionRef">
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Equipment_to_Cabinet">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

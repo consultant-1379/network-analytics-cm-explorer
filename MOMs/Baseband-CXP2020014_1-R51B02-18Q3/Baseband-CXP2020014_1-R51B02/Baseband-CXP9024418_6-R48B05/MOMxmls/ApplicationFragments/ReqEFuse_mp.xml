@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqEFuse" namespace="urn:com:ericsson:ecim:ReqEFuse" namespacePrefix="reqefuse" organization="" release="0" revision="0" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="ApcEFuseLoadType">
+            <description>Load configuration for EFuse.</description>
+            <enumMember name="MAIN">
+                <description>The e-fuse is configured for main load.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="PRIO">
+                <description>The e-fuse is configured for prio load.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcFuseHoldUp">
+            <description>Type of output.&#13;
+An internal consumer is a unit located inside the cabinet. An external consumer is a unit located outside of the cabinet.</description>
+            <enumMember name="HOLDUP_STANDARD">
+                <description>Output used for internal consumer requiring hold-up functionality.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="STANDARD">
+                <description>Output used to feed internal consumer.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="HOLDUP_REMOTE">
+                <description>Output used for internal or external consumer requiring hold-up functionality.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="REMOTE">
+                <description>Output used to feed internal or external consumer.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="NOT_SUPPORTED">
+                <description>Information about type of output is not available on HW.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcEFuseOutput">
+            <description>Output configuration for EFuse.</description>
+            <enumMember name="ON">
+                <description>Set e-fuse power output to ON</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="OFF">
+                <description>Set e-fuse power output to OFF</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TEMPORARY_OFF">
+                <description>Set e-fuse power output to TEMPORARY_OFF</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcIndicatorStatus">
+            <description>Possible states for green, yellow and red indicators. Since the semantics of the different indicator states depend on the color of the indicator, the semantics is described as part of the corresponding indicator status attribute description.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="4"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="ReqFanGroup"/>
+            </domainExtension>
+            <enumMember name="NOT_APPLICABLE">
+                <description>The indicator is not supported. </description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>The indicator state is currently not available.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="OFF">
+                <description>The indicator is off.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="STEADY_ON">
+                <description>The indicator is on continuously.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="SLOW_BLINK">
+                <description>The indicator blinks slowly.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="FAST_BLINK">
+                <description>The indicator blinks quickly.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_STEADY_ON">
+                <description>The indicator blinks twice and is then on for a short time. This cycle is then repeated. </description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_OFF">
+                <description>The indicator blinks twice and is then off for a short time. This cycle is then repeated.</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcFuseState">
+            <description>Fuse state.</description>
+            <enumMember name="ON">
+                <description>Power output state is ON.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="OFF">
+                <description>Power output state is OFF.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TEMPORARY_OFF">
+                <description>Power output state is OFF and fuse is set in TEMPORARY_OFF state.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="TRIPPED">
+                <description>Power output state is OFF and fuse is set in TRIPPED state.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="NOT_PRESENT">
+                <description>Fuse is not present.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="NOT_SUPPORTED">
+                <description>Power output state information is not supported by HW.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcFuseType">
+            <description>Fuse type.</description>
+            <enumMember name="CB">
+                <description>Fuse of Circuit Breaker (CB) type.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ECM">
+                <description>Fuse of Electronic Circuit Breaker Module (ECM) type.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="EFUSE">
+                <description>Fuse of e-fuse type.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="NOT_SUPPORTED">
+                <description>The fuse type information is not supported by HW.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <class name="EFuse">
+            <description>This MO models an electrical fuse related to power distribution.&#13;
+Number of MO's is created depending on the number of EFuses on the PDU.&#13;
+&#13;
+The RDNs of these MOs are EFuse=1, EFuse=2, and so on.&#13;
+&#13;
+Dependencies: Can only exist when FieldReplaceableUnit MO represents a PDU.</description>
+            <systemCreated/>
+            <root/>
+            <action name="setLoadType">
+                <description>Specifies if the e-fuse must be used for main or prio load.&#13;
+Transaction required: No.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="loadType">
+                    <description>Specifies if the e-fuse shall be used for main or prio load.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="ApcEFuseLoadType">
+                            <mimName>ReqEFuse</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <dependencies>Attribute remoteControllable must be set to true in order to change load type setting via this action.</dependencies>
+            </action>
+            <action name="setColdStartup">
+                <description>Specifies whether or not the e-fuse must be on at cold startup.&#13;
+Transaction required: No.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="1"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="onAtColdStartup">
+                    <description>Specifies if the e-fuse shall be on at cold startup or not.</description>
+                    <in/>
+                    <dataType>
+                        <boolean/>
+                    </dataType>
+                </parameter>
+                <dependencies>Attribute remoteControllable must be set to true in order to change cold startup setting via this action.</dependencies>
+            </action>
+            <action name="setRemoteControllable">
+                <description>Specifies whether or not the e-fuse can be remote controlled.&#13;
+Transaction required: No.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="2"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="remoteControllable">
+                    <description>Specifies if it shall be possible to control the e-fuse remotely or not.</description>
+                    <in/>
+                    <dataType>
+                        <boolean/>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="setOutput">
+                <description>Activates or deactivates power output.&#13;
+Transaction required: No.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="powerOutputState">
+                    <description>Sets power output to ON or OFF.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="ApcEFuseOutput">
+                            <mimName>ReqEFuse</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+                <dependencies>Attribute remoteControllable must be set to true in order to set power output via this action.</dependencies>
+                <disturbances>Can disturb traffic if set to OFF or TEMPORARY_OFF.</disturbances>
+            </action>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqEFuse</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="onAtColdStartup">
+                <description>Indicates if the e-fuse is turned on at cold-startup or not.&#13;
+&#13;
+true: The e-fuse is turned on at cold-startup.&#13;
+false: The e-fuse is not turned on at cold-startup.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="remoteControllable">
+                <description>Indicates if the e-fuse is possible to control remotely. &#13;
+&#13;
+true: The e-fuse is possible to control remotely.&#13;
+false: The e-fuse is not possible to control remotely.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqEFuse</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="loadType">
+                <description>Indicates if the e-fuse is used for main or prio load.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="ApcEFuseLoadType">
+                        <mimName>ReqEFuse</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="plugInModuleRef">
+                <description>Refers to the PlugInModule MO that represent the physical electronic circuitbreaker module this e-fuse is part of.</description>
+                <readOnly/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="eFuseIndicator">
+                <description>The operational status of the e-fuse. The indicator is physically located on the corresponding Power Distribution Unit (PDU).&#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = This indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = The power is not distributed.&#13;
+• STEADY_ON = Power is distributed from the e-fuse port.&#13;
+• SLOW_BLINK = E-fuse tripped. </description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="ApcIndicatorStatus">
+                        <mimName>ReqEFuse</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="eFuseId">
+                <description>The value component of the RDN. &#13;
+&#13;
+The ID of the electrical fuse that matches the number on the physical e-fuse.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="fuseRating">
+                <description>Maximum fuse rating. Given in Ampere. NOT_SUPPORTED is used for units that cannot support this attribute.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="fuseHoldUp">
+                <description>Type of output. NOT_SUPPORTED is used for units that cannot support this attribute.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="ApcFuseHoldUp">
+                        <mimName>ReqEFuse</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="limitedOutputCurrentSetting">
+                <description>Fuse limitation setting. Given in Ampere. Depends on cable type connected to output. NOT_SUPPORTED is used for units that cannot support this attribute.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.&#13;
+Customer-defined label that describes equipment powered by this output.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+            <attribute name="fuseType">
+                <description>Fuse type. NOT_SUPPORTED is used for units that cannot support this attribute.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="ApcFuseType">
+                        <mimName>ReqEFuse</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="fuseState">
+                <description>Fuse state. NOT_SUPPORTED is used for units that cannot support this attribute.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="ApcFuseState">
+                        <mimName>ReqEFuse</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_EFuse">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EFuse">
+                        <mimName>ReqEFuse</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

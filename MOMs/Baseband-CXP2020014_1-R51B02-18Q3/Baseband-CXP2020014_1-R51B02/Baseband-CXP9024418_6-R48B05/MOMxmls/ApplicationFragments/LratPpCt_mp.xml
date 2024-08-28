@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Feb 21, 2018 9:29:44 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201801022028
+	* com.ericsson.ecim.dsl 2.16.0.201801022028
+	* com.ericsson.ecim.edm 2.16.0.201801022028
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>-</momTitle>
+        <momSubTitle>Manual LRAT MOM Fragment</momSubTitle>
+        <momIdentity>
+            <docNum>CXC1737092/27</docNum>
+            <docLang>-</docLang>
+            <docRev>-</docRev>
+            <docDate>-</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="LratPpCt" namespace="urn:com:ericsson:ecim:LratPpCt" namespacePrefix="lratppct" organization="" release="3" revision="R3A01" version="1">
+        <description>It contains the PpControlTermination.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME" />
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.
+It indicates why the operational state has changed its value.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2" />
+                <extension name="originatingMimRelease" value="4" />
+                <extension name="originatingMimName" value="ECIM_CommonLibrary" />
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure.
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both.
+The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.
+Alternatively, the availability status of the other resource is dependency locked.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.
+Alternatively, the availability status of the other resource is dependency shutting down.</description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2" />
+                <extension name="originatingMimRelease" value="4" />
+                <extension name="originatingMimName" value="ECIM_CommonLibrary" />
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="LratPpCt_PpControlLink_remoteEndPoint">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>2</min>
+                        <max>39</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>2</min>
+                            <max>39</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratPpCt_PpControlLink_localEndPoint">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>2</min>
+                        <max>39</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>2</min>
+                            <max>39</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="LratPpCt_PpControlLink_detailedAvailabilityInfoTemp">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>256</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>256</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="PpControlTermination">
+            <description>Local Termination point of the packet processing control interface.
+
+System created when the first packet processing control link is established.
+System deleted when the last packet processing control link is released.
+
+The RDN of this MO is PpControlTermination=1.</description>
+            <systemCreated />
+            <root />
+            <attribute name="ppControlTerminationId">
+                <description>The value component of the RDN.</description>
+                <mandatory />
+                <noNotification />
+                <restricted />
+                <key />
+                <dataType>
+                    <string />
+                </dataType>
+            </attribute>
+        </class>
+        <class name="PpControlLink">
+            <description>Control link for the packet processing interface.
+
+System created when a packet processing control link is established.
+System deleted when a packet processing control link is released.
+The RDN of this MO is PpControlLink=[Remote Managed Element Identity].</description>
+            <systemCreated />
+            <attribute name="ppControlLinkId">
+                <description>The value component of the RDN.</description>
+                <mandatory />
+                <noNotification />
+                <restricted />
+                <key />
+                <dataType>
+                    <string />
+                </dataType>
+            </attribute>
+            <attribute name="remoteEndPoint">
+                <description>The remote IP address used for initialization of the underlying TCP connection.
+The IP address can be an IPv4 or an IPv6 address.</description>
+                <readOnly />
+                <dataType>
+                    <derivedDataTypeRef name="LratPpCt_PpControlLink_remoteEndPoint">
+                        <mimName>LratPpCt</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="localEndPoint">
+                <description>The local IP address used for initialization of the underlying TCP connection.
+The IP address can be an IPv4 or an IPv6 address.</description>
+                <readOnly />
+                <dataType>
+                    <derivedDataTypeRef name="LratPpCt_PpControlLink_localEndPoint">
+                        <mimName>LratPpCt</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <noNotification />
+                <readOnly />
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>LratPpCt</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <noNotification />
+                <readOnly />
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>LratPpCt</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="detailedAvailabilityInfoTemp">
+                <description>Additional Info for the availabilityStatus FAILED and DEPENDENCY_FAILED
+The FailureCause has the format &lt;causeID&gt; &lt;cause Slogan&gt; [&lt;cause description&gt;]
+Example: 1 TLS LICENSE NOT INSTALLED   The TLS License installation is a prerequisite for Service Discovery.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true" />
+                </domainExtension>
+                <noNotification />
+                <readOnly />
+                <isNillable />
+                <dataType>
+                    <derivedDataTypeRef name="LratPpCt_PpControlLink_detailedAvailabilityInfoTemp">
+                        <mimName>LratPpCt</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="PpControlTermination_to_PpControlLink">
+            <containment>
+                <parent>
+                    <hasClass name="PpControlTermination">
+                        <mimName>LratPpCt</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PpControlLink">
+                        <mimName>LratPpCt</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false" />
+                    <extension name="canDelete" value="false" />
+                </domainExtension>
+                <notCreatable />
+                <notDeleteable />
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="ENodeBFunction_to_PpControlTermination">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false" />
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ENodeBFunction">
+                        <mimName>Lrat</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PpControlTermination">
+                        <mimName>LratPpCt</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false" />
+                    <extension name="canDelete" value="false" />
+                </domainExtension>
+                <notCreatable />
+                <notDeleteable />
+            </containment>
+        </relationship>
+    </interMim>
+</models>

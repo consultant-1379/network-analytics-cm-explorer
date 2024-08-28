@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqConsumedEnergyMeasurement" namespace="urn:com:ericsson:ecim:ReqConsumedEnergyMeasurement" namespacePrefix="reqconsumedenergymeasurement" organization="" release="0" revision="" version="2">
+        <description>EcimMOM for ConsumedEnergyMeasurement MO</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <derivedDataType name="ReqConsumedEnergyMeasurement_ConsumedEnergyMeasurement_noOfContributingUnits">
+            <baseType>
+                <int16>
+                    <range>
+                        <min>0</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                </int16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqConsumedEnergyMeasurement_ConsumedEnergyMeasurement_totalNumberOfUnits">
+            <baseType>
+                <int16>
+                    <range>
+                        <min>0</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                </int16>
+            </baseType>
+        </derivedDataType>
+        <class name="ConsumedEnergyMeasurement">
+            <description>This MO displays the energy consumption by Radio and Baseband units in the node.&#13;
+The RDN of this MO is ConsumedEnergyMeasurement=1.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="consumedEnergyMeasurementId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Managed object instances that reserves this managed object instance.&#13;
+References to energy meters included in the PM counters.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="noOfContributingUnits">
+                <description>Number of energy meters of Radio units and Baseband units.&#13;
+Divide noOfContributingUnits with totalNumberOfUnits to get the ratio of contributing Radio and Baseband units.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqConsumedEnergyMeasurement_ConsumedEnergyMeasurement_noOfContributingUnits">
+                        <mimName>ReqConsumedEnergyMeasurement</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="totalNumberOfUnits">
+                <description>Total number of Radio units and Baseband units in the node.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqConsumedEnergyMeasurement_ConsumedEnergyMeasurement_totalNumberOfUnits">
+                        <mimName>ReqConsumedEnergyMeasurement</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="NodeSupport_to_ConsumedEnergyMeasurement">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="NodeSupport">
+                        <mimName>RmeSupport</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="ConsumedEnergyMeasurement">
+                        <mimName>ReqConsumedEnergyMeasurement</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

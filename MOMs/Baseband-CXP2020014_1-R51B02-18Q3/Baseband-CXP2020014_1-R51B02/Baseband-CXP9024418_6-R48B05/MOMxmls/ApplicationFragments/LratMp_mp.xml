@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jun 22, 2017 7:08:18 AM using:
+	* com.ericsson.ecim.m2m 2.14.9.201706010400
+	* com.ericsson.ecim.dsl 2.14.9.201706010400
+	* com.ericsson.ecim.edm 2.14.9.201706010400
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>-</momTitle>
+        <momSubTitle>Manual LRAT MOM Fragment</momSubTitle>
+        <momIdentity>
+            <docNum>CXC1738573/27</docNum>
+            <docLang>-</docLang>
+            <docRev>R9E01</docRev>
+            <docDate>-</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="LratMp" namespace="urn:com:ericsson:ecim:LratMp" namespacePrefix="lratmp" organization="" release="9020" revision="R9E01" version="1">
+        <description>Represents the MP processing resource in a DU or Baseband used for the eNB application in the RBS. MO is created automatically when the first EUtranCell is unlocked. In DU, attribute autoConfigurationAllowed must be set to TRUE in MO ManagedElementData, to enable the auto-configuration function. MO can be deleted manually.
+
+The RDN of this MO is MpProcessingResource=1.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME" />
+        </domainExtension>
+        <class name="MpProcessingResource">
+            <description>Represents the MP processing resource in a DU or Baseband used for the eNB application in the RBS. MO is created automatically when the first EUtranCell is unlocked. In DU, attribute autoConfigurationAllowed must be set to TRUE in MO ManagedElementData, to enable the auto-configuration function. MO can be deleted manually.
+
+The RDN of this MO is MpProcessingResource=1.</description>
+            <root />
+            <attribute name="mpProcessingResourceId">
+                <description>The value component of the RDN.</description>
+                <mandatory />
+                <noNotification />
+                <restricted />
+                <key />
+                <dataType>
+                    <string />
+                </dataType>
+            </attribute>
+            </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_MpProcessingResource">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false" />
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="MpProcessingResource">
+                        <mimName>LratMp</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true" />
+                    <extension name="canDelete" value="true" />
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

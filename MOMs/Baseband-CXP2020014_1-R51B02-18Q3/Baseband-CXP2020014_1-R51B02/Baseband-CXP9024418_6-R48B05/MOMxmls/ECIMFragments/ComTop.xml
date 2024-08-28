@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Aug 18, 2017 9:07:58 AM using:
+	* com.ericsson.ecim.m2m 3.4.0.201705111308
+	* com.ericsson.ecim.dsl 3.4.0.201705111308
+	* com.ericsson.ecim.edm 3.4.0.201705111308
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="EAB/FLE/CC XPARSHI" contact="EAB/FLE/CC XPARSHI" correction="0" date="2016-02-01" docNo="" name="ComTop" namespace="urn:com:ericsson:ecim:ComTop" namespacePrefix="comtop" organization="EAB/FLE/CC" release="21" revision="" version="10">
+        <description>This is the top level of the Ericsson Common Information Model (ECIM). &#13;
+This model contains the singleton, root Managed Object Class (MOC) ManagedElement under which the complete model is contained. Directly under ManagedElement are managed-function level classes SystemFunctions, Transport, Equipment and the root MOC of any managed functions. The Equipment Root MOC is in the Equipment Managed Object Model (MOM). The root MOC for a managed function is hosted in the managed function MOM.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_Top"/>
+            <extension name="ecimMomVersion" value="2"/>
+            <extension name="ecimMomRelease" value="3"/>
+            <extension name="ecimMomCorrection" value="0"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_Top" release="3" version="2"/>
+        <struct name="ProductIdentity">
+            <description>Deprecated, Contains product information for a Managed Element and ManagedFunction(s).&#13;
+Replaced by ProductData</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="8"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <structMember name="productNumber">
+                <description>The product number in Ericsson ABC format.&#13;
+For information, refer to Ericsson Corporate Basic Standards. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isKey" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The product revision in the form R[1-9][A-Z].&#13;
+For information, refer to Ericsson Corporate Basic Standards.</description>
+                <string/>
+            </structMember>
+            <structMember name="productDesignation">
+                <description>Common product name.</description>
+                <string/>
+            </structMember>
+        </struct>
+        <enum name="BasicAdmState">
+            <description>The basic administrative states for a resource.</description>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description> The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="SchemaFormat">
+            <description>The Schema formats of the supported data models. </description>
+            <enumMember name="MP_DTD">
+                <description>The data model format is XML based on mp.dtd.</description>
+                <value>0</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <enumMember name="DISABLED">
+                <description>  The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="DateTimeWithoutOffset">
+            <description>Represents the international standard for the representation of local date and time (ISO 8601).&#13;
+The following pattern describes the DateTimeWithoutOffset format:&#13;
+YYYY-MM-DDThh:mm:ss[.S+]&#13;
+Where:&#13;
+YYYY    = Four digit year&#13;
+MM      = Two digit month (01=January, and so on)&#13;
+DD      = Two digit day of month (01 through 31)&#13;
+T       = Time designator (shows start of time component)&#13;
+hh      = Two digits of hour (00 through 23, AM/PM not allowed)&#13;
+mm      = Two digits of minute (00 through 59)&#13;
+ss      = Two digits of second (00 through 59, leap second not allowed)&#13;
+S+      = One or more digits of decimal fraction of a second&#13;
+&#13;
+DateTimeWithoutOffset values are compliant with ISO 8601 "Representation of dates and times" but are restricted according to RFC 3339 "Date and Time on the Internet: Timestamps". The DateTimeWithoutOffset format is further restricted as follows:&#13;
+- T designator is upper case.&#13;
+- . (dot) is used to indicate start of fractions of seconds (ISO 8601 also allows comma)&#13;
+&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="8"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>19</min>
+                        <max>19</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>19</min>
+                            <max>19</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="IpDNSAddress">
+            <description>The IpDNSAddress type represents an IP address or a DNS domain name.&#13;
+A version 4 IP address is specified in dotted quad notation, for example 130.100.92.154. RFC 791 describes the syntax details.&#13;
+A version 6 IP address is specified by 8 groups of 16 bit hexadecimal values separated by colons, for example 2001:0db8:85a3:0000:0000:8a2e:0370:7334. RFC 4291 describes the syntax details.&#13;
+A DNS name is specified as a fully qualified domain name, for example myhost.ericsson.com. Internet domain are loosely specified but RFC 1034 recommends a syntax.</description>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>253</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>253</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>(^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*$)|(^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*$)|(^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])(\.([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9]))*$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="DifferenceFromUTC">
+            <description>Time zone difference between the local current time  and Coordinated Universal Time (UTC).&#13;
+The format is as follows:&#13;
+[+/-]hh:mm&#13;
+&#13;
+It is expressed as positive (that is, with the leading plus sign [+]) if the local time is ahead of or equal to UTC of day and as negative (that is, with the leading minus sign [-]) if it is behind the UTC of day.&#13;
+Example:  +01:00</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="8"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>6</min>
+                        <max>6</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>6</min>
+                            <max>6</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([+|-])(0[0-9]|1[0-9]|2[0-4]):([0-5][0-9])$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^([+|-])(0[0-9]|1[0-9]|2[0-4]):([0-5][0-9])$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="DateTime">
+            <description>Represents the International Standard for the representation of date and time ( ISO 8601).&#13;
+The string format is "YYYY-MM-DDThh:mm:ss.SSSZ" (excluding quotes).&#13;
+A DateTime string consists of a date part followed by a time part. When the time part represents local time, as opposed to UTC time indicated by Z as last character, an additional time offset part is added to the DateTime string.&#13;
+&#13;
+The following pattern describes the DateTime format in detail:&#13;
+YYYY-MM-DDThh:mm:ss[.S+][Z|+-hh:mm]&#13;
+Where:&#13;
+YYYY = four digit year&#13;
+MM = two digit month (01=January, etc.)&#13;
+DD = two digit day of month (01 through 31)&#13;
+T = time designator (shows start of time component)&#13;
+hh = two digits of hour (00 through 23, AM/PM not allowed)&#13;
+mm = two digits of minute (00 through 59)&#13;
+ss = two digits of second (00 through 59, leap second not allowed)&#13;
+S+ = one or more digits of decimal fraction of a second&#13;
+Z = time is Coordinated Universal Time (UTC)&#13;
++- = + or - character indicating positive or negative offset to UTC &#13;
+&#13;
+DateTime values are compliant with ISO 8601 "Representation of dates and times" but are restricted according to RFC 3339 "Date and Time on the Internet: Timestamps". The DateTime format is further restricted:&#13;
+- T and Z designators are upper case.&#13;
+- . (dot) is used to indicate start of fractions of seconds (ISO 8601 also allows comma)</description>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>20</min>
+                        <max>31</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>20</min>
+                            <max>31</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-4]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+)*(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z))$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-4]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+)*(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z))$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <class name="ManagedElement">
+            <description>The top-level class in the Common Information Model is Managed Element root Managed Object Class.&#13;
+From this class, all model entities are contained.  The Managed Object Class (MOC) has attributes that provide information on the Managed Element Identity, primary location and the products it contains.  </description>
+            <systemCreated/>
+            <root/>
+            <attribute name="managedElementId">
+                <description>Holds the name used when identifying the MO.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="siteLocation">
+                <description>A freetext attribute describing the geographic location of a Managed Element.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>A freetext string for additional information to assist Managed Element identification.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="productIdentity">
+                <description>Contains product information for the Managed Element and its Managed Functions.&#13;
+This attribute is deprecated.</description>
+                <dataType>
+                    <sequence>
+                        <structRef name="ProductIdentity">
+                            <mimName>ComTop</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <deprecated/>
+            </attribute>
+            <attribute name="localDateTime">
+                <description>Deprecated. This is the local date and time for the Managed Element.&#13;
+The following format is used: YYYY-MM-DDThh:mm:ss&#13;
+&#13;
+The meaning of each field is as follows:&#13;
+YYYY = four digit year&#13;
+MM = two digit month (01=January, etc.)&#13;
+DD = two digit day of month (01 through 31)&#13;
+T = time designator (shows start of time component)&#13;
+hh = two digits of hour (00 through 23, AM/PM not allowed)&#13;
+mm = two digits of minute (00 through 59)&#13;
+ss = two digits of second (00 through 59, leap second not allowed)&#13;
+The hyphen [-] and the colon [:] are used as separators within the date and time of day expressions, respectively.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTimeWithoutOffset">
+                        <mimName>ComTop</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated at version 2.3. Functionality replaced by TimeM model.”</statusInformation>
+                <specification>ISO 8601:2004(E)</specification>
+            </attribute>
+            <attribute name="timeZone">
+                <description>DEPRECATED. This is the timeZone in which the Managed Element resides. &#13;
+The possible values for this attribute are defined in the public-domain zoneinfo or Olson database. Locations are identified by a string indicating the continent or ocean and then the name of the location, typically the largest city within the region. See http://www.iana.org/time-zones for more information. Example: Europe/Stockholm.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated at version 2.3. Functionality replaced by TimeM model.</statusInformation>
+            </attribute>
+            <attribute name="dateTimeOffset">
+                <description>Deprecated. Difference between the value of the localDateTime attribute and UTC.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DifferenceFromUTC">
+                        <mimName>ComTop</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated at version 2.3. Functionality replaced by TimeM model.”</statusInformation>
+            </attribute>
+            <attribute name="dnPrefix">
+                <description>It provides naming context that allows the managed objects to be partitioned into logical domains.&#13;
+A Distingushed Name (DN) is defined by 3GPP TS 32.300, which splits the DN into a DN Prefix and Local DN, for example DN format: dnPrefix=&lt;DN Prefix&gt;, localDn =&lt;Local DN&gt; Fault Management: dnPrefix does not impact Fault Management, since an NMS recognises a Managed Element by IP address Performance Management (PM): The dnPrefix is present in the PM Data file, Result Output Period (ROP) file, if the dnPrefix attribute is specified, that is, not an empty string. Example: DC=ericsson.se,g3SubNetwork=Sweden&#13;
+Example: DC=ericsson.se,g3SubNetwork=Sweden&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="managedElementType">
+                <description>The type of product being managed.&#13;
+For example the type could be  RBS or CSCF.</description>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="release">
+                <description>The release of the product type specified by the attribute managedElementType. &#13;
+It commonly contains the Managed Element release, for example L12.0, 13A, R1A</description>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="networkManagedElementId">
+                <description>Replaces the value component of the RDN in the COM Northbound Interface. 
+This attribute shall, if used, be set to a simple alphanumeric value. The value should be unique within the network namespace.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="SystemFunctions">
+            <description>This model has a purpose to group the management of the system functions of the Managed Element.</description>
+            <systemCreated/>
+            <attribute name="systemFunctionsId">
+                <description>Holds the name used when identifying the MO.&#13;
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Transport">
+            <description>This is a container for common transport functions used within the Managed Element. &#13;
+&#13;
+</description>
+            <systemCreated/>
+            <attribute name="transportId">
+                <description>Holds the name used when identifying the MO.&#13;
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="Legacy">
+            <description>Introduced to support deprecated types</description>
+            <filter>hidden</filter>
+            <attribute name="legacyId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <filter>hidden</filter>
+            </attribute>
+            <attribute name="admState">
+                <description>Legacy  attribute deprecated in ECIM_Top and moved to ECIM_CommonLibrary.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <mimName>ComTop</mimName>
+                    </enumRef>
+                </dataType>
+                <filter>hidden</filter>
+            </attribute>
+            <attribute name="basicAdmState">
+                <description>Legacy  attribute deprecated in ECIM_Top and moved to ECIM_CommonLibrary.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="BasicAdmState">
+                        <mimName>ComTop</mimName>
+                    </enumRef>
+                </dataType>
+                <filter>hidden</filter>
+            </attribute>
+            <attribute name="dateTime">
+                <description>Legacy  attribute deprecated in ECIM_Top and moved to ECIM_CommonLibrary.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>ComTop</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <filter>hidden</filter>
+            </attribute>
+            <attribute name="ipDNSAddress">
+                <description>Legacy  attribute deprecated in ECIM_Top and moved to ECIM_CommonLibrary.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="IpDNSAddress">
+                        <mimName>ComTop</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <filter>hidden</filter>
+            </attribute>
+            <attribute name="operState">
+                <description>Legacy  attribute deprecated in ECIM_Top and moved to ECIM_CommonLibrary.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ComTop</mimName>
+                    </enumRef>
+                </dataType>
+                <filter>hidden</filter>
+            </attribute>
+            <attribute name="schemaFormat">
+                <description>Legacy  attribute deprecated in ECIM_Top and moved to ECIM_CommonLibrary.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="SchemaFormat">
+                        <mimName>ComTop</mimName>
+                    </enumRef>
+                </dataType>
+                <filter>hidden</filter>
+            </attribute>
+        </class>
+        <relationship name="ManagedElement_to_SystemFunctions">
+            <containment>
+                <parent>
+                    <hasClass name="ManagedElement">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SystemFunctions">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+        <relationship name="ManagedElement_to_Transport">
+            <description>Containment association of the Transport MOC.</description>
+            <containment>
+                <parent>
+                    <hasClass name="ManagedElement">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Transport">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+        <relationship name="ManagedElement_to_Legacy">
+            <filter>hidden</filter>
+            <containment>
+                <parent>
+                    <hasClass name="ManagedElement">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Legacy">
+                        <mimName>ComTop</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+</models>

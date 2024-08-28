@@ -1,0 +1,185 @@
+fmAlarmTypeId;majorType;minorType;moClasses;specificProblem;eventType;probableCause;isStateful;additionalText;configuredSeverity;defaultSeverity
+"CertMAutomaticEnrollmentFailed";193;9175054;"NodeCredential";"Certificate Management Automatic Enrollment Failed";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;"Automatic enrollment or renewal failed to execute due to local misconfiguration or remote enrollment service denial.";;"WARNING"
+"EnclosureProductDataMismatch";193;9175086;"Cabinet";"Enclosure Product Data Mismatch";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"PLMNServiceDegraded";193;9175140;"EUtranCellFDD,EUtranCellTDD,NbIotCell";"PLMN Service Degraded";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;"MINOR"
+"PartlyDisconnected";193;9175159;"SupportUnit";"Partly Disconnected";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"PowerInconsistentConfiguration";193;9175153;"EquipmentSupportFunction";"Power Inconsistent Configuration";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"BFUIncompatibleWithPowerConfiguration";193;9175152;"FieldReplaceableUnit";"BFU Incompatible With Power Configuration";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"LargeNumberOfCounters";193;9175056;"Pm";"Large Number of Counters";"qualityOfServiceAlarm (3)";"x733PerformanceDegraded (334)";true;;;
+"KeyFileFault";193;9175046;"Lm";"License Key File Fault";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;"Key file fault in Managed Element";;
+"LinkDegraded";193;9175197;"DiLink,RiLink";"Link Degraded";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"CrossConnectCableFault";193;9175165;"CcLink";"Cross Connect Cable Fault";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"SoftwareManagementLostConnectiontoFileServer";193;9175195;"UpgradePackage";"Software Management Lost Connection to File Server";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;"Connectivity to the upgrade package file server is lost. Software download is not possible";;"WARNING"
+"RXDiversityLost";193;9175181;"AntennaUnitGroup";"RX Diversity Lost";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"BatteryBackupTimeTooShort";193;9175080;"BatteryBackup";"Battery Backup Time Too Short";"environmentalAlarm (6)";"m3100BatteryFailure (105)";true;;;
+"E1orT1RemoteDefectIndication";193;9175127;"E1T1Port";"E1 or T1 Remote Defect Indication";"communicationsAlarm (2)";"m3100LossOfFrame (6)";true;;;
+"UnreliableResource";193;9175116;"EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,Trx";"Unreliable Resource";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"DHCPRequestedParameterMissing";193;9175194;"InterfaceIPv4";"DHCP Requested Parameter Missing";"communicationsAlarm (2)";"x733CommunicationsProtocolError (305)";true;;;
+"IndoorRAPHWFault";193;9175173;"FieldReplaceableUnit";"Indoor RAP HW Fault";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"EnclosureDoorOpen";193;9175085;"Cabinet";"Enclosure Door Open";"environmentalAlarm (6)";"m3100EnclosureDoorOpen (118)";true;;;
+"STNtoBSCLinkDown";193;9175129;"TgTransport";"STN to BSC Link Down";"communicationsAlarm (2)";"gsm1211ConnectionEstablishmentError (566)";true;;;
+"IndoorRAPSWDownloadFailure";193;9175176;"FieldReplaceableUnit";"Indoor RAP SW Download Failure";"processingErrorAlarm (4)";"m3100SoftwareDownloadFailure (156)";true;;;
+"AntennaConnectionProblem";193;9175184;"RfPort";"Antenna Connection Problem";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"ResourceActivationTimeoutServiceDegraded";193;9175183;"EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,Trx";"Resource Activation Timeout Service Degraded";"processingErrorAlarm (4)";"gsm1211TimeoutExpired (546)";true;;;"MINOR"
+"ExternalAlarm";193;9175089;"AlarmPort,VirtualAlarmPort";"External Alarm";"environmentalAlarm (6)";"gsm1211ExternalEquipmentFailure (550)";true;;;
+"FanSpeedContinuouslyHigh";193;9175199;"Climate";"Fan Speed Continuously High";"processingErrorAlarm (4)";"x733SoftwareError (346)";true;"Fans have run at maximum speed for *value of attribute fanSpeedSupervision* hours.";;
+"BatteryLevelLowPrioLoadDisconnected";193;9175228;"BatteryBackup";"Battery Level Low Prio Load Disconnected";"environmentalAlarm (6)";"m3100LowBatteryThreshold (112)";true;;;
+"LicenseKeyCloseToExpiration";193;9175204;"Lm";"License Key Close to Expiration";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"SFPNotPresent";193;9175156;"SfpModule";"SFP Not Present";"equipmentAlarm (5)";"m3100ReplaceableUnitMissing (62)";true;;;
+"IndoorRAPCommunicationProblem";193;9175171;"RdiPort";"Indoor RAP Communication Problem";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;
+"IncompatibleHWConfiguration";193;9175164;"FieldReplaceableUnit,IplPort,SfpModule";"Incompatible HW Configuration";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"IndoorRAPCableInsertionLoss";193;9175170;"RdiPort";"Indoor RAP Cable Insertion Loss";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"ExternalLinktoGNodeBFailure";193;9175203;"ENodeBFunction";"External Link to GNodeB Failure";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;"MINOR"
+"EnclosureSmokeDetectorFailure";193;9175088;"Cabinet";"Enclosure Smoke Detector Failure";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"HSPDSCHResourceAllocationFailure";193;9175212;"NodeBLocalCellGroup";"HS PDSCH Resource Allocation Failure";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"TMFConfigurationFailure";193;9175138;"AntennaNearUnit";"TMF Configuration Failure";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"LinkFailure";193;9175144;"DiLink,RiLink";"Link Failure";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"InterNodeFeatureIncompatibility";193;9175186;"ExternalENodeBFunction";"Inter Node Feature Incompatibility";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"MissingBFUConfigurationandConnection";193;9175121;"BatteryBackup";"Missing BFU Configuration and Connection";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"SyncFrequencyReferenceNotReliable";193;9175131;"RadioEquipmentClockReference";"Sync Frequency Reference Not Reliable";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"RFReflectedPowerHigh";193;9175119;"RfPort";"RF Reflected Power High";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"ProblemstoScheduleSIMessages";193;9175112;"EUtranCellFDD,EUtranCellTDD,NbIotCell";"Problems to Schedule SI Messages";"qualityOfServiceAlarm (3)";"x733Congestion (308)";true;;;"MINOR"
+"LicensedCapacityExceeded";193;9175163;"ExtTrx,NodeBLocalCell,Trx";"Licensed Capacity Exceeded";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"VSWROverThreshold";193;9175040;"RfPort";"VSWR Over Threshold";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"VirtualizedCATMServiceDegraded";193;9175236;"ENodeBFunction";"Virtualized CATM Service Degraded";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;"MINOR"
+"BatteryHighTemperature";193;9175224;"SupportUnit";"Battery High Temperature";"environmentalAlarm (6)";"m3100HighTemperature (123)";true;;;
+"TemperatureSensorFailure";193;9175100;"BatteryBackup,FieldReplaceableUnit";"Temperature Sensor Failure";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"CriticalTemperatureBatteryDisconnected";193;9175096;"BatteryBackup,FieldReplaceableUnit";"Critical Temperature Battery Disconnected";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"E1orT1AlarmIndicationSignal";193;9175124;"E1T1Port";"E1 or T1 Alarm Indication Signal";"communicationsAlarm (2)";"m3100AlarmIndicationSignal (1)";true;;;
+"IPLCableTooLong";193;9175217;"IplPort";"IPL Cable Too Long";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;
+"FallbackOperationStartingSoon";193;9175043;"UpgradePackage";"A Fallback Operation will soon be started";"other (1)";"timeoutExpired (164)";true;"The upgrade operation has not been confirmed yet. The ME will soon start fallback operation if the upgrade is not confirmed.";;"WARNING"
+"TimeSyncIOReferenceFailed";193;9175065;"RadioEquipmentClockReference";"TimeSyncIO Reference Failed";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"BatteryVoltageTooLowMainLoadDisconnected";193;9175082;"PowerDistribution";"Battery Voltage Too Low Main Load Disconnected";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"IKEConfigurationPayloadFault";193;9175201;"Ikev2Session";"IKE Configuration Payload Fault";"communicationsAlarm (2)";"x733CommunicationsProtocolError (305)";true;;;
+"GracePeriodActivated";193;9175051;"GracePeriod";"Grace Period Activated";"qualityOfServiceAlarm (3)";"x733ThresholdCrossed (351)";true;"Grace Period Activated";;
+"AlternateOAMConnectionInUse";193;9175162;"OamAccessPoint";"Alternate Oam Connection In Use";"communicationsAlarm (2)";"x733CommunicationsProtocolError (305)";true;"A management session is utilizing the alternate connection service";;
+"ExternalLinkFailure";193;9175110;"ENodeBFunction";"External Link Failure";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;"MINOR"
+"SynchronizationtoBasebandClusterLost";193;9175238;"FieldReplaceableUnit";"Synchronization to Baseband Cluster Lost";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"RollbackEscalationStarted";193;9175066;"SysM";"Rollback Escalation Started";"processingErrorAlarm (4)";"x733SoftwareProgramError (348)";true;"Software error occured. Rollback to previous backup starts in one hour unless operator logs into ME.";;
+"BatteryMissing";193;9175081;"BatteryBackup,BatteryUnit";"Battery Missing";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"NodeGroupSyncConfigurationFault";193;9175150;"NodeGroupSyncMember";"Node Group Sync Configuration Fault";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"ClockReferenceMissingForLongTime";193;9175063;"RadioEquipmentClock";"Clock Reference Missing For Long Time";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"NodeGroupSyncLossofAllSoCC";193;9175149;"NodeGroupSyncMember";"Node Group Sync Loss of All SoCC";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"IndoorRAPConfigurationNotSupported";193;9175172;"FieldReplaceableUnit";"Indoor RAP Configuration Not Supported";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"CloggedAirFilter";193;9175102;"Cabinet";"Clogged Air Filter";"environmentalAlarm (6)";"x733HeatingOrVentilationOrCoolingSystemProblem (321)";true;;;
+"IndoorRAPTemperatureExceptional";193;9175178;"FieldReplaceableUnit";"Indoor RAP Temperature Exceptional";"environmentalAlarm (6)";"x733TemperatureUnacceptable (350)";true;;;
+"IndoorRAPDesensitizationNoiseFigureOutofRange";193;9175185;"SectorEquipmentFunction";"Indoor RAP Desensitization Noise Figure Out of Range";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"FrequencySyncIOReferenceFailed";193;9175062;"RadioEquipmentClockReference";"FrequencySyncIO Reference Failed";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"RXBranchImbalanceFault";193;9175200;"AntennaUnitGroup";"RX Branch Imbalance Fault";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"BatteryEndofLife";193;9175233;"BatteryBackup,BatteryUnit";"Battery End of Life";"environmentalAlarm (6)";"m3100BatteryFailure (105)";true;;;
+"AutoExportBackupFailed";193;9175045;"BrmBackupScheduler";"Auto Export Backup Failed";"other (1)";"x736UnspecifiedReason (418)";true;"Export failed. For more information check the progress report for the specific backup";;"WARNING"
+"RunningonBatterySupply";193;9175097;"BatteryBackup";"Running on Battery Supply";"environmentalAlarm (6)";"m3100BatteryDischarging (104)";true;;;
+"CriticalTemperaturePerformanceDegraded";193;9175078;"FieldReplaceableUnit";"Critical Temperature Performance Degraded";"environmentalAlarm (6)";"x733TemperatureUnacceptable (350)";true;;;
+"SystemOvervoltage";193;9175098;"PowerDistribution,PowerSupply";"System Overvoltage";"equipmentAlarm (5)";"m3100PowerProblem (58)";true;;;
+"SyncEReferenceFailed";193;9175064;"RadioEquipmentClockReference";"SyncE Reference Failed";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"LossofMains";193;9175093;"FieldReplaceableUnit,PowerSupply,SupportUnit";"Loss of Mains";"environmentalAlarm (6)";"m3100CommercialPowerFailure (106)";true;;;
+"BatteryVoltageTooLowPrioLoadDisconnected";193;9175083;"PowerDistribution";"Battery Voltage Too Low Prio Load Disconnected";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"ClimateInconsistentConfiguration";193;9175154;"EquipmentSupportFunction";"Climate Inconsistent Configuration";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"HatchOpen";193;9175187;"FieldReplaceableUnit";"Hatch Open";"environmentalAlarm (6)";"m3100EnclosureDoorOpen (118)";true;;;
+"LinearizationDisturbancePerformanceDegraded";193;9175155;"FieldReplaceableUnit";"Linearization Disturbance Performance Degraded";"equipmentAlarm (5)";"gsm1211TransceiverProblem (529)";true;;;
+"BatteryDischargeCurrentHighMainLoadDisconnected";193;9175237;"BatteryBackup";"Battery Discharge Current High Main Load Disconnected";"environmentalAlarm (6)";"m3100BatteryDischarging (104)";true;;;
+"InconsistentConfiguration";193;9175068;"AlarmPort,AntennaNearUnit,AntennaUnit,Cabinet,EUtranCellFDD,EUtranCellTDD,EcPort,EquipmentDiscovery,EquipmentSupportFunction,ExtTrx,ExternalENodeBFunction,FieldReplaceableUnit,IplPort,MbsfnArea,NbIotCell,NodeBLocalCell,NodeBLocalCellGroup,PimCancellationFunction,RdiPort,RetSubUnit,RfPort,RiLink,RiPort,SectorCarrier,SectorEquipmentFunction,TmfConfiguration,Trx,UlCompGroup";"Inconsistent Configuration";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MAJOR"
+"FeatureResourceMissing";193;9175077;"AntennaNearUnit,RfPort,RiPort,SectorEquipmentFunction";"Feature Resource Missing";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"ECBusUnreliableLink";193;9175180;"EcBus";"EC Bus Unreliable Link";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;
+"HighOperatingTemperatureMainLoadDisconnected";193;9175091;"PowerDistribution";"High Operating Temperature Main Load Disconnected";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"CalendarClockMisaligned";193;9175060;"SysM";"Calendar Clock Misaligned";"processingErrorAlarm (4)";"x733UnderlyingResourceUnavailable (356)";true;"Clock was adjusted by more than 300 seconds in order to keep up with the time references";;
+"NoConnection";193;9175073;"AntennaNearUnit,BatteryBackup,BatteryUnit,Cabinet,EcBus,EquipmentSupportFunction,ExternalNode,FanGroup,FieldReplaceableUnit,PlugInModule,SupportUnit";"No Connection";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"PLMNServiceUnavailable";193;9175141;"EUtranCellFDD,EUtranCellTDD,NbIotCell";"PLMN Service Unavailable";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;"MAJOR"
+"ResourceAllocationFailure";193;9175113;"EUtranCellFDD,EUtranCellTDD,ExtTrx,MbmsService,NbIotCell,NodeBLocalCell,NodeBSectorCarrier,PimCancellationFunction,SectorCarrier,Trx";"Resource Allocation Failure";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MAJOR"
+"AntennaCalibrationFailure";193;9175211;"SectorCarrier";"Antenna Calibration Failure";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"BatteryTemperatureDifferenceHigh";193;9175232;"BatteryBackup";"Battery Temperature Difference High";"environmentalAlarm (6)";"x733TemperatureUnacceptable (350)";true;;;
+"ResourceAllocationFailureServiceDegraded";193;9175167;"EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,NodeBSectorCarrier,SectorCarrier,Trx";"Resource Allocation Failure Service Degraded";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"TransportSessionDown";193;9175130;"TgTransport";"Transport Session Down";"communicationsAlarm (2)";"gsm1211ConnectionEstablishmentError (566)";true;;;
+"PIMCancellationOutofResources";193;9175221;"PimCancellationFunction";"PIM Cancellation Out of Resources";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"CurrentTooHigh";193;9175076;"RfPort";"Current Too High";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"IKEPeerNotReachable";193;9175136;"Ikev2Session";"IKE Peer Not Reachable";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"IPLLinkFailure";193;9175218;"IplPort";"IPL Link Failure";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;
+"PowerDisturbance";193;9175225;"ExternalPower";"Power Disturbance";"environmentalAlarm (6)";"gsm1211ExternalPowerSupplyFailure (551)";true;;;
+"ResourceNotInstalled";193;9175179;"SectorEquipmentFunction";"Resource Not Installed";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"SystemGeneralProblem";193;9175067;"SystemFunctions";"System General Problem";"processingErrorAlarm (4)";"x733SoftwareProgramError (348)";true;"This is a non-recoverable SW error, a HWfault not detectable by HW test, or a configuration fault.";;
+"ConfigurationRequiresFeatureActivation";193;9175042;"EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,SectorEquipmentFunction,Trx";"Configuration Requires Feature Activation";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MAJOR"
+"RETNotCalibrated";193;9175074;"RetSubUnit";"RET Not Calibrated";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"IndoorRAPIncompatibleSoftware";193;9175214;"FieldReplaceableUnit";"Indoor RAP Incompatible Software";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"DHCPServerFault";193;9175192;"InterfaceIPv4";"DHCP Server Fault";"communicationsAlarm (2)";"x733CommunicationsProtocolError (305)";true;;;
+"LACPFailure";193;9175209;"LagPort";"LACP Failure";"communicationsAlarm (2)";"x733CommunicationsProtocolError (305)";true;;;
+"ResourceConfigurationFailureServiceDegraded";193;9175182;"EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,Trx";"Resource Configuration Failure Service Degraded";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"IndoorRAPNoConnection";193;9175174;"FieldReplaceableUnit,RdiPort";"Indoor RAP No Connection";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"IPLCableDisconnected";193;9175219;"IplPort";"IPL Cable Disconnected";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;
+"EmergencyUnlockResetKeyRequired";193;9175048;"EmergencyUnlock";"Emergency Unlock Reset Key Required";"qualityOfServiceAlarm (3)";"x733ResourceAtOrNearingCapacity (343)";true;"Emergency Unlock Reset Key required";;
+"CalibrationFailure";193;9175142;"AntennaUnitGroup";"Calibration Failure";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"NumberofHWEntitiesMismatch";193;9175095;"Cabinet,EcBus";"Number of HW Entities Mismatch";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"CalendarClockNTPServerUnavailable";193;9175059;"NTPServer";"Calendar Clock NTP Server Unavailable";"communicationsAlarm (2)";"m3100Unavailable (14)";true;"Configured NTP server is not used as basis for time of day clock";;
+"BatteryDisconnected";193;9175122;"BatteryBackup";"Battery Disconnected";"equipmentAlarm (5)";"m3100ExternalIfDeviceProblem (54)";true;;;
+"SuspectedSleepingCell";193;9175117;"EUtranCellFDD,EUtranCellTDD,NodeBLocalCell";"Suspected Sleeping Cell";"qualityOfServiceAlarm (3)";"x733ThresholdCrossed (351)";true;;;"MAJOR"
+"MOConfigurationNotConsistentWithInstalledEquipment";193;9175226;"DiLink,DiPort,NbIotCell";"MO Configuration Not Consistent With Installed Equipment";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MAJOR"
+"BSCConnectionFailure";193;9175139;"AbisIp";"BSC Connection Failure";"communicationsAlarm (2)";"m3100TransmissionError (10)";true;;;
+"EFuseTripped";193;9175166;"EFuse";"EFuse Tripped";"environmentalAlarm (6)";"m3100FuseFailure (110)";true;;;
+"FanDisconnected";193;9175143;"FieldReplaceableUnit";"Fan Disconnected";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"PIMCancellationExhausted";193;9175220;"PimCancellationFunction";"PIM Cancellation Exhausted";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"RETFailure";193;9175120;"RetSubUnit";"RET Failure";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"LicenseKeyNotAvailable";193;9175047;"FeatureState";"License Key Not Available";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;"Key missing for feature or capacity";;
+"InterNodeCarrierAggregationServiceUnavailable";193;9175198;"ExternalENodeBFunction";"Inter Node Carrier Aggregation Service Unavailable";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;"MINOR"
+"IndoorRAPSWError";193;9175177;"FieldReplaceableUnit";"Indoor RAP SW Error";"processingErrorAlarm (4)";"x733SoftwareError (346)";true;;;
+"DHCPLeaseExpiry";193;9175193;"InterfaceIPv4";"DHCP Lease Expiry";"communicationsAlarm (2)";"x733CommunicationsProtocolError (305)";true;;;
+"E1orT1UnavailableTime";193;9175128;"E1T1Port";"E1 or T1 Unavailable Time";"qualityOfServiceAlarm (3)";"x733ThresholdCrossed (351)";true;;;
+"LinkStability";193;9175145;"RiLink";"Link Stability";"equipmentAlarm (5)";"gsm1211LinkFailure (517)";true;;;
+"OutputCurrentTooHigh";193;9175160;"SupportUnit";"Output Current Too High";"environmentalAlarm (6)";"gsm1211ExternalEquipmentFailure (550)";true;;;
+"E1orT1LossofFrame";193;9175125;"E1T1Port";"E1 or T1 Loss of Frame";"communicationsAlarm (2)";"m3100LossOfFrame (6)";true;;;
+"ServiceDegraded";193;9175114;"EUtranCellFDD,EUtranCellRelation,EUtranCellTDD,NbIotCell";"Service Degraded";"qualityOfServiceAlarm (3)";"x733PerformanceDegraded (334)";true;;;"MINOR"
+"PSUOutputPowerFailure";193;9175227;"FieldReplaceableUnit";"PSU Output Power Failure";"equipmentAlarm (5)";"m3100ReplaceableUnitProblem (69)";true;;;
+"ResourceActivationTimeout";193;9175118;"EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,PimCancellationFunction,SectorEquipmentFunction,Trx";"Resource Activation Timeout";"processingErrorAlarm (4)";"gsm1211TimeoutExpired (546)";true;;;"MAJOR"
+"MissingSXU";193;9175101;"FieldReplaceableUnit";"Missing SXU";"equipmentAlarm (5)";"m3100ReplaceableUnitMissing (62)";true;;;
+"BatteryLevelLow";193;9175230;"BatteryBackup";"Battery Level Low";"environmentalAlarm (6)";"m3100LowBatteryThreshold (112)";true;;;
+"BatteryFailureBatteryDisconnected";193;9175158;"BatteryBackup";"Battery Failure Battery Disconnected";"equipmentAlarm (5)";"gsm1211BatteryBreakdown (504)";true;;;
+"FanDegraded";193;9175148;"FieldReplaceableUnit";"Fan Degraded";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"HWFault";193;9175071;"AntennaNearUnit,BatteryUnit,FieldReplaceableUnit,PlugInModule,SupportUnit";"HW Fault";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"EnclosureSmoke";193;9175087;"Cabinet";"Enclosure Smoke";"environmentalAlarm (6)";"m3100Smoke (132)";true;;;
+"SyncReferenceQualityLevelTooLow";193;9175168;"RadioEquipmentClockReference";"Sync Reference Quality Level Too Low";"equipmentAlarm (5)";"m3100SynchronisationSourceMismatch (64)";true;;;
+"CertMCertificateNotAvailable";193;9175052;"NodeCredential,TrustedCertificate";"Certificate Management a Valid Certificate is Not Available";"operationalViolation (8)";"x736OutOfService (414)";true;"The certificate provided by the alarming object is expired, revoked, or unavailable, which may result in the failure of a secure using this certificate.";;"CRITICAL"
+"BatteryLowStateofCharge";193;9175223;"SupportUnit";"Battery Low State of Charge";"environmentalAlarm (6)";"m3100LowBatteryThreshold (112)";true;;;
+"ConfigurationRequiresFeatureActivationServiceDegraded";193;9175169;"EUtranCellFDD,NodeBLocalCell";"Configuration Requires Feature Activation Service Degraded";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"SFPProductNumberMismatch";193;9175213;"SfpModule";"SFP Product Number Mismatch";"equipmentAlarm (5)";"m3100ReplaceableUnitTypeMismatch (63)";true;;;
+"FRUGeneralProblem";193;9175072;"FieldReplaceableUnit";"FRU General Problem";"processingErrorAlarm (4)";"x733SoftwareProgramError (348)";true;;;
+"SyncPTPTimePDVProblem";193;9175132;"RadioEquipmentClockReference";"Sync PTP Time PDV Problem";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"SyncPTPTimeReliabilityFault";193;9175134;"RadioEquipmentClockReference";"Sync PTP Time Reliability Fault";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"SWVersionMismatch";193;9175216;"FieldReplaceableUnit";"SW Version Mismatch";"processingErrorAlarm (4)";"x733SoftwareError (346)";true;;;
+"NotPossibletoStartAILG";193;9175111;"EUtranCellFDD,EUtranCellTDD";"Not Possible to Start AILG";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MINOR"
+"VirtualizedCATMServiceUnavailable";193;9175235;"ENodeBFunction";"Virtualized CATM Service Unavailable";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;"MAJOR"
+"SFPHWFault";193;9175196;"SfpModule";"SFP HW Fault";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"SyncFrequencyServerReachabilityFault";193;9175108;"RadioEquipmentClockReference";"Sync Frequency Server Reachability Fault";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"SyncPTPTimeAvailabilityFault";193;9175133;"RadioEquipmentClockReference";"Sync PTP Time Availability Fault";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"SCTPEndpointInconsistentConfiguration";193;9175189;"ENodeBFunction";"SCTP Endpoint Inconsistent Configuration";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MAJOR"
+"IKEPeerCertificateFault";193;9175137;"Ikev2Session";"IKE Peer Certificate Fault";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"EthernetLinkFailure";193;9175061;"EthernetPort";"Ethernet Link Failure";"communicationsAlarm (2)";"m3100LossOfSignal (8)";true;;;
+"BatteryLevelLowMainLoadDisconnected";193;9175229;"BatteryBackup";"Battery Level Low Main Load Disconnected";"environmentalAlarm (6)";"m3100LowBatteryThreshold (112)";true;;;
+"CriticalTemperatureTakenOutofService";193;9175079;"EFuse,FieldReplaceableUnit,SupportUnit";"Critical Temperature Taken Out of Service";"environmentalAlarm (6)";"x733TemperatureUnacceptable (350)";true;;;
+"AutonomousModeActivated";193;9175049;"AutonomousMode";"Autonomous Mode Activated";"communicationsAlarm (2)";"x733CommunicationsSubsystemFailure (306)";true;"Autonomous Mode has been activated";;
+"SyncPTPTimeReachabilityFault";193;9175135;"RadioEquipmentClockReference";"Sync PTP Time Reachability Fault";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"ResourceConfigurationFailure";193;9175075;"EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,PimCancellationFunction,SectorEquipmentFunction,SyncPort,Trx,UlCompGroup";"Resource Configuration Failure";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;"MAJOR"
+"FanPowerSupplyFailure";193;9175123;"Cabinet,FanGroup";"Fan Power Supply Failure";"equipmentAlarm (5)";"m3100PowerProblem (58)";true;;;
+"ArchiveDiskAlmostFull";193;9175161;"SystemFunctions";"Archive Disk Almost Full";"other (1)";"m3100StorageCapacityProblem (151)";true;"Export and remove backups, remove upgrade packages and export logs to prevent data loss.";;"WARNING"
+"BatteryCapacityDegraded";193;9175222;"SupportUnit";"Battery Capacity Degraded";"qualityOfServiceAlarm (3)";"x733PerformanceDegraded (334)";true;;;
+"FanFailure";193;9175090;"FanGroup,FieldReplaceableUnit";"Fan Failure";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"SyncEReferenceConfigurationNotSupported";193;9175106;"RadioEquipmentClockReference";"SyncE Reference Configuration Not Supported";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"SyncReferenceDeviation";193;9175239;"RadioEquipmentClockReference";"Sync Reference Deviation";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"SyncFrequencyPDVProblem";193;9175107;"RadioEquipmentClockReference";"Sync Frequency PDV Problem";"communicationsAlarm (2)";"m3100Unavailable (14)";true;;;
+"ServiceUnavailable";193;9175115;"EUtranCellFDD,EUtranCellTDD,NbIotCell";"Service Unavailable";"processingErrorAlarm (4)";"x733UnderlyingResourceUnavailable (356)";true;;;"MAJOR"
+"E1orT1LossofSignal";193;9175126;"E1T1Port";"E1 or T1 Loss of Signal";"communicationsAlarm (2)";"m3100LossOfSignal (8)";true;;;
+"RNCConnectionFailure";193;9175041;"NbapCommon";"RNC Connection Failure";"communicationsAlarm (2)";"x733CommunicationsSubsystemFailure (306)";true;;;"MAJOR"
+"ScheduledBackupFailed";193;9175044;"BrmBackupScheduler,BrmCalendarBasedPerodicEvent,BrmPerodicEvent,BrmSingleEvent";"Scheduled Backup Failed";"processingErrorAlarm (4)";"x733SoftwareProgramError (348)";true;"The scheduled backup creation failed or an event could not be scheduled";;"WARNING"
+"SFPPowerFailure";193;9175157;"SfpModule";"SFP Power Failure";"equipmentAlarm (5)";"m3100PowerProblem (58)";true;;;
+"LowBatteryCapacity";193;9175094;"BatteryBackup";"Low Battery Capacity";"environmentalAlarm (6)";"m3100BatteryFailure (105)";true;;;
+"SynchronizationLost";193;9175202;"FieldReplaceableUnit";"Synchronization Lost";"equipmentAlarm (5)";"gsm1211ClockSynchronisationProblem (506)";true;;;
+"PowerLoss";193;9175147;"FieldReplaceableUnit";"Power Loss";"equipmentAlarm (5)";"gsm1211PowerSupplyFailure (522)";true;;;
+"AggregatedEthernetLinkFailure";193;9175188;"LagPort";"Aggregated Ethernet Link Failure";"communicationsAlarm (2)";"m3100LossOfSignal (8)";true;;;
+"SystemUndervoltage";193;9175099;"PowerDistribution,PowerSupply";"System Undervoltage";"equipmentAlarm (5)";"m3100PowerProblem (58)";true;;;
+"SWError";193;9175070;"AntennaNearUnit,FieldReplaceableUnit";"SW Error";"processingErrorAlarm (4)";"x733SoftwareError (346)";true;;;
+"CircuitBreakerTripped";193;9175084;"BatteryUnit,EFuse,FieldReplaceableUnit";"Circuit Breaker Tripped";"environmentalAlarm (6)";"m3100FuseFailure (110)";true;;;
+"CertMCertificateToExpire";193;9175053;"NodeCredential,TrustedCertificate";"Certificate Management the Certificate is to Expire";"qualityOfServiceAlarm (3)";"x733ThresholdCrossed (351)";true;"The threshold before certificate expiration has been crossed, and the certificate should be renewed to prevent a secure service failure.";;"WARNING"
+"PIMLevelTooHigh";193;9175215;"PimCancellationFunction";"PIM Level Too High";"processingErrorAlarm (4)";"x733ConfigurationOrCustomizationError (307)";true;;;
+"IndoorRAPPowerOverEthernetFault";193;9175175;"FieldReplaceableUnit";"Indoor RAP Power Over Ethernet Fault";"equipmentAlarm (5)";"x733EquipmentMalfunction (315)";true;;;
+"InsufficientBatteryCharging";193;9175092;"BatteryBackup";"Insufficient Battery Charging";"equipmentAlarm (5)";"gsm1211BatteryChargingFault (505)";true;;;
+"LogHasReachedFullCapacity";193;9175057;"Log";"Log Has Reached Full Capacity";"processingErrorAlarm (4)";"x733FileError (317)";true;;;
+"SWDownloadFailure";193;9175069;"AntennaNearUnit,FieldReplaceableUnit";"SW Download Failure";"processingErrorAlarm (4)";"m3100SoftwareDownloadFailure (156)";true;;;
+"BatteryVoltageLowatIntermittentCharge";193;9175231;"BatteryBackup";"Battery Voltage Low at Intermittent Charge";"environmentalAlarm (6)";"m3100BatteryFailure (105)";true;;;
+"CalendarClockAllNTPServersUnavailable";193;9175058;"SysM";"Calendar Clock All NTP Servers Unavailable";"processingErrorAlarm (4)";"x733ReceiveFailure (340)";true;"No NTP server configured, or no NTP service available";;

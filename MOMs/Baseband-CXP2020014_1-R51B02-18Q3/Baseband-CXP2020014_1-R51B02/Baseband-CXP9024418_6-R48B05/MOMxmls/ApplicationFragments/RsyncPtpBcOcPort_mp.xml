@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Sep 11, 2017 10:39:31 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RsyncPtpBcOcPort" namespace="urn:com:ericsson:ecim:RsyncPtpBcOcPort" namespacePrefix="rsyncptpbcocport" organization="" release="24" revision="" variant="Model" version="3">
+        <description>ECIM Transport PTP Port Model.
+
+PTP port is used to communicate with other 1588 devices.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <specification>8.2.5 of IEEE Std 1588-2008</specification>
+        <struct name="PortDS">
+            <description>This data set describe, the port properties.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="Rsync1588Library"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <structMember name="announceInterval">
+                <description>Indicates the announce message interval in logarithm(base2).</description>
+                <int8/>
+            </structMember>
+            <structMember name="announceReceiptTimeout">
+                <description>Indicates the number of announce message intervals, for which announce messages must be missing to change the state in the clock.</description>
+                <uint8/>
+            </structMember>
+            <structMember name="delayMechanism">
+                <description>Indicates the delay mechanism used by the port.
+
+Presently the only mechanism supported is E2E.</description>
+                <enumRef name="DelayMechanism">
+                    <mimName>RsyncPtpBcOcPort</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="minDelayReqInterval">
+                <description>It indicates the minimum delay request interval expressed as logarith(base2).</description>
+                <int8/>
+            </structMember>
+            <structMember name="minPdelayReqInterval">
+                <description>It indicates the minimum peer delay request interval expressed as logarithm(base2).</description>
+                <int8/>
+            </structMember>
+            <structMember name="peerMeanPathDelay">
+                <description>It indicates the peer mean path delay.
+
+If the delay mechanism is end to end , the value is zero.</description>
+                <uint16/>
+            </structMember>
+            <structMember name="portClockIdentity">
+                <description>It indicates the identity of the local port.</description>
+                <string/>
+            </structMember>
+            <structMember name="portNumber">
+                <description>The value of the portNumber on a PTP node with a single PTP port shall be 1. 
+The values of the port numbers for the N ports on a PTP node supporting N PTP ports shall be 1, 2, …N. The all-zeros and all-ones portNumber values are reserved.
+</description>
+                <uint16/>
+            </structMember>
+            <structMember name="portState">
+                <description>It indicates the state of the local port.</description>
+                <enumRef name="PortState">
+                    <mimName>RsyncPtpBcOcPort</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="syncInterval">
+                <description>It indicates the synchronization message interval expressed in the logarithm(base2).</description>
+                <int8/>
+            </structMember>
+            <structMember name="versionNumber">
+                <description>The 1588 specification version number.</description>
+                <uint8/>
+            </structMember>
+        </struct>
+        <enum name="AdmState">
+            <description>The administrative state of a resource. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="DelayMechanism">
+            <description>Available delay mechanism modes.&#13;
+&#13;
+The delay mechanism modes indicate the propagation delay measuring option used by the port in computing &lt;meanPathDelay&gt;.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="Rsync1588Library"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="E2E">
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="PortState">
+            <description>Available port states of a PTP port.&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="Rsync1588Library"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="INITIALIZING">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FAULTY">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="DISABLED">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="LISTENING">
+                <value>4</value>
+            </enumMember>
+            <enumMember name="PRE_MASTER">
+                <value>5</value>
+            </enumMember>
+            <enumMember name="MASTER">
+                <value>6</value>
+            </enumMember>
+            <enumMember name="PASSIVE">
+                <value>7</value>
+            </enumMember>
+            <enumMember name="UNCALIBRATED">
+                <value>8</value>
+            </enumMember>
+            <enumMember name="SLAVE">
+                <value>9</value>
+            </enumMember>
+        </enum>
+        <enum name="PtpMulticastAddress">
+            <description>Specifies which type of multicast address that shall be used.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="Rsync1588Library"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="FORWARDABLE">
+                <description>Forwardable multicast MAC address 01-1B-19-00-00-00.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NON_FORWARDABLE">
+                <description>Non-forwardable multicast MAC address 01-80-C2-00-00-0E.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="PtpPortStatus">
+            <description>Indicates the PTP port status.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="Rsync1588Library"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="NO_FAULT">
+                <description>No fault is detected.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNRESOLVED_SERVER_ADDRESS">
+                <description>The server address cannot be resolved.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="NEGOTIATION_FAILED">
+                <description>At any time during operation, the grandmaster cancels a previously granted unicast transmission agreement, or the grandmaster does not comply with the requested negotiation service.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="NEGOTIATION_NO_REPLY">
+                <description>No reply from the grandmaster to the slave's Unicast Request.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="UNKNOWN">
+                <value>99</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="IpAddress">
+            <description>Regular expression pattern for IP assigned address, covering both IPv4 and IPv6.&#13;
+&#13;
+The type is ((IPv4 address)|(IPv6 address)), without leading 0s.&#13;
+&#13;
+IpV4 address = ((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))&#13;
+&#13;
+IPv6 address = (\s*((((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*)&#13;
+&#13;
+Matching example is: 192.168.21.3&#13;
+Another matching example is: 2001:db8:85a3:8d3:1319:8a2e:370:7348</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnFilterTypes"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>^(((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))|(\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*))$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[^(((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))|(\s*(((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){7}(([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){6}(:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)|((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){5}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,2})|:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3})|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){4}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,3})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0))?:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){3}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,4})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,2}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){2}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,5})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,3}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|((([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0):){1}(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,6})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,4}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:))|(:(((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){1,7})|((:([1-9A-Fa-f][0-9A-Fa-f]{0,3}|0)){0,5}:((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])(\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])){3}))|:)))(%.+)?\s*))$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_announceMessageInterval">
+            <baseType>
+                <int8>
+                    <range>
+                        <min>-3</min>
+                        <max>4</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-3</min>
+                            <max>4</max>
+                        </subrange>
+                    </ranges>
+                </int8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_associatedGrandmaster">
+            <baseType>
+                <string>
+                    <validValues>^(([1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]))$|^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$)</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_asymmetryCompensation">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-100000</min>
+                        <max>100000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-100000</min>
+                            <max>100000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_dscp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_durationField">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>60</min>
+                        <max>1000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>60</min>
+                            <max>1000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_localPriority">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_pBit">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_ptpPathTimeError">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>0</min>
+                        <max>10000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10000</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncPtpBcOcPort_PtpBcOcPort_syncMessageInterval">
+            <baseType>
+                <int8>
+                    <range>
+                        <min>-6</min>
+                        <max>0</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-6</min>
+                            <max>0</max>
+                        </subrange>
+                    </ranges>
+                </int8>
+            </baseType>
+        </derivedDataType>
+        <class name="PtpBcOcPort">
+            <description>Represents PTP port to communicate with other 1588 devices.
+
+Grandmaster ordinary clock can have more than one port. Slave-only ordinary clock can only have one port.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="PtpBcOcPort"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='not(((../@ptpProfile eq 1) or (../@ptpProfile eq 2) or (../@ptpProfile eq 5) or (../@ptpProfile eq 6)) and not(contains(@transportInterface, "EthernetPort=")))'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is IEEE_1588_J3, or G_8275_1, or IEEE_1588_TIME_DEFAULT, or IEEE_1588_TIME_SLOW, attribute transportInterface must refer to EthernetPort MO. </assert>
+		<assert test='not(((../@ptpProfile eq 3) or (../@ptpProfile eq 4)) and not(contains(@transportInterface, "AddressIPv4=") or contains(@transportInterface, "AddressIPv6=")))'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2, attribute transportInterface must refer to AddressIPv4 MO or AddressIPv6 MO. </assert>
+		<assert test='every $ti in @transportInterface satisfies every $gm in @associatedGrandmaster satisfies not(count(../../BoundaryOrdinaryClock/PtpBcOcPort[((../@ptpProfile eq 3) or (../@ptpProfile eq 4)) and ($ti eq @transportInterface) and ($gm eq @associatedGrandmaster)]) gt 1)'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2, two PtpBcOcPort MOs cannot have same combination of transportInterface and associatedGrandmaster. </assert>
+		<assert test='not(((../@ptpProfile eq 3) or (../@ptpProfile eq 4)) and (@transportVlan))'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2, attribute transportVlan must be NIL. </assert>
+		<assert test='every $tv in @transportVlan satisfies ($tv/@isTagged)'> <value-of select="."/> transportVlan cannot refer to VlanPort MO when its attribute isTagged as false. </assert>
+		<assert test='(every $ti in @transportInterface satisfies every $id in ../@boundaryOrdinaryClockId satisfies not(count(../../BoundaryOrdinaryClock/PtpBcOcPort[($id eq ../@boundaryOrdinaryClockId) and ($ti eq @transportInterface) and not(@transportVlan)]) gt 1)) and (every $tv in @transportVlan satisfies every $ti in @transportInterface satisfies every $id in ../@boundaryOrdinaryClockId satisfies not(count(../../BoundaryOrdinaryClock/PtpBcOcPort[($tv eq @transportVlan) and ($id eq ../@boundaryOrdinaryClockId) and ($ti eq @transportInterface)]) gt 1))'> <value-of select="."/> When two PtpBcOcPort MOs refer to same EthernetPort MO, then their transportVlan attributes must have different values. One of them can be NIL, but not both. </assert>
+		<assert test='every $tv in @transportVlan satisfies every $ti in @transportInterface satisfies ((contains($tv/@encapsulation, "EthernetPort=") and ($tv/@encapsulation eq $ti)) or (contains($tv/@encapsulation, "LagPort=") and (count($tv/@encapsulation/@encapsulation[. eq $ti]) gt 0))) '> <value-of select="."/> When attribute transportVlan is not NIL, it must refer to VlanPort MO, where VlanPort::encapsulation refers to same EthernetPort MO as attribute transportVlan, or VlanPort::encapsulation refers to LagPort MO, where one value in LagPort MO::encapsulation refers to same EthernetPort MO as attribute transportVlan. </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='not(((../@ptpProfile eq 1) or (../@ptpProfile eq 2) or (../@ptpProfile eq 5) or (../@ptpProfile eq 6)) and not(contains(@transportInterface, "EthernetPort=")))'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is IEEE_1588_J3, or G_8275_1, or IEEE_1588_TIME_DEFAULT, or IEEE_1588_TIME_SLOW, attribute transportInterface must refer to EthernetPort MO. </assert>
+		<assert test='not(((../@ptpProfile eq 3) or (../@ptpProfile eq 4)) and not(contains(@transportInterface, "AddressIPv4=") or contains(@transportInterface, "AddressIPv6=")))'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2, attribute transportInterface must refer to AddressIPv4 MO or AddressIPv6 MO. </assert>
+		<assert test='every $ti in @transportInterface satisfies every $gm in @associatedGrandmaster satisfies not(count(../../BoundaryOrdinaryClock/PtpBcOcPort[((../@ptpProfile eq 3) or (../@ptpProfile eq 4)) and ($ti eq @transportInterface) and ($gm eq @associatedGrandmaster)]) gt 1)'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2, two PtpBcOcPort MOs cannot have same combination of transportInterface and associatedGrandmaster. </assert>
+		<assert test='not(((../@ptpProfile eq 3) or (../@ptpProfile eq 4)) and (@transportVlan))'> <value-of select="."/> If attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2, attribute transportVlan must be NIL. </assert>
+		<assert test='every $tv in @transportVlan satisfies ($tv/@isTagged)'> <value-of select="."/> transportVlan cannot refer to VlanPort MO when its attribute isTagged as false. </assert>
+		<assert test='(every $ti in @transportInterface satisfies every $id in ../@boundaryOrdinaryClockId satisfies not(count(../../BoundaryOrdinaryClock/PtpBcOcPort[($id eq ../@boundaryOrdinaryClockId) and ($ti eq @transportInterface) and not(@transportVlan)]) gt 1)) and (every $tv in @transportVlan satisfies every $ti in @transportInterface satisfies every $id in ../@boundaryOrdinaryClockId satisfies not(count(../../BoundaryOrdinaryClock/PtpBcOcPort[($tv eq @transportVlan) and ($id eq ../@boundaryOrdinaryClockId) and ($ti eq @transportInterface)]) gt 1))'> <value-of select="."/> When two PtpBcOcPort MOs refer to same EthernetPort MO, then their transportVlan attributes must have different values. One of them can be NIL, but not both. </assert>
+		<assert test='every $tv in @transportVlan satisfies every $ti in @transportInterface satisfies ((contains($tv/@encapsulation, "EthernetPort=") and ($tv/@encapsulation eq $ti)) or (contains($tv/@encapsulation, "LagPort=") and (count($tv/@encapsulation/@encapsulation[. eq $ti]) gt 0))) '> <value-of select="."/> When attribute transportVlan is not NIL, it must refer to VlanPort MO, where VlanPort::encapsulation refers to same EthernetPort MO as attribute transportVlan, or VlanPort::encapsulation refers to LagPort MO, where one value in LagPort MO::encapsulation refers to same EthernetPort MO as attribute transportVlan. </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <specification>IEEE Std 1588-2008</specification>
+            <attribute name="administrativeState">
+                <description>The administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="announceMessageInterval">
+                <description>Announce message transmission interval expressed as logarithm of time in seconds (base of 2).
+Result indicates time in seconds between messages.
+
+Example:
+If value is 4, message is sent every 16 seconds.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_announceMessageInterval">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="associatedGrandmaster">
+                <description>IP address or domain name of associated grandmaster according to G.8265.1 or G.8275.2.
+
+PTP associated grandmaster and PTP slave must have same IP version.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_associatedGrandmaster">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>All ports created on slave-only ordinary clocks with ptpProfile G_8265_1 or G_8275_2 must have unique combination of IP address, associatedGrandmaster and transportInterface.</dependencies>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="asymmetryCompensation">
+                <description>Assymetry compensation.
+
++/- sign specifies uplink delay relative to downlink.
+Attribute is not used in frequency profile.
+Attribute is applicable to slave port.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_asymmetryCompensation">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RsyncPtpBcOcPort</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="cachedIpAddress">
+                <description>Cached IP address obtained from DNS for PTP frequency grandmaster.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="IpAddress">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dscp">
+                <description>DSCP value for PTP related IP packets.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_dscp">
+                        <defaultValue>54</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="durationField">
+                <description>Time that packet master transmitting requested Announce and Sync message rates and renewal of Announce and Sync before expiration.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_durationField">
+                        <defaultValue>300</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="localPriority">
+                <description>Local priority used if alternate BMCA is activated.
+
+Lower values take precedence.
+Attribute value is subject to PTP network planning.
+Only applicable for BC with telecom profile configured for time synchronization according to G.8275.1.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_localPriority">
+                        <defaultValue>128</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>IEEE 1588 data model.</specification>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="masterOnly">
+                <description>Defines if port can only act as master or both master and slave for PtpBcOcPort MO, only applicable if configured according to G.8275.1.
+
+If true, PtpBcOcPort MO can only act as master.
+If false, PtpBcOcPort MO can act both as master or slave.
+
+Attribute value is subject to PTP network planning.
+Only applicable for GM and BC whit telecom profile configured for time synchronization according to G.8275.1.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <specification>IEEE 1588 data model.</specification>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state. </description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="pBit">
+                <description>PCP value used for transmitted Ethernet frames when they are carried over VLAN.
+
+If transportVlan is not set, this attribute is ignored.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_pBit">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="portDS">
+                <description>Port Data Set </description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <structRef name="PortDS">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </structRef>
+                </dataType>
+                <specification>IEEE 1588 data model.</specification>
+            </attribute>
+            <attribute name="ptpBcOcPortId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="ptpMulticastAddress">
+                <description>Multicast address.
+
+If underlaying transport interface is not EthernetPort MO, this attribute is ignored.</description>
+                <dataType>
+                    <enumRef name="PtpMulticastAddress">
+                        <defaultValue>FORWARDABLE</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>G.8275.1</specification>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ptpPathTimeError">
+                <description>Time error of PTP path at node interface.
+
+Sum of boundary clock, transparent clock and asymmetry errors of worst case path from grandmaster to node. Error is theoretical static error of each component.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_ptpPathTimeError">
+                        <defaultValue>1000</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ptpPortStatus">
+                <description>Status of PTP port.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="PtpPortStatus">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="syncMessageInterval">
+                <description>Synchronization message transmission interval expressed as logarithm of time in seconds (base of 2).
+
+Positive value indicates time in seconds between messages.
+Negative value indicates number of messages per second.
+
+Example:
+If value is -4, 16 messages sent per second. If value is 2, message sent every 4 seconds.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncPtpBcOcPort_PtpBcOcPort_syncMessageInterval">
+                        <defaultValue>-4</defaultValue>
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="transportInterface">
+                <description>References to underlying transport entity.
+
+Can be MO type EthernetPort, AddressIPv4 or AddressIPv6.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Must refer to EthernetPort MO, if attribute ptpProfile in BoundaryOrdinaryClock MO is IEEE_1588_J3, or G_8275_1, or IEEE_1588_TIME_DEFAULT, or IEEE_1588_TIME_SLOW.
+Must refer to AddressIPv4 MO or AddressIPv6 MO, if attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2.
+All ports created on slave-only ordinary clocks with ptpProfile G_8265_1 or G_8275_2 must have unique combination of IP address, associatedGrandmaster and transportInterface.</dependencies>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="transportVlan">
+                <description>Reference to underlying encapsulation.
+
+Can only refer to VlanPort MO.
+
+Used when carrying PTP over VLAN.
+If attribute is not set, PTP is carried over untagged Ethernet.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Must be NIL, if attribute ptpProfile in BoundaryOrdinaryClock MO is G_8265_1 or G_8275_2.
+Cannot refer to VlanPort MO when attribute isTagged in VlanPort MO is set to false.
+If two PtpBcOcPort MOs refer to same EthernetPort MO, then their transportVlan attributes must have different values. One of them can be NIL, but not both.
+If NIL, must refer to VlanPort MO, where
+- VlanPort::encapsulation refers to same EthernetPort MO as this attribute,
+or
+- VlanPort::encapsulation refers to LagPort MO, where one value in LagPort MO::encapsulation refers to same EthernetPort MO as this attribute.</dependencies>
+                <specification>IEEE 802.1Q</specification>
+                <disturbances>Changing this attribute can cause traffic disturbances.</disturbances>
+            </attribute>
+        </class>
+        <relationship name="PtpBcOcPort_to_transportInterface_AddressIPv6_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="transportInterface">
+                    <hasClass name="AddressIPv6">
+                        <mimName>RtnL3InterfaceIPv6</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PtpBcOcPort">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PtpBcOcPort_transportInterface_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="transportInterface">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PtpBcOcPort">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PtpBcOcPort_transportInterface_to_EthernetPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="transportInterface">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PtpBcOcPort">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PtpBcOcPort_transportInterface_to_VlanPort_reservedBy">
+            <deprecated/>
+            <biDirectionalAssociation>
+                <associationEnd name="transportInterface">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PtpBcOcPort">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PtpBcOcPort_transportVlan_to_VlanPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="transportVlan">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PtpBcOcPort">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="BoundaryOrdinaryClock_to_PtpBcOcPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="BoundaryOrdinaryClock">
+                        <mimName>RsyncPtp</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PtpBcOcPort">
+                        <mimName>RsyncPtpBcOcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqPlugInModule" namespace="urn:com:ericsson:ecim:ReqPlugInModule" namespacePrefix="reqpluginmodule" organization="" release="0" revision="0" version="3">
+        <description>&lt;p&gt;.&lt;/p&gt;</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <struct name="ApcProductData">
+            <description>.&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="4"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="ReqCabinet"/>
+            </domainExtension>
+            <structMember name="productionDate">
+                <description>The production date is represented in two ways:&#13;
+&#13;
+- the preferred syntax is four-digits for the year, two digits for the month, and two digits for the day.&#13;
+Example: 19991231&#13;
+&#13;
+- the date is also be represented by two digits for the year, followed by the letter W for week, and two digits for the number of the week.&#13;
+Example: 99W52</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productionDate">
+                    <mimName>ReqPlugInModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productName">
+                <description>The name of the product.</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productName">
+                    <mimName>ReqPlugInModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productNumber">
+                <description>The product number of the product.&#13;
+&#13;
+Examples: ABC 101 001, CXC 123 456, 1/BFD 101 999&#13;
+</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productNumber">
+                    <mimName>ReqPlugInModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The revision state of the product.&#13;
+&#13;
+Examples: R1, R1A, R1A02, P7B </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productRevision">
+                    <mimName>ReqPlugInModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>The serial number of the product. </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_serialNumber">
+                    <mimName>ReqPlugInModule</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcIndicatorStatus">
+            <description>Possible states for green, yellow and red indicators. Since the semantics of the different indicator states depend on the color of the indicator, the semantics is described as part of the corresponding indicator status attribute description.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="4"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="ReqFanGroup"/>
+            </domainExtension>
+            <enumMember name="NOT_APPLICABLE">
+                <description>The indicator is not supported. </description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>The indicator state is currently not available.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="OFF">
+                <description>The indicator is off.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="STEADY_ON">
+                <description>The indicator is on continuously.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="SLOW_BLINK">
+                <description>The indicator blinks slowly.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="FAST_BLINK">
+                <description>The indicator blinks quickly.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_STEADY_ON">
+                <description>The indicator blinks twice and is then on for a short time. This cycle is then repeated. </description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_OFF">
+                <description>The indicator blinks twice and is then off for a short time. This cycle is then repeated.</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqPlugInModule_PlugInModule_moduleType">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productionDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>5</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>5</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>24</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>24</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>7</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>7</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_serialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>13</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>13</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="PlugInModule">
+            <description>This MO represents a module that is inserted into a unit that has a modular building practise.</description>
+            <systemCreated/>
+            <root/>
+            <action name="delete">
+                <description>This action deletes the PlugInModule MO.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <attribute name="plugInModuleId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="faultIndicator">
+                <description>The fault status of the module as shown by the optical fault indicator on the module.&#13;
+&#13;
+Valid values:&#13;
+&#13;
+• NOT_APPLICABLE = This indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = No HW fault.&#13;
+• STEADY_ON = HW Fault.&#13;
+</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="ApcIndicatorStatus">
+                        <mimName>ReqPlugInModule</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqPlugInModule</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqPlugInModule</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="moduleType">
+                <description>A description or identifier of the type of plugin module. </description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqPlugInModule_PlugInModule_moduleType">
+                        <mimName>ReqPlugInModule</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>Defines the administrative state.&#13;
+&#13;
+If set to SHUTTINGDOWN, the state is immediately brought to LOCKED.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>UNLOCKED</defaultValue>
+                        <mimName>ReqPlugInModule</mimName>
+                    </enumRef>
+                </dataType>
+                <takesEffect>IMMEDIATELY</takesEffect>
+            </attribute>
+            <attribute name="productData">
+                <description>Product data of installed unit.&#13;
+If corresponding HHW unit is not installed, struct contains empty strings.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="ApcProductData">
+                        <mimName>ReqPlugInModule</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_PlugInModule">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PlugInModule">
+                        <mimName>ReqPlugInModule</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

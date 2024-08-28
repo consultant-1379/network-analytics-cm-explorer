@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Jan 27, 2016 8:38:31 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="RmeCpriLinkTagging" namespace="urn:com:ericsson:ecim:RmeCpriLinkTagging" namespacePrefix="rmecprilinktagging" organization="" release="0" revision="" version="1">
+        <description>The Managed Object (MO) is used to configure the CPRI link tagging information.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="RmeCpriLinkTagging_CpriLinkTagging_nodeTag">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>16777215</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>16777215</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="CpriLinkTagging">
+            <description>The Managed Object (MO) is used to configure the CPRI link tagging information.</description>
+            <root/>
+            <attribute name="cpriLinkTaggingId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="nodeTag">
+                <description>Node identity part of the CPRI link tag.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RmeCpriLinkTagging_CpriLinkTagging_nodeTag">
+                        <defaultValue>-1</defaultValue>
+                        <mimName>RmeCpriLinkTagging</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="NodeSupport_to_CpriLinkTagging">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="NodeSupport">
+                        <mimName>RmeSupport</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="CpriLinkTagging">
+                        <mimName>RmeCpriLinkTagging</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Feb 20, 2018 3:59:06 PM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="RmeSectorEquipmentFunction" namespace="urn:com:ericsson:ecim:RmeSectorEquipmentFunction" namespacePrefix="rmesectorequipmentfunction" organization="" release="16" revision="A" version="3">
+        <description/>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="EcimDerivedIntegerConfiguredOutputPower">
+            <description/>
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>10000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10000000</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeSectorEquipmentFunction_SectorEquipmentFunction_eUtranFqBands">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>256</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>256</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeSectorEquipmentFunction_SectorEquipmentFunction_utranFddFqBands">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>256</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>256</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeSectorEquipmentFunction_SectorEquipmentFunction_availableHwOutputPower">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>10000000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>10000000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>mW</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeSectorEquipmentFunction_SectorEquipmentFunction_noiseFigure">
+            <baseType>
+                <int16>
+                    <range>
+                        <min>100</min>
+                        <max>350</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>100</min>
+                            <max>350</max>
+                        </subrange>
+                    </ranges>
+                </int16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RmeSectorEquipmentFunction_SectorEquipmentFunction_geranFqBands">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>256</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>256</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="SectorEquipmentFunction">
+            <description>This MO serves as a mapping between the cell and the RBS equipment used to provide coverage in a certain geographical area. The MO also controls the maximum output power of the sector.</description>
+            <root/>
+            <attribute name="sectorEquipmentFunctionId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state. Takes effect: Immediately.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState. This attribute is set by the application in the RBS.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RmeSectorEquipmentFunction</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="configuredOutputPower">
+                <description>Requested maximum sector power.
+The value represents the sum of the power for all antenna connectors used by the sector.
+Note: The valid range of configuredOutputPower is limited by the Radio hardware capability or the lack of suitable HWAC, or both.
+Unit: 1 mW
+Disturbances: Changes can affect traffic
+Takes effect: Lock/unlock of the Cell and Sector MOs.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="EcimDerivedIntegerConfiguredOutputPower">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 16B, planned to be removed.</statusInformation>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="fqBand">
+                <description>The E-UTRA frequency band used in the SectorEquipmentFunction, based on the radio connected to the SectorEquipmentFunction.&#13;
+Range 1-32 for frequency division duplex, and 33 or higher for time division duplex (defined in 3GPP TS 36.104). </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <int32/>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since L16A. Planned to be removed. Replaced by eUtranFqBands. 
+If one or multiple bands are fully supported by all rfBranches associated with the SectorEquipmentFunction, the band number of the first fully supported band in eUtranFqBands is mapped to the value of this attribute.
+If no band is fully supported by all rfBranches associated with the SectorEquipmentFunction, this attribute is set to an invalid value (0).</statusInformation>
+            </attribute>
+            <attribute name="mixedModeRadio">
+                <description>Whether or not any radio unit related to this MO is also managed by an additional physically-connected ME. Ensures dual Operation &amp; Maintenance of shared radio unit.
+
+Note! Has no relation to number of standards the radio unit handles.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 17B. Planned to be removed. Replaced by FieldReplaceableUnit::isSharedWithExternalMe.</statusInformation>
+                <takesEffect>Object unlocked</takesEffect>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state. This attribute is set by the application in the RBS.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rfBranchRef">
+                <description>Reference to the reserved RfBranch, CcBranch, MulticastAntennaBranch, or Transceiver MO instances. 
+Transceiver must represent antenna streams in an Antenna Integrated Radio. SectorEquipmentFunction must not refer directly to Transceiver representing antenna streams in a Radio Dot&#13;
+</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <maxLength>24</maxLength>
+                    </sequence>
+                </dataType>
+                <takesEffect>Next MO unlock</takesEffect>
+                <precondition>Locked MO</precondition>
+            </attribute>
+            <attribute name="availableSectorPower">
+                <description>Available sector power.
+The value represents the sum of the power allocated for all the activated LTE cells in this sector.
+This value can be less than the sum of the confOutputPower*partOfSectorPower(up to L13A) or configuredOutputPower*partOfSectorPower(start from L13B) for the following reasons:
+-Insufficient Output Power Hardware Activation Codes
+-Failed radio resources
+-Radio HW capability limitation
+Unit: 1 mW</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <int32/>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since 16B, planned to be removed.</statusInformation>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string>
+                        <defaultValue/>
+                    </string>
+                </dataType>
+            </attribute>
+            <attribute name="eUtranFqBands">
+                <description>List of LTE frequency bands that hardware associated with SectorEquipmentFunction supports. 
+
+If a frequency band is only partially supported by some associated rfBranches, support for this band is explicitly displayed for each RfBranch.
+
+See CPI for more information.
+
+NOTE: If HW does not support E-UTRA frequency bands, the list is empty.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RmeSectorEquipmentFunction_SectorEquipmentFunction_eUtranFqBands">
+                            <mimName>RmeSectorEquipmentFunction</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>256</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="utranFddFqBands">
+                <description>List of UTRAN FDD frequency bands that hardware associated with SectorEquipmentFunction supports. 
+
+If a frequency band is only partially supported by some associated rfBranches, support for this band is explicitly displayed for each RfBranch.
+
+See CPI for more information.
+
+NOTE: If HW does not support UTRAN FDD frequency bands, the list is empty.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RmeSectorEquipmentFunction_SectorEquipmentFunction_utranFddFqBands">
+                            <mimName>RmeSectorEquipmentFunction</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>256</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="availableHwOutputPower">
+                <description>Sum of HW output power capability for all radio HW in the sector.
+Not dependent on the availability of output power HWAC, therefore RAT power demands are not necessarily available. Note, if the sector is equipped with several RU types it is not possible to calculate the available output power for each TX port in the sector.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="RmeSectorEquipmentFunction_SectorEquipmentFunction_availableHwOutputPower">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="noiseFigure">
+                <description>Wanted noise figure for RDS uplink.
+Set for WCDMA  RDS only.
+
+Unit: 0.1 dB</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RmeSectorEquipmentFunction_SectorEquipmentFunction_noiseFigure">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Next MO unlock or restart of radio unit (IRU).</takesEffect>
+            </attribute>
+            <attribute name="geranFqBands">
+                <description>List of GERAN frequency bands that is supported by hardware associated with SectorEquipmentFunction. 
+
+If a frequency band is only partially supported by some associated rfBranches, support for this band is explicitly displayed for each RfBranch. 
+
+If HW does not support GERAN frequency bands, the list is empty</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RmeSectorEquipmentFunction_SectorEquipmentFunction_geranFqBands">
+                            <mimName>RmeSectorEquipmentFunction</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>256</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="SectorEquipmentFunction_rfBranchRef_to_RfBranch_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchRef">
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>24</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="SectorEquipmentFunction_rfBranchRef_to_CcBranch_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchRef">
+                    <hasClass name="CcBranch">
+                        <mimName>ReqCcBranch</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>24</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="SectorEquipmentFunction_rfBranchRef_to_MulticastAntennaBranch_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchRef">
+                    <hasClass name="MulticastAntennaBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>24</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="SectorEquipmentFunction_rfBranchRef_to_Transceiver_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfBranchRef">
+                    <hasClass name="Transceiver">
+                        <mimName>ReqTransceiver</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="NodeSupport_to_SectorEquipmentFunction">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="NodeSupport">
+                        <mimName>RmeSupport</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SectorEquipmentFunction">
+                        <mimName>RmeSectorEquipmentFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

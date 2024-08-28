@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqExternalNode" namespace="urn:com:ericsson:ecim:ReqExternalNode" namespacePrefix="reqexternalnode" organization="" release="2" revision="0" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="ApcRadioAccessTechnology">
+            <description/>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="4"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ResEquipmentSupportFunction"/>
+            </domainExtension>
+            <enumMember name="NOT_AVAILABLE">
+                <description>The value is used if information is currently not available.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="GSM">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="WCDMA">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="LTE">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="MULTI_STANDARD">
+                <value>4</value>
+            </enumMember>
+            <enumMember name="TRANSMISSION">
+                <description>TRANSMISSION is RAT-type used to identify MINI-LINK equipment.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcSupportSystemControl">
+            <description/>
+            <enumMember name="FALSE">
+                <description>This node does not control the support system.  </description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="TRUE">
+                <description>This node controls the support system.  </description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>The value is used if information is currently not available.  </description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqExternalNode_ExternalNode_logicalName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqExternalNode_ExternalNode_fullDistinguishedName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="ExternalNode">
+            <description>MO ExternalNode in a node represents an external node sharing resources (climate, power and external alarm hardware) with it and possibly other external nodes. A node here is understood as node with ManagedElement as top MO. 
+
+Where the node acts in a primary role:
+- ExternalNode MO instances represent every external secondary role node. 
+- Number of ExternalNode MOs must match number of external nodes.
+- Child MO EcPort is used to configure the termination point for inter-node communication. (Has no function for non-EcBus inter-node communication)
+- Attribute inciConnectorRef points to termination point for the inter-node communication.
+- Attribute equipmentSupportFunctionRef points to an EquipmentSupportFunction MO instance that correlates the ExternalNode to belong to a primary role node. 
+
+Where the node acts in a secondary role:
+- ExternalNode MO instances represent external neighbouring primary and secondary role node(s).
+- MO ExternalNode is optional in case of inter-node communication over the EC-bus.
+- Child MO EcPort has no function.
+- Attribute inciConnectorRef points to termination point for the inter-node communication.
+- Attribute equipmentSupportFunctionRef points to an EquipmentSupportFunction MO instance that correlate the ExternalNode MO to belong to a secondary role node.</description>
+            <root/>
+            <attribute name="externalNodeId">
+                <description>The value component of the RDN.&#13;
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="radioAccessTechnology">
+                <description>Radio access technology that external node can support. NOT_AVAILABLE used if no information is available from the external node. When external node can run more than one standard, set to MULTI_STANDARD.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="ApcRadioAccessTechnology">
+                        <mimName>ReqExternalNode</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="supportSystemControl">
+                <description>Support system control on MO EquipmentSupportFunction in external node. NOT_AVAILABLE is used when no information is available from the external node.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="ApcSupportSystemControl">
+                        <mimName>ReqExternalNode</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="logicalName">
+                <description>Logical name on MO ManagedElement in external node. Undefined value, an empty string, is used for node that has no configured logicalName. NOT AVAILABLE is used when no information is available from external node. NOT_AVAILABLE is also used for MULTI_STANDARD node which doesn't have a logical name on MO ManagedElement.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqExternalNode_ExternalNode_logicalName">
+                        <mimName>ReqExternalNode</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="informationOnly">
+                <description>Indicates if the MO data is only for informational purposes or for configuration purposes.&#13;
+&#13;
+When set to true, the MO contains read-only data about the external nodes. The number of MO ExternalNode does not have to match the actual number of external nodes. The MO attributes are populated with data if a corresponding external node exists.&#13;
+&#13;
+When set to false, the MO contains configuration data such as MO EcPort. The MO ExternalNode number must match the actual number of external nodes. </description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="fullDistinguishedName">
+                <description>Full Distinguished Name (FDN) on MO ManagedElement in external node. Undefined value, an empty string, is used for node that has no configured fullDistinguishedName, such as a GSM node. NOT AVAILABLE is used when no information is available from external node. For MULTI_STANDARD node the FDN is derived from attributes dnPrefix and managedElementId.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqExternalNode_ExternalNode_fullDistinguishedName">
+                        <mimName>ReqExternalNode</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="equipmentSupportFunctionRef">
+                <description>Reference to the EquipmentSupportFunction MO where the MO ExternalNode belongs.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+            <attribute name="inciConnectorRef">
+                <description>Reference to the MOC that provides the inter node communication towards the external node. The MOC is an instance of MOC FieldReplaceableUnit or EcBus.
+For an ExternalNode MO representing another secondary role node in a secondary role node, the attribute points to the ExternalNode MO instance that represents the primary role.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="ExternalNode_equipmentSupportFunctionRef_to_EquipmentSupportFunction_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="equipmentSupportFunctionRef">
+                    <hasClass name="EquipmentSupportFunction">
+                        <mimName>ResEquipmentSupportFunction</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="ExternalNode">
+                        <mimName>ReqExternalNode</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="ExternalNode_inciConnectorRef_to_EcBus_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="inciConnectorRef">
+                    <hasClass name="EcBus">
+                        <mimName>ReqEcBus</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="ExternalNode">
+                        <mimName>ReqExternalNode</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="ExternalNode_inciConnectorRef_to_FieldReplaceableUnit_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="inciConnectorRef">
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="ExternalNode">
+                        <mimName>ReqExternalNode</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="ExternalNode_inciConnectorRef_to_ExternalNode_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="inciConnectorRef">
+                    <hasClass name="ExternalNode">
+                        <mimName>ReqExternalNode</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="ExternalNode">
+                        <mimName>ReqExternalNode</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Equipment_to_ExternalNode">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="ExternalNode">
+                        <mimName>ReqExternalNode</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Jun 19, 2017 9:37:47 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="ReqSyncTestInterface" namespace="urn:com:ericsson:ecim:ReqSyncTestInterface" namespacePrefix="reqsynctestinterface" organization="" release="4" revision="" variant="Model" version="1">
+        <description>Sync Test Interface MOM</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="OutputSyncTestInterfaceSignal">
+            <description>Signal output on sync test interface.</description>
+            <enumMember name="FREQUENCY_1PPS">
+                <description>1PPS frequency.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TIME_LOCKED_1PPS">
+                <description>1PPS with rising edge aligned to one second increments of recovered time reference.
+
+Signal output in clock states TIME_OFFSET_LOCKED, TIME_OFFSET_HOLDOVER, RNT_TIME_LOCKED and RNT_TIME_HOLDOVER. Otherwise it is squelched.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_2048KHZ">
+                <description>2048 kHz frequency.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_10MHZ">
+                <description>10 MHz frequency.
+
+Only supported by BASEBAND T503.</description>
+                <value>4</value>
+                <deprecated/>
+                <statusInformation>Not supported.</statusInformation>
+            </enumMember>
+            <enumMember name="NO_SIGNAL">
+                <description>No signal output.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <enum name="SyncTestInterfaceSignalOutput">
+            <description>Signal output on sync test interface.</description>
+            <enumMember name="SPECIAL">
+                <description>Used for Ericsson internal testing.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_1PPS">
+                <description>1PPS frequency.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="TIME_LOCKED_1PPS">
+                <description>1PPS with rising edge aligned to one second increments of recovered time reference.
+
+Signal output in clock states TIME_OFFSET_LOCKED, TIME_OFFSET_HOLDOVER, RNT_TIME_LOCKED and RNT_TIME_HOLDOVER. Otherwise it is squelched.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_2048KHZ">
+                <description>2048 kHz frequency.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="FREQUENCY_10MHZ">
+                <description>10 MHz frequency.
+
+Only supported by BASEBAND T503.</description>
+                <value>4</value>
+                <deprecated/>
+                <statusInformation>Not supported.</statusInformation>
+            </enumMember>
+            <enumMember name="NO_SIGNAL">
+                <description>No signal output.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="NOT_SUPPORTED">
+                <description>Sync test interface not supported by field replaceable unit.</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqSyncTestInterface_SyncTestInterface_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="SyncTestInterface">
+            <description>Represents physical sync test interface on LMT port of BASEBAND, BASEBAND-T and BASEBAND-C unit.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="SyncTetstInterface"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $syncTestInterfaceId in @syncTestInterfaceId satisfies ($syncTestInterfaceId eq "SYNC_TEST_INTERFACE")'> syncTestInterfaceId can be SYNC_TEST_INTERFACE.</assert>
+</rule>
+</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $syncTestInterfaceId in @syncTestInterfaceId satisfies ($syncTestInterfaceId eq "SYNC_TEST_INTERFACE")'> syncTestInterfaceId can be SYNC_TEST_INTERFACE.</assert>
+</rule>
+</pattern>
+</schema>]]></dependenciesScript>
+            <action name="outputSyncTestInterfaceSignal">
+                <description>Signal output on sync test interface.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="outputSyncTestInterfaceSignal">
+                    <description>Signal output on sync test interface.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="OutputSyncTestInterfaceSignal">
+                            <mimName>ReqSyncTestInterface</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <attribute name="syncTestInterfaceId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="syncTestInterfaceSignalOutput">
+                <description>Signal output on sync test interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="SyncTestInterfaceSignalOutput">
+                        <mimName>ReqSyncTestInterface</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqSyncTestInterface_SyncTestInterface_userLabel">
+                        <mimName>ReqSyncTestInterface</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_SyncTestInterface">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SyncTestInterface">
+                        <mimName>ReqSyncTestInterface</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2018 Ericsson AB.
+    All rights reserved
+
+    DX ECIM Tool-chain generated this file on Jul 12, 2018 4:12:25 PM using:
+    * com.ericsson.ecim.m2m 2.15.0.201710201249
+    * com.ericsson.ecim.dsl 2.15.0.201710201249
+    * com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RtnL3InterfaceIPv4" namespace="urn:com:ericsson:ecim:RtnL3InterfaceIPv4" namespacePrefix="rtnl3interfaceipv4" organization="" release="38" revision="" variant="Model" version="7">
+        <description>Assigned IPv4 addresses.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L3_InterfaceIPv4"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="1"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_L3_InterfaceIPv4" release="1" version="1"/>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="BfdStaticRoutesInterfaceType">
+            <description>State of bfdStaticRoutes.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="ClientIdentifierType">
+            <description>Type of DHCP client identifier that is used.
+
+DHCP option 61, Client-Identifier, consists of type-value pair, as described in RFC 2132.
+Type field is set to 0 (zero) in all cases except for AUTOMATIC_MAC.
+In case of AUTOMATIC_MAC Type field is set to 1 (one).</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="5"/>
+                <extension name="originatingMimName" value="RtnL3Library"/>
+            </domainExtension>
+            <enumMember name="AUTOMATIC">
+                <description>The identifier that is used toward the DHCP server is constructed automatically in the DHCP client.
+
+The Client-Identifier field is set as in the following template:
+
+Client-Identifier = &lt;mac address&gt;.&lt;tagged&gt;.&lt;VLAN ID&gt;
+
+A client with MAC address 02.C7.F8.00.04.22 on the tagged VLAN 0x012F uses Client-Identifier = 02.C7.F8.00.04.22.01.01.2F
+</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="AUTOMATIC_MAC">
+                <description>The identifier that is used toward the DHCP server is constructed automatically in the DHCP client from the MAC address of the client.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="AUTOMATIC_SERIAL_NUMBER">
+                <description>The identifier that is used toward the DHCP server is constructed automatically in the DHCP client from the HW serial number.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="MANUAL">
+                <description>The identifier that is used toward the DHCP server is constructed manually using the value specified in the dhcpClientIdentifier attribute.
+</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="NO_CLIENT_IDENTIFIER">
+                <description>DHCP option 61 Client-Identifier is not used in the DHCP messages.</description>
+                <value>99</value>
+            </enumMember>
+        </enum>
+        <enum name="IpConfigMode">
+            <description>Method of IP address configuration.</description>
+            <enumMember name="MANUAL">
+                <description>Address is configured manually.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DHCP">
+                <description>Address and the default route(s) are retrieved using the DHCP configuration method.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="IKE">
+                <description>Address is retrieved from security gateway using IKEv2 configuration payload in IKE negotiation.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="EcimEmpty">
+            <description>This type represents a leaf that has no value, it conveys information by its presence or absence.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <boolean/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="EthPCP">
+            <description>Specifies the PCP value for ARP packets using this interface (does only effect VLAN-interfaces).</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="5"/>
+                <extension name="originatingMimName" value="RtnL3Library"/>
+            </domainExtension>
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Ipv4AddressAndPrefixLengthStr">
+            <description>'Unicast IPv4 address'/'prefix length' string.&#13;
+&#13;
+IPv4 address specified in dotted-quad decimal notation in accordance with RFC791, without leading zeros.&#13;
+The IPv4 address is within the range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters. The prefix length is a number from 0 to 32.&#13;
+&#13;
+Example: 1.1.2.2/28</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^(([1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]))/([0-9]|[1-2][0-9]|30|31|32)$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^(([1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]))/([0-9]|[1-2][0-9]|30|31|32)$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RtnL3InterfaceIPv4_AddressIPv4_dhcpClientIdentifier">
+            <baseType>
+                <string>
+                    <validValues>^([^"].*|".+")$</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL3InterfaceIPv4_AddressIPv4_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL3InterfaceIPv4_InterfaceIPv4_arpTimeout">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>30</min>
+                        <max>7200</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>30</min>
+                            <max>7200</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL3InterfaceIPv4_InterfaceIPv4_mtu">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>576</min>
+                        <max>9000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>576</min>
+                            <max>9000</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL3InterfaceIPv4_InterfaceIPv4_routesHoldDownTimer">
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>300</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>300</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnL3InterfaceIPv4_InterfaceIPv4_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="AddressIPv4">
+            <description>Assigned IPv4 address including information about the subnet it resides on.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="AddressIPv4"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <pattern>
+        <rule>
+        <assert test='not((not(@configurationMode) or @configurationMode eq 0) and not(@address))'><value-of select="."/> If configurationMode is MANUAL, address must be set.</assert>
+        <assert test='not(@configurationMode eq 1 and @address)'><value-of select="."/> If configurationMode is DHCP, address must not be set.</assert>
+        <assert test='not(@configurationMode eq 2 and @address)'><value-of select="."/> If configurationMode is IKE, address must not be set.</assert>
+        <assert test='not((not(@configurationMode) or @configurationMode eq 0) and count(dhcpClientIdentifier) ne 0)'><value-of select="."/> If configurationMode is MANUAL, dhcpClientIdentifier must not be set.</assert>
+        <assert test='not(@configurationMode eq 2 and count(dhcpClientIdentifier) ne 0)'><value-of select="."/> If configurationMode is IKE, dhcpClientIdentifier must not be set.</assert>
+        <assert test='not(@configurationMode eq 1 and @dhcpClientIdentifierType eq 10 and count(dhcpClientIdentifier) eq 0)'><value-of select="."/> If configurationMode is DHCP and dhcpClientIdentifierType is MANUAL, dhcpClientIdentifier attribute must be set.</assert>
+        <assert test='not(@configurationMode eq 1 and @dhcpClientIdentifierType ne 10 and count(dhcpClientIdentifier) ne 0)'><value-of select="."/> If configurationMode is DHCP and dhcpClientIdentifierType has any other value than MANUAL, dhcpClientIdentifier attribute must not be set.</assert>
+        <assert test='not(@configurationMode eq 1 and count(../../InterfaceIPv4/AddressIPv4[@configurationMode eq 1]) gt 1)'><value-of select="."/> Can be only one AddressIPv4 MO with configurationMode DHCP within same Router MO.</assert>
+        <assert test='not(@configurationMode eq 2 and count(../../InterfaceIPv4/AddressIPv4) gt 1)'><value-of select="."/> Can be only one AddressIPv4 MO with configurationMode IKE within same Router MO.</assert>
+        <assert test='not(@configurationMode eq 1 and count(@reservedBy[matches(., ".*")]) ne count(@reservedBy[matches(., ".*,(IpsecTunnel|NtpFrequencySync|PtpBcOcPort|TwampTestSession|TwampResponder|TwampLightResponder|OamAccessPoint)=.*")]))'><value-of select="."/> If configurationMode is set to DHCP, only MO type OamAccessPoint, IpsecTunnel, NtpFrequencySync, PtpBcOcPort, TwampTestSession, TwampResponder, or TwampLightResponder can refer to this MO.</assert>
+        <assert test='not(@configurationMode eq 1 and contains(../@encapsulation,",IpsecTunnel="))'><value-of select="."/> If encapsulation attribute in parent InterfaceIPv4 MO refers to IpsecTunnel MO, configurationMode must be MANUAL or IKE.</assert>
+        <assert test='not(@configurationMode eq 2 and not(contains(../@encapsulation,",IpsecTunnel=")))'><value-of select="."/>If configurationMode is IKE, encapsulation of parent InterfaceIPv4 MO must refer to IpsecTunnel MO.</assert>
+        <assert test='not(@configurationMode eq 1 and count(../../Ospfv2) gt 0)'><value-of select="."/> configurationMode must be MANUAL, if there is Ospfv2 MO in Router MO.</assert>
+        <assert test='not(@configurationMode eq 2 and count(../../Ospfv2) gt 0)'><value-of select="."/> configurationMode must be MANUAL, if there is Ospfv2 MO in Router MO.</assert>
+        <assert test='not(@configurationMode eq 1 and count(../../RouteTableIPv4Static) gt 0)'><value-of select="."/> configurationMode must be MANUAL or IKE, if there is RouteTableIPv4Static MO in Router MO.</assert>
+        <assert test='not(@configurationMode eq 1 and ../@loopback)'><value-of select="."/> If loopback attribute in parent InterfaceIPv4 MO is set, then configurationMode must be MANUAL.</assert>
+        <assert test='not(@configurationMode eq 2 and ../@loopback)'><value-of select="."/> If loopback attribute in parent InterfaceIPv4 MO is set, then configurationMode must be MANUAL.</assert>
+        <assert test='not(contains(@address,"/31") and (contains(../@encapsulation,",Bridge=") or contains(../@encapsulation,",LagPort=")))'><value-of select="."/> If subnet mask equals 31, encapsulation of parent InterfaceIPv4 MO must refer to EthernetPort MO or VlanPort MO.</assert>
+        </rule>
+    </pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <pattern>
+        <rule>
+        <assert test='not((not(@configurationMode) or @configurationMode eq 0) and not(@address))'><value-of select="."/> If configurationMode is MANUAL, address must be set.</assert>
+        <assert test='not(@configurationMode eq 1 and @address)'><value-of select="."/> If configurationMode is DHCP, address must not be set.</assert>
+        <assert test='not(@configurationMode eq 2 and @address)'><value-of select="."/> If configurationMode is IKE, address must not be set.</assert>
+        <assert test='not((not(@configurationMode) or @configurationMode eq 0) and count(dhcpClientIdentifier) ne 0)'><value-of select="."/> If configurationMode is MANUAL, dhcpClientIdentifier must not be set.</assert>
+        <assert test='not(@configurationMode eq 2 and count(dhcpClientIdentifier) ne 0)'><value-of select="."/> If configurationMode is IKE, dhcpClientIdentifier must not be set.</assert>
+        <assert test='not(@configurationMode eq 1 and @dhcpClientIdentifierType eq 10 and count(dhcpClientIdentifier) eq 0)'><value-of select="."/> If configurationMode is DHCP and dhcpClientIdentifierType is MANUAL, dhcpClientIdentifier attribute must be set.</assert>
+        <assert test='not(@configurationMode eq 1 and @dhcpClientIdentifierType ne 10 and count(dhcpClientIdentifier) ne 0)'><value-of select="."/> If configurationMode is DHCP and dhcpClientIdentifierType has any other value than MANUAL, dhcpClientIdentifier attribute must not be set.</assert>
+        <assert test='not(@configurationMode eq 1 and count(../../InterfaceIPv4/AddressIPv4[@configurationMode eq 1]) gt 1)'><value-of select="."/> Can be only one AddressIPv4 MO with configurationMode DHCP within same Router MO.</assert>
+        <assert test='not(@configurationMode eq 2 and count(../../InterfaceIPv4/AddressIPv4) gt 1)'><value-of select="."/> Can be only one AddressIPv4 MO with configurationMode IKE within same Router MO.</assert>
+        <assert test='not(@configurationMode eq 1 and count(@reservedBy[matches(., ".*")]) ne count(@reservedBy[matches(., ".*,(IpsecTunnel|NtpFrequencySync|PtpBcOcPort|TwampTestSession|TwampResponder|TwampLightResponder|OamAccessPoint)=.*")]))'><value-of select="."/> If configurationMode is set to DHCP, only MO type OamAccessPoint, IpsecTunnel, NtpFrequencySync, PtpBcOcPort, TwampTestSession, TwampResponder, or TwampLightResponder can refer to this MO.</assert>
+        <assert test='not(@configurationMode eq 1 and contains(../@encapsulation,",IpsecTunnel="))'><value-of select="."/> If encapsulation attribute in parent InterfaceIPv4 MO refers to IpsecTunnel MO, configurationMode must be MANUAL or IKE.</assert>
+        <assert test='not(@configurationMode eq 2 and not(contains(../@encapsulation,",IpsecTunnel=")))'><value-of select="."/>If configurationMode is IKE, encapsulation of parent InterfaceIPv4 MO must refer to IpsecTunnel MO.</assert>
+        <assert test='not(@configurationMode eq 1 and count(../../Ospfv2) gt 0)'><value-of select="."/> configurationMode must be MANUAL, if there is Ospfv2 MO in Router MO.</assert>
+        <assert test='not(@configurationMode eq 2 and count(../../Ospfv2) gt 0)'><value-of select="."/> configurationMode must be MANUAL, if there is Ospfv2 MO in Router MO.</assert>
+        <assert test='not(@configurationMode eq 1 and count(../../RouteTableIPv4Static) gt 0)'><value-of select="."/> configurationMode must be MANUAL or IKE, if there is RouteTableIPv4Static MO in Router MO.</assert>
+        <assert test='not(@configurationMode eq 1 and ../@loopback)'><value-of select="."/> If loopback attribute in parent InterfaceIPv4 MO is set, then configurationMode must be MANUAL.</assert>
+        <assert test='not(@configurationMode eq 2 and ../@loopback)'><value-of select="."/> If loopback attribute in parent InterfaceIPv4 MO is set, then configurationMode must be MANUAL.</assert>
+        <assert test='not(contains(@address,"/31") and (contains(../@encapsulation,",Bridge=") or contains(../@encapsulation,",LagPort=")))'><value-of select="."/> If subnet mask equals 31, encapsulation of parent InterfaceIPv4 MO must refer to EthernetPort MO or VlanPort MO.</assert>
+        </rule>
+    </pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="address">
+                <description>Configured IPv4 address.
+
+IPv4 decimal address + "/" + prefix length &lt;0-32&gt;.
+
+Configuration with prefix length /31 is supported according to RFC 3021, using 31-bit prefixes on IPv4 Point-to-Point links.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4AddressAndPrefixLengthStr">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>If loopback is set, or if encapsulation refers to IpsecTunnel MO, for parent InterfaceIPv4 MO, prefix length must be 32.
+If parent InterfaceIPv4 MO has encapsulation towards physical network via LagPort MO or Bridge MO, there is no support for prefix length 31.
+If subnet mask equals 31, encapsulation of parent InterfaceIPv4 MO must refer to EthernetPort MO or VlanPort MO.
+If configurationMode is MANUAL, this attribute must be set.
+If configurationMode is DHCP or IKE, this attribute must not be set.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="addressIPv4Id">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="configurationMode">
+                <description>Whether IP address is configured manually, or retrieved from network using either DHCP or IKEv2 configuration payload.
+
+If MANUAL, address is manually configured.
+If DHCP, address and default routes are retrieved from DHCP server.
+If IKE, address is retrieved from security gateway using IKEv2 configuration payload in IKE negotiation.</description>
+                <dataType>
+                    <enumRef name="IpConfigMode">
+                        <defaultValue>MANUAL</defaultValue>
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>If DHCP, only MO type OamAccessPoint, IpsecTunnel, NtpFrequencySync, PtpBcOcPort, TwampTestSession, TwampResponder, or TwampLightResponder can refer to this MO.
+If DHCP, encapsulation of parent InterfaceIPv4 MO must refer to MO type EthernetPort, VlanPort, LagPort, or Bridge MO.
+If DHCP, no other AddressIPv4 MO with configurationMode DHCP must exist within same Router MO.
+If IKE, encapsulation of parent InterfaceIPv4 MO must refer to IpsecTunnel MO.
+If IKE, only one AddressIPv4 MO must exist within same Router MO.
+Must be MANUAL or IKE, if there is RouteTableIPv4Static MO in Router MO.
+Must be MANUAL, if any of following MO types refer to this MO: DhcpRelayIPv4, AbisIp, or TgTransport.
+Must be MANUAL, if there is Ospfv2 MO in Router MO.
+Must be MANUAL, if loopback attribute in parent InterfaceIPv4 MO is set.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="dhcpClientIdentifier">
+                <description>Specifies DHCP client identifier to be used when dhcpClientIdentifierType is set to MANUAL.
+
+Arbitrary client identifier string, ASCII encoding. Empty string not allowed.
+
+Example: eNodeB47</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL3InterfaceIPv4_AddressIPv4_dhcpClientIdentifier">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>If configurationMode is DHCP and dhcpClientIdentifierType is MANUAL, this attribute must be set.
+If configurationMode is DHCP and dhcpClientIdentifierType has any other value than MANUAL, this attribute must not be set.
+If configurationMode is MANUAL or IKE, or if dhcpClientIdentifierType is AUTOMATIC, this attribute must not be set.
+</dependencies>
+            </attribute>
+            <attribute name="dhcpClientIdentifierType">
+                <description>Specifies whether dhcpClientIdentifier is configured manually, automatically generated or not used at all.
+
+DHCP client identifier is unique identifier assigned to each client on network that DHCP server uses to identify node interface and to connect it with its address binding.
+This identifier must be unique for all clients in administrative domain of DHCP server.</description>
+                <dataType>
+                    <enumRef name="ClientIdentifierType">
+                        <defaultValue>AUTOMATIC</defaultValue>
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>Only applicable if configurationMode is DHCP.</dependencies>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="usedAddress">
+                <description>Used IP address as IPv4 decimal address + "/" + prefix length &lt;0-32&gt;.
+
+If configurationMode is MANUAL, this attribute has same content as address attribute.
+If configurationMode is DHCP or IKE, retrieved address is shown in this attribute.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL3InterfaceIPv4_AddressIPv4_userLabel">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="InterfaceIPv4">
+            <description>Represents IPv4-addressed termination point, interface on IPv4 routing domain.
+
+Dependencies:
+Max number of InterfaceIPv4 MOs configured as loopback is 64 in node.
+Max number of InterfaceIPv4 MOs is 256 in node.
+Max one InterfaceIPv4 MO can reserve this LagPort MO.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="InterfaceIPv4"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <pattern>
+        <rule>
+        <assert test='not((@bfdStaticRoutes eq 1) and (count(@bfdProfile) eq 0))'><value-of select="."/> When bfdStaticRoutes is ENABLED, bfdProfile attribute refers to a valid BfdProfile MO.</assert>
+        <assert test='(@encapsulation and not(@loopback)) or (@loopback and not(@encapsulation))'><value-of select="."/> One of the attributes encapsulation and loopback must be set, but not both at the same time.</assert>
+        <assert test='not(@loopback and (@bfdStaticRoutes eq 1))'><value-of select="."/> If loopback is set, bfdStaticRoutes must be DISABLED.</assert>
+        <assert test='not((@bfdStaticRoutes eq 1) and contains(@encapsulation,"IpsecTunnel="))'><value-of select="."/> If encapsulation attribute refers to an IpsecTunnel MO, bfdStaticRoutes must be DISABLED.</assert>
+        <assert test='not(@loopback and ((count(AddressIPv4) ge 1) and (count(AddressIPv4[matches(@address,".+/32")]) lt 1)))'><value-of select="."/> Prefix length of loopback address must be /32</assert>
+        <assert test='not((@loopback and @aclIngress) or (@loopback and @aclEgress))'><value-of select="."/> LOOPBACK interface is not allowed in ACL association.</assert>
+        <assert test='not((@aclIngress and (count(@aclIngress/AclEntryIpv4) eq 0)) or (@aclEgress and (count(@aclEgress/AclEntryIpv4) eq 0)))'><value-of select="."/> EMPTY AclIpv4 is not allowed in ACL association.</assert>
+        <assert test='not((@aclIngress and (../@routerId ne @aclIngress/../@routerId)) or (@aclEgress and (../@routerId ne @aclEgress/../@routerId)))'><value-of select="."/> Only AclIpv4 MO within SAME Router is allowed in ACL association.</assert>
+        <assert test='not((@aclIngress and contains(@encapsulation,"IpsecTunnel=")) or (@aclEgress and contains(@encapsulation,"IpsecTunnel=")))'><value-of select="."/> Ipsec Inner Interface is not allowed in ACL association.</assert>
+        <assert test='not((@bfdProfile and matches(@bfdProfile,".*,Router=.*,BfdProfile=.*") and (../@routerId ne @bfdProfile/../@routerId)))'><value-of select="."/>: BfdProfile may not refer to a different Router.</assert>
+        <assert test='not(@loopback and @egressQosMarking)'><value-of select="."/> The attribute egressQosMarking cannot be configured on an IP Loopback interface.</assert>
+        <assert test='not(@egressQosMarking and contains(@encapsulation,"IpsecTunnel="))'><value-of select="."/> The attribute egressQosMarking cannot be configured on an IPsec Inner interface.</assert>
+        <assert test='not(@loopback and @ingressQosMarking)'><value-of select="."/> The attribute ingressQosMarking cannot be configured on an IP Loopback interface.</assert>
+        <assert test='not(@ingressQosMarking and contains(@encapsulation,"IpsecTunnel="))'><value-of select="."/> The attribute ingressQosMarking cannot be configured on an IPsec Inner interface.</assert>
+        <assert test='not(contains(@encapsulation,"IpsecTunnel=") and ((count(AddressIPv4) ge 1) and (count(AddressIPv4[@configurationMode eq 0])) and (count(AddressIPv4[matches(@address,".+/32")]) lt 1)))'><value-of select="."/> Prefix length of Ipsec Inner interface address must be /32 .</assert>
+        <assert test='not(contains(@encapsulation,"IpsecTunnel=")) or ((@encapsulation/../@routerId) eq (../@routerId))'><value-of select="."/> Encapsulation must refer to a tunnel belonging to the same routing domain.</assert>
+        <assert test='not(@routingPolicyIngress and not(contains(@encapsulation,"EthernetPort=") or contains(@encapsulation,"VlanPort=") or contains(@encapsulation,"Bridge=")))'><value-of select="."/> routingPolicyIngress can be set when encapsulation is an EthernetPort, a VlanPort or a Bridge MO.</assert>
+        <assert test='not(@routingPolicyIngress and (../@routerId ne @routingPolicyIngress/../@routerId))'><value-of select="."/> routingPolicyIngress may not refer to RoutingPolicyIPv4 MO in a different Router MO.</assert>
+        <assert test='not(@routingPolicyIngress and (count(@routingPolicyIngress/RoutingRuleIpv4) eq 0))'><value-of select="."/> RoutingPolicyIPv4 MO without RoutingRuleIpv4 MOs may not be referred by routingPolicyIngress.</assert>
+        <assert test='not(@loopback and @routingPolicyIngress)'><value-of select="."/> routingPolicyIngress cannot be configured on IP loopback interface.</assert>
+        <assert test='not(contains(@encapsulation, ",Bridge=") and (count(@encapsulation/@port/@lowLatencySwitching[. eq true()]) gt 0))'><value-of select ="."/> Attribute encapsulation cannot refer to Bridge MO with port attribute referring to VlanPort MO where lowLatencySwitching attribute set to true.</assert>
+        </rule>
+    </pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <pattern>
+        <rule>
+        <assert test='not((@bfdStaticRoutes eq 1) and (count(@bfdProfile) eq 0))'><value-of select="."/> When bfdStaticRoutes is ENABLED, bfdProfile attribute refers to a valid BfdProfile MO.</assert>
+        <assert test='(@encapsulation and not(@loopback)) or (@loopback and not(@encapsulation))'><value-of select="."/> One of the attributes encapsulation and loopback must be set, but not both at the same time.</assert>
+        <assert test='not(@loopback and (@bfdStaticRoutes eq 1))'><value-of select="."/> If loopback is set, bfdStaticRoutes must be DISABLED.</assert>
+        <assert test='not((@bfdStaticRoutes eq 1) and contains(@encapsulation,"IpsecTunnel="))'><value-of select="."/> If encapsulation attribute refers to an IpsecTunnel MO, bfdStaticRoutes must be DISABLED.</assert>
+        <assert test='not(@loopback and ((count(AddressIPv4) ge 1) and (count(AddressIPv4[matches(@address,".+/32")]) lt 1)))'><value-of select="."/> Prefix length of loopback address must be /32</assert>
+        <assert test='not((@loopback and @aclIngress) or (@loopback and @aclEgress))'><value-of select="."/> LOOPBACK interface is not allowed in ACL association.</assert>
+        <assert test='not((@aclIngress and (count(@aclIngress/AclEntryIpv4) eq 0)) or (@aclEgress and (count(@aclEgress/AclEntryIpv4) eq 0)))'><value-of select="."/> EMPTY AclIpv4 is not allowed in ACL association.</assert>
+        <assert test='not((@aclIngress and (../@routerId ne @aclIngress/../@routerId)) or (@aclEgress and (../@routerId ne @aclEgress/../@routerId)))'><value-of select="."/> Only AclIpv4 MO within SAME Router is allowed in ACL association.</assert>
+        <assert test='not((@aclIngress and contains(@encapsulation,"IpsecTunnel=")) or (@aclEgress and contains(@encapsulation,"IpsecTunnel=")))'><value-of select="."/> Ipsec Inner Interface is not allowed in ACL association.</assert>
+        <assert test='not((@bfdProfile and matches(@bfdProfile,".*,Router=.*,BfdProfile=.*") and (../@routerId ne @bfdProfile/../@routerId)))'><value-of select="."/>: BfdProfile may not refer to a different Router.</assert>
+        <assert test='not(@loopback and @egressQosMarking)'><value-of select="."/> The attribute egressQosMarking cannot be configured on an IP Loopback interface.</assert>
+        <assert test='not(@egressQosMarking and contains(@encapsulation,"IpsecTunnel="))'><value-of select="."/> The attribute egressQosMarking cannot be configured on an IPsec Inner interface.</assert>
+        <assert test='not(@loopback and @ingressQosMarking)'><value-of select="."/> The attribute ingressQosMarking cannot be configured on an IP Loopback interface.</assert>
+        <assert test='not(@ingressQosMarking and contains(@encapsulation,"IpsecTunnel="))'><value-of select="."/> The attribute ingressQosMarking cannot be configured on an IPsec Inner interface.</assert>
+        <assert test='not(contains(@encapsulation,"IpsecTunnel=") and ((count(AddressIPv4) ge 1) and (count(AddressIPv4[@configurationMode eq 0])) and (count(AddressIPv4[matches(@address,".+/32")]) lt 1)))'><value-of select="."/> Prefix length of Ipsec Inner interface address must be /32 .</assert>
+        <assert test='not(contains(@encapsulation,"IpsecTunnel=")) or ((@encapsulation/../@routerId) eq (../@routerId))'><value-of select="."/> Encapsulation must refer to a tunnel belonging to the same routing domain.</assert>
+        <assert test='not(@routingPolicyIngress and not(contains(@encapsulation,"EthernetPort=") or contains(@encapsulation,"VlanPort=") or contains(@encapsulation,"Bridge=")))'><value-of select="."/> routingPolicyIngress can be set when encapsulation is an EthernetPort, a VlanPort or a Bridge MO.</assert>
+        <assert test='not(@routingPolicyIngress and (../@routerId ne @routingPolicyIngress/../@routerId))'><value-of select="."/> routingPolicyIngress may not refer to RoutingPolicyIPv4 MO in a different Router MO.</assert>
+        <assert test='not(@routingPolicyIngress and (count(@routingPolicyIngress/RoutingRuleIpv4) eq 0))'><value-of select="."/> RoutingPolicyIPv4 MO without RoutingRuleIpv4 MOs may not be referred by routingPolicyIngress.</assert>
+        <assert test='not(@loopback and @routingPolicyIngress)'><value-of select="."/> routingPolicyIngress cannot be configured on IP loopback interface.</assert>
+        <assert test='not(contains(@encapsulation, ",Bridge=") and (count(@encapsulation/@port/@lowLatencySwitching[. eq true()]) gt 0))'><value-of select ="."/> Attribute encapsulation cannot refer to Bridge MO with port attribute referring to VlanPort MO where lowLatencySwitching attribute set to true.</assert>
+        </rule>
+    </pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="aclEgress">
+                <description>Reference to AclIpv4 MO applied in egress direction.
+If attribute is empty, no ACL filtering will take place in egress direction.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="AclIpv4">
+                        <mimName>RtnIPv4ACLPolicy</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Attribute can only be set if encapsulation refers MO type EthernetPort, VlanPort, or Bridge.
+Referred AclIpv4 MO must belong to same Router MO, and must have at least one AclEntryIpv4 MO as child.</dependencies>
+            </attribute>
+            <attribute name="aclIngress">
+                <description>Reference to AclIpv4 MO applied in ingress direction.
+If attribute is empty, no ACL filtering will take place in ingress direction.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="AclIpv4">
+                        <mimName>RtnIPv4ACLPolicy</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Attribute can only be set if encapsulation refers MO types EthernetPort, VlanPort, or Bridge.
+Referred AclIpv4 MO must belong to same Router MO, and must have at least one AclEntryIpv4 MO as child.</dependencies>
+            </attribute>
+            <attribute name="arpTimeout">
+                <description>Average time that entry remains in ARP cache.
+
+Entry is dynamically learned IP address and its corresponding MAC address.
+Entry is then either refreshed, if entry is still needed, or removed, if entry is not needed any more.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL3InterfaceIPv4_InterfaceIPv4_arpTimeout">
+                        <defaultValue>300</defaultValue>
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Attribute is only relevant if encapsulation refers MO type EthernetPort a VlanPort, or a Bridge.</dependencies>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState. </description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RtnL3InterfaceIPv4</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="bfdProfile">
+                <description>A reference to a BfdProfile MO containing BFD parameters used for BFD sessions from this interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>If bfdStaticRoutes is set to ENABLED, this attribute must be set.
+The referred BfdProfile MO must belong to Transport MO or same Router MO.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="bfdStaticRoutes">
+                <description>Enables or disables BFD monitoring of static route and PBR nexthops on this interface.
+
+This attribute works in conjunction with bfdProfile.
+To enable BFD monitoring for this interface, bfdStaticRoutes must be set to ENABLED and bfdProfile must be set.
+If BFD monitoring is enabled, all static routing nexthops on subnets of this IP interface are monitored, unless explicitly disabled on PeerIPv4 MO or NextHop MO.
+BFD monitoring of static routes for a specific peer can be enabled on PeerIPv4 MO even if this attribute is DISABLED.</description>
+                <dataType>
+                    <enumRef name="BfdStaticRoutesInterfaceType">
+                        <defaultValue>DISABLED</defaultValue>
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>If attribute is set to ENABLED, bfdProfile must be set.
+Attribute can only be ENABLED if encapsulation refers MO type EthernetPort, VlanPort, or Bridge.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="egressQosMarking">
+                <description>DSCP to PCP map used for marking DSCP tagged packets with PCP value.
+Packets are marked either host originated or routed into QoS domain.
+
+If empty, DSCP values are mapped to PCP values according to following:
+
+pcp0 = 0
+pcp1   (empty)
+pcp2 = 10,12,14
+pcp3 = 18,20,22
+pcp4 = 8,16,26,28
+pcp5 = 34,36,38,46
+pcp6 = 32,40,48
+pcp7 = 51,54</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="DscpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Attribute can only be set if encapsulation refers MO type EthernetPort, VlanPort, or Bridge.
+DSCP to PCP map is not relevant if loopback is set, or encapsulation refers to IpsecTunnel MO.</dependencies>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>Reference to underlying encapsulation, which can be MO type EthernetPort, VlanPort, Bridge, IpsecTunnel or LagPort.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>One of encapsulation or loopback must be set, but not both at same time.
+Only one InterfaceIPv4 MO can refer to same MO.
+Cannot refer to EthernetPort MO referred by VlanPort MO.
+Cannot refer to VlanPort MO referred by Bridge MO.
+Cannot refer to IpsecTunnel MO referred by InterfaceIPv6 MO.
+Cannot refer to Bridge MO with port attribute referring to VlanPort MO where lowLatencySwitching attribute set to true.
+Referred IpsecTunnel MO must belong to same Router MO.
+If InterfaceIPv4 MO and InterfaceIPv6 MO refer to same MO in encapsulation, they must belong to same Router MO.
+If attribute refers to IpsecTunnel MO, none of aclIngress, aclEgress, egressQosMarking, or routingPolicyIngress can be set.
+If attribute refers to IpsecTunnel MO, bfdStaticRoutes must be DISABLED.
+If attribute refers to IpsecTunnel MO, configurationMode for child AddressIPv4 MO must not be DHCP.
+If attribute refers to IpsecTunnel MO, the only relevant configuration attributes are mtu and routesHoldDownTimer.
+InterfaceIPv4 MO and InterfaceIPv6 MO must not refer to same IpsecTunnel MO.
+If configurationMode for child AddressIPv4 MO is IKE, this attribute must refer to IpsecTunnel MO. </dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ingressQosMarking">
+                <description>DSCP to DSCP map used for remarking ingress DSCP tagged packets.
+
+Empty string means no re-marking is done.
+Attribute used to fix specific issues within QoS domain and should most often be empty.
+
+It can refer to DscpDscpMap MO.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Attribute is only relevant if encapsulation refers MO type EthernetPort, VlanPort, or Bridge.</dependencies>
+            </attribute>
+            <attribute name="interfaceIPv4Id">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="loopback">
+                <description>Specifies if interface is IP loopback interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="EcimEmpty">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>One of encapsulation or loopback must be set, but not both at same time.
+Max number of InterfaceIPv4 MOs, with this attribute set, is 64.
+If attribute is set, none of aclIngress, aclEgress, egressQosMarking or routingPolicyIngress can be set.
+If attribute is set, bfdStaticRoutes must be DISABLED.
+If attribute is set, configurationMode for child AddressIPv4 MO must be MANUAL.
+If attribute is set, none of other configuration attributes are relevant.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="mtu">
+                <description>Maximum Transmission Unit (MTU).
+Real MTU is minimum of this configured value and MTU given by encapsulation.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL3InterfaceIPv4_InterfaceIPv4_mtu">
+                        <defaultValue>1500</defaultValue>
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>If InterfaceIPv4 MO and InterfaceIPv6 MO refer to same MO in encapsulation, they must have same MTU value.
+This attribute is not relevant if loopback is set.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state. </description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="pcpArp">
+                <description>PCP value for ARP packets using this interface.</description>
+                <dataType>
+                    <derivedDataTypeRef name="EthPCP">
+                        <defaultValue>6</defaultValue>
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Attribute is only applicable if encapsulation refers MO type EthernetPort, VlanPort, or Bridge.</dependencies>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="routesHoldDownTimer">
+                <description>Hold-down timer used for static and dynamic routes that use this interface.
+
+If attribute is set, hold-down timer is started when conditions for static route to become available have been fulfilled.
+When hold-down timer expires, route becomes available.
+
+OSPFv2 uses this attribute to delay neighbour discovery on this interface (that is, until interface is deemed reliably up) until routesHoldDownTimer has expired, counting from time that underlying L2 interface transitioned to operational state of ENABLED.
+
+If attribute is empty, there is no hold-down timer for routes.
+
+This attribute does not affect the operational state of the interface.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL3InterfaceIPv4_InterfaceIPv4_routesHoldDownTimer">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>If InterfaceIPv4 MO and InterfaceIPv6 MO refer to same MO in encapsulation, they must have same routesHoldDownTimer value.
+Attribute is not relevant if loopback is set.</dependencies>
+            </attribute>
+            <attribute name="routingPolicyIngress">
+                <description>Reference to a RoutingPolicyIPv4 MO to be used for Policy Based Routing in ingress direction.
+
+If attribute is set, Policy Based Routing of incoming packets is enabled.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="RoutingPolicyIpv4">
+                        <mimName>RtnPBRIPv4</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Referred RoutingPolicyIPv4 MO must belong to same Router MO, and must have at least one RoutingRuleIpv4 MO as child.
+Attribute can only be set if encapsulation refers MO type EthernetPort, VlanPort, or Bridge.</dependencies>
+            </attribute>
+            <attribute name="trustDSCP">
+                <description>Defines whether DSCP field of ingress datagrams shall be trusted or not.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+                <deprecated/>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL3InterfaceIPv4_InterfaceIPv4_userLabel">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="EnrollmentServer_enrollmentInterface_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="enrollmentInterface">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EnrollmentServer">
+                        <mimName>ECIM_CertM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_aclEgress_to_AclIpv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="aclEgress">
+                    <hasClass name="AclIpv4">
+                        <mimName>RtnIPv4ACLPolicy</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_aclIngress_to_AclIpv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="aclIngress">
+                    <hasClass name="AclIpv4">
+                        <mimName>RtnIPv4ACLPolicy</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_bfdProfile_to_BfdProfile_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="bfdProfile">
+                    <hasClass name="BfdProfile">
+                        <mimName>RtnBfdProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_egressQosMarking_to_DscpPcpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="egressQosMarking">
+                    <hasClass name="DscpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_encapsulation_to_Bridge_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="Bridge">
+                        <mimName>RtnBridging</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_encapsulation_to_EthernetPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_encapsulation_to_VlanPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_ingressQosMarking_to_DscpDscpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ingressQosMarking">
+                    <hasClass name="DscpDscpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_routingPolicyIngress_to_RoutingPolicyIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="routingPolicyIngress">
+                    <hasClass name="RoutingPolicyIpv4">
+                        <mimName>RtnPBRIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="InterfaceIPv4_to_AddressIPv4">
+            <containment>
+                <parent>
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="OamAccessPoint_accessPoint_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="accessPoint">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="OamAccessPoint">
+                        <mimName>RcsSysM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="OamAccessPoint_ipv4address_to_AddressIPv4_reservedBy">
+            <deprecated/>
+            <biDirectionalAssociation>
+                <associationEnd name="ipv4address">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="OamAccessPoint">
+                        <mimName>RcsSysM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="TrustCategory_crlInterface_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="crlInterface">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="TrustCategory">
+                        <mimName>ECIM_CertM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_InterfaceIPv4">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>256</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

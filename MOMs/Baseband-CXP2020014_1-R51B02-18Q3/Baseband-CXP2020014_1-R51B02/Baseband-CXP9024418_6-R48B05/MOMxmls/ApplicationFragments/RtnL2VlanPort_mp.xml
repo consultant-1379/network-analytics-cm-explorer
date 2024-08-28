@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Dec 12, 2017 3:59:35 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RtnL2VlanPort" namespace="urn:com:ericsson:ecim:RtnL2VlanPort" namespacePrefix="rtnl2vlanport" organization="" release="18" revision="" variant="Model" version="2">
+        <description>Layer 2 VLAN-aware Port.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_L2_VlanPort"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="0"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_L2_VlanPort" release="0" version="1"/>
+        <derivedDataType name="RtnL2VlanPort_VlanPort_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="VlanId">
+            <description>Valid VLAN id 12-bit value.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint16>
+                    <range>
+                        <min>1</min>
+                        <max>4094</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>4094</max>
+                        </subrange>
+                    </ranges>
+                </uint16>
+            </baseType>
+        </derivedDataType>
+        <class name="VlanPort">
+            <description>Represents VLAN in context of single aware port.
+
+Dependencies: Max one InterfaceIPv4 MO or InterfaceIPv6 MO can reserve this port.
+Bridge MO and InterfaceIPv4 MO or InterfaceIPv6 MO must not refer to same VlanPort MO.
+
+QueueSystem and egress traffic shaping has no effect on low latency traffic.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="VlanPort"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv4 MO can reserve this port.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv6 MO can reserve this port.</assert>
+		<assert test='not((count(@reservedBy[matches(., ".*,Bridge=.*")]) &gt; 0) and ((count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &gt; 0) or (count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &gt; 0)))'><value-of select ="."/>Bridge MO and InterfaceIPv4 MO or InterfaceIPv6 MO must not refer to same VlanPort MO.</assert>
+		<assert test='not((count(@encapsulation[matches(., ".*,EthernetPort=.*")]) &gt; 0) and (count(@egressQosQueueMap[matches(., ".*,.*")]) gt 1))'><value-of select="."/> Attribute egressQosQueueMap must be set only once when encapsulation is EthernetPort MO.</assert>
+		<assert test='every $r1 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies every $r2 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies $r1 eq $r2'><value-of select="."/> If InterfaceIPv4 MO and InterfaceIPv6 MO use same VlanPort MO as encapsulation they must reside in same router.</assert>
+		<assert test='not(@egressQosClassification and @egressQosMarking)'><value-of select="."/> Attributes egressQosClassification and egressQosMarking cannot be configured at same time.</assert>
+		<assert test='not(@egressQosClassification and (count(@reservedBy[matches(., ".*,InterfaceIPv.*")]) &gt; 0))'><value-of select="."/> Attribute egressQosClassification cannot be configured if InterfaceIPv4 MO or InterfaceIPv6 MO use VlanPort MO as encapsulation.</assert>
+		<assert test='not(@lowLatencySwitching and (count(@reservedBy[matches(., ".*,Bridge=.*")]) &lt; 1))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if VlanPort MO is not used by Bridge MO.</assert>
+		<assert test='not(@lowLatencySwitching and not(@isTagged))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute isTagged is set to false.</assert>
+		<assert test='not(@lowLatencySwitching and @egressQosClassification)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute egressQosClassification is set.</assert>
+		<assert test='not(@lowLatencySwitching and @egressQosMarking)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute egressQosMarking is set.</assert>
+		<assert test='not(@lowLatencySwitching and (count(@ingressQosMarking) gt 0))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute ingressQosMarking is set.</assert>
+		<assert test='not(@lowLatencySwitching and @egressQosQueueMap)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute egressQosQueueMap is set.</assert>
+		<assert test='not(@lowLatencySwitching and @encapsulation/@egressQosClassification)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to EthernetPort MO with egressQosClassification set.</assert>
+		<assert test='not(@lowLatencySwitching and @encapsulation/@egressQosMarking)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to EthernetPort MO with egressQosMarking set.</assert>
+		<assert test='not(@lowLatencySwitching and @encapsulation/@egressQosQueueMap)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to EthernetPort MO with egressQosQueueMap set.</assert>
+		<assert test='not(@lowLatencySwitching and contains(@encapsulation,"LagPort="))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to LagPort MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv4 MO can reserve this port.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select="."/> Max one InterfaceIPv6 MO can reserve this port.</assert>
+		<assert test='not((count(@reservedBy[matches(., ".*,Bridge=.*")]) &gt; 0) and ((count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &gt; 0) or (count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &gt; 0)))'><value-of select ="."/>Bridge MO and InterfaceIPv4 MO or InterfaceIPv6 MO must not refer to same VlanPort MO.</assert>
+		<assert test='not((count(@encapsulation[matches(., ".*,EthernetPort=.*")]) &gt; 0) and (count(@egressQosQueueMap[matches(., ".*,.*")]) gt 1))'><value-of select="."/> Attribute egressQosQueueMap must be set only once when encapsulation is EthernetPort MO.</assert>
+		<assert test='every $r1 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies every $r2 in @reservedBy[matches(., ".*,InterfaceIPv.*")]/../@routerId satisfies $r1 eq $r2'><value-of select="."/> If InterfaceIPv4 MO and InterfaceIPv6 MO use same VlanPort MO as encapsulation they must reside in same router.</assert>
+		<assert test='not(@egressQosClassification and @egressQosMarking)'><value-of select="."/> Attributes egressQosClassification and egressQosMarking cannot be configured at same time.</assert>
+		<assert test='not(@egressQosClassification and (count(@reservedBy[matches(., ".*,InterfaceIPv.*")]) &gt; 0))'><value-of select="."/> Attribute egressQosClassification cannot be configured if InterfaceIPv4 MO or InterfaceIPv6 MO use VlanPort MO as encapsulation.</assert>
+		<assert test='not(@lowLatencySwitching and (count(@reservedBy[matches(., ".*,Bridge=.*")]) &lt; 1))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if VlanPort MO is not used by Bridge MO.</assert>
+		<assert test='not(@lowLatencySwitching and not(@isTagged))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute isTagged is set to false.</assert>
+		<assert test='not(@lowLatencySwitching and @egressQosClassification)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute egressQosClassification is set.</assert>
+		<assert test='not(@lowLatencySwitching and @egressQosMarking)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute egressQosMarking is set.</assert>
+		<assert test='not(@lowLatencySwitching and (count(@ingressQosMarking) gt 0))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute ingressQosMarking is set.</assert>
+		<assert test='not(@lowLatencySwitching and @egressQosQueueMap)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if attribute egressQosQueueMap is set.</assert>
+		<assert test='not(@lowLatencySwitching and @encapsulation/@egressQosClassification)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to EthernetPort MO with egressQosClassification set.</assert>
+		<assert test='not(@lowLatencySwitching and @encapsulation/@egressQosMarking)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to EthernetPort MO with egressQosMarking set.</assert>
+		<assert test='not(@lowLatencySwitching and @encapsulation/@egressQosQueueMap)'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to EthernetPort MO with egressQosQueueMap set.</assert>
+		<assert test='not(@lowLatencySwitching and contains(@encapsulation,"LagPort="))'><value-of select="."/> Attribute lowLatencySwitching cannot be set to true if encapsulation refers to LagPort MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="egressQosClassification">
+                <description>DSCP to PCP map used to classify DSCP tagged packets to PCP value for egress traffic in order to be handled correctly by queue system.
+It can refer to DscpPcpMap MO.
+
+Empty string means no classification done on DSCP, that PCP value is trusted.
+This attribute is used for specific issues within the QoS domain and should most often be empty.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Only one of egressQoSMarking or egressQoSClassification can be set per MO.
+Cannot be configured if InterfaceIPv4 MO or InterfaceIPv6 MO use VlanPort MO as encapsulation.
+If set, attribute lowLatencySwitching cannot be set to true.</dependencies>
+            </attribute>
+            <attribute name="egressQosMarking">
+                <description>DSCP to PCP map used to re-mark DSCP tagged packets to PCP value for egress traffic.
+Can refer to DscpPcpMap MO.
+
+Empty string means no re-marking done on DSCP.
+Used for specific issues within QoS domain and should most often be empty.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Only one of egressQosMarking or egressQosClassification can be set per MO.
+If set, attribute lowLatencySwitching cannot be set to true.</dependencies>
+            </attribute>
+            <attribute name="egressQosQueueMap">
+                <description>PcpToQueueMap MO used by configuring VlanPort MO.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>If set, attribute lowLatencySwitching cannot be set to true.
+If set, it must refer to PcpToQueueMap MO in each EthernetPort MO that is encapsulated by LagPort MO.
+Must be set only once when encapsulation is EthernetPort MO.</dependencies>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>Reference to underlying encapsulation.
+
+Underlying encapsulation can be MO type EthernetPort or LagPort.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>VlanPort MO can only refer to MO type EthernetPort and LagPort.
+Following applies for each VlanPort MO that refers same EthernetPort MO:
+- VlanPort MO instances must have different values of vlanId.
+- Only one VlanPort MO instance can have isTagged = false.
+VlanPort MO cannot refer to same EthernetPort MO as InterfaceIPv4 MO or InterfaceIPv6 MO.
+VlanPort MO cannot refer to same LagPort MO as InterfaceIPv4 MO or InterfaceIPv6 MO.
+If refers to EthernetPort MO with egressQosClassification set, attribute lowLatencySwitching cannot be set to true.
+If refers to EthernetPort MO with egressQosMarking set, attribute lowLatencySwitching cannot be set to true.
+If refers to EthernetPort MO with egressQosQueueMap set, attribute lowLatencySwitching cannot be set to true.
+If refers to LagPort MO, attribute lowLatencySwitching cannot be set to true</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ingressQosMarking">
+                <description>DSCP to DSCP or PCP to PCP map used to re-mark DSCP or PCP tagged packets.
+
+Empty string means no re-marking is done.
+Used to fix specific issues within QoS domain and should most often be empty.
+
+Can refer to DscpDscpMap MO or PcpPcpMap MO.
+
+</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                    </sequence>
+                </dataType>
+                <dependencies>If set, attribute lowLatencySwitching cannot be set to true.</dependencies>
+            </attribute>
+            <attribute name="isTagged">
+                <description>Tagged or untagged traffic on port.
+
+If set to true, tagged frames are accepted and sent.
+
+If set to false, untagged frames are accepted and sent.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+                <dependencies>If false, attribute lowLatencySwitching cannot be set to true.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="lowLatencySwitching">
+                <description>Enables port low latency switching.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <dependencies>Must be same for all VlanPorts MOs at Bridge MO.
+Cannot be set to true if VlanPort MO is not used by Bridge MO.
+In all VlanPort MOs reserved by port attribute in Bridge MO, this attribute must be set to same value.
+In all VlanPort MOs reserved by port attribute in Bridge MO, vlanId attribute must be set to same value when this attribute set to true.
+Cannot be set to true if attribute isTagged is set to false.
+Cannot be set to true if attribute egressQosClassification is set.
+Cannot be set to true if attribute egressQosMarking is set.
+Cannot be set to true if attribute ingressQosMarking is set.
+Cannot be set to true if attribute egressQosQueueMap is set.
+Cannot be set to true if encapsulation refers to EthernetPort MO with egressQosClassification set.
+Cannot be set to true if encapsulation refers to EthernetPort MO with egressQosMarking set.
+Cannot be set to true if encapsulation refers to EthernetPort MO with egressQosQueueMap set.
+Cannot be set to true if encapsulation refers to LagPort MO.</dependencies>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use. &#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnL2VlanPort_VlanPort_userLabel">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="vlanId">
+                <description>Ingress classifies which VlanPort MO traffic will be going into, when being received on EthernetPort MO.&#13;
+&#13;
+Egress indicates VLAN ID in VLAN tag of packets being transmitted out of EthernetPort MO.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="VlanId">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>In all VlanPort MOs reserved by port attribute in Bridge MO, this attribute must be set to same value, when lowLatencySwitching attribute set to true.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="vlanPortId">
+                <description>The value component of the RDN. &#13;
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="VlanPort_egressQosClassification_to_DscpPcpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="egressQosClassification">
+                    <hasClass name="DscpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="VlanPort_egressQosMarking_to_DscpPcpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="egressQosMarking">
+                    <hasClass name="DscpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="VlanPort_egressQosQueueMap_to_PcpToQueueMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="egressQosQueueMap">
+                    <hasClass name="PcpToQueueMap">
+                        <mimName>RtnQoSSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="VlanPort_encapsulation_to_EthernetPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="VlanPort_ingressQosMarking_to_DscpDscpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ingressQosMarking">
+                    <hasClass name="DscpDscpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="VlanPort_ingressQosMarking_to_PcpPcpMap_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ingressQosMarking">
+                    <hasClass name="PcpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_VlanPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

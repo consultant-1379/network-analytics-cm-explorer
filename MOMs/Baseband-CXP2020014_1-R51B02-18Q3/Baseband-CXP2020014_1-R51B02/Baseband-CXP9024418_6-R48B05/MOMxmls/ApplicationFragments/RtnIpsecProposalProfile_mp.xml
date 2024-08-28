@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2018 Ericsson AB.
+    All rights reserved
+
+    DX ECIM Tool-chain generated this file on Apr 9, 2018 2:58:09 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="0" date="" docNo="" name="RtnIpsecProposalProfile" namespace="urn:com:ericsson:ecim:RtnIpsecProposalProfile" namespacePrefix="rtnipsecproposalprofile" organization="" release="15" revision="" variant="Model" version="1">
+        <description>IpSecProposalProfile package</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="ChildSaLifetime">
+            <description>Lifetime for negotiated Child SAs.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <structMember name="dataLimit">
+                <description>Max amount of allowed data transmitted on Child SA before rekeying.
+If not set (nil), data limit is not set and only time limit is used.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="DataLimit">
+                    <mimName>RtnIpsecProposalProfile</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="timeLimit">
+                <description>Max time Child SA can be used.</description>
+                <derivedDataTypeRef name="TimeLimit">
+                    <defaultValue>1440</defaultValue>
+                    <mimName>RtnIpsecProposalProfile</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="IpsecProposal">
+            <description>Holds transform proposal used during Child SA negotiation.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <structMember name="encryptionAlgorithm">
+                <description>Algorithm for encryption.
+
+If not set (nil), node sends all encryption algorithms supported by node in proposal.
+NULL encryption is not included in negotiation when attribute is not set.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="ChildSaEncryptionAlgorithm">
+                    <mimName>RtnIpsecProposalProfile</mimName>
+                </enumRef>
+                <dependencies>If AES_GCM, integrityAlgorithm must not be configured.</dependencies>
+            </structMember>
+            <structMember name="integrityAlgorithm">
+                <description>Algorithm used for integrity check.
+
+If not set (nil), node sends all integrity algorithms supported by node in proposal.
+AES_GMAC integrity is not included in negotiation when attribute is not set.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="ChildSaIntegrityAlgorithm">
+                    <mimName>RtnIpsecProposalProfile</mimName>
+                </enumRef>
+                <dependencies>If AES_GMAC, encryptionAlgorithm must not be configured or must be set to NULL.</dependencies>
+            </structMember>
+        </struct>
+        <enum name="ChildSaEncryptionAlgorithm">
+            <description>Child SA encryption algorithms.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <enumMember name="ENCR_NULL">
+                <value>11</value>
+                <specification>RFC_2410</specification>
+            </enumMember>
+            <enumMember name="ENCR_AES_CBC_128">
+                <value>1024</value>
+                <specification>RFC_3602</specification>
+            </enumMember>
+            <enumMember name="ENCR_AES_CBC_256">
+                <value>1026</value>
+                <specification>RFC_3602</specification>
+            </enumMember>
+            <enumMember name="AES_GCM_16_128">
+                <value>1034</value>
+                <specification>RFC_4106</specification>
+            </enumMember>
+            <enumMember name="AES_GCM_16_256">
+                <value>1035</value>
+                <specification>RFC_4106</specification>
+            </enumMember>
+        </enum>
+        <enum name="ChildSaIntegrityAlgorithm">
+            <description>Child SA integrity algorithms.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <enumMember name="AUTH_HMAC_MD5_96">
+                <description/>
+                <value>1</value>
+                <specification>RFC_2403</specification>
+            </enumMember>
+            <enumMember name="AUTH_HMAC_SHA1_96">
+                <description/>
+                <value>2</value>
+                <specification>RFC_2404</specification>
+            </enumMember>
+            <enumMember name="AUTH_AES_XCBC_96">
+                <description/>
+                <value>5</value>
+                <specification>RFC_3566</specification>
+            </enumMember>
+            <enumMember name="AUTH_AES_128_GMAC">
+                <description>Using this corresponds to combined mode algorithm ENCR_NULL_AUTH_AES_GMAC for ESP, as defined by RFC 4543, with 128 key length.</description>
+                <value>9</value>
+                <specification>RFC_4543</specification>
+            </enumMember>
+            <enumMember name="AUTH_AES_256_GMAC">
+                <description>Using this corresponds to combined mode algorithm ENCR_NULL_AUTH_AES_GMAC for ESP, as defined by RFC 4543, with 256 key length.</description>
+                <value>10</value>
+                <specification>RFC_4543</specification>
+            </enumMember>
+            <enumMember name="AUTH_HMAC_SHA2_256_128">
+                <value>12</value>
+                <specification>RFC_4868</specification>
+            </enumMember>
+        </enum>
+        <derivedDataType name="DataLimit">
+            <description>Specify the amount of data in Mbytes.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnFilterTypes"/>
+            </domainExtension>
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>100</min>
+                        <max>500000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>100</min>
+                            <max>500000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>MByte</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnIpsecProposalProfile_IpsecProposalProfile_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="TimeLimit">
+            <description>The maximum time in minutes.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnFilterTypes"/>
+            </domainExtension>
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>60</min>
+                        <max>5000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>60</min>
+                            <max>5000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>min</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <class name="IpsecProposalProfile">
+            <description>Common configuration parameters used by the Child SAs.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="IpsecProposalProfile"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $ipsecProposal in @ipsecProposal satisfies (not((($ipsecProposal/@integrityAlgorithm eq "AUTH_AES_128_GMAC") or ($ipsecProposal/@integrityAlgorithm eq "AUTH_AES_256_GMAC"))  and not(($ipsecProposal/@encryptionAlgorithm eq "ENCR_NULL") or not(exists($ipsecProposal/@encryptionAlgorithm)))))'><value-of select="."/> If integrityAlgorithm is set to AES_GMAC, encryptionAlgorithm must not be configured or must be set to NULL.</assert>
+		<assert test='every $ipsecProposal in @ipsecProposal satisfies (not((($ipsecProposal/@encryptionAlgorithm eq "AES_GCM_16_256") or($ipsecProposal/@encryptionAlgorithm eq "AES_GCM_16_128")) and exists($ipsecProposal/@integrityAlgorithm)))'><value-of select="."/> If encryptionAlgorithm is set to AES_GCM, integrityAlgorithm must not be configured.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $ipsecProposal in @ipsecProposal satisfies (not((($ipsecProposal/@integrityAlgorithm eq "AUTH_AES_128_GMAC") or ($ipsecProposal/@integrityAlgorithm eq "AUTH_AES_256_GMAC"))  and not(($ipsecProposal/@encryptionAlgorithm eq "ENCR_NULL") or not(exists($ipsecProposal/@encryptionAlgorithm)))))'><value-of select="."/> If integrityAlgorithm is set to AES_GMAC, encryptionAlgorithm must not be configured or must be set to NULL.</assert>
+		<assert test='every $ipsecProposal in @ipsecProposal satisfies (not((($ipsecProposal/@encryptionAlgorithm eq "AES_GCM_16_256") or($ipsecProposal/@encryptionAlgorithm eq "AES_GCM_16_128")) and exists($ipsecProposal/@integrityAlgorithm)))'><value-of select="."/> If encryptionAlgorithm is set to AES_GCM, integrityAlgorithm must not be configured.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="childSaLifetime">
+                <description>Lifetime for negotiated Child SAs.
+In order for node to complete the rekeying process before lifetime expires, node starts new rekeying according to soft lifetime. Soft lifetime is calculated as (0.8+0.1*R)*childSaLifetime, where R is random factor between 0 and 1.</description>
+                <dataType>
+                    <structRef name="ChildSaLifetime">
+                        <mimName>RtnIpsecProposalProfile</mimName>
+                    </structRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ipsecProposal">
+                <description>Ordered list of Child SA proposals. Each proposal contains set of cryptographic algorithms applicable for the Child SA.
+
+If attribute is not set, system generates proposals based on node-supported algorithms.
+Neither NULL encryption algorithm nor AES-GMAC integrity algorithms are included in this case.
+
+First proposal in list has highest priority.</description>
+                <dataType>
+                    <sequence>
+                        <structRef name="IpsecProposal">
+                            <mimName>RtnIpsecProposalProfile</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                        <ordered/>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ipsecProposalProfileId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="pfs">
+                <description>Enables Perfect Forward Secrecy.
+
+By default, PFS is disabled and is not used for any Child SA pair rekeying or establishment of new Child SA pairs.
+
+If PFS is enabled, node requires PFS for any Child SA pair rekeying or establishment of new Child SA pairs.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbance.</disturbances>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnIpsecProposalProfile_IpsecProposalProfile_userLabel">
+                        <mimName>RtnIpsecProposalProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_IpsecProposalProfile">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="IpsecProposalProfile">
+                        <mimName>RtnIpsecProposalProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

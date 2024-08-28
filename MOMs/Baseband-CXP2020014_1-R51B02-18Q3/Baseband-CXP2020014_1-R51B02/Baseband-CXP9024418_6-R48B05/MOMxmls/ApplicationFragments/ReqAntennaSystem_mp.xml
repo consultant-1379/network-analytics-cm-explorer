@@ -1,0 +1,3985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jun 12, 2018 9:33:54 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle/>
+        <momSubTitle/>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="emagnso" contact="emagnso" correction="0" date="" docNo="" name="ReqAntennaSystem" namespace="urn:com:ericsson:ecim:ReqAntennaSystem" namespacePrefix="reqantennasystem" organization="" release="11" revision="" version="2">
+        <description>This MO represents a hardware unit installed in the antenna system that can be controlled and supervised by the system.&#13;
+</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="TmfDataStruct">
+            <description>TMF configuration data.</description>
+            <structMember name="dlAttenuation">
+                <description>Subunit internal attenuation in downlink.</description>
+                <derivedDataTypeRef name="ReqAntennaSystem_TmfDataStruct_dlAttenuation">
+                    <mimName>ReqAntennaSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="dlTrafficDelay">
+                <description>Subunit internal delay in downlink.</description>
+                <derivedDataTypeRef name="ReqAntennaSystem_TmfDataStruct_dlTrafficDelay">
+                    <mimName>ReqAntennaSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="ifBandwidth">
+                <description>Intermediate filter bandwidth. It must match the bandwidth of the operator band.</description>
+                <derivedDataTypeRef name="ReqAntennaSystem_TmfDataStruct_ifBandwidth">
+                    <mimName>ReqAntennaSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="ulAirFrequency">
+                <description>Absolute air frequency for the uplink carrier received at the unit.</description>
+                <derivedDataTypeRef name="ReqAntennaSystem_TmfDataStruct_ulAirFrequency">
+                    <mimName>ReqAntennaSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="ulFeederFrequency">
+                <description>Absolute frequency for the uplink feeder carrier (after frequency shifting).</description>
+                <derivedDataTypeRef name="ReqAntennaSystem_TmfDataStruct_ulFeederFrequency">
+                    <mimName>ReqAntennaSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="ulTrafficDelay">
+                <description>Subunit internal delay in uplink.</description>
+                <derivedDataTypeRef name="ReqAntennaSystem_TmfDataStruct_ulTrafficDelay">
+                    <mimName>ReqAntennaSystem</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="SupportedOperatingMode">
+            <description>The supported operating mode.</description>
+            <enumMember name="LTE_5MHZ">
+                <description>LTE 5MHz carrier.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="LTE_10MHZ">
+                <description>LTE 10 MHz carrier.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="WCDMA_1_CHANNEL">
+                <description>WCDMA with 1 channel.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="WCDMA_2_CHANNELS">
+                <description>WCDMA with 2 channels.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="LTE_MIXED_WITH_WCDMA_IN_10MHZ">
+                <description>Mixed Mode, LTE and WCDMA within 10 MHz. LTE in channelNumber1, WCDMA in channelNumber2.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="TmaType">
+            <description>Type of tower mounted amplifier.</description>
+            <enumMember name="TMA">
+                <description>Tower mounted amplifier.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="TMF">
+                <description>Tower mounted amplifier with frequency shift.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AntNearUnit">
+            <description>The Ant type.</description>
+            <enumMember name="IUANT">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ASC">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="ERET">
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="SupportedDeployment">
+            <description>The supported deployment.</description>
+            <enumMember name="PSI_CONFIGURATION">
+                <description>Supported with Psi coverage.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="Y_CONFIGURATION">
+                <description>Supported with Y coverage.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="TcpStatus">
+            <description>The status of the TCP.</description>
+            <enumMember name="UNKNOWN">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="STARTED">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FINISHED">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="VerticalBeamWidthMode">
+            <description>Vertical beam width mode of radio.</description>
+            <enumMember name="NARROW">
+                <description>Narrow vertical beam width of radio.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="WIDE">
+                <description>Wide vertical beam width of radio.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="BeamformingPortMapping">
+            <description>This enum is used to select between co-polarized and cross-polarized beamforming antenna port mapping.</description>
+            <enumMember name="CROSS_POLARIZED">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="CO_POLARIZED">
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="RetStates">
+            <description>RET state.</description>
+            <enumMember name="IDLE">
+                <value>3</value>
+            </enumMember>
+            <enumMember name="TILTING">
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqAntennaSystem_AntennaUnitGroup_positionInformation">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_dlAttenuation">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-500</min>
+                        <max>500</max>
+                        <min>65535</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-500</min>
+                            <max>500</max>
+                        </subrange>
+                        <subrange>
+                            <min>65535</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_dlTrafficDelay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>800000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>800000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_ulAttenuation">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-500</min>
+                        <max>500</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-500</min>
+                            <max>500</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_ulTrafficDelay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>800000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>800000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_dlAttenuationPerFqRange">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-500</min>
+                        <max>500</max>
+                        <min>65535</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-500</min>
+                            <max>500</max>
+                        </subrange>
+                        <subrange>
+                            <min>65535</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_dlTrafficDelayPerFqRange">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>800000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>800000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_ulAttenuationPerFqRange">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-500</min>
+                        <max>500</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-500</min>
+                            <max>500</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RfBranch_ulTrafficDelayPerFqRange">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>800000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>800000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaNearUnit_hardwareVersion">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaNearUnit_iuantDeviceType">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>1</min>
+                        <max>1</max>
+                        <min>2</min>
+                        <max>2</max>
+                        <min>17</min>
+                        <max>17</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>1</max>
+                        </subrange>
+                        <subrange>
+                            <min>2</min>
+                            <max>2</max>
+                        </subrange>
+                        <subrange>
+                            <min>17</min>
+                            <max>17</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaNearUnit_productNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaNearUnit_serialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>17</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>17</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaNearUnit_softwareVersion">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaNearUnit_uniqueId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>19</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>19</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="AntennaNearUnit_sendTmfConfigurationFile_server">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="AntennaNearUnit_sendTmfConfigurationFile_path">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="AntennaNearUnit_sendTmfConfigurationFile_userName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="AntennaNearUnit_sendTmfConfigurationFile_password">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>255</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_electricalAntennaTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-900</min>
+                        <max>900</max>
+                        <min>-999</min>
+                        <max>-999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                        <subrange>
+                            <min>-999</min>
+                            <max>-999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantAntennaBearing">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1000</min>
+                        <max>-1000</max>
+                        <min>0</min>
+                        <max>3599</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>-1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>0</min>
+                            <max>3599</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantAntennaModelNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>15</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>15</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantAntennaSerialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>17</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>17</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantBaseStationId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantInstallationDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>6</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>6</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantInstallersId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>5</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>5</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantSectorId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_maxTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1000</min>
+                        <max>-1000</max>
+                        <min>-900</min>
+                        <max>900</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>-1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_minTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1000</min>
+                        <max>-1000</max>
+                        <min>-900</min>
+                        <max>900</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>-1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_RetSubUnit_iuantAntennaOperatingGain">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1000</min>
+                        <max>-1000</max>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>-1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dBi</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_dlAttenuation">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>20</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>20</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_dlTrafficDelay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>2000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>2000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantAntennaBearing">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1000</min>
+                        <max>-1000</max>
+                        <min>0</min>
+                        <max>3599</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>-1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>0</min>
+                            <max>3599</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantAntennaInstalledMechanicalTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1000</min>
+                        <max>-1000</max>
+                        <min>-900</min>
+                        <max>900</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>-1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantAntennaModelNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>15</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>15</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantAntennaOperatingGain">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1000</min>
+                        <max>-1000</max>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1000</min>
+                            <max>-1000</max>
+                        </subrange>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dBi</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantAntennaSerialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>17</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>17</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantBaseStationId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantInstallationDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>6</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>6</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantInstallersId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>5</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>5</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantSectorId">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitFreqRangeRx">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>kHz</unit>
+                    <multiplicationFactor>100</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitFreqRangeTx">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>kHz</unit>
+                    <multiplicationFactor>100</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitGainRes">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.25</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitMaxGain">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.25</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitMinGain">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.25</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_subunitNumber">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_ulGain">
+            <baseType>
+                <int32>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.25</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_ulTrafficDelay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>2000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>2000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmaSubUnit_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaUnit_mechanicalAntennaTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-900</min>
+                        <max>900</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaSubunit_azimuthHalfPowerBeamwidth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>65</min>
+                        <max>65</max>
+                        <min>90</min>
+                        <max>90</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>65</min>
+                            <max>65</max>
+                        </subrange>
+                        <subrange>
+                            <min>90</min>
+                            <max>90</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaSubunit_customComChBeamfrmWtsAmplitude">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <multiplicationFactor>0.01</multiplicationFactor>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaSubunit_customComChBeamfrmWtsPhase">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>0</min>
+                        <max>359</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>359</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaSubunit_maxTotalTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-900</min>
+                        <max>900</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaSubunit_minTotalTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-900</min>
+                        <max>900</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AntennaSubunit_totalTilt">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-900</min>
+                        <max>900</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-900</min>
+                            <max>900</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_AuPort_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfDataStruct_dlAttenuation">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>200</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>200</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dB</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfDataStruct_dlTrafficDelay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>30000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>30000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfDataStruct_ifBandwidth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>MHZ</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfDataStruct_ulAirFrequency">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>MHZ</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfDataStruct_ulFeederFrequency">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>65535</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>65535</max>
+                        </subrange>
+                    </ranges>
+                    <unit>MHZ</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfDataStruct_ulTrafficDelay">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>30000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>30000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>ns</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfConfiguration_operatingBand">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>256</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>256</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfConfiguration_channelNumber1">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>262143</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>262143</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfConfiguration_channelNumber2">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>262143</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>262143</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfConfiguration_frequencyDistance">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>200</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>200</max>
+                        </subrange>
+                    </ranges>
+                    <unit>MHz</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqAntennaSystem_TmfConfiguration_ifFilterBit">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>1</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>1</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="AntennaUnitGroup">
+            <description>This MO is a container of references to the antenna and antenna near products (RET/TMA) serving a Sector.&#13;
+&#13;
+</description>
+            <root/>
+            <attribute name="antennaUnitGroupId">
+                <description>The value component of the RDN.&#13;
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="positionInformation">
+                <description>Information on where the antenna unit group is located.
+This can be expressed in terms of a street address, building, floor, room, etc.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaUnitGroup_positionInformation">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="positionRef">
+                <description>Reference to a HW group that the antenna unit group is located in. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <isNillable/>
+                <dataType>
+                    <moRef name="HwGroup">
+                        <mimName>ReqHwGroup</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="RfBranch">
+            <description>This MO represents the connection from an antenna feeder port on the RU to one antenna feeder connector on one or several antenna units.
+The MO represents all equipment between the radio and the antenna which isn't modelled by any other MO. That includes feeder, filters and non-supervised, non-controlled TMA.
+
+</description>
+            <attribute name="rfBranchId">
+                <description>The value component of the RDN.&#13;
+To provision the RfBranch not to be used for Tx transmission, even though it might be Tx-capable, the RfBranchId value should follow the format: "any_string"_NO_TX&#13;
+&#13;
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="auPortRef">
+                <description>Refers to the AuPort MO that represents the physical antenna feeder connector on the antenna unit, to which this RfBranch is connected.&#13;
+</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="AuPort">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </moRef>
+                        <minLength>0</minLength>
+                        <maxLength>4</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dlAttenuation">
+                <description>Downlink attenuation between the connector on the radio and the connector on the antenna unit. The attenuation includes feeder, filters, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 40 entries and each entry represents one 5-MHz interval.
+The first entry represents the attenuation value of the lowest frequency interval in the operating band, and so on.
+The number of intervals depends on the operating band.
+For information on different operating bands, refer to 3GPP TS 36.104.
+The value range for each entry is -500 to -2, -1, 0-500 (-50 to 50 dB). Unused entries are set to -1.  
+
+Attribute is optionally replaced by dlAttenuationPerFqRange for configurations with radio supporting single band per RfPort.
+Attribute is replaced by dlAttenuationPerFqRange for configurations with radio supporting dual band per RfPort.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_dlAttenuation">
+                            <defaultValue>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>1</minLength>
+                        <maxLength>40</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic.</disturbances>
+                <takesEffect>If cell is locked, takes effect when cell is unlocked. If cell is unlocked, takes effect immediately.</takesEffect>
+            </attribute>
+            <attribute name="dlTrafficDelay">
+                <description>Downlink traffic delay between the connector on the radio and the connector on the antenna unit. The delay includes feeder, filter, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 40 entries and each entry represents one 5-MHz interval. The first entry represents the traffic delay value of the lowest frequency interval in the operating band, and so on.
+The number of intervals used depends on the operating band.
+For information on the different operating bands, refer to 3GPP TS 36.104.
+The value range for each entry is 0-800000 (0-800000 ns). Unused entries are set to -1.
+NOTE: The range supported by the actual Radio Unit may be smaller and must be considered when configuring the antenna system.  
+
+Attribute is optionally replaced by dlTrafficDelayPerFqRange for configurations with radio supporting single band per RfPort.
+Attribute is replaced by dlTrafficDelayPerFqRange for configurations with radio supporting dual band per RfPort.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_dlTrafficDelay">
+                            <defaultValue>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>40</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic.</disturbances>
+                <takesEffect>If cell is locked, takes effect when cell is unlocked. If cell is unlocked, takes effect immediately.</takesEffect>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rfPortRef">
+                <description>Refers to the RfPort MO that represents the physical antenna feeder connector on the Radio Unit (RU)/Remote Radio Unit (RRU), to which this RfBranch is connected.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </moRef>
+                </dataType>
+                <takesEffect>At next unlock of the SectorEquipmentFunction</takesEffect>
+                <precondition>Locked SectorEquipmentFunction</precondition>
+            </attribute>
+            <attribute name="tmaRef">
+                <description>Reference to a possible TMA that is connected to this RfBranch.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="TmaSubUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="ulAttenuation">
+                <description>Uplink attenuation between the connector on the radio unit and the connector on the antenna unit. The attenuation includes feeder, filters, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 40 entries and each entry represents one 5-MHz interval.
+The first entry represents the attenuation value of the lowest frequency interval in the operating band, and so on.
+The number of intervals depends on the operating band.
+For information on the different operating bands, refer to 3GPP TS 36.104.
+The value range for each entry is -500 to -2, -1, 0-500 (-50 to 50 dB). Unused entries are set to -1.  
+
+Attribute is optionally replaced by ulAttenuationPerFqRange for configurations with radio supporting single band per RfPort.
+Attribute is replaced by ulAttenuationPerFqRange for configurations with radio supporting dual band per RfPort.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_ulAttenuation">
+                            <defaultValue>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>1</minLength>
+                        <maxLength>40</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic.</disturbances>
+                <takesEffect>If cell is locked, takes effect when cell is unlocked. If cell is unlocked, takes effect immediately.</takesEffect>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_userLabel">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ulTrafficDelay">
+                <description>Uplink traffic delay between the connector on the radio unit and the connector on the antenna unit. The delay includes feeder, filter, and non-supervised, uncontrolled Tower Mounted Amplifiers (TMAs).
+The sequence contains 40 entries and each entry represents one 5-MHz interval. The first entry represents the traffic delay value of the lowest frequency interval in the operating band, and so on.
+The number of intervals used depends on the operating band.
+For information on the different operating bands, refer to 3GPP TS 36.104.
+The value range for each entry is 0-800000 (0-800000 ns). Unused entries are set to -1.
+NOTE: The range supported by individual radio units may be smaller and must be considered when configuring the antenna system. 
+
+Attribute is optionally replaced by ulTrafficDelayPerFqRange for configurations with radio supporting single band per RfPort.
+Attribute is replaced by ulTrafficDelayPerFqRange for configurations with radio supporting dual band per RfPort.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_ulTrafficDelay">
+                            <defaultValue>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>40</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic. </disturbances>
+                <takesEffect>If cell is locked, takes effect when cell is unlocked. If cell is unlocked, takes effect immediately.</takesEffect>
+            </attribute>
+            <attribute name="dlAttenuationPerFqRange">
+                <description>Attribute optionally replaces dlAttenuation for configurations with radio supporting single band per RfPort.
+Attribute replaces dlAttenuation for configurations with radio supporting dual band per RfPort.
+
+Attribute is used to configure DL attenuation between radio connector and antenna unit connector.
+Attenuation includes feeder, filters, and non-supervised, uncontrolled TMAs.
+Attenuation value is valid for full frequency range.
+
+Attribute is a sequence containing 2 entries. One is configured while other is set to -1 (unused).
+- Use first entry to configure attenuation for first frequency range in dlFrequencyRanges of RfPort to which RfBranch refers.
+- Use second entry to configure attenuation for second frequency range in dlFrequencyRanges of RfPort to which RfBranch refers (only applicable for dual band radios).
+
+The value range for each entry is -500 to -2, -1, 0-500 (-50 to 50 dB). Unused entries are set to -1. 
+For information on different operating bands, refer to 3GPP TS 36.104.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_dlAttenuationPerFqRange">
+                            <defaultValue>-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic.</disturbances>
+                <takesEffect>Immediately if cell is unlocked, otherwise when cell is unlocked.</takesEffect>
+            </attribute>
+            <attribute name="dlTrafficDelayPerFqRange">
+                <description>Attribute optionally replaces dlTrafficDelay for configurations with radio supporting single band per RfPort.
+Attribute replaces dlTrafficDelay for configurations with radio supporting dual band per RfPort.
+
+Attribute is used to configure DL delay between radio connector and antenna unit connector.
+Delay includes feeder, filters, and non-supervised, uncontrolled TMAs.
+Delay value is valid for full frequency range.
+
+Attribute is a sequence containing 2 entries. One is configured while other is set to -1 (unused).
+- Use first entry to configure delay for first frequency range in dlFrequencyRanges of RfPort to which RfBranch refers.
+- Use second entry to configure delay for second frequency range in dlFrequencyRanges of RfPort to which RfBranch refers (only applicable for dual band radios).
+
+The value range for each entry is 0-800000 (0-800000 ns). Unused entries are set to -1.
+NOTE: The range supported by individual radio units may be smaller and must be considered when configuring the antenna system.
+For information on the different operating bands, refer to 3GPP TS 36.104.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_dlTrafficDelayPerFqRange">
+                            <defaultValue>-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic.</disturbances>
+                <takesEffect>Immediately if cell is unlocked, otherwise when cell is unlocked.</takesEffect>
+            </attribute>
+            <attribute name="ulAttenuationPerFqRange">
+                <description>Attribute optionally replaces ulAttenuation for configurations with radio supporting single band per RfPort.
+Attribute replaces ulAttenuation for configurations with radio supporting dual band per RfPort.
+
+Attribute is used to configure UL attenuation between radio connector and antenna unit connector.
+Attenuation includes feeder, filters, and non-supervised, uncontrolled TMAs.
+Attenuation value is valid for full frequency range.
+
+Attribute is a sequence containing 2 entries. One is configured while other is set to -1 (unused).
+- Use first entry to configure attenuation for first frequency range in ulFrequencyRanges of RfPort to which RfBranch refers.
+- Use second entry to configure attenuation for second frequency range in ulFrequencyRanges of RfPort to which RfBranch refers (only applicable for dual band radios).
+
+The value range for each entry is -500 to -2, -1, 0-500 (-50 to 50 dB). Unused entries are set to -1.
+For information on the different operating bands, refer to 3GPP TS 36.104.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_ulAttenuationPerFqRange">
+                            <defaultValue>-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic.</disturbances>
+                <takesEffect>Immediately if cell is unlocked, otherwise when cell is unlocked.</takesEffect>
+            </attribute>
+            <attribute name="ulTrafficDelayPerFqRange">
+                <description>Attribute optionally replaces ulTrafficDelay for configurations with radio supporting single band per RfPort.
+Attribute replaces ulTrafficDelay for configurations with radio supporting dual band per RfPort.
+
+Attribute is used to configure UL delay between radio connector and antenna unit connector.
+Delay includes feeder, filters, and non-supervised, uncontrolled TMAs.
+Delay value is valid for full frequency range.
+
+Attribute is a sequence containing 2 entries. One is configured while other is set to -1 (unused).
+- Use first entry to configure delay for first frequency range in ulFrequencyRanges of RfPort to which RfBranch refers.
+- Use second entry to configure delay for second frequency range in ulFrequencyRanges of RfPort to which RfBranch refers (only applicable for dual band radios).
+
+The value range for each entry is 0-800000 (0-800000 ns). Unused entries are set to -1.
+NOTE: The range supported by individual radio units may be smaller and must be considered when configuring the antenna system.
+For information on the different operating bands, refer to 3GPP TS 36.104.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RfBranch_ulTrafficDelayPerFqRange">
+                            <defaultValue>-1,-1</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1</defaultValue>
+                            <defaultValue>-1</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute can affect traffic. </disturbances>
+                <takesEffect>Immediately if cell is unlocked, otherwise when cell is unlocked.</takesEffect>
+            </attribute>
+        </class>
+        <class name="AntennaNearUnit">
+            <description>This MO represents a hardware unit installed in the antenna system that can be controlled and supervised by the system.&#13;
+</description>
+            <action name="downloadSoftware">
+                <description>Fetches the Antenna Near Unit SW package from an FTP server and downloads the firmware file to the Antenna Near Unit.
+The Antenna Near Unit will run on the new firmware when the action is completed.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3000"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="server">
+                    <description>The IP address or hostname of the FTP server.
+</description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <parameter name="path">
+                    <description>The file path to the software on the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <parameter name="userName">
+                    <description>User name used to logon to the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <parameter name="password">
+                    <description>Password used to logon to the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="readUserData">
+                <description>The Antenna Near Unit answers with user-specific data stored in the non-volatile memory reserved for such purpose.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3001"/>
+                </domainExtension>
+                <returnType>
+                    <string/>
+                </returnType>
+                <parameter name="memoryOffset">
+                    <description>The memory offset to calculate the relative memory address to point the user data area where the required information is stored.</description>
+                    <in/>
+                    <dataType>
+                        <uint32/>
+                    </dataType>
+                </parameter>
+                <parameter name="numberOfOctetsToRead">
+                    <description>The number of octets to be read from that relative memory address. It must be less or equal than 70.</description>
+                    <in/>
+                    <dataType>
+                        <uint32/>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="restartUnit">
+                <description>Restarts the Antenna Near Unit.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3002"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <action name="selfTest">
+                <description>The Antenna Near Unit will execute an implementation-specific test procedure of its own performance (that is, of physical and processor functions).</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3003"/>
+                </domainExtension>
+                <returnType>
+                    <string/>
+                </returnType>
+            </action>
+            <action name="writeUserData">
+                <description>The AntennaNearUnit shall store user data in non-volatile memory.
+The data is stored in the user data area using the relative memory address offset given in the initiating message and starting with zero.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3004"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="memoryOffset">
+                    <description>The memory offset to calculate the relative memory address to point the user data area where the required information will be stored.</description>
+                    <in/>
+                    <dataType>
+                        <uint32/>
+                    </dataType>
+                </parameter>
+                <parameter name="numberOfOctetsToWrite">
+                    <description>The number of octets to be written starting on that relative memory address. It must be less or equal than 68.</description>
+                    <in/>
+                    <dataType>
+                        <uint32/>
+                    </dataType>
+                </parameter>
+                <parameter name="userDataW">
+                    <description>numerOfOctetsToWrite octets containing User Specific data to be written in the non-volatile memory area of the ANU.</description>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="sendTmfConfigurationFile">
+                <description>Configures a TMF (TmaSubUnit with tmaType = TMF) based on a TMF configuration file which is fetched from an FTP server and pushed down to the TMF. The TMF will run with the new settings when the action is completed.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3007"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="server">
+                    <description>IP address or hostname of the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="AntennaNearUnit_sendTmfConfigurationFile_server">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="path">
+                    <description>File path to the TMF configuration file on the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="AntennaNearUnit_sendTmfConfigurationFile_path">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="userName">
+                    <description>User name used to logon to the FTP server. </description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="AntennaNearUnit_sendTmfConfigurationFile_userName">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <parameter name="password">
+                    <description>Password used to logon to the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="AntennaNearUnit_sendTmfConfigurationFile_password">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+                <disturbances>Running the action will cause the sector and hence the cell to become disabled. All traffic in the cell will be lost.</disturbances>
+                <precondition>tmaType of corresponding TmaSubUnit MOs must be TMF.</precondition>
+            </action>
+            <attribute name="antennaNearUnitId">
+                <description>The value component of the RDN.&#13;
+</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="anuType">
+                <description>Indicates if the antenna near unit is an IUANT or an Ericsson proprietary antenna unit.</description>
+                <dataType>
+                    <enumRef name="AntNearUnit">
+                        <defaultValue>IUANT</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Deprecated since L17A. Further support only to IUANT option</statusInformation>
+                <dependencies>If IUANT is set then the attribute iuantDeviceType needs to be set to a value specified in section 4.7 in 3GPP 25.462 as well.</dependencies>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="hardwareVersion">
+                <description>The hardware version of the Antenna Near Unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaNearUnit_hardwareVersion">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantDeviceType">
+                <description>Type of IUANT-compliant antenna line device.&#13;
+&#13;
+Takes its value from section 4.7 of 3GPP TS 25.462 (after conversion from hex to decimal):&#13;
+&#13;
+- 1 indicates single-antenna Remote Electrical Tilt (RET) device&#13;
+- 2 indicates tower mounted amplifier&#13;
+- 17 indicates multi-antenna RET device&#13;
+&#13;
+NOTE: 3GPP TS 25.462 defines device types by providing hexadecimal codes. The code must be converted to decimal in order to be used. 
+If multi-Antenna RET Device is indicated as 0x11HEX in 3GPP TS 25.462, the decimal equivalent 17 must be used here.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaNearUnit_iuantDeviceType">
+                        <defaultValue>1</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>At node restart.</takesEffect>
+            </attribute>
+            <attribute name="onUnitUniqueId">
+                <description>The unique ID reported by the physical antenna near unit.
+The first two characters of the ID are the vendor code.&#13;
+The value is extracted from the response message sent by the antenna near unit during connection establishment.
+3GPP TS 25.462 specifies the procedure in detail.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational State.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="productNumber">
+                <description>Uniquely identifies the model of Antenna Near Unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaNearUnit_productNumber">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="rfPortRef">
+                <description>Refers to an instance of an RfPort from which this antenna near unit is controlled and supplied with power.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="selfTestStatus">
+                <description>The status of ongoing selfTest operation.
+In case no selfTest has been performed since last Baseband restart it shows state UNKNOWN. &#13;
+&#13;
+NOTE: The selfTestStatus is not used to verify or confirm if a selfTest has been performed or not. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="TcpStatus">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="serialNumber">
+                <description>Unique number consisting of vendor code followed by a device serial number.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaNearUnit_serialNumber">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="softwareVersion">
+                <description>The software version of the Antenna Near Unit.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaNearUnit_softwareVersion">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="uniqueId">
+                <description>Subset of the unique identifier of the Antenna Near Unit. 
+It is used to support advanced antenna system configurations, such as cascaded RETs. Leave empty when the units are not cascaded.&#13;
+&#13;
+The value stated is a subset of the uniqueID(concatenation of the vendor code and the antenna near unit serial number) 
+which must contain enough significant characters/digits to be unique among the antenna near units (with iuantDeviceType single antenna RET or multiple antenna RET) connected to the RfPort. 
+See also 3GPP 25.462.&#13;
+&#13;
+Some vendors use specific modifications of the serial number on the device label to define the unique ID. 
+Contact the vendor of the antenna near unit (RET) to obtain the mapping between the serial number taken from the label and the unique ID.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaNearUnit_uniqueId">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state.
+If set to SHUTTINGDOWN, the state will immediately be brought to LOCKED.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>UNLOCKED</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+        </class>
+        <class name="RetSubUnit">
+            <description>This MO represents the device, either a single RET subunit or a subunit of the multi RET subunit providing for remote electrical tilting of the antenna unit where it is mounted.</description>
+            <action name="forceCalibration">
+                <description>Force calibration of the antenna.
+Exercises the antenna drive unit over its entire range of travel to ensure fault-free operation and synchronize the measured and actual beam tilt of the antenna.
+</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3005"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <disturbances>This is a Time Consuming Procedure (TCP) that cannot be executed simultaneously with another TCP, while it can be executed simultaneously with a maximum of one EP. It may affect traffic.</disturbances>
+            </action>
+            <action name="sendAntennaConfigurationFile">
+                <description>Sends vendor and antenna specific configuration data in an antenna configuration file to the RET subunit.
+The antenna configuration file is fetched from an FTP server. The configuration data includes the relationship between the movement of the drive system and the beam tilt position of the addressed antenna.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="3006"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <parameter name="server">
+                    <description>The IP address or hostname of the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <sequence>
+                            <string/>
+                            <minLength>0</minLength>
+                            <maxLength>255</maxLength>
+                        </sequence>
+                    </dataType>
+                </parameter>
+                <parameter name="path">
+                    <description>The file path to the antenna configuration file on the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <sequence>
+                            <string/>
+                            <minLength>0</minLength>
+                            <maxLength>255</maxLength>
+                        </sequence>
+                    </dataType>
+                </parameter>
+                <parameter name="userName">
+                    <description>User name used to logon to the FTP server.
+
+</description>
+                    <in/>
+                    <dataType>
+                        <sequence>
+                            <string/>
+                            <minLength>0</minLength>
+                            <maxLength>255</maxLength>
+                        </sequence>
+                    </dataType>
+                </parameter>
+                <parameter name="password">
+                    <description>Password used to logon to the FTP server.</description>
+                    <in/>
+                    <dataType>
+                        <sequence>
+                            <string/>
+                            <minLength>0</minLength>
+                            <maxLength>255</maxLength>
+                        </sequence>
+                    </dataType>
+                </parameter>
+            </action>
+            <attribute name="retSubUnitId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="calibrationStatus">
+                <description>The status of ongoing calibration operation.
+In case no calibration has been performed since last Baseband restart it shows state UNKNOWN.&#13;
+&#13;
+NOTE: The calibrationStatus is not used to verify or confirm if the RET subunit is calibrated or not. The RET subunit is calibrated unless an alarm indicates otherwise.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="TcpStatus">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="electricalAntennaTilt">
+                <description>Electrically-controlled tilt of main beam maximum with respect to direction orthogonal to antenna element axis (see 3GPP TS 25.466). Value is signed; tilt down is positive, tilt up is negative.
+If electricalAntennaTilt is -999 at MO creation, actual value in RETU is used as antenna tilt setting. ElectricalAntennaTilt is overwritten. 
+
+Dependencies: RetSubunit.minTilt =&lt; RetSubunit.electricalAntennaTilt =&lt; RetSubunit.maxTilt
+AND
+AntennaSubunit.minTotalTilt =&lt; (AntennaSubunit.installedMechanicalTilt + RetSubunit.electricalAntennaTilt) =&lt; AntennaSubunit.maxTotalTilt
+Throws exception AttributeValueOutOfRangeException
+Disturbances: Change can affect traffic while the antenna beam is moving.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_electricalAntennaTilt">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaBearing">
+                <description>Antenna bearing on the antenna subunit where the RET subunit is installed.
+Antenna bearing is expressed as bearing value x 10.&#13;
+This attribute is part of IUANT protocol definition (see 3GPP TS 25.466) and has no operational impact.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantAntennaBearing">
+                        <defaultValue>-1000</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaModelNumber">
+                <description>Vendor-specific antenna model identifier.
+This parameter is part of IUANT protocol specification (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantAntennaModelNumber">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaOperatingBand">
+                <description>Operating band used by the antenna subunit connected to this RET subunit.
+This attribute is part of the IUANT protocol specification and has no operational impact. Bit 0 in 0x03 is the least significant bit (For details on coding, see table B.2 of Annex B on 3GPP TS 25.466).&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <int64>
+                        <defaultValue>-1000</defaultValue>
+                    </int64>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaSerialNumber">
+                <description>Unique hardware identifier of the antenna where the RET subunit operates.
+This parameter is part of IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantAntennaSerialNumber">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantBaseStationId">
+                <description>Base station ID.
+This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantBaseStationId">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantInstallationDate">
+                <description>Installation date.
+This parameter is part of the IUANT protocol specification (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantInstallationDate">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantInstallersId">
+                <description>ID of the responsible installer.
+This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantInstallersId">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantSectorId">
+                <description>RBS internal sector ID.
+This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantSectorId">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="maxTilt">
+                <description>Maximum electrical tilt supported by the RET subunit.
+The electrical tilt is defined as the inclination of the maximum of the antenna main beam with respect to the direction orthogonal to the antenna element axis. It is a signed value. Positive indicates downtilt, and negative indicates uptilt. &#13;
+&#13;
+This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_maxTilt">
+                        <defaultValue>-1000</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="minTilt">
+                <description>Minimum electrical tilt supported by the RET subunit.
+The electrical tilt is defined as the inclination of the maximum of the antenna main beam with respect to the direction orthogonal to the antenna element axis. It is a signed value. Positive value indicates downtilt, and negative value indicates uptilt.&#13;
+&#13;
+This attribute is part of the IUANT protocol specification (see 3GPP TS 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_minTilt">
+                        <defaultValue>-1000</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="subunitNumber">
+                <description>Subunit identifier carried on L7 messages in which subunits are pointed with the help of application level identifiers.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <int32/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_userLabel">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaOperatingGain">
+                <description>Antenna gain for each of four operating bands, starting with the lowest value.
+This attribute is part of IUANT protocol definition (see 3GPP TS 25.466) and has no operational impact.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_RetSubUnit_iuantAntennaOperatingGain">
+                            <defaultValue>-1000,-1000,-1000,-1000</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>4</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1000</defaultValue>
+                            <defaultValue>-1000</defaultValue>
+                            <defaultValue>-1000</defaultValue>
+                            <defaultValue>-1000</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="tiltChangeStatus">
+                <description>Status of tilt operation.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="RetStates">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="verticalBeamWidthMode">
+                <description>Vertical beam width mode of radio.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="VerticalBeamWidthMode">
+                        <defaultValue>NARROW</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>Wide mode supported only for AIR4455 radio.</dependencies>
+            </attribute>
+        </class>
+        <class name="TmaSubUnit">
+            <description>This MO represents a TMA subunit which provides low noise amplification of the uplink received by the reserving branch.</description>
+            <attribute name="tmaSubUnitId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="dlAttenuation">
+                <description>Subunit internal attenuation in downlink.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_dlAttenuation">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Only valid when tmaType=TMA.</dependencies>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="dlTrafficDelay">
+                <description>Subunit internal traffic delay in downlink.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_dlTrafficDelay">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Only valid when tmaType=TMA.</dependencies>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="iuantAntennaBearing">
+                <description>Antenna bearing expressed as bearing value x 10.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantAntennaBearing">
+                        <defaultValue>-1000</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaInstalledMechanicalTilt">
+                <description>Antenna tilt fixed on the installation.
+
+Defined as the inclination of the antenna element axis with respect to the vertical plane. It is a signed value. A positive value indicates downtilt, and a negative value indicates uptilt. Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantAntennaInstalledMechanicalTilt">
+                        <defaultValue>-1000</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaModelNumber">
+                <description>Vendor-specific antenna model identifier.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantAntennaModelNumber">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaOperatingBand">
+                <description>Operating band used by the Antenna Subunit connected to this TMA subunit.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact. Bit 0 in 0x03 is the least significant bit. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <int64>
+                        <defaultValue>-1000</defaultValue>
+                    </int64>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaOperatingGain">
+                <description>Antenna gain for each of four operating bands, starting with the lowest value.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantAntennaOperatingGain">
+                            <defaultValue>-1000,-1000,-1000,-1000</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>4</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>-1000</defaultValue>
+                            <defaultValue>-1000</defaultValue>
+                            <defaultValue>-1000</defaultValue>
+                            <defaultValue>-1000</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="iuantAntennaSerialNumber">
+                <description>Unique hardware identifier for the antenna where the antenna near unit is installed.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantAntennaSerialNumber">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Immediately</takesEffect>
+            </attribute>
+            <attribute name="iuantBaseStationId">
+                <description>Base station ID.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantBaseStationId">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantInstallationDate">
+                <description>Installation date. 
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantInstallationDate">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantInstallersId">
+                <description>ID of the responsible installer.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantInstallersId">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantSectorId">
+                <description>RBS internal sector ID.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantSectorId">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantTmaSubunitFreqRangeRx">
+                <description>Uplink frequency band across the TMA subunit.
+It is a sequence of 2 values (16-bit unsigned) stating minimum and maximum frequencies for the TMA subunit transmission path.&#13;
+&#13;
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitFreqRangeRx">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="iuantTmaSubunitFreqRangeTx">
+                <description>Downlink frequency band across the TMA subunit.
+It is a sequence of 2 values (16-bit unsigned) stating minimum and maximum frequencies for the TMA subunit transmission path.
+&#13;
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitFreqRangeTx">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="iuantTmaSubunitGainRes">
+                <description>Gain resolution on the TMA subunit subunit expressed in gain value [dB] times 4.
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitGainRes">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantTmaSubunitMaxGain">
+                <description>Maximum gain available on this TMA subunit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitMaxGain">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="iuantTmaSubunitMinGain">
+                <description>Minimum gain available on this TMA subunit.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_iuantTmaSubunitMinGain">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.&#13;
+</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.&#13;
+</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="subunitNumber">
+                <description>Subunit identifier carried on L7 messages.
+While an antenna near unit is identified by one High-Level Data Link Control (HDLC) address (L2), subunits are identified by application level (L7) identifiers.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_subunitNumber">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ulGain">
+                <description>Internal uplink gain of the TMA subunit.
+
+Part of the IUANT protocol definition (see 3GPP 25.466) and has no operational impact.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_ulGain">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ulTrafficDelay">
+                <description>Subunit internal traffic delay in uplink.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_ulTrafficDelay">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Only valid when tmaType=TMA.</dependencies>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmaSubUnit_userLabel">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="tmfData">
+                <description>TMF configuration data.</description>
+                <readOnly/>
+                <dataType>
+                    <structRef name="TmfDataStruct">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </structRef>
+                </dataType>
+                <dependencies>Only valid when tmaType=TMF.</dependencies>
+            </attribute>
+            <attribute name="tmaType">
+                <description>Type of tower mounted amplifier.</description>
+                <restricted/>
+                <dataType>
+                    <enumRef name="TmaType">
+                        <defaultValue>TMA</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="AntennaUnit">
+            <description>This MO represents an antenna unit that contains several antenna subunits installed with a common mechanical tilt.</description>
+            <attribute name="antennaUnitId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="mechanicalAntennaTilt">
+                <description>The fixed antenna tilt of the installation, defined as the inclination of the antenna element axis with respect to the vertical plane.
+It is a signed value. Positive indicates downtilt, and negative indicates uptilt.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaUnit_mechanicalAntennaTilt">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="AntennaSubunit">
+            <description>This MO groups the antenna elements that, because of being controlled by the same RET radiate with the same tilt angle.</description>
+            <attribute name="antennaSubunitId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="azimuthHalfPowerBeamwidth">
+                <description>Specifies the azimuth half power beamwidth for the antenna.
+In principle, for F band (1.9GHz) or D band (2.6GHz) antennas, the parameter should be configured to 65 degrees. 
+For FAD antennas the parameter should be configured to 90 degrees for the F band (1.9 GHz) and 65 degrees for the D band (2.6 GHz).
+For information regarding antenna element half power beamwidth please refer to the manual from the antenna manufacturer. </description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaSubunit_azimuthHalfPowerBeamwidth">
+                        <defaultValue>65</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="commonChBeamfrmPortMap">
+                <description>Select between co-polarized and cross-polarized beamforming antenna port mapping. 
+Valid both for the pre-defined antenna weights and custom antenna weights configured by customComChBeamfrmWtsAmplitude and customComChBeamfrmWtsPhase.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="BeamformingPortMapping">
+                        <defaultValue>CROSS_POLARIZED</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changed coverage may affect traffic.</disturbances>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="customComChBeamfrmWtsAmplitude">
+                <description>An array of eight or sixteen amplitudes for custom common channel beamforming weights.
+At least one of the eight or sixteen amplitudes have to be non-zero for the custom beamforming weights to take effect.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_AntennaSubunit_customComChBeamfrmWtsAmplitude">
+                            <defaultValue>0,0,0,0,0,0,0,0</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>16</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changed coverage may affect traffic.</disturbances>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="customComChBeamfrmWtsPhase">
+                <description>An array of eight or sixteen phases for custom common channel beamforming weights.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="ReqAntennaSystem_AntennaSubunit_customComChBeamfrmWtsPhase">
+                            <defaultValue>0,0,0,0,0,0,0,0</defaultValue>
+                            <mimName>ReqAntennaSystem</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>16</maxLength>
+                        <nonUnique/>
+                        <seqDefaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                            <defaultValue>0</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+                <disturbances>Changed coverage may affect traffic.</disturbances>
+                <takesEffect>Next cell unlock</takesEffect>
+            </attribute>
+            <attribute name="maxTotalTilt">
+                <description>The maximum antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET).
+described by the inclination of the maximum of the antenna main beam with respect to the horizontal plane. It is a signed value. Positive indicates downtilt, and negative indicates uptilt. It sets a limitation on total tilt which is given by:&#13;
+&#13;
+TotalTilt = AntennaUnit.MechanicaAntennalTilt + RetSubunit.electricalTilt&#13;
+&#13;
+NOTE: If the antenna has no RET installed, this value does not account for the inclination that the antenna beam might have by default, with respect to the direction orthogonal to the antenna element axis.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaSubunit_maxTotalTilt">
+                        <defaultValue>900</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="minTotalTilt">
+                <description>The minimum antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET) described by the inclination of the maximum of the antenna main beam with respect to the horizontal plane.
+It is a signed value. Positive indicates downtilt, and negative indicates uptilt. The limitation on total tilt is found by the following equation:&#13;
+&#13;
+TotalTilt = AntennaUnit.MechanicaAntennalTilt + RetSubunit.electricalTilt&#13;
+&#13;
+NOTE: If the antenna has no RET installed, the total tilt value does not necessarily account for the inclination that the antenna beam might have by default, with respect to the direction orthogonal to the antenna element axis.&#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaSubunit_minTotalTilt">
+                        <defaultValue>-900</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="retSubunitRef">
+                <description>Reference to the RET subunit controlling the tilt of this antenna subunit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="RetSubUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="totalTilt">
+                <description>Total antenna elevation including the installed tilt and the tilt applied by the Remote Electrical Tilt (RET).
+Total tilt is defined as the inclination of the maximum of the antenna main beam with respect to the horizontal plane.&#13;
+Tilt is a signed value. Positive indicates downtilt, and negative indicates uptilt, found by the following equation:&#13;
+&#13;
+totalTilt = AntennaUnit.MechanicaAntennalTilt+RetSubunit.electricalTilt&#13;
+&#13;
+NOTE: If the antenna has no RET installed, this value does not account for the inclination that the antenna beam may have by default, with respect to the direction orthogonal to the antenna element axis.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AntennaSubunit_totalTilt">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="AuPort">
+            <description>This MO represents an antenna feeder port on the Antenna Unit where the antenna branch is connected.</description>
+            <attribute name="auPortId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_AuPort_userLabel">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="TmfConfiguration">
+            <description>Used to configure TMF and TTMF. MO enables support of automatic configuration of TMF and TTMF.</description>
+            <attribute name="tmfConfigurationId">
+                <description>The value component of the RDN. </description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="operatingBand">
+                <description>Supported band for TMF/TTMF.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmfConfiguration_operatingBand">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <specification>3GPP TS.36.104 and 3GPP TS 25.104.</specification>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="operatingMode">
+                <description>Supported operating mode.</description>
+                <mandatory/>
+                <dataType>
+                    <enumRef name="SupportedOperatingMode">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="channelNumber1">
+                <description>ARFCN for first uplink carrier.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmfConfiguration_channelNumber1">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="channelNumber2">
+                <description> ARFCN for second uplink carrier.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmfConfiguration_channelNumber2">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="frequencyDistance">
+                <description>Frequency distance between two carriers. If 0(default value), RBS automatically sets frequency distance according to TMF Rx frequency range and carrier bandwidth. </description>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmfConfiguration_frequencyDistance">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="antBtoRbsB">
+                <description>If ANT port A,B and RBS port A,B are cross connected or not.
+false means direct connection.
+true means cross connection.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="dcMonitoringRbsA">
+                <description>If DC monitoring of RBS port A is needed or not.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="dcMonitoringRbsB">
+                <description>If DC monitoring of RBS port B is needed or not.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since L16B. Has no functional behavior. Planned to be removed.</statusInformation>
+                <dependencies>The default value of this attribute depends on the operatingMode. 
+LTE_5MHZ or LTE_10MHZ the value is false,  WCDMA_1_channel or WCDMA_2_channels the value is true.</dependencies>
+            </attribute>
+            <attribute name="ifFilterBit">
+                <description>Indicate what IF filter (5 or 10 MHz) is being used.
+0 means 5MHz IF filter.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ReqAntennaSystem_TmfConfiguration_ifFilterBit">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <deprecated/>
+                <statusInformation>Since L16B. Has no functional behavior. Planned to be removed.</statusInformation>
+                <dependencies>The default value of this attribute depends on the operatingMode. 
+LTE_5MHZ or WCDMA_1_channel the value is 0, LTE_10MHZ or WCDMA_2_channels the value is 1.</dependencies>
+            </attribute>
+            <attribute name="dcToRetBlocked">
+                <description>If DC to RET is blocked or not.
+false means DC to RET is not blocked.
+true means DC to RET is blocked if not connected.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="dcMonitoringAntA">
+                <description>If DC monitoring of ANT port A is needed or not.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="dcMonitoringAntB">
+                <description>If DC monitoring of ANT port B is needed or not.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="deploymentType">
+                <description>Supported deployment type.</description>
+                <dataType>
+                    <enumRef name="SupportedDeployment">
+                        <defaultValue>PSI_CONFIGURATION</defaultValue>
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="MulticastAntennaBranch">
+            <description>Represents all UL and DL antenna streams representing the same carrier branch within an RDS Multicast Coverage Area.</description>
+            <attribute name="multicastAntennaBranchId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqAntennaSystem</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="transceiverRef">
+                <description>Reference to the Transceiver MO instances being reserved.
+</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <takesEffect>Next unlock of SectorEquipmentFunction.</takesEffect>
+                <precondition>Locked SectorEquipmentFunction since 18.Q2.</precondition>
+            </attribute>
+        </class>
+        <relationship name="AntennaNearUnit_to_TmaSubUnit">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaNearUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TmaSubUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="AntennaUnitGroup_to_RfBranch">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>24</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="AntennaUnitGroup_to_AntennaNearUnit">
+            <description>AntennaUnitGroup_to_AntennaNearUnit.</description>
+            <containment>
+                <parent>
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AntennaNearUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>48</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="AntennaUnitGroup_to_AntennaUnit">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AntennaUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="AntennaUnit_to_AntennaSubunit">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AntennaSubunit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="AntennaSubunit_to_AuPort">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaSubunit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AuPort">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>17</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="AntennaNearUnit_to_RetSubUnit">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaNearUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RetSubUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+        <relationship name="AntennaSubunit_retSubunitRef_to_RetSubUnit_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="retSubunitRef">
+                    <hasClass name="RetSubUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="AntennaSubunit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="AntennaNearUnit_rfPortRef_to_RfPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfPortRef">
+                    <hasClass name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="AntennaNearUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RfBranch_rfPortRef_to_RfPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="rfPortRef">
+                    <hasClass name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RfBranch_auPortRef_to_AuPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="auPortRef">
+                    <hasClass name="AuPort">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>4</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RfBranch_tmaRef_to_TmaSubUnit_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="tmaRef">
+                    <hasClass name="TmaSubUnit">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="RfBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="AntennaUnitGroup_positionRef_to_HwGroup_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="positionRef">
+                    <hasClass name="HwGroup">
+                        <mimName>ReqHwGroup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="AntennaUnitGroup_to_TmfConfiguration">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="TmfConfiguration">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="AntennaUnitGroup_to_MulticastAntennaBranch">
+            <containment>
+                <parent>
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="MulticastAntennaBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="MulticastAntennaBranch_transceiverRef_to_Transceiver_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="transceiverRef">
+                    <hasClass name="Transceiver">
+                        <mimName>ReqTransceiver</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="MulticastAntennaBranch">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Equipment_to_AntennaUnitGroup">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="AntennaUnitGroup">
+                        <mimName>ReqAntennaSystem</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

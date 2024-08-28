@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Mar 14, 2018 3:18:08 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="0" date="2015-01-09" docNo="" name="RtnRoutesStaticRouteIPv4" namespace="urn:com:ericsson:ecim:RtnRoutesStaticRouteIPv4" namespacePrefix="rtnroutesstaticrouteipv4" organization="" release="9" revision="" variant="Model" version="4">
+        <description>Configure IPv4 Static Routes.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_T_Routes_StaticRouteIPv4"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="1"/>
+            <extension name="ecimMomCorrection" value="0"/>
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_T_Routes_StaticRouteIPv4" release="1" version="1"/>
+        <derivedDataType name="DistanceValueType">
+            <description>Distance Value Type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <int16>
+                    <range>
+                        <min>1</min>
+                        <max>255</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>1</min>
+                            <max>255</max>
+                        </subrange>
+                    </ranges>
+                </int16>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="EcimEmpty">
+            <description>This type represents a leaf that has no value, it conveys information by its presence or absence.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="6"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <boolean/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="Ipv4RouteAddressAndPrefixLengthStr">
+            <description>'Unicast IPv4 address'/'prefix length' string.&#13;
+&#13;
+Address should be specified in dotted-quad decimal notation in accordance with RFC791, without leading 0s.&#13;
+IPv4 address within range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters. Prefix is a number 0 to 32.&#13;
+0.0.0.0/0 default route is allowed too.&#13;
+&#13;
+Example: 1.1.2.2/28</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^(((([1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))/([0-9]|[1-2][0-9]|3[0-2]))|(0\.0\.0\.0/0))$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^(((([1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))/([0-9]|[1-2][0-9]|3[0-2]))|(0\.0\.0\.0/0))$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="Ipv4UnicastAddressStr">
+            <description>IPv4 address string, controlled by a regular expression.&#13;
+&#13;
+The address is specified in dotted-quad decimal notation in accordance with RFC791, without leading zeros.
+&#13;
+IPv4 addresses are within the range [1-126,128-223].[0-255].[0-255].[0-255], 7-15 characters. &#13;
+Valid characters: 0123456789.&#13;
+&#13;
+Example: 1.1.1.1, 1.1.255.255</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <validValues>(^((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$)</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[(^((22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9]|[1-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9]))$)]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="RouteKeyAttributeType">
+            <description>Route KeyAttribute Type.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="RtnRoutesLib"/>
+            </domainExtension>
+            <baseType>
+                <string/>
+            </baseType>
+        </derivedDataType>
+        <class name="Dst">
+            <description>Represents IPv4 destination of routes defined by one or more NextHop child MOs.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Dst"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <pattern>
+         <rule>
+         <assert test='are-distinct-values(./NextHop/@address)'><value-of select="."/> Attribute address of NextHop MO must be unique under same Dst MO.</assert>
+         <assert test='are-distinct-values(./NextHop/@reference)'><value-of select="."/> Attribute reference of NextHop MO must be unique under same Dst MO.</assert>
+         <assert test='are-distinct-values(./NextHop/@adminDistance)'><value-of select="."/> Attribute adminDistance of NextHop MO must be unique under same Dst MO.</assert>
+         </rule>
+      </pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+    <pattern>
+         <rule>
+         <assert test='are-distinct-values(./NextHop/@address)'><value-of select="."/> Attribute address of NextHop MO must be unique under same Dst MO.</assert>
+         <assert test='are-distinct-values(./NextHop/@reference)'><value-of select="."/> Attribute reference of NextHop MO must be unique under same Dst MO.</assert>
+         <assert test='are-distinct-values(./NextHop/@adminDistance)'><value-of select="."/> Attribute adminDistance of NextHop MO must be unique under same Dst MO.</assert>
+         </rule>
+      </pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="dst">
+                <description>IPv4 destination prefix for routes defined by NextHop child MOs.
+Default route is expressed as 0.0.0.0/0.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4RouteAddressAndPrefixLengthStr">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dstId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="RouteKeyAttributeType">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="NextHop">
+            <description>Contains information about the route defined by this MO and its parent Dst MO.
+
+Dependencies:
+Max number of NextHop MOs are 10000 within all RouteTableIpv4Static MOs in the node.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="NextHop"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $ref in @reference satisfies (contains(@reference, concat("Router=", ../../../@routerId, ",")))'><value-of select="."/> Attribute reference in NextHop MO must not be under different Router MO. </assert>
+		<assert test='every $ref in @reference satisfies (contains(@reference, "InterfaceIPv4=") and contains($ref/@encapsulation, "IpsecTunnel="))'><value-of select="."/> Attribute reference in NextHop MO can only refer to InterfaceIPv4 MO that has IpsecTunnel MO as encapsulation reference.</assert>
+		<assert test='not(not(@discard) and not(@address) and not(@reference)) and ((@discard and not(@address) and not(@reference)) or (not(@discard) and @address and not(@reference)) or (not(@discard) and not(@address) and @reference))'><value-of select="."/> One of attributes address, discard, or reference must be set, only one of them at same time. </assert>
+		<assert test='(count(../NextHop[(@discard)]) le 1)'> <value-of select="."/> Only one NextHop MO with discard set is allowed under Dst MO. </assert>
+		<assert test='every $address in @address satisfies count(../../../InterfaceIPv4/AddressIPv4[substring-before(@address, "/") eq $address]) eq 0 '><value-of select="."/> Attribute address must not coincide with address configured on InterfaceIPv4 MO on this router. </assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='every $ref in @reference satisfies (contains(@reference, concat("Router=", ../../../@routerId, ",")))'><value-of select="."/> Attribute reference in NextHop MO must not be under different Router MO. </assert>
+		<assert test='every $ref in @reference satisfies (contains(@reference, "InterfaceIPv4=") and contains($ref/@encapsulation, "IpsecTunnel="))'><value-of select="."/> Attribute reference in NextHop MO can only refer to InterfaceIPv4 MO that has IpsecTunnel MO as encapsulation reference.</assert>
+		<assert test='not(not(@discard) and not(@address) and not(@reference)) and ((@discard and not(@address) and not(@reference)) or (not(@discard) and @address and not(@reference)) or (not(@discard) and not(@address) and @reference))'><value-of select="."/> One of attributes address, discard, or reference must be set, only one of them at same time. </assert>
+		<assert test='(count(../NextHop[(@discard)]) le 1)'> <value-of select="."/> Only one NextHop MO with discard set is allowed under Dst MO. </assert>
+		<assert test='every $address in @address satisfies count(../../../InterfaceIPv4/AddressIPv4[substring-before(@address, "/") eq $address]) eq 0 '><value-of select="."/> Attribute address must not coincide with address configured on InterfaceIPv4 MO on this router. </assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="address">
+                <description>IP address of nexthop gateway of this route.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="Ipv4UnicastAddressStr">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>One of attributes address, discard, or reference must be set, only one of them at same time.
+Must not coincide with address configured on InterfaceIPv4 MO on this router.
+Must be unique under same Dst MO.</dependencies>
+            </attribute>
+            <attribute name="adminDistance">
+                <description>Defines priority of this MO relative to other NextHop MOs under the same Dst MO.
+
+Defines priority of this MO relative to routes to the same destination network learned from dynamic routing protocols.
+
+Used to select the preferred path when two or more routes lead to the same destination.</description>
+                <dataType>
+                    <derivedDataTypeRef name="DistanceValueType">
+                        <defaultValue>1</defaultValue>
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Two NextHop MOs under the same Dst MO cannot have the same adminDistance.</dependencies>
+            </attribute>
+            <attribute name="bfdMonitoring">
+                <description>Controls whether availability of this route depends on BFD session that monitors nexthop.
+
+If set to true, availability of this route depends on session state, if BFD session monitors nexthop.
+
+If set to false, availability of this route does not depend on session state, even when BFD session monitors nexthop.
+
+To enable BFD monitoring of a nexthop, see details in InterfaceIPv4::bfdStaticRoutes and PeerIPv4::bfdStaticRoutes.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="discard">
+                <description>Packets with destination that matches this route are discarded.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="EcimEmpty">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>One of attributes address, discard, or reference must be set, only one of them at same time.
+Only one NextHop MO with discard set is allowed under Dst MO.</dependencies>
+            </attribute>
+            <attribute name="nextHopId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="RouteKeyAttributeType">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="reference">
+                <description>Applicable only if IPsec functionality is supported on the node.
+
+Used to route traffic from the inner network through the IPsec VPN connection.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>One of attributes address, discard and reference must be set, only one of them at same time.
+Can only refer to InterfaceIPv4 MO that has IpsecTunnel MO as encapsulation reference.
+Must be unique under same Dst MO.
+Must not be under different Router MO.
+Only one NextHop MO with this attribute set is allowed under Dst MO.</dependencies>
+            </attribute>
+        </class>
+        <class name="RouteTableIPv4Static">
+            <description>Contains manually defined IPv4 static routes defined by Dst MOs and their child NextHop MOs.
+
+Dependencies:
+All Dst MOs under RouteTableIPv4Static MO must have unique dst attributes.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Router"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	 <pattern>
+		<rule>
+		<assert test='count(./Dst/NextHop) le 10000'><value-of select="."/>Max number of NextHop MOs are 10000 under RouteTableIPv4Static MO exceeded.</assert>
+		<assert test='are-distinct-values(./Dst/@dst)'><value-of select="."/> All Dst MOs under RouteTableIPv4Static MO must have unique dst attributes. </assert>
+		</rule>
+	 </pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	 <pattern>
+		<rule>
+		<assert test='count(./Dst/NextHop) le 10000'><value-of select="."/>Max number of NextHop MOs are 10000 under RouteTableIPv4Static MO exceeded.</assert>
+		<assert test='are-distinct-values(./Dst/@dst)'><value-of select="."/> All Dst MOs under RouteTableIPv4Static MO must have unique dst attributes. </assert>
+		</rule>
+	 </pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="routeTableIPv4StaticId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <derivedDataTypeRef name="RouteKeyAttributeType">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Dst_to_NextHop">
+            <containment>
+                <parent>
+                    <hasClass name="Dst">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="NextHop">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="NextHop_reference_to_InterfaceIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="reference">
+                    <hasClass name="InterfaceIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="NextHop">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="RouteTableIPv4Static_to_Dst">
+            <containment>
+                <parent>
+                    <hasClass name="RouteTableIPv4Static">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Dst">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_RouteTableIPv4Static">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RouteTableIPv4Static">
+                        <mimName>RtnRoutesStaticRouteIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

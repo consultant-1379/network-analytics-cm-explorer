@@ -1,0 +1,6006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>H</dtdVersion>
+  <mib name="Alarm_CXP2020013_1" release="0" version="1">
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CertMAutomaticEnrollmentFailed</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175054</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NodeCredential</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Certificate Management Automatic Enrollment Failed</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Automatic enrollment or renewal failed to execute due to local misconfiguration or remote enrollment service denial.</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>WARNING</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>EnclosureProductDataMismatch</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175086</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Cabinet</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Enclosure Product Data Mismatch</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PLMNServiceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175140</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,NbIotCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>PLMN Service Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PartlyDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175159</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Partly Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PowerInconsistentConfiguration</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175153</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EquipmentSupportFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Power Inconsistent Configuration</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BFUIncompatibleWithPowerConfiguration</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175152</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>BFU Incompatible With Power Configuration</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LargeNumberOfCounters</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175056</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Pm</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Large Number of Counters</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>334</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>KeyFileFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175046</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Lm</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>License Key File Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Key file fault in Managed Element</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LinkDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175197</value>
+      </slot>
+      <slot name="moClasses">
+        <value>DiLink,RiLink</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Link Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CrossConnectCableFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175165</value>
+      </slot>
+      <slot name="moClasses">
+        <value>CcLink</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Cross Connect Cable Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SoftwareManagementLostConnectiontoFileServer</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175195</value>
+      </slot>
+      <slot name="moClasses">
+        <value>UpgradePackage</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Software Management Lost Connection to File Server</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Connectivity to the upgrade package file server is lost. Software download is not possible</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>WARNING</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RXDiversityLost</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175181</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaUnitGroup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>RX Diversity Lost</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryBackupTimeTooShort</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175080</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Backup Time Too Short</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>105</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>E1orT1RemoteDefectIndication</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175127</value>
+      </slot>
+      <slot name="moClasses">
+        <value>E1T1Port</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>E1 or T1 Remote Defect Indication</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>6</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>UnreliableResource</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175116</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Unreliable Resource</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>DHCPRequestedParameterMissing</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175194</value>
+      </slot>
+      <slot name="moClasses">
+        <value>InterfaceIPv4</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>DHCP Requested Parameter Missing</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>305</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPHWFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175173</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP HW Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>EnclosureDoorOpen</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175085</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Cabinet</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Enclosure Door Open</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>118</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>STNtoBSCLinkDown</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175129</value>
+      </slot>
+      <slot name="moClasses">
+        <value>TgTransport</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>STN to BSC Link Down</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>566</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPSWDownloadFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175176</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP SW Download Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>156</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>AntennaConnectionProblem</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175184</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RfPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Antenna Connection Problem</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ResourceActivationTimeoutServiceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175183</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Resource Activation Timeout Service Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>546</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ExternalAlarm</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175089</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AlarmPort,VirtualAlarmPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>External Alarm</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>550</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FanSpeedContinuouslyHigh</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175199</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Climate</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Fan Speed Continuously High</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>346</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Fans have run at maximum speed for *value of attribute fanSpeedSupervision* hours.</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryLevelLowPrioLoadDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175228</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Level Low Prio Load Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>112</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LicenseKeyCloseToExpiration</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175204</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Lm</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>License Key Close to Expiration</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SFPNotPresent</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175156</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SfpModule</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SFP Not Present</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>62</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPCommunicationProblem</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175171</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RdiPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP Communication Problem</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IncompatibleHWConfiguration</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175164</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit,IplPort,SfpModule</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Incompatible HW Configuration</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPCableInsertionLoss</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175170</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RdiPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP Cable Insertion Loss</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ExternalLinktoGNodeBFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175203</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ENodeBFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>External Link to GNodeB Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>EnclosureSmokeDetectorFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175088</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Cabinet</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Enclosure Smoke Detector Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>HSPDSCHResourceAllocationFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175212</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NodeBLocalCellGroup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>HS PDSCH Resource Allocation Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>TMFConfigurationFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175138</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaNearUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>TMF Configuration Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LinkFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175144</value>
+      </slot>
+      <slot name="moClasses">
+        <value>DiLink,RiLink</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Link Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>InterNodeFeatureIncompatibility</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175186</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ExternalENodeBFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Inter Node Feature Incompatibility</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>MissingBFUConfigurationandConnection</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175121</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Missing BFU Configuration and Connection</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncFrequencyReferenceNotReliable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175131</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync Frequency Reference Not Reliable</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RFReflectedPowerHigh</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175119</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RfPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>RF Reflected Power High</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ProblemstoScheduleSIMessages</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175112</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,NbIotCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Problems to Schedule SI Messages</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>308</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LicensedCapacityExceeded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175163</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ExtTrx,NodeBLocalCell,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Licensed Capacity Exceeded</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>VSWROverThreshold</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175040</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RfPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>VSWR Over Threshold</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>VirtualizedCATMServiceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175236</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ENodeBFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Virtualized CATM Service Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryHighTemperature</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175224</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery High Temperature</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>123</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>TemperatureSensorFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175100</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup,FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Temperature Sensor Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CriticalTemperatureBatteryDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175096</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup,FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Critical Temperature Battery Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>E1orT1AlarmIndicationSignal</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175124</value>
+      </slot>
+      <slot name="moClasses">
+        <value>E1T1Port</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>E1 or T1 Alarm Indication Signal</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>1</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IPLCableTooLong</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175217</value>
+      </slot>
+      <slot name="moClasses">
+        <value>IplPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>IPL Cable Too Long</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FallbackOperationStartingSoon</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175043</value>
+      </slot>
+      <slot name="moClasses">
+        <value>UpgradePackage</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>A Fallback Operation will soon be started</value>
+      </slot>
+      <slot name="eventType">
+        <value>OTHER</value>
+      </slot>
+      <slot name="probableCause">
+        <value>164</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>The upgrade operation has not been confirmed yet. The ME will soon start fallback operation if the upgrade is not confirmed.</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>WARNING</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>TimeSyncIOReferenceFailed</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175065</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>TimeSyncIO Reference Failed</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryVoltageTooLowMainLoadDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175082</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PowerDistribution</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Voltage Too Low Main Load Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IKEConfigurationPayloadFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175201</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Ikev2Session</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>IKE Configuration Payload Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>305</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>GracePeriodActivated</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175051</value>
+      </slot>
+      <slot name="moClasses">
+        <value>GracePeriod</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Grace Period Activated</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>351</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Grace Period Activated</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>AlternateOAMConnectionInUse</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175162</value>
+      </slot>
+      <slot name="moClasses">
+        <value>OamAccessPoint</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Alternate Oam Connection In Use</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>305</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>A management session is utilizing the alternate connection service</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ExternalLinkFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175110</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ENodeBFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>External Link Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SynchronizationtoBasebandClusterLost</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175238</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Synchronization to Baseband Cluster Lost</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RollbackEscalationStarted</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175066</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SysM</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Rollback Escalation Started</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>348</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Software error occured. Rollback to previous backup starts in one hour unless operator logs into ME.</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryMissing</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175081</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup,BatteryUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Missing</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>NodeGroupSyncConfigurationFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175150</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NodeGroupSyncMember</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Node Group Sync Configuration Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ClockReferenceMissingForLongTime</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175063</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClock</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Clock Reference Missing For Long Time</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>NodeGroupSyncLossofAllSoCC</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175149</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NodeGroupSyncMember</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Node Group Sync Loss of All SoCC</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPConfigurationNotSupported</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175172</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP Configuration Not Supported</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CloggedAirFilter</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175102</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Cabinet</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Clogged Air Filter</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>321</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPTemperatureExceptional</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175178</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP Temperature Exceptional</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>350</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPDesensitizationNoiseFigureOutofRange</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175185</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SectorEquipmentFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP Desensitization Noise Figure Out of Range</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FrequencySyncIOReferenceFailed</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175062</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>FrequencySyncIO Reference Failed</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RXBranchImbalanceFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175200</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaUnitGroup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>RX Branch Imbalance Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryEndofLife</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175233</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup,BatteryUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery End of Life</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>105</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>AutoExportBackupFailed</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175045</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BrmBackupScheduler</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Auto Export Backup Failed</value>
+      </slot>
+      <slot name="eventType">
+        <value>OTHER</value>
+      </slot>
+      <slot name="probableCause">
+        <value>418</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Export failed. For more information check the progress report for the specific backup</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>WARNING</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RunningonBatterySupply</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175097</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Running on Battery Supply</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>104</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CriticalTemperaturePerformanceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175078</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Critical Temperature Performance Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>350</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SystemOvervoltage</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175098</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PowerDistribution,PowerSupply</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>System Overvoltage</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>58</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncEReferenceFailed</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175064</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SyncE Reference Failed</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LossofMains</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175093</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit,PowerSupply,SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Loss of Mains</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>106</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryVoltageTooLowPrioLoadDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175083</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PowerDistribution</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Voltage Too Low Prio Load Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ClimateInconsistentConfiguration</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175154</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EquipmentSupportFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Climate Inconsistent Configuration</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>HatchOpen</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175187</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Hatch Open</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>118</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LinearizationDisturbancePerformanceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175155</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Linearization Disturbance Performance Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>529</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryDischargeCurrentHighMainLoadDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175237</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Discharge Current High Main Load Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>104</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>InconsistentConfiguration</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175068</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AlarmPort,AntennaNearUnit,AntennaUnit,Cabinet,EUtranCellFDD,EUtranCellTDD,EcPort,EquipmentDiscovery,EquipmentSupportFunction,ExtTrx,ExternalENodeBFunction,FieldReplaceableUnit,IplPort,MbsfnArea,NbIotCell,NodeBLocalCell,NodeBLocalCellGroup,PimCancellationFunction,RdiPort,RetSubUnit,RfPort,RiLink,RiPort,SectorCarrier,SectorEquipmentFunction,TmfConfiguration,Trx,UlCompGroup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Inconsistent Configuration</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FeatureResourceMissing</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175077</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaNearUnit,RfPort,RiPort,SectorEquipmentFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Feature Resource Missing</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ECBusUnreliableLink</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175180</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EcBus</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>EC Bus Unreliable Link</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>HighOperatingTemperatureMainLoadDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175091</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PowerDistribution</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>High Operating Temperature Main Load Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CalendarClockMisaligned</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175060</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SysM</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Calendar Clock Misaligned</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>356</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Clock was adjusted by more than 300 seconds in order to keep up with the time references</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>NoConnection</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175073</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaNearUnit,BatteryBackup,BatteryUnit,Cabinet,EcBus,EquipmentSupportFunction,ExternalNode,FanGroup,FieldReplaceableUnit,PlugInModule,SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>No Connection</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PLMNServiceUnavailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175141</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,NbIotCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>PLMN Service Unavailable</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ResourceAllocationFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175113</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,MbmsService,NbIotCell,NodeBLocalCell,NodeBSectorCarrier,PimCancellationFunction,SectorCarrier,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Resource Allocation Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>AntennaCalibrationFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175211</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SectorCarrier</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Antenna Calibration Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryTemperatureDifferenceHigh</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175232</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Temperature Difference High</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>350</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ResourceAllocationFailureServiceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175167</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,NodeBSectorCarrier,SectorCarrier,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Resource Allocation Failure Service Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>TransportSessionDown</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175130</value>
+      </slot>
+      <slot name="moClasses">
+        <value>TgTransport</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Transport Session Down</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>566</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PIMCancellationOutofResources</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175221</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PimCancellationFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>PIM Cancellation Out of Resources</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CurrentTooHigh</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175076</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RfPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Current Too High</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IKEPeerNotReachable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175136</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Ikev2Session</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>IKE Peer Not Reachable</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IPLLinkFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175218</value>
+      </slot>
+      <slot name="moClasses">
+        <value>IplPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>IPL Link Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PowerDisturbance</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175225</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ExternalPower</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Power Disturbance</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>551</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ResourceNotInstalled</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175179</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SectorEquipmentFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Resource Not Installed</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SystemGeneralProblem</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175067</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SystemFunctions</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>System General Problem</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>348</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>This is a non-recoverable SW error, a HWfault not detectable by HW test, or a configuration fault.</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ConfigurationRequiresFeatureActivation</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175042</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,SectorEquipmentFunction,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Configuration Requires Feature Activation</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RETNotCalibrated</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175074</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RetSubUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>RET Not Calibrated</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPIncompatibleSoftware</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175214</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP Incompatible Software</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>DHCPServerFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175192</value>
+      </slot>
+      <slot name="moClasses">
+        <value>InterfaceIPv4</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>DHCP Server Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>305</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LACPFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175209</value>
+      </slot>
+      <slot name="moClasses">
+        <value>LagPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>LACP Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>305</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ResourceConfigurationFailureServiceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175182</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Resource Configuration Failure Service Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPNoConnection</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175174</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit,RdiPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP No Connection</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IPLCableDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175219</value>
+      </slot>
+      <slot name="moClasses">
+        <value>IplPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>IPL Cable Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>EmergencyUnlockResetKeyRequired</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175048</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EmergencyUnlock</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Emergency Unlock Reset Key Required</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>343</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Emergency Unlock Reset Key required</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CalibrationFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175142</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaUnitGroup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Calibration Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>NumberofHWEntitiesMismatch</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175095</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Cabinet,EcBus</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Number of HW Entities Mismatch</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CalendarClockNTPServerUnavailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175059</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NTPServer</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Calendar Clock NTP Server Unavailable</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Configured NTP server is not used as basis for time of day clock</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175122</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>54</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SuspectedSleepingCell</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175117</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,NodeBLocalCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Suspected Sleeping Cell</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>351</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>MOConfigurationNotConsistentWithInstalledEquipment</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175226</value>
+      </slot>
+      <slot name="moClasses">
+        <value>DiLink,DiPort,NbIotCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>MO Configuration Not Consistent With Installed Equipment</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BSCConnectionFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175139</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AbisIp</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>BSC Connection Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>10</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>EFuseTripped</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175166</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EFuse</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>EFuse Tripped</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>110</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FanDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175143</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Fan Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PIMCancellationExhausted</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175220</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PimCancellationFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>PIM Cancellation Exhausted</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RETFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175120</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RetSubUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>RET Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LicenseKeyNotAvailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175047</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FeatureState</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>License Key Not Available</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Key missing for feature or capacity</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>InterNodeCarrierAggregationServiceUnavailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175198</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ExternalENodeBFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Inter Node Carrier Aggregation Service Unavailable</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPSWError</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175177</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP SW Error</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>346</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>DHCPLeaseExpiry</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175193</value>
+      </slot>
+      <slot name="moClasses">
+        <value>InterfaceIPv4</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>DHCP Lease Expiry</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>305</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>E1orT1UnavailableTime</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175128</value>
+      </slot>
+      <slot name="moClasses">
+        <value>E1T1Port</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>E1 or T1 Unavailable Time</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>351</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LinkStability</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175145</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RiLink</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Link Stability</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>517</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>OutputCurrentTooHigh</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175160</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Output Current Too High</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>550</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>E1orT1LossofFrame</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175125</value>
+      </slot>
+      <slot name="moClasses">
+        <value>E1T1Port</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>E1 or T1 Loss of Frame</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>6</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ServiceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175114</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellRelation,EUtranCellTDD,NbIotCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Service Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>334</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PSUOutputPowerFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175227</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>PSU Output Power Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>69</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ResourceActivationTimeout</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175118</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,PimCancellationFunction,SectorEquipmentFunction,Trx</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Resource Activation Timeout</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>546</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>MissingSXU</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175101</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Missing SXU</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>62</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryLevelLow</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175230</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Level Low</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>112</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryFailureBatteryDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175158</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Failure Battery Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>504</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FanDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175148</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Fan Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>HWFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175071</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaNearUnit,BatteryUnit,FieldReplaceableUnit,PlugInModule,SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>HW Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>EnclosureSmoke</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175087</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Cabinet</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Enclosure Smoke</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>132</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncReferenceQualityLevelTooLow</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175168</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync Reference Quality Level Too Low</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>64</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CertMCertificateNotAvailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175052</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NodeCredential,TrustedCertificate</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Certificate Management a Valid Certificate is Not Available</value>
+      </slot>
+      <slot name="eventType">
+        <value>OPERATIONALVIOLATION</value>
+      </slot>
+      <slot name="probableCause">
+        <value>414</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>The certificate provided by the alarming object is expired, revoked, or unavailable, which may result in the failure of a secure using this certificate.</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>CRITICAL</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryLowStateofCharge</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175223</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Low State of Charge</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>112</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ConfigurationRequiresFeatureActivationServiceDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175169</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,NodeBLocalCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Configuration Requires Feature Activation Service Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SFPProductNumberMismatch</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175213</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SfpModule</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SFP Product Number Mismatch</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>63</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FRUGeneralProblem</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175072</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>FRU General Problem</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>348</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncPTPTimePDVProblem</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175132</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync PTP Time PDV Problem</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncPTPTimeReliabilityFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175134</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync PTP Time Reliability Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SWVersionMismatch</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175216</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SW Version Mismatch</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>346</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>NotPossibletoStartAILG</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175111</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Not Possible to Start AILG</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MINOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>VirtualizedCATMServiceUnavailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175235</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ENodeBFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Virtualized CATM Service Unavailable</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SFPHWFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175196</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SfpModule</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SFP HW Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncFrequencyServerReachabilityFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175108</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync Frequency Server Reachability Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncPTPTimeAvailabilityFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175133</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync PTP Time Availability Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SCTPEndpointInconsistentConfiguration</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175189</value>
+      </slot>
+      <slot name="moClasses">
+        <value>ENodeBFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SCTP Endpoint Inconsistent Configuration</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IKEPeerCertificateFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175137</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Ikev2Session</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>IKE Peer Certificate Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>EthernetLinkFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175061</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EthernetPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Ethernet Link Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>8</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryLevelLowMainLoadDisconnected</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175229</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Level Low Main Load Disconnected</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>112</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CriticalTemperatureTakenOutofService</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175079</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EFuse,FieldReplaceableUnit,SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Critical Temperature Taken Out of Service</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>350</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>AutonomousModeActivated</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175049</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AutonomousMode</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Autonomous Mode Activated</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>306</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Autonomous Mode has been activated</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncPTPTimeReachabilityFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175135</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync PTP Time Reachability Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ResourceConfigurationFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175075</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,ExtTrx,NbIotCell,NodeBLocalCell,PimCancellationFunction,SectorEquipmentFunction,SyncPort,Trx,UlCompGroup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Resource Configuration Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FanPowerSupplyFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175123</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Cabinet,FanGroup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Fan Power Supply Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>58</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ArchiveDiskAlmostFull</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175161</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SystemFunctions</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Archive Disk Almost Full</value>
+      </slot>
+      <slot name="eventType">
+        <value>OTHER</value>
+      </slot>
+      <slot name="probableCause">
+        <value>151</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>Export and remove backups, remove upgrade packages and export logs to prevent data loss.</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>WARNING</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryCapacityDegraded</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175222</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SupportUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Capacity Degraded</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>334</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>FanFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175090</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FanGroup,FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Fan Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncEReferenceConfigurationNotSupported</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175106</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SyncE Reference Configuration Not Supported</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncReferenceDeviation</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175239</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync Reference Deviation</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SyncFrequencyPDVProblem</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175107</value>
+      </slot>
+      <slot name="moClasses">
+        <value>RadioEquipmentClockReference</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Sync Frequency PDV Problem</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>14</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ServiceUnavailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175115</value>
+      </slot>
+      <slot name="moClasses">
+        <value>EUtranCellFDD,EUtranCellTDD,NbIotCell</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Service Unavailable</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>356</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>E1orT1LossofSignal</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175126</value>
+      </slot>
+      <slot name="moClasses">
+        <value>E1T1Port</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>E1 or T1 Loss of Signal</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>8</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>RNCConnectionFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175041</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NbapCommon</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>RNC Connection Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>306</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>MAJOR</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>ScheduledBackupFailed</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175044</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BrmBackupScheduler,BrmCalendarBasedPerodicEvent,BrmPerodicEvent,BrmSingleEvent</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Scheduled Backup Failed</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>348</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>The scheduled backup creation failed or an event could not be scheduled</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>WARNING</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SFPPowerFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175157</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SfpModule</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SFP Power Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>58</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LowBatteryCapacity</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175094</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Low Battery Capacity</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>105</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SynchronizationLost</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175202</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Synchronization Lost</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>506</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PowerLoss</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175147</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Power Loss</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>522</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>AggregatedEthernetLinkFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175188</value>
+      </slot>
+      <slot name="moClasses">
+        <value>LagPort</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Aggregated Ethernet Link Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>COMMUNICATIONSALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>8</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SystemUndervoltage</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175099</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PowerDistribution,PowerSupply</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>System Undervoltage</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>58</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SWError</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175070</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaNearUnit,FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SW Error</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>346</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CircuitBreakerTripped</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175084</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryUnit,EFuse,FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Circuit Breaker Tripped</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>110</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CertMCertificateToExpire</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175053</value>
+      </slot>
+      <slot name="moClasses">
+        <value>NodeCredential,TrustedCertificate</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Certificate Management the Certificate is to Expire</value>
+      </slot>
+      <slot name="eventType">
+        <value>QUALITYOFSERVICEALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>351</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>The threshold before certificate expiration has been crossed, and the certificate should be renewed to prevent a secure service failure.</value>
+      </slot>
+      <slot name="defaultSeverity">
+        <value>WARNING</value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>PIMLevelTooHigh</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175215</value>
+      </slot>
+      <slot name="moClasses">
+        <value>PimCancellationFunction</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>PIM Level Too High</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>307</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>IndoorRAPPowerOverEthernetFault</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175175</value>
+      </slot>
+      <slot name="moClasses">
+        <value>FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Indoor RAP Power Over Ethernet Fault</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>315</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>InsufficientBatteryCharging</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175092</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Insufficient Battery Charging</value>
+      </slot>
+      <slot name="eventType">
+        <value>EQUIPMENTALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>505</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>LogHasReachedFullCapacity</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175057</value>
+      </slot>
+      <slot name="moClasses">
+        <value>Log</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Log Has Reached Full Capacity</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>317</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>SWDownloadFailure</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175069</value>
+      </slot>
+      <slot name="moClasses">
+        <value>AntennaNearUnit,FieldReplaceableUnit</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>SW Download Failure</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>156</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>BatteryVoltageLowatIntermittentCharge</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175231</value>
+      </slot>
+      <slot name="moClasses">
+        <value>BatteryBackup</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Battery Voltage Low at Intermittent Charge</value>
+      </slot>
+      <slot name="eventType">
+        <value>ENVIRONMENTALALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>105</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value></value>
+      </slot>
+    </object>
+    <object parentDn="Fm=1,FmAlarmModel=1">
+      <hasClass name="FmAlarmType">
+        <mimName>ECIM_FM</mimName>
+      </hasClass>
+      <slot name="fmAlarmTypeId">
+        <value>CalendarClockAllNTPServersUnavailable</value>
+      </slot>
+      <slot name="majorType">
+        <value>193</value>
+      </slot>
+      <slot name="minorType">
+        <value>9175058</value>
+      </slot>
+      <slot name="moClasses">
+        <value>SysM</value>
+      </slot>
+      <slot name="specificProblem">
+        <value>Calendar Clock All NTP Servers Unavailable</value>
+      </slot>
+      <slot name="eventType">
+        <value>PROCESSINGERRORALARM</value>
+      </slot>
+      <slot name="probableCause">
+        <value>340</value>
+      </slot>
+      <slot name="isStateful">
+        <value>true</value>
+      </slot>
+      <slot name="additionalText">
+        <value>No NTP server configured, or no NTP service available</value>
+      </slot>
+    </object>
+  </mib>
+</models>

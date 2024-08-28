@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ResClimate" namespace="urn:com:ericsson:ecim:ResClimate" namespacePrefix="resclimate" organization="" release="4" revision="" version="3">
+        <description>This MO represents the logical resource providing configuration and supervision support for the climate control function.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="ApcClimateControlMode">
+            <description/>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="4"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="ReqCabinet"/>
+            </domainExtension>
+            <enumMember name="NORMAL">
+                <description>Default mode.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="BATTERY_LIFE_EXTENSION">
+                <description>Improves battery life time. This mode may cause increased acoustic noise. This mode is only applicable for RBS with internal batteries.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="BOOST">
+                <description>Boosted cooling. This mode can cause increased acoustic noise and is applicable for RBS with integrated equipment not participating in climate control.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="ECO">
+                <description>Optimized for minimizing power consumption. Applicable for RBS6601.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ResClimate_Climate_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResClimate_Climate_cabinetTemperature">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-55</min>
+                        <max>125</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-55</min>
+                            <max>125</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°C</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResClimate_Climate_fanSpeedSupervision">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>0</max>
+                        <min>6</min>
+                        <max>6</max>
+                        <min>12</min>
+                        <max>12</max>
+                        <min>24</min>
+                        <max>24</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>0</max>
+                        </subrange>
+                        <subrange>
+                            <min>6</min>
+                            <max>6</max>
+                        </subrange>
+                        <subrange>
+                            <min>12</min>
+                            <max>12</max>
+                        </subrange>
+                        <subrange>
+                            <min>24</min>
+                            <max>24</max>
+                        </subrange>
+                    </ranges>
+                    <unit>hours</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ResClimate_Climate_boostInternalThreshold">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>10</min>
+                        <max>40</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>10</min>
+                            <max>40</max>
+                        </subrange>
+                    </ranges>
+                    <unit>°C</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="Climate">
+            <description>This MO represents the logical resource providing configuration and supervision support for the climate control function.</description>
+            <root/>
+            <attribute name="climateId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="controlDomainRef">
+                <description>The cabinet or the shelf where functions represented by this MO are deployed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ResClimate</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="climateControlMode">
+                <description>Documentation: Specifies the mode to run the climate control.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="ApcClimateControlMode">
+                        <mimName>ResClimate</mimName>
+                    </enumRef>
+                </dataType>
+                <dependencies>Only valid in the node where the attribute supportSystemControl is set to true on a parent MO EquipmentSupportFunction.</dependencies>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ResClimate</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResClimate_Climate_userLabel">
+                        <mimName>ResClimate</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="cabinetTemperature">
+                <description>Temperature from SCU temp sensor.&#13;
+Undefined value represented by 999, indicates invalid temperature readings from the SCU.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResClimate_Climate_cabinetTemperature">
+                        <mimName>ResClimate</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="fanSpeedSupervision">
+                <description>Time period for fan speed supervision.
+If fan speed is continuously high (&gt;= 90%) during time period, an alarm is raised.
+Use '6' if located near households. Use '24' if fan speed supervision is needed and noise level does not matter, no neighbors.
+
+Valid values:
+0: fan speed supervision off
+6, 12, 24: time period in hours
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResClimate_Climate_fanSpeedSupervision">
+                        <defaultValue>12</defaultValue>
+                        <mimName>ResClimate</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="boostInternalThreshold">
+                <description>Threshold at which cabinet temperatures contribute to fan speed regulation. If empty, cabinet default is used.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ResClimate_Climate_boostInternalThreshold">
+                        <mimName>ResClimate</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>Only applicable when the attribute climateControlMode is set to BOOST.</dependencies>
+            </attribute>
+        </class>
+        <relationship name="Climate_controlDomainRef_to_Cabinet_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="controlDomainRef">
+                    <hasClass name="Cabinet">
+                        <mimName>ReqCabinet</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Climate">
+                        <mimName>ResClimate</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="EquipmentSupportFunction_to_Climate">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="EquipmentSupportFunction">
+                        <mimName>ResEquipmentSupportFunction</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Climate">
+                        <mimName>ResClimate</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqBatteryUnit" namespace="urn:com:ericsson:ecim:ReqBatteryUnit" namespacePrefix="reqbatteryunit" organization="" release="1" revision="0" version="1">
+        <description>This MO represents a battery unit connected to the system. The battery unit can be of lithium-ion type or lead-acid type.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <struct name="ApcProductData">
+            <description>.&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="4"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="ReqCabinet"/>
+            </domainExtension>
+            <structMember name="productionDate">
+                <description>The production date is represented in two ways:&#13;
+&#13;
+- the preferred syntax is four-digits for the year, two digits for the month, and two digits for the day.&#13;
+Example: 19991231&#13;
+&#13;
+- the date is also be represented by two digits for the year, followed by the letter W for week, and two digits for the number of the week.&#13;
+Example: 99W52</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productionDate">
+                    <mimName>ReqBatteryUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productName">
+                <description>The name of the product.</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productName">
+                    <mimName>ReqBatteryUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productNumber">
+                <description>The product number of the product.&#13;
+&#13;
+Examples: ABC 101 001, CXC 123 456, 1/BFD 101 999&#13;
+</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productNumber">
+                    <mimName>ReqBatteryUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The revision state of the product.&#13;
+&#13;
+Examples: R1, R1A, R1A02, P7B </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productRevision">
+                    <mimName>ReqBatteryUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>The serial number of the product. </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_serialNumber">
+                    <mimName>ReqBatteryUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqBatteryUnit_BatteryUnit_fullyChargedCapacity">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Ah</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqBatteryUnit_BatteryUnit_nominalCapacity">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>999999</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>999999</max>
+                        </subrange>
+                    </ranges>
+                    <unit>Ah</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqBatteryUnit_BatteryUnit_stateOfHealth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqBatteryUnit_BatteryUnit_installationDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>8</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>8</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqBatteryUnit_BatteryUnit_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productionDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>5</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>5</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>24</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>24</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>7</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>7</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_serialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>13</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>13</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="BatteryUnit">
+            <description>This MO represents a battery unit connected to the system. The battery unit can be of lithium-ion type or lead-acid type.
+
+This MO is created automatically. MO can only be deleted by action delete(). To prevent the system from recreating the BatteryUnit MO, battery hardware must be disconnected. 
+
+RDNs of these MOs are BatteryUnit=1, BatteryUnit=2 and so on.</description>
+            <systemCreated/>
+            <root/>
+            <action name="delete">
+                <description>This action deletes the BatteryUnit MO.
+
+To prevent the system from recreating the BatteryUnit MO, battery hardware must be disconnected.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+            </action>
+            <attribute name="batteryUnitId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqBatteryUnit</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="fullyChargedCapacity">
+                <description>Current maximum capacity of the battery unit.
+Undefined value: -1 indicates that no value has been retrieved.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqBatteryUnit_BatteryUnit_fullyChargedCapacity">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="nominalCapacity">
+                <description>Nominal capacity of battery unit.
+Undefined value: -1 indicates that no value has been retrieved.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqBatteryUnit_BatteryUnit_nominalCapacity">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T rec. X.731</specification>
+            </attribute>
+            <attribute name="productData">
+                <description>Product data for battery unit. Matches product data on hardware unit label.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="ApcProductData">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="stateOfHealth">
+                <description>State of health for the battery unit.
+Undefined value: -1 indicates that no value has been retrieved.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqBatteryUnit_BatteryUnit_stateOfHealth">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="batteryBackupRef">
+                <description>Reference to instance of the BatteryBackup MO which the battery unit refers to.</description>
+                <readOnly/>
+                <dataType>
+                    <moRef name="BatteryBackup">
+                        <mimName>ResBatteryBackup</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="batteryFuseUnitRef">
+                <description>Reference to instance of FieldReplaceableUnit MO that represents physical battery fuse unit (BFU) connected to this battery unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <moRef name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="batteryProtocolAdapterRef">
+                <description>Reference to instance of FieldReplaceableUnit MO that represents the HW that realizes the battery protocol adapter (BPA) function and is connected to this battery unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <moRef name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="installationDate">
+                <description>Date when battery unit was installed and taken into service. Format: YYYYMMDD.
+Undefined value: "00000000" indicates that no date has been set.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqBatteryUnit_BatteryUnit_installationDate">
+                        <defaultValue>00000000</defaultValue>
+                        <mimName>ReqBatteryUnit</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqBatteryUnit_BatteryUnit_userLabel">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="BatteryUnit_batteryProtocolAdapterRef_to_FieldReplaceableUnit">
+            <uniDirectionalAssociation>
+                <hasClass name="BatteryUnit">
+                    <mimName>ReqBatteryUnit</mimName>
+                </hasClass>
+                <associationEnd name="batteryProtocolAdapterRef">
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </associationEnd>
+            </uniDirectionalAssociation>
+        </relationship>
+        <relationship name="BatteryUnit_batteryFuseUnitRef_to_FieldReplaceableUnit">
+            <uniDirectionalAssociation>
+                <hasClass name="BatteryUnit">
+                    <mimName>ReqBatteryUnit</mimName>
+                </hasClass>
+                <associationEnd name="batteryFuseUnitRef">
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </associationEnd>
+            </uniDirectionalAssociation>
+        </relationship>
+        <relationship name="BatteryUnit_batteryBackupRef_to_BatteryBackup_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="batteryBackupRef">
+                    <hasClass name="BatteryBackup">
+                        <mimName>ResBatteryBackup</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="BatteryUnit">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Equipment_to_BatteryUnit">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="BatteryUnit">
+                        <mimName>ReqBatteryUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>32</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

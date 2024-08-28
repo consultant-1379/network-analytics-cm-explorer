@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Mar 14, 2017 6:41:31 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle/>
+        <momSubTitle/>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>emagnso</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>emagnso</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="emagnso" contact="emagnso" correction="0" date="" docNo="" name="ReqRfPort" namespace="urn:com:ericsson:ecim:ReqRfPort" namespacePrefix="reqrfport" organization="" release="10" revision="" version="1">
+        <description>This MO represents port on the Radio of various type depending on MOid.
+It represents an antenna feeder port on the Radio when it has the MOid; A, B C, etc...
+It represents a cross connection port on the Radio when it has the MOid; RXA_IO or RXB_IO.
+It represents a RET-port on the External Radio if it has the MOid; R.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="VswrInfo">
+            <description>VSWR value and related information.</description>
+            <structMember name="returnLoss">
+                <description>Return loss value.</description>
+                <derivedDataTypeRef name="ReqRfPort_VswrInfo_returnLoss">
+                    <mimName>ReqRfPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="sampleTime">
+                <description>Timestamp for the value. Format: YYYY-MM-DD HH:MM:SS.XXX
+</description>
+                <derivedDataTypeRef name="ReqRfPort_VswrInfo_sampleTime">
+                    <mimName>ReqRfPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="message">
+                <description>Message about insufficient readings above screening threshold.</description>
+                <derivedDataTypeRef name="ReqRfPort_VswrInfo_message">
+                    <mimName>ReqRfPort</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="MicroSleepTxRadioStatus">
+            <enumMember name="ENABLED">
+                <description>Feature support in radio is enabled.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DISABLED">
+                <description>Feature support in radio is disabled because some other feature is prioritized.
+</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="MicroSleepTxRadioCapability">
+            <enumMember name="NO_SUPPORT">
+                <description>Radio can not support feature.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FULL_SUPPORT">
+                <description>Radio can fully support feature.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="LIMITED_SUPPORT">
+                <description>Radio has limited support for feature because HW cannot save power on every symbol position.
+</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="1"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqRfPort_RfPort_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRfPort_RfPort_vswrSupervisionSensitivity">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-1</min>
+                        <max>-1</max>
+                        <min>1</min>
+                        <max>100</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-1</min>
+                            <max>-1</max>
+                        </subrange>
+                        <subrange>
+                            <min>1</min>
+                            <max>100</max>
+                        </subrange>
+                    </ranges>
+                    <unit>%</unit>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRfPort_RfPort_dlFrequencyRanges">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>256</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>256</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRfPort_RfPort_ulFrequencyRanges">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>256</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>256</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRfPort_VswrInfo_returnLoss">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>5</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>5</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRfPort_VswrInfo_sampleTime">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>23</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>23</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRfPort_VswrInfo_message">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>160</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>160</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="RfPort">
+            <description>This MO represents a port on an Radio of various types depending on the rfPortId of the Port MO. 
+Represents an antenna feeder port on the Radio if it has an rfPortId like A, B, C, etc. 
+Represents a cross connection port on the Radio if it has any of the rfPortIds RXA_IO or RXB_IO. 
+Represents a RET port on the External Radio if it has the rfPortId R.</description>
+            <root/>
+            <attribute name="rfPortId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqRfPort</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="nodeUniqueRfPortId">
+                <description>Internal identifier for the RfPort to ease error traceability.
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqRfPort</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRfPort_RfPort_userLabel">
+                        <mimName>ReqRfPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="vswrSupervisionActive">
+                <description>VSWR supervision status.
+Indicates if supervision of Voltage Standing Wave Ratio (VSWR) is enabled for the branch of this port on the Radio Unit.
+VSWR supervision is possible on a TX branch only. </description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="vswrSupervisionSensitivity">
+                <description>VSWR supervision sensitivity.
+
+High values enable detection of low-reflected power (high return loss). Low values require high-reflected power (low return loss) to cause alarms.
+
+VSWR = (1+10^(-RL/20))/(1-10^(-RL/20))
+
+Where RL is Return Loss
+
+Relation between sensitivity and return loss on Radio is defined as:
+RL = 6 + vswrSupervisionSensitivity [%]*0.08 dB
+
+This gives VSWR=1.5 for 100% sensitivity and VSWR=3 for 1% sensitivity.
+
+If attribute set to -1, radio chooses default return loss threshold. Currently this is the same as setting sensitivity to 1%.</description>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRfPort_RfPort_vswrSupervisionSensitivity">
+                        <defaultValue>-1</defaultValue>
+                        <mimName>ReqRfPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>The administrative state.
+If set to SHUTTINGDOWN, the state will immediately be brought to LOCKED.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>LOCKED</defaultValue>
+                        <mimName>ReqRfPort</mimName>
+                    </enumRef>
+                </dataType>
+                <specification>ITU-T Rec. X.731</specification>
+                <disturbances>Changing this attribute can cause loss of traffic.</disturbances>
+            </attribute>
+            <attribute name="vswrValue">
+                <description>VSWR value and related information from radios.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="VswrInfo">
+                        <mimName>ReqRfPort</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="dlFrequencyRanges">
+                <description>Multiple downlink frequency ranges that RfPort supports, displayed as string.
+
+If gaps occur in supported frequency range, attribute shows multiple ranges. Lowest sub range is first.
+
+See CPI for more information.
+
+NOTE: For RfPort with no valid downlink frequency range, the string shows ""Not supported"".</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRfPort_RfPort_dlFrequencyRanges">
+                        <mimName>ReqRfPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ulFrequencyRanges">
+                <description>Multiple uplink frequency ranges that RfPort supports, displayed as string.
+
+If gaps occur in supported frequency range, attribute shows multiple ranges. Lowest sub range is first.
+
+See CPI for more information.
+
+NOTE: For RfPort with no valid uplink frequency range, the string shows ""Not supported"".</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="ReqRfPort_RfPort_ulFrequencyRanges">
+                        <mimName>ReqRfPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="antennaSupervisionActive">
+                <description>Antenna supervision status indicates if supervision of antenna/feeder connection is enabled for the branch of this port on the Radio Unit. </description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>false</defaultValue>
+                    </boolean>
+                </dataType>
+            </attribute>
+            <attribute name="microSleepTxRadioCapability">
+                <description>Capability in radio to support the Micro Sleep Tx functionality.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="MicroSleepTxRadioCapability">
+                        <mimName>ReqRfPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="microSleepTxRadioStatus">
+                <description>Current status in radio of the support for the Micro Sleep Tx functionality.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="MicroSleepTxRadioStatus">
+                        <mimName>ReqRfPort</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_RfPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RfPort">
+                        <mimName>ReqRfPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>10</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

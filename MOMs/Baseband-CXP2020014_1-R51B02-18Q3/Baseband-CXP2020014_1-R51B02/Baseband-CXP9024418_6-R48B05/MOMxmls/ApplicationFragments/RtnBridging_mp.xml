@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Feb 3, 2017 3:47:39 PM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" name="RtnBridging" namespace="urn:com:ericsson:ecim:RtnBridging" namespacePrefix="rtnbridging" release="6" variant="Model" version="2">
+        <description>ECIM Transport Bridging Model.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="MacAddressStr">
+            <description>MAC address string, controlled by a regular expression.&#13;
+&#13;
+Address should be specified in colon separated hexadecimal notation as described in IEEE 802. &#13;
+MAC addresses shall have 17 characters.&#13;
+Valid characters: 0123456789abcdefABCDEF
+&#13;
+Example: 00:12:34:56:78:9A</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RtnCommonLibrary"/>
+                <extension name="originatingMimRelease" value="3"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>17</min>
+                        <max>17</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>17</min>
+                            <max>17</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[([0-9A-Fa-f]{2}:){5}[0-9A-Fa-f]{2}]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <class name="Bridge">
+            <description>Ethernet L2 forwarding technique.
+
+A network bridge connects multiple network segments at the data link layer (Layer 2) of the OSI model.
+
+In Ethernet networks, the term bridge formally means a device that behaves according to the IEEE 802.1D standards.
+
+Bridging takes place at OSI Model Layer 2 (data-link layer), that it (including MAC Bridge, Provider Bridge) directs frames according to hardware assigned MAC addresses.
+
+Bridge MO can only refer to existing VlanPort MO.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Bridge"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select ="."/> Max one MO of type InterfaceIPv4 can reserve this port.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select ="."/> Max one MO of type InterfaceIPv6 can reserve this port.</assert>
+		<assert test='count(distinct-values(@port/@lowLatencySwitching)) le 1'><value-of select="."/> In all VlanPort MOs reserved by port, attribute lowLatencySwitching must be set to same value.</assert>
+		<assert test='not((count(@port/@lowLatencySwitching[. eq true()]) ge 1) and (count(distinct-values(@port/@vlanId)) gt 1))'><value-of select="."/> In all VlanPort MOs reserved by port, attribute vlanId must be set to same value, when attribute lowLatencySwitching is set to true.</assert>
+		<assert test='every $port in @port satisfies (contains($port, "VlanPort=") and (exists($port)))'><value-of select="."/> Bridge MO can only refer to existing VlanPort MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv4=.*")]) &lt; 2)'><value-of select ="."/> Max one MO of type InterfaceIPv4 can reserve this port.</assert>
+		<assert test='(count(@reservedBy[matches(., ".*,InterfaceIPv6=.*")]) &lt; 2)'><value-of select ="."/> Max one MO of type InterfaceIPv6 can reserve this port.</assert>
+		<assert test='count(distinct-values(@port/@lowLatencySwitching)) le 1'><value-of select="."/> In all VlanPort MOs reserved by port, attribute lowLatencySwitching must be set to same value.</assert>
+		<assert test='not((count(@port/@lowLatencySwitching[. eq true()]) ge 1) and (count(distinct-values(@port/@vlanId)) gt 1))'><value-of select="."/> In all VlanPort MOs reserved by port, attribute vlanId must be set to same value, when attribute lowLatencySwitching is set to true.</assert>
+		<assert test='every $port in @port satisfies (contains($port, "VlanPort=") and (exists($port)))'><value-of select="."/> Bridge MO can only refer to existing VlanPort MO.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <specification>802.1Q-2011</specification>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RtnBridging</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="bridgeId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="macAddress">
+                <description>The MAC address of the Bridged Virtual Interface (BVI), when a BVI is associated with this Bridge.</description>
+                <readOnly/>
+                <dataType>
+                    <derivedDataTypeRef name="MacAddressStr">
+                        <mimName>RtnBridging</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RtnBridging</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="port">
+                <description>Reference to VlanPort.</description>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <dependencies>If this attribute refers to VlanPort MO, same VlanPort instance cannot be referenced by InterfaceIPv4 MO or InterfaceIPv6 MO. 
+Cannot add same VlanPort MO to more than one bridge.
+In all reserved VlanPort MOs attribute lowLatencySwitching must be set to same value.
+In all reserved VlanPort MOs attribute vlanId must be set to same value, when attribute lowLatencySwitching is set to true.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+                <dependencies>Max one MO of type InterfaceIPv4 and max one MO of type InterfaceIPv6 can reserve this bridge.
+</dependencies>
+            </attribute>
+        </class>
+        <relationship name="Bridge_port_to_VlanPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="port">
+                    <hasClass name="VlanPort">
+                        <mimName>RtnL2VlanPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="Bridge">
+                        <mimName>RtnBridging</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_Bridge">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Bridge">
+                        <mimName>RtnBridging</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>256</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

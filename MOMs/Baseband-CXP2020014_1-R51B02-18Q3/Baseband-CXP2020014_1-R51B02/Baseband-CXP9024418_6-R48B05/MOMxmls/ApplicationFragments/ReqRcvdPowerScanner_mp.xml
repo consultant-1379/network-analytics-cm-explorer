@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Nov 10, 2017 9:49:24 AM using:
+	* com.ericsson.ecim.m2m 2.14.10.201706160627
+	* com.ericsson.ecim.dsl 2.14.10.201706160627
+	* com.ericsson.ecim.edm 2.14.10.201706160627
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>ReqRcvdPowerScanner</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>1</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="ejuhgao" contact="NULL team" correction="0" date="" docNo="" name="ReqRcvdPowerScanner" namespace="urn:com:ericsson:ecim:ReqRcvdPowerScanner" namespacePrefix="reqrcvdpowerscanner" organization="" release="0" revision="" version="2">
+        <description>Measures power at receive antenna when O&amp;M interface requests it. 
+
+The RDN of this MO is RcvdPowerScanner=1. </description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="RcvdPowerReport">
+            <description>Received power scan result.
+Represents a sequence of data points.
+Each data point is given by start frequency, bandwidth and received power. Specifically, the i:th data point is given by (freq[i], bandwidth[i], rcvdPower[i]).</description>
+            <structMember name="freq">
+                <description>Frequency.</description>
+                <sequence>
+                    <derivedDataTypeRef name="ReqRcvdPowerScanner_RcvdPowerReport_freq">
+                        <mimName>ReqRcvdPowerScanner</mimName>
+                    </derivedDataTypeRef>
+                    <minLength>1</minLength>
+                    <maxLength>30</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+            <structMember name="bandwidth">
+                <description>Band width.</description>
+                <sequence>
+                    <derivedDataTypeRef name="ReqRcvdPowerScanner_RcvdPowerReport_bandwidth">
+                        <mimName>ReqRcvdPowerScanner</mimName>
+                    </derivedDataTypeRef>
+                    <minLength>1</minLength>
+                    <maxLength>30</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+            <structMember name="rcvdPower">
+                <description>Received power.</description>
+                <sequence>
+                    <derivedDataTypeRef name="ReqRcvdPowerScanner_RcvdPowerReport_rcvdPower">
+                        <mimName>ReqRcvdPowerScanner</mimName>
+                    </derivedDataTypeRef>
+                    <minLength>1</minLength>
+                    <maxLength>30</maxLength>
+                    <nonUnique/>
+                </sequence>
+            </structMember>
+        </struct>
+        <struct name="RcvdPowerFreqRange">
+            <description>Specifies a frequency range. 
+The range is given as a start frequency and a bandwidth.
+</description>
+            <structMember name="freq">
+                <description>Measured frequency range.</description>
+                <derivedDataTypeRef name="ReqRcvdPowerScanner_RcvdPowerFreqRange_freq">
+                    <mimName>ReqRcvdPowerScanner</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="bandwidth">
+                <description>Measured band width.</description>
+                <derivedDataTypeRef name="ReqRcvdPowerScanner_RcvdPowerFreqRange_bandwidth">
+                    <mimName>ReqRcvdPowerScanner</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="RcvdPowerScanType">
+            <description>Received power scan types.
+Determines whether the scan shall be performed on frequency ranges with or without active carriers.</description>
+            <enumMember name="RCVD_POWER_WITHOUT_CARRIER">
+                <description>A scan on a frequency range without carriers.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="RCVD_POWER_WITH_CARRIER">
+                <description>A scan on a frequency range with carrier(s).</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqRcvdPowerScanner_RcvdPowerReport_freq">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>3550000</min>
+                        <max>3700000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>3550000</min>
+                            <max>3700000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>kHz</unit>
+                    <multiplicationFactor>1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRcvdPowerScanner_RcvdPowerReport_bandwidth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>150000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>150000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>kHz</unit>
+                    <multiplicationFactor>1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRcvdPowerScanner_RcvdPowerReport_rcvdPower">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>-10000</min>
+                        <max>10000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>-10000</min>
+                            <max>10000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>dBm</unit>
+                    <multiplicationFactor>0.1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRcvdPowerScanner_RcvdPowerFreqRange_freq">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>3550000</min>
+                        <max>3700000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>3550000</min>
+                            <max>3700000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>kHz</unit>
+                    <multiplicationFactor>1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqRcvdPowerScanner_RcvdPowerFreqRange_bandwidth">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>150000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>150000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>kHz</unit>
+                    <multiplicationFactor>1</multiplicationFactor>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="RcvdPowerScanner">
+            <description>Measures power at receive antenna when O&amp;M interface requests it. 
+
+The RDN of this MO is RcvdPowerScanner=1. </description>
+            <root/>
+            <action name="scanRcvdPower">
+                <description>Starts a scan on the radio unit, measuring the received power on a set of frequency ranges.
+If the scan can be started, the action returns a value greater than zero, indicating the scanId. 
+When the scan is completed, attribute scanResult is updated and attribute scanId is set to the identifier returned by the action.
+
+If a scan cannot be started, a negative value is returned. The negative value do not update the result attributes.
+Each negative value corresponds to a unique error code as specified below:
+-1 scan request parameters are invalid / scan request have invalid parameters
+-2 target device is not available
+-3 target device does not have capability to perform scan
+-4 scan mode and carrier status are inconsistent 
+-5 scan is already ongoing.</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <int32/>
+                </returnType>
+                <parameter name="scanFreqList">
+                    <description>the set of frequencies on which the scan shall be performed.</description>
+                    <in/>
+                    <dataType>
+                        <sequence>
+                            <structRef name="RcvdPowerFreqRange">
+                                <mimName>ReqRcvdPowerScanner</mimName>
+                            </structRef>
+                            <minLength>1</minLength>
+                            <maxLength>30</maxLength>
+                        </sequence>
+                    </dataType>
+                </parameter>
+                <parameter name="scanType">
+                    <description>Received power scan types.
+Determines whether the scan shall be performed on frequency ranges with or without active carriers.</description>
+                    <in/>
+                    <dataType>
+                        <enumRef name="RcvdPowerScanType">
+                            <mimName>ReqRcvdPowerScanner</mimName>
+                        </enumRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <attribute name="scanId">
+                <description>Identifier for the last completed scan contained in attribute scanResult.
+A value of 0 means that no scan has been completed, no results are available.
+</description>
+                <readOnly/>
+                <dataType>
+                    <uint32/>
+                </dataType>
+            </attribute>
+            <attribute name="scanResult">
+                <description>Contains the last completed scan result identified by attribute scanId.
+The result sequence has one entry for each radio capable of performing a scan under the FRU.
+Each entry contains the measured received power on the frequencies requested in the scanRcvdPower action.
+</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="RcvdPowerReport">
+                            <mimName>ReqRcvdPowerScanner</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                        <maxLength>16</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="rcvdPowerScannerId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_RcvdPowerScanner">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="RcvdPowerScanner">
+                        <mimName>ReqRcvdPowerScanner</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jan 8, 2018 2:26:19 PM using:
+	* com.ericsson.ecim.m2m 2.15.0.201710201249
+	* com.ericsson.ecim.dsl 2.15.0.201710201249
+	* com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FHP/TA UABERPE" contact="" correction="0" date="" docNo="" name="RtnPeerIpsecProfile" namespace="urn:com:ericsson:ecim:RtnPeerIpsecProfile" namespacePrefix="rtnpeeripsecprofile" organization="" release="5" revision="" variant="Model" version="1">
+        <description>Ipsec PeerIpsecProfile package</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <class name="PeerIpsecProfile">
+            <description>Enables node to automatically setup direct IPsec VPN connections to other RBS based on X2 neighbor information in node.
+Information for IKE and Child SA negotiation for direct IPsec VPN connections by referring to Ikev2PolicyProfile MO and IpsecProposalProfile MO.
+To establish direct IPsec VPN connection, there must be connectivity between X2 neighbor nodes through IPsec VPN connections to security gateway.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="SchematronPeerIpsecProfile"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(@ikev2PolicyProfile/@credential and @ikev2PolicyProfile/@trustCategory)'><value-of select="."/> Referenced Ikev2PolicyProfile MO must be configured for certificate based authentication with attributes credential and trustCategory set.</assert>
+		<assert test='not(exists(@ipsecProposalProfile/@childSaLifetime/@dataLimit))'><value-of select="."/> Referenced IpsecProposalProfile MO must be configured with datalimit in childSaLifetime attribute set to nil.</assert>
+		<assert test='not(@ipsecProposalProfile/@pfs)'><value-of select="."/> Referenced IpsecProposalProfile MO must not be configured with pfs attribute set to true.</assert>
+		</rule>
+		</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(@ikev2PolicyProfile/@credential and @ikev2PolicyProfile/@trustCategory)'><value-of select="."/> Referenced Ikev2PolicyProfile MO must be configured for certificate based authentication with attributes credential and trustCategory set.</assert>
+		<assert test='not(exists(@ipsecProposalProfile/@childSaLifetime/@dataLimit))'><value-of select="."/> Referenced IpsecProposalProfile MO must be configured with datalimit in childSaLifetime attribute set to nil.</assert>
+		<assert test='not(@ipsecProposalProfile/@pfs)'><value-of select="."/> Referenced IpsecProposalProfile MO must not be configured with pfs attribute set to true.</assert>
+		</rule>
+		</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="antiReplayProtection">
+                <description>Enable or disable anti-replay protection.</description>
+                <dataType>
+                    <boolean>
+                        <defaultValue>true</defaultValue>
+                    </boolean>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ikev2PolicyProfile">
+                <description>Reference to Ikev2PolicyProfile MO.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="Ikev2PolicyProfile">
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Referenced Ikev2PolicyProfile MO must be configured for certificate based authentication with attributes credential and trustCategory set.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ipsecProposalProfile">
+                <description>Reference to IpsecProposalProfile MO.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="IpsecProposalProfile">
+                        <mimName>RtnIpsecProposalProfile</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Referenced IpsecProposalProfile MO must be configured with datalimit in childSaLifetime attribute set to nil, and attribute pfs must not be set to true.
+Referenced IpsecProposalProfile MO must not be configured with pfs attribute set to true.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="peerIpsecProfileId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="PeerIpsecProfile_ikev2PolicyProfile_to_Ikev2PolicyProfile_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ikev2PolicyProfile">
+                    <hasClass name="Ikev2PolicyProfile">
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PeerIpsecProfile">
+                        <mimName>RtnPeerIpsecProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="PeerIpsecProfile_ipsecProposalProfile_to_IpsecProposalProfile_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ipsecProposalProfile">
+                    <hasClass name="IpsecProposalProfile">
+                        <mimName>RtnIpsecProposalProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="PeerIpsecProfile">
+                        <mimName>RtnPeerIpsecProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Router_to_PeerIpsecProfile">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Router">
+                        <mimName>RtnL3Router</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PeerIpsecProfile">
+                        <mimName>RtnPeerIpsecProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

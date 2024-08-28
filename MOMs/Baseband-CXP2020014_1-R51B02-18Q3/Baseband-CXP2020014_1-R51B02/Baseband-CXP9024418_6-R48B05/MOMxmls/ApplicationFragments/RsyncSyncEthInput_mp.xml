@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Aug 2, 2016 11:30:13 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="RsyncSyncEthInput" namespace="urn:com:ericsson:ecim:RsyncSyncEthInput" namespacePrefix="rsyncsyncethinput" organization="" release="2" revision="" variant="Model" version="1">
+        <description>Synchronization Ethernet Input Model</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="SyncEthPhysical">
+            <description>Type of connected physical cable.</description>
+            <enumMember name="SFP_UNKNOWN">
+                <value>0</value>
+            </enumMember>
+            <enumMember name="SFP_DAC">
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SFP_OPTICAL">
+                <value>2</value>
+            </enumMember>
+            <enumMember name="SFP_CAT_X_CABLE">
+                <description>SFP-RJ45 electrical cable.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="CAT_X_CABLE">
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="SyncEthStatus">
+            <description>Synchronous Ethernet status for used Ethernet port.</description>
+            <enumMember name="UNKNOWN">
+                <description>No status information available.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NO_FAULT">
+                <description>No fault detected.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="NO_SUPPORT_SFP_CAT_X_CABLE">
+                <description>SFP-RJ45 electrical cable not supported.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="LOSS_OF_SIGNAL">
+                <description>Signal not received.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="LOSS_OF_ESMC">
+                <description>No valid ESMC-PDU detected within five seconds.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="RJ45_1000_BASE_T_NOT_SLAVE">
+                <description>Ethernet port configured as sync reference is not in slave state.</description>
+                <value>5</value>
+            </enumMember>
+        </enum>
+        <class name="SyncEthInput">
+            <description>Represents synchronous Ethernet properties of Ethernet interface configured for synchronization.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="SyncEthInput"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $syncEthInputId in @syncEthInputId satisfies (every $encapsulation in @encapsulation satisfies (count(../SyncEthInput[($syncEthInputId ne @syncEthInputId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more SyncEthInput MOs cannot refer to same EthernetPort MO in attribute encapsulation.</assert>
+<assert test='contains(@encapsulation, "EthernetPort=")'><value-of select="."/> Attribute encapsulation of SyncEthInput MO can only refer to EthernetPort MO.</assert>
+</rule>
+</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+<pattern>
+<rule>
+<assert test='every $syncEthInputId in @syncEthInputId satisfies (every $encapsulation in @encapsulation satisfies (count(../SyncEthInput[($syncEthInputId ne @syncEthInputId) and ($encapsulation eq @encapsulation)]) eq 0))'> <value-of select="."/> Two or more SyncEthInput MOs cannot refer to same EthernetPort MO in attribute encapsulation.</assert>
+<assert test='contains(@encapsulation, "EthernetPort=")'><value-of select="."/> Attribute encapsulation of SyncEthInput MO can only refer to EthernetPort MO.</assert>
+</rule>
+</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RsyncSyncEthInput</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="encapsulation">
+                <description>Reference to the underlying encapsulation.
+
+Must be EthernetPort MO.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+                <dependencies>Two or more SyncEthInput MOs cannot refer to same EthernetPort MO.
+Attribute encapsulation of SyncEthInput MO can only refer to EthernetPort MO.</dependencies>
+            </attribute>
+            <attribute name="mixedEecEnhancedEec">
+                <description>Specifies whether chain is mixed EEC/eEEC.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="numberCascadedEec">
+                <description>Number of cascaded EECs from the nearest SSU/PRC.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <uint8/>
+                </dataType>
+            </attribute>
+            <attribute name="numberCascadedEnhancedEec">
+                <description>Number of cascaded eEECs from the nearest SSU/PRC.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <uint8/>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RsyncSyncEthInput</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="partialChain">
+                <description>Specifies whether chain is incomplete.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <boolean/>
+                </dataType>
+            </attribute>
+            <attribute name="receivedSsmCode">
+                <description>Synchronization Status Messages code.</description>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+                <specification>G.781, section 5.5 and G.8264, section 11.2.</specification>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="syncEMasterId">
+                <description>SyncE Master ID.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="syncEthInputId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="syncEthPhysical">
+                <description>Type of connected physical cable.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="SyncEthPhysical">
+                        <mimName>RsyncSyncEthInput</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="syncEthStatus">
+                <description>Status of port.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="SyncEthStatus">
+                        <mimName>RsyncSyncEthInput</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="SyncEthInput_encapsulation_to_EthernetPort_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="encapsulation">
+                    <hasClass name="EthernetPort">
+                        <mimName>RtnL2EthernetPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="SyncEthInput">
+                        <mimName>RsyncSyncEthInput</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Synchronization_to_SyncEthInput">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Synchronization">
+                        <mimName>RsyncSynchronization</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SyncEthInput">
+                        <mimName>RsyncSyncEthInput</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

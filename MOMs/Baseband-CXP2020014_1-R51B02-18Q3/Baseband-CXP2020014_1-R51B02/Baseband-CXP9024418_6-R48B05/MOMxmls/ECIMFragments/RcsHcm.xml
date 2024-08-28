@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Apr 11, 2018 1:28:48 PM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>Managed Object Model for Health Check Management Function</momTitle>
+        <momSubTitle/>
+        <momIdentity>
+            <docNum>1/15554-CNX 901 3474</docNum>
+            <docLang>Uen</docLang>
+            <docRev>B</docRev>
+            <docDate>2018-04-11</docDate>
+        </momIdentity>
+        <createdBy>
+            <signature>ERAELN</signature>
+        </createdBy>
+    </momMetaData>
+    <mim author="ERAELN" contact="ERAELN" correction="0" date="2018-04-11" docNo="1/15554-CNX 901 3474" name="RcsHcm" namespace="urn:com:ericsson:ecim:RcsHcm" namespacePrefix="rcshcm" organization="" release="1" revision="" version="1">
+        <description>Health Check Management function MOM.</description>
+        <domainExtension domain="ECIM">
+            <extension name="ecimMomName" value="ECIM_HCM"/>
+            <extension name="ecimMomVersion" value="1"/>
+            <extension name="ecimMomRelease" value="1"/>
+            <extension name="ecimMomCorrection" value="0"/>
+        </domainExtension>
+        <implements correction="0" name="ECIM_HCM" release="1" version="1"/>
+        <filter>0</filter>
+        <struct name="FailedHcRule">
+            <description>Indicates some information about a failed health check rule.</description>
+            <structMember name="hcRule">
+                <description>Specifies the RDN of the failed health check rule.</description>
+                <string/>
+            </structMember>
+            <structMember name="reason">
+                <description>Specifies a description of the health check rule failure.</description>
+                <string/>
+            </structMember>
+            <structMember name="severity">
+                <description>Specifies the severity of the failed health check rule.</description>
+                <enumRef name="RuleSeverity">
+                    <mimName>RcsHcm</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="entity">
+                <description>Refers to the failing entity.</description>
+                <sequence>
+                    <string/>
+                    <minLength>0</minLength>
+                </sequence>
+            </structMember>
+        </struct>
+        <struct name="HcRuleInputParameter">
+            <description>Indicates a parameter into a rule that can be changed before a health check evaluation.
+The name, a brief description and the default value are indicated.
+The default value is used in case no user-defined value is provided into attribute inputParameters under MOC HcJob.</description>
+            <structMember name="name">
+                <description>Specifies the parameter name.</description>
+                <string/>
+            </structMember>
+            <structMember name="value">
+                <description>Specifies the parameter value.</description>
+                <string/>
+            </structMember>
+            <structMember name="description">
+                <description>Specifies a brief description of the rule parameter.</description>
+                <string/>
+            </structMember>
+        </struct>
+        <struct name="HcRuleParameter">
+            <description>Specifies an optional parameter that could be provided for rule evaluation.</description>
+            <structMember name="name">
+                <description>Specifies the parameter name.</description>
+                <string/>
+            </structMember>
+            <structMember name="value">
+                <description>Specifies the parameter value.</description>
+                <string/>
+            </structMember>
+            <structMember name="hcRule">
+                <description>Specifies the RDN of the HcRule object for which the parameter must be used.
+It must be a string having the format "HcRule=&lt;RULE_ID&gt;".</description>
+                <string/>
+            </structMember>
+        </struct>
+        <struct name="AsyncActionProgress">
+            <description>Records the progress of an asynchronous action.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <structMember name="actionName">
+                <description>Name of the invoked asynchronous action.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="additionalInfo">
+                <description>Used for logging significant messages during execution of an action.</description>
+                <sequence>
+                    <string/>
+                    <minLength>0</minLength>
+                </sequence>
+            </structMember>
+            <structMember name="progressInfo">
+                <description>Textual information that describes the actual state of the action execution.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="progressPercentage">
+                <description>Progress of the action.
+The range is between 0 and 100.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <uint8/>
+            </structMember>
+            <structMember name="result">
+                <description>Result state of a completed action.
+This field has value NOT_AVAILABLE if the action is not finished.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="ActionResultType">
+                    <mimName>RcsHcm</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="resultInfo">
+                <description>Textual description of the outcome/result of the action containing useful information for the NMS.
+If the action failed, it can contain an error message.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <string/>
+            </structMember>
+            <structMember name="state">
+                <description>Current state of the action.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="ActionStateType">
+                    <mimName>RcsHcm</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="actionId">
+                <description>Uniquely identifies the invocation of an action.
+Identifies the invocation of an action when the managed object allows invocation of more than one action at a time.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isKey" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="ActionInvocationResult">
+                    <mimName>RcsHcm</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="timeActionStarted">
+                <description>Date and time when the current action was started.</description>
+                <derivedDataTypeRef name="DateTime">
+                    <mimName>RcsHcm</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="timeActionCompleted">
+                <description>Date and time when the action was completed (successfully or unsuccessfully).</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <derivedDataTypeRef name="DateTime">
+                    <mimName>RcsHcm</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="timeOfLastStatusUpdate">
+                <description>Date and time when the struct member state was last updated.</description>
+                <derivedDataTypeRef name="DateTime">
+                    <mimName>RcsHcm</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="ActionResultType">
+            <description>Lists the different results of an action.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="SUCCESS">
+                <description>The asynchronous action ended with success.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FAILURE">
+                <description>The asynchronous action ended with failure.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>No result is available yet.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="BasicAdmState">
+            <description>Basic administrative states for a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description> The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="HealthStatus">
+            <description>Lists the possible health statuses, based on result of all executed rules.</description>
+            <enumMember name="HEALTHY">
+                <description>Indicates that the NE status is healthy.
+The result of all executed rules is as expected.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NOT_HEALTHY">
+                <description>Indicates that the NE status is not healthy.
+The result of at least one rule, which severity is CRITICAL, is not as expected.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="WARNING">
+                <description>Indicates that the NE status is warning.    
+The result of at least one rule, which severity is WARNING, is not as expected and the result of all CRITICAL ones is as expected.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>Indicates that the NE status is not available.
+The result of all executed rules is still not available or the execution never started.</description>
+                <value>3</value>
+            </enumMember>
+        </enum>
+        <enum name="HcCategory">
+            <description>Lists the possible categories to which a health check rule can belong to.
+A category aims to facilitate the execution of rules to help customers the planning of their execution according to specific O&amp;M activity.</description>
+            <enumMember name="BACKOFFICE">
+                <description>Indicates that the rule should be executed for backoffice operation tests.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="DAILY">
+                <description>Indicates that the rule should be executed daily.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="MANDATORY">
+                <description>Indicates that the rule should always be executed.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="POSTUPDATE">
+                <description>Indicates that the rule should be executed after an update.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="POSTUPGRADE">
+                <description>Indicates that the rule should be executed after an upgrade.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="PREINSTALL">
+                <description>Indicates that the rule be executed before an installation.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="PREUPDATE">
+                <description>Indicates that the rule should be executed before an update.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="PREUPGRADE">
+                <description>Indicates that the rule should be executed before an upgrade.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="SHORT">
+                <description>Indicates that the rule should be executed for quick checks.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="TROUBLESHOOT">
+                <description>Indicates that the rule should be executed for troubleshooting.</description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="OTHER">
+                <description>Indicates that the rule is not included in any of other categories.</description>
+                <value>10</value>
+            </enumMember>
+        </enum>
+        <enum name="RuleSeverity">
+            <description>Lists the possible severity values of a rule.
+Each value describes how the node healthiness status is affected when the rule result is not the expected one.</description>
+            <enumMember name="CRITICAL">
+                <description>Indicates a rule which failure is critical for ME healthness.
+In that case, the ME requires immediate actions.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="WARNING">
+                <description>Indicates a rule which failure is a warning for ME healthness.
+In that case, the ME requires user attention. </description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <enum name="ActionStateType">
+            <description>Lists the action states.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="CANCELLING">
+                <description>Cancellation is in progress.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="RUNNING">
+                <description>The execution of the action is currently in progress.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="FINISHED">
+                <description>The action is finished.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="CANCELLED">
+                <description>The action has been cancelled and cancellation has been done.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="EcimPasswordString">
+            <description>Holds the password string.</description>
+            <baseType>
+                <string/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ActionInvocationResult">
+            <description>This is the datatype for the Asychronous Action Id. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <uint16/>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="DateTime">
+            <description>Represents the international standard for the representation of date and time ( ISO 8601).
+The string format is "YYYY-MM-DDThh:mm:ss.SSSZ" (excluding quotes).
+A DateTime string consists of a date part, a time part, and an optional time zone information part. The time zone part may be a "Z", representing the Coordinated Universal Time (UTC) time zone (equals to +00) or a time zone offset (for example, +02:00).
+If the time zone part is not present, the DateTime value represents local time.
+
+The following pattern describes the DateTime format:
+YYYY-MM-DDThh:mm:ss[.S+][Z|+-hh:mm]
+Where:
+YYYY = Four digit year
+MM = Two digit month (01=January, and so on)
+DD = Two digit day of month (01 through 31)
+T = Time designator (shows start of time component)
+hh = Two digits of hour (00 through 23, AM/PM not allowed)
+mm = Two digits of minute (00 through 59)
+ss = Two digits of second (00 through 59, leap second not allowed)
+S+ = One or more digits of decimal fraction of a second
+Z = Time is UTC
++- = + or - character indicating positive or negative offset to UTC
+
+DateTime values are compliant with ISO 8601 "Representation of dates and times" but are restricted according to RFC 3339 "Date and Time on the Internet: Timestamps". The DateTime format is further restricted as follows:
+- T and Z designators are upper case.
+- . (dot) is used to indicate start of fractions of seconds (ISO 8601 also allows comma)</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="4"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>19</min>
+                        <max>31</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>19</min>
+                            <max>31</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="Must be of the format YYYY-MM-DDTHH:MM:SS[.S+][Z|+-hh:mm] where T separates the time and the date parts and Z indicates the time zone in relation to UTC. Example 2000-08-01T17:17:34.1+01:00." format="posix_ere" name="Pattern Constraint"><![CDATA[^([0-9]{4})-(1[0-2]|0[1-9])-(0[1-9]|[1|2][0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])([\.][0-9]+){0,1}(([\+|\-](0[0-9]|1[0-9]|2[0-4])(:[0-5][0-9])?)|(Z)?)$]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <class name="HealthCheckM">
+            <description>Represents the root MOC for Health Check Management function.
+The Health Check Management function reports summary views of the managed element current state highlighting any deviations from a normal behavior. It can be used to attend upgrades and to support preventive maintenance and problem resolution.
+The healthiness status is obtained by verifying a set of rules according to their severity, grouped in predefined categories. For instance, if the result of at least one critical rule is not as expected, node status is evaluated as not healthy requiring an immediate action.
+The categories of rules which the Health Check Management function is acting upon are system installed.
+A health check job can be created selecting one or more categories of rules on which the ME healthiness is evaluated.
+A report file is generated for each executed health check job and stored in the predefined folder with a compressed archive file containing logs used for the rules evaluation to be used for further investigation.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="healthCheckMId">
+                <description>Holds the name used when identifying the MO.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="lastUpdateTime">
+                <description>Specifies the date and time of the last time the health of the system has been updated.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>RcsHcm</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="lastExecutedJob">
+                <description>Specifies the DN of the last job executed to check the ME healthiness.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <moRef name="HcJob">
+                        <mimName>RcsHcm</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="lastStatus">
+                <description>Specifies the ME healthiness status according to the last executed job.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="HealthStatus">
+                        <mimName>RcsHcm</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="maxNoOfReportFiles">
+                <description>Specifies the maximum number of report files with related log files archive maintained in the ME.
+If a new file is created and the limit is exceeded, the oldest file is deleted.</description>
+                <dataType>
+                    <uint16>
+                        <defaultValue>10</defaultValue>
+                    </uint16>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="HcJob">
+            <description>Represents a health check job which can be executed on a ME.
+This class facilitates in executing one or more categories of health check rules.
+After each job execution the attributes 'lastUpdateTime' and 'lastStatus' in HealthCheckM MOC are updated accordingly.
+It is possible to execute the job on demand or by a scheduler.
+A report file is generated for each executed health check job and stored in the predefined folder with a compressed archive file containing logs used for the rules evaluation to be used for further investigation.</description>
+            <action name="execute">
+                <description>Executes the health check job.
+This action executes the health check job, executing the rules for the configured categories, and optionally exports the report file.
+
+The action returns immediately after invocation. The progress of the action can be tracked by attribute progressReport . The action returns an error message if the action cannot start for some reason, for example, another parallel action is in progress. When the action is successfully started, an action ID is returned. The action ID is unique for every invocation of the action.</description>
+                <returnType>
+                    <derivedDataTypeRef name="ActionInvocationResult">
+                        <mimName>RcsHcm</mimName>
+                    </derivedDataTypeRef>
+                </returnType>
+                <parameter name="exportUri">
+                    <description>Specifies the URI where the job execution output file is to be exported.
+This URI must not contain the file name, that is specified by 'lastReportFileName' attribute value.
+
+The generic URI syntax is defined by RFC 3986.
+Example for SFTP: sftp://myuser@myhostname.ericsson.local/dir/subdir/
+Example for HTTP: http://myhostname.ericsson.local/dir/subdir/
+
+The URI must not contain any password. (The password must be provided in the second parameter of this action).
+The URI may be local relative (e.g., data/dir/subdir/), or local absolute (e.g., file:///data/dir/subdir/), or remote (e.g., sftp://myuser@hostname/dir/subdir/).
+If the URI is local relative, report and logs archive files are stored starting from path specified by attribute localFileStorePath.</description>
+                    <domainExtension domain="ECIM">
+                        <extension name="isNillable" value="true"/>
+                    </domainExtension>
+                    <isNillable/>
+                    <in/>
+                    <dataType>
+                        <string/>
+                    </dataType>
+                </parameter>
+                <parameter name="exportPassword">
+                    <description>Specifies the password required to access the location specified by the uri. 
+If no password is required, this parameter is ignored. </description>
+                    <domainExtension domain="ECIM">
+                        <extension name="isNillable" value="true"/>
+                    </domainExtension>
+                    <isNillable/>
+                    <in/>
+                    <dataType>
+                        <derivedDataTypeRef name="EcimPasswordString">
+                            <mimName>RcsHcm</mimName>
+                        </derivedDataTypeRef>
+                    </dataType>
+                </parameter>
+            </action>
+            <action name="cancel">
+                <description>Cancels the current HcJob execution.
+The action returns true if the action is accepted, otherwise false is returned.
+</description>
+                <returnType>
+                    <boolean/>
+                </returnType>
+            </action>
+            <attribute name="hcJobId">
+                <description>Holds the name used when identifying the MO.
+Specifies the name of the health check job.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="progressReport">
+                <description>Specifies the execution status and result of the health check job.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="AsyncActionProgress">
+                        <mimName>RcsHcm</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="lastReportFileName">
+                <description>Specifies the name of the report file which is generated from the latest execution of the job.
+All the report files are placed in a predefined folder, as indicated by the 'localFileStorePath' attribute value. An archive containing some log files is generated as well.
+The name format of the report file generated is &lt;MEId&gt;_&lt;JobName&gt;_&lt;Timestamp&gt;. Timestamp is in the format YYYYMMDDTHHmmSS, where 4 digits for the year, 2 digits for the month, 2 digits for the date, 2 digits for the hours, 2 digits for the minutes and 2 digits for the seconds are specified. 'T' acts as a delimiter between date and time in the above timestamp format. If the job is executed by the action, the suffix "_man" is added at the end of the file name.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="status">
+                <description>Specifies the health status based on result of all executed rules. </description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="HealthStatus">
+                        <mimName>RcsHcm</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="rulesCategories">
+                <description>Specifies the list of categories of health check rules to be executed.</description>
+                <mandatory/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="HcCategory">
+                            <mimName>RcsHcm</mimName>
+                        </enumRef>
+                        <minLength>1</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="lastRunTime">
+                <description>Specifies the date and time of the last time the job has been executed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="DateTime">
+                        <mimName>RcsHcm</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="jobToTrigger">
+                <description>Specifies the DN of another job to be executed when the current job reports ME is not healthy.
+The execution of another job, for instance to execute rules associated to different categories, might give more detailed information about NE status.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="HcJob">
+                        <mimName>RcsHcm</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="failedRules">
+                <description>Provides a condensed status for the last job execution.
+Provides the list of the rules for which the result was not the expected one. 
+It is empty when job status is healthy or not available.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="FailedHcRule">
+                            <mimName>RcsHcm</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="localFileStorePath">
+                <description>Specifies the filesystem path where the ouput report files can be fetched.
+It is empty if FileM is not installed/configured.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="inputParameters">
+                <description>Specifies customizable input parameters for rules evaluation.
+Each item in the list is a triple &lt;hcRule, parameter_name, parameter_value&gt; for which a user-defined attribute can be provided.</description>
+                <dataType>
+                    <sequence>
+                        <structRef name="HcRuleParameter">
+                            <mimName>RcsHcm</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="HcRule">
+            <description>Represents a health check rule.
+This class facilitates in providing detailed information about an individual health check rule.
+Each rule belongs to one or more health check categories.
+Each rule is also associated with a severity value, warning or critical, that affects the evaluation of the overall NE healthiness. For instance, if the result of at least one critical rule is not as expected, node status is evaluated as not healthy requiring an immediate action.
+Some health check rules can accept optional parameters as input for the evaluation, if no values are provided system default input parameters are used.</description>
+            <systemCreated/>
+            <attribute name="hcRuleId">
+                <description>Holds the name used when identifying the MO.
+Its value is divided into two parts. The first one is an unique identifier for the rule provider while the second one is a numeric identifier (a progressive number for example).</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="description">
+                <description>Specifies health check rule description.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="name">
+                <description>Specifies the name of a health check rule.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="recommendedAction">
+                <description>Specifies the step that needs to be performed when the health check rule execution fails.</description>
+                <readOnly/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="severity">
+                <description>Specify the severity of the rule for the evaluation of the overall NE healthiness.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="RuleSeverity">
+                        <mimName>RcsHcm</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="inputParameters">
+                <description>Specifies the list of input parameters accepted by the rule with related default values.
+It is empty in case the rule does not accept any parameters change.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="HcRuleInputParameter">
+                            <mimName>RcsHcm</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>Specifies the administrative state of the rule. </description>
+                <dataType>
+                    <enumRef name="BasicAdmState">
+                        <defaultValue>UNLOCKED</defaultValue>
+                        <mimName>RcsHcm</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="categories">
+                <description>Specifies the list of categories which the rule belongs to.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="HcCategory">
+                            <mimName>RcsHcm</mimName>
+                        </enumRef>
+                        <minLength>1</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="HealthCheckM_to_HcJob">
+            <containment>
+                <parent>
+                    <hasClass name="HealthCheckM">
+                        <mimName>RcsHcm</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="HcJob">
+                        <mimName>RcsHcm</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="HealthCheckM_to_HcRule">
+            <containment>
+                <parent>
+                    <hasClass name="HealthCheckM">
+                        <mimName>RcsHcm</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="HcRule">
+                        <mimName>RcsHcm</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="SystemFunctions_to_HealthCheckM">
+            <containment>
+                <parent>
+                    <hasClass name="SystemFunctions">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="HealthCheckM">
+                        <mimName>RcsHcm</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="false"/>
+                    <extension name="canDelete" value="false"/>
+                </domainExtension>
+                <notCreatable/>
+                <notDeleteable/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

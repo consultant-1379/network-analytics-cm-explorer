@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2018 Ericsson AB.
+    All rights reserved
+
+    DX ECIM Tool-chain generated this file on Apr 9, 2018 2:58:09 PM using:
+    * com.ericsson.ecim.m2m 2.15.0.201710201249
+    * com.ericsson.ecim.dsl 2.15.0.201710201249
+    * com.ericsson.ecim.edm 2.15.0.201710201249
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABERPE</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABERPE" contact="EAB/FJP/TA UABERPE" correction="0" date="" docNo="" name="RtnIkev2PolicyProfile" namespace="urn:com:ericsson:ecim:RtnIkev2PolicyProfile" namespacePrefix="rtnikev2policyprofile" organization="" release="14" revision="" variant="Model" version="1">
+        <description>Ipsec Ikev2PolicyProfile package</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <struct name="Ikev2Proposal">
+            <description>Holds IKEv2 transform proposal used during IKE SA negotiation.
+It contains set of cryptographic algorithms used by IKE SA.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <structMember name="diffieHellmanGroup">
+                <description>Diffie-Hellman group.
+If not set (nil), node sends all Diffie-Hellman groups supported by node in proposal. In this case, node sends value based on Diffie-Hellman group 19 in initial exchange.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="DiffieHellmanGroup">
+                    <mimName>RtnIkev2PolicyProfile</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="encryptionAlgorithm">
+                <description>Encryption algorithm.
+If not set (nil), node sends all encryption algorithms supported by node in proposal.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="IkeEncryptionAlgorithm">
+                    <mimName>RtnIkev2PolicyProfile</mimName>
+                </enumRef>
+                <dependencies>If AES_GSM, integrityAlgorithm must not be set.</dependencies>
+            </structMember>
+            <structMember name="integrityAlgorithm">
+                <description>Algorithm for integrity check.
+If not set (nil), node sends all integrity algorithms supported by node in proposal.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="IkeIntegrityAlgorithm">
+                    <mimName>RtnIkev2PolicyProfile</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="pseudoRandomFunction">
+                <description>Type of pseudo-random function.&#13;
+If not set (nil), node sends all PRF algorithms supported by node in proposal.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <enumRef name="PseudoRandomFunction">
+                    <mimName>RtnIkev2PolicyProfile</mimName>
+                </enumRef>
+            </structMember>
+        </struct>
+        <enum name="DiffieHellmanGroup">
+            <description>Diffie-Hellman groups.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <enumMember name="MODP_1024_GROUP_2">
+                <value>2</value>
+                <specification>RFC_7296</specification>
+            </enumMember>
+            <enumMember name="MODP_2048_GROUP_14">
+                <value>14</value>
+                <specification>RFC_3526</specification>
+            </enumMember>
+            <enumMember name="ECP_256_GROUP_19">
+                <value>19</value>
+                <specification>RFC_5903</specification>
+            </enumMember>
+            <enumMember name="ECP_384_GROUP_20">
+                <value>20</value>
+                <specification>RFC_5903</specification>
+            </enumMember>
+        </enum>
+        <enum name="IkeEncryptionAlgorithm">
+            <description>Ike encryption algorithms.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <enumMember name="ENCR_3DES">
+                <description/>
+                <value>3</value>
+                <specification>RFC_2451</specification>
+            </enumMember>
+            <enumMember name="ENCR_AES_CBC_128">
+                <value>1024</value>
+                <specification>RFC_3602</specification>
+            </enumMember>
+            <enumMember name="ENCR_AES_CBC_256">
+                <value>1026</value>
+                <specification>RFC_3602</specification>
+            </enumMember>
+            <enumMember name="AES_GCM_16_128">
+                <value>1034</value>
+                <specification>RFC_5282</specification>
+            </enumMember>
+            <enumMember name="AES_GCM_16_256">
+                <value>1035</value>
+                <specification>RFC_5282</specification>
+            </enumMember>
+        </enum>
+        <enum name="IkeIntegrityAlgorithm">
+            <description>Ike integrity algorithms.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <enumMember name="AUTH_HMAC_MD5_96">
+                <description/>
+                <value>1</value>
+                <specification>RFC_2403</specification>
+            </enumMember>
+            <enumMember name="AUTH_HMAC_SHA1_96">
+                <value>2</value>
+                <specification>RFC_2404</specification>
+            </enumMember>
+            <enumMember name="AUTH_AES_XCBC_96">
+                <value>5</value>
+                <specification>RFC_3566</specification>
+            </enumMember>
+            <enumMember name="AUTH_HMAC_SHA2_256_128">
+                <value>12</value>
+                <specification>RFC_4868</specification>
+            </enumMember>
+            <enumMember name="AUTH_HMAC_SHA2_384_192">
+                <value>13</value>
+                <specification>RFC_4868</specification>
+            </enumMember>
+        </enum>
+        <enum name="PseudoRandomFunction">
+            <description>Available pseudo-random functions.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimRelease" value="0"/>
+                <extension name="originatingMimName" value="RtnIpsecLibrary"/>
+            </domainExtension>
+            <enumMember name="PRF_HMAC_MD5">
+                <value>1</value>
+                <specification>RFC_2104</specification>
+            </enumMember>
+            <enumMember name="PRF_HMAC_SHA1">
+                <value>2</value>
+                <specification>RFC_2104</specification>
+            </enumMember>
+            <enumMember name="PRF_AES128_XCBC">
+                <description/>
+                <value>4</value>
+                <specification>RFC_4434</specification>
+            </enumMember>
+            <enumMember name="PRF_HMAC_SHA2_256">
+                <value>5</value>
+                <specification>RFC_4868</specification>
+            </enumMember>
+            <enumMember name="PRF_HMAC_SHA2_384">
+                <value>6</value>
+                <specification>RFC_4868</specification>
+            </enumMember>
+        </enum>
+        <derivedDataType name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_dpdTime">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>30</min>
+                        <max>1800</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>30</min>
+                            <max>1800</max>
+                        </subrange>
+                    </ranges>
+                    <unit>s</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_ikeDscp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_ikeSaLifetime">
+            <baseType>
+                <uint32>
+                    <range>
+                        <min>60</min>
+                        <max>5000</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>60</min>
+                            <max>5000</max>
+                        </subrange>
+                    </ranges>
+                    <unit>min</unit>
+                </uint32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="Ikev2PolicyProfile">
+            <description>Contains common parameters used by IKE SA negotiation in the node.</description>
+            <validationRules>
+                <rule exceptionText="" format="ECIM_Schematron_1.0" name="Ikev2PolicyProfile"><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(@credential and @trustCategory) or (not(@credential) and not(@trustCategory))'><value-of select="."/> credential and trustCategory must be set or neither of them </assert>
+		<assert test='every $ikev2Proposal in @ikev2Proposal satisfies (not((($ikev2Proposal/@encryptionAlgorithm eq "AES_GCM_16_128") or($ikev2Proposal/@encryptionAlgorithm eq "AES_GCM_16_256")) and exists($ikev2Proposal/@integrityAlgorithm)))'><value-of select="."/> If AES-GCM is compound algorithm, no Integrity algorithm should be configured.</assert>
+		</rule>
+	</pattern>
+</schema>]]></rule>
+            </validationRules>
+            <root/>
+            <dependenciesScript><![CDATA[<schema xmlns="http://purl.oclc.org/dsdl/schematron">
+	<pattern>
+		<rule>
+		<assert test='(@credential and @trustCategory) or (not(@credential) and not(@trustCategory))'><value-of select="."/> credential and trustCategory must be set or neither of them </assert>
+		<assert test='every $ikev2Proposal in @ikev2Proposal satisfies (not((($ikev2Proposal/@encryptionAlgorithm eq "AES_GCM_16_128") or($ikev2Proposal/@encryptionAlgorithm eq "AES_GCM_16_256")) and exists($ikev2Proposal/@integrityAlgorithm)))'><value-of select="."/> If AES-GCM is compound algorithm, no Integrity algorithm should be configured.</assert>
+		</rule>
+	</pattern>
+</schema>]]></dependenciesScript>
+            <attribute name="credential">
+                <description>If certificate based authentication is used, attribute refers to NodeCredential MO including IPsec node certificate to be used in IKE SA negotiation.
+
+If credential and trustCategory not specified, pre-shared key-based authentication is used. Referring Ikev2Session MO must have pre-shared keys installed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="NodeCredential">
+                        <mimName>ECIM_CertM</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Either both credential and trustCategory must be set or neither of them.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="dpdTime">
+                <description>Max time  to detect that IKE SA is down.&#13;
+
+If node detects that IKE SA is down, alarm is raised. Node tries continually re-establish IKE SA.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_dpdTime">
+                        <defaultValue>60</defaultValue>
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ikeDscp">
+                <description>DSCP value that node uses when transmitting IKE messages.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_ikeDscp">
+                        <defaultValue>48</defaultValue>
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ikeSaLifetime">
+                <description>Lifetime for IKE SA.
+Node initiates re-keying according to soft lifetime in order to complete process before lifetime expires.
+Soft lifetime is calculated as (0.8+0.1*R)*ikeSaLifetime, where R is random factor between 0 and 1.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_ikeSaLifetime">
+                        <defaultValue>1440</defaultValue>
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="ikev2PolicyProfileId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="ikev2Proposal">
+                <description>Ordered list of IKE proposals, used for IKE SA negotiation. Each proposal contains a set of cryptographic algorithms that can be used for IKE SA.
+
+If attribute is not set, the node generates proposal based on all node-supported algorithms.&#13;
+&#13;
+First proposal in list has highest priority.</description>
+                <dataType>
+                    <sequence>
+                        <structRef name="Ikev2Proposal">
+                            <mimName>RtnIkev2PolicyProfile</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                        <maxLength>2</maxLength>
+                        <nonUnique/>
+                        <ordered/>
+                    </sequence>
+                </dataType>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="trustCategory">
+                <description>Reference to TrustCategory MO containing list of trusted certificates used in IKE SA negotiation.
+Referred TrustCategory MO must contain CA certificates for both peer node and this node.
+
+This attribute must be set if certificate based authentication is used.
+If credential and trustCategory not set, pre-shared key based authentication is used. Referring Ikev2Session MO must have pre-shared keys installed.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="TrustCategory">
+                        <mimName>ECIM_CertM</mimName>
+                    </moRef>
+                </dataType>
+                <dependencies>Either both credential and trustCategory must be set or neither of them.</dependencies>
+                <disturbances>Changing this attribute causes traffic disturbances.</disturbances>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnIkev2PolicyProfile_Ikev2PolicyProfile_userLabel">
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Ikev2PolicyProfile_credential_to_NodeCredential_reservedByUser">
+            <biDirectionalAssociation>
+                <associationEnd name="credential">
+                    <hasClass name="NodeCredential">
+                        <mimName>ECIM_CertM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedByUser">
+                    <hasClass name="Ikev2PolicyProfile">
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+        <relationship name="Ikev2PolicyProfile_trustCategory_to_TrustCategory_reservedByUser">
+            <biDirectionalAssociation>
+                <associationEnd name="trustCategory">
+                    <hasClass name="TrustCategory">
+                        <mimName>ECIM_CertM</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedByUser">
+                    <hasClass name="Ikev2PolicyProfile">
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_Ikev2PolicyProfile">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ikev2PolicyProfile">
+                        <mimName>RtnIkev2PolicyProfile</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

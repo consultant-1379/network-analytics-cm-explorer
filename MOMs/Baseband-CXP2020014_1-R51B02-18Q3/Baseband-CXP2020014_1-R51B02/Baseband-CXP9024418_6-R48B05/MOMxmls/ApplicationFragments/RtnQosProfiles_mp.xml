@@ -1,0 +1,2942 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2016 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Jan 25, 2016 9:13:46 AM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="RtnQosProfiles" namespace="urn:com:ericsson:ecim:RtnQosProfiles" namespacePrefix="rtnqosprofiles" organization="" release="5" revision="" variant="Model" version="1">
+        <description>QoSProfiles</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_defaultDscp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp0">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp1">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp10">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp11">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp12">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp13">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp14">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp15">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp16">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp17">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp18">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp19">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp2">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp20">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp21">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp22">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp23">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp24">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp25">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp26">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp27">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp28">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp29">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp3">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp30">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp31">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp32">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp33">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp34">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp35">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp36">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp37">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp38">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp39">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp4">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp40">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp41">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp42">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp43">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp44">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp45">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp46">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp47">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp48">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp49">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp5">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp50">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp51">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp52">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp53">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp54">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp55">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp56">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp57">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp58">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp59">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp6">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp60">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp61">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp62">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp63">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp7">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp8">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpDscpMap_dscp9">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_defaultPcp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp0">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp1">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp2">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp3">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp4">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp5">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp6">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_pcp7">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMap_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_defaultPcp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp0">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp1">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp2">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp3">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp4">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp5">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp6">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_pcp7">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_DscpPcpMapDefault_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_defaultPcp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp0">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp1">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp2">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp3">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp4">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp5">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp6">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_pcp7">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RtnQosProfiles_PcpPcpMap_userLabel">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="DscpDscpMap">
+            <description>A DSCP to DSCP map.
+Used for remarking of the DSCP value.</description>
+            <attribute name="defaultDscp">
+                <description>The DSCP value to be used for non-mapped DSCP values.
+
+If not defined, no remarking is made for otherwise non-mapped DSCP values.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_defaultDscp">
+                        <mimName>RtnQosProfiles</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dscp0">
+                <description>Set of DSCP values that shall be remarked to DSCP 0.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp0">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp1">
+                <description>Set of DSCP values that shall be remarked to DSCP 1.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp1">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp10">
+                <description>Set of DSCP values that shall be remarked to DSCP 10.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp10">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp11">
+                <description>Set of DSCP values that shall be remarked to DSCP 11.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp11">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp12">
+                <description>Set of DSCP values that shall be remarked to DSCP 12.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp12">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp13">
+                <description>Set of DSCP values that shall be remarked to DSCP 13.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp13">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp14">
+                <description>Set of DSCP values that shall be remarked to DSCP 14.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp14">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp15">
+                <description>Set of DSCP values that shall be remarked to DSCP 15.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp15">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp16">
+                <description>Set of DSCP values that shall be remarked to DSCP 16.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp16">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp17">
+                <description>Set of DSCP values that shall be remarked to DSCP 17.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp17">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp18">
+                <description>Set of DSCP values that shall be remarked to DSCP 18.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp18">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp19">
+                <description>Set of DSCP values that shall be remarked to DSCP 19.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp19">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp2">
+                <description>Set of DSCP values that shall be remarked to DSCP 2.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp2">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp20">
+                <description>Set of DSCP values that shall be remarked to DSCP 20.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp20">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp21">
+                <description>Set of DSCP values that shall be remarked to DSCP 21.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp21">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp22">
+                <description>Set of DSCP values that shall be remarked to DSCP 22.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp22">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp23">
+                <description>Set of DSCP values that shall be remarked to DSCP 23.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp23">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp24">
+                <description>Set of DSCP values that shall be remarked to DSCP 24.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp24">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp25">
+                <description>Set of DSCP values that shall be remarked to DSCP 25.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp25">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp26">
+                <description>Set of DSCP values that shall be remarked to DSCP 26.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp26">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp27">
+                <description>Set of DSCP values that shall be remarked to DSCP 27.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp27">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp28">
+                <description>Set of DSCP values that shall be remarked to DSCP 28.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp28">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp29">
+                <description>Set of DSCP values that shall be remarked to DSCP 29.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp29">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp3">
+                <description>Set of DSCP values that shall be remarked to DSCP 3.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp3">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp30">
+                <description>Set of DSCP values that shall be remarked to DSCP 30.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp30">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp31">
+                <description>Set of DSCP values that shall be remarked to DSCP 31.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp31">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp32">
+                <description>Set of DSCP values that shall be remarked to DSCP 32.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp32">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp33">
+                <description>Set of DSCP values that shall be remarked to DSCP 33.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp33">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp34">
+                <description>Set of DSCP values that shall be remarked to DSCP 34.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp34">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp35">
+                <description>Set of DSCP values that shall be remarked to DSCP 35.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp35">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp36">
+                <description>Set of DSCP values that shall be remarked to DSCP 36.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp36">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp37">
+                <description>Set of DSCP values that shall be remarked to DSCP 37.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp37">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp38">
+                <description>Set of DSCP values that shall be remarked to DSCP 38.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp38">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp39">
+                <description>Set of DSCP values that shall be remarked to DSCP 39.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp39">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp4">
+                <description>Set of DSCP values that shall be remarked to DSCP 4.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp4">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp40">
+                <description>Set of DSCP values that shall be remarked to DSCP 40.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp40">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp41">
+                <description>Set of DSCP values that shall be remarked to DSCP 41.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp41">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp42">
+                <description>Set of DSCP values that shall be remarked to DSCP 42.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp42">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp43">
+                <description>Set of DSCP values that shall be remarked to DSCP 43.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp43">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp44">
+                <description>Set of DSCP values that shall be remarked to DSCP 44.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp44">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp45">
+                <description>Set of DSCP values that shall be remarked to DSCP 45.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp45">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp46">
+                <description>Set of DSCP values that shall be remarked to DSCP 46.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp46">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp47">
+                <description>Set of DSCP values that shall be remarked to DSCP 47.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp47">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp48">
+                <description>Set of DSCP values that shall be remarked to DSCP 48.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp48">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp49">
+                <description>Set of DSCP values that shall be remarked to DSCP 49.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp49">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp5">
+                <description>Set of DSCP values that shall be remarked to DSCP 5.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp5">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp50">
+                <description>Set of DSCP values that shall be remarked to DSCP 50.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp50">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp51">
+                <description>Set of DSCP values that shall be remarked to DSCP 51.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp51">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp52">
+                <description>Set of DSCP values that shall be remarked to DSCP 52.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp52">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp53">
+                <description>Set of DSCP values that shall be remarked to DSCP 53.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp53">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp54">
+                <description>Set of DSCP values that shall be remarked to DSCP 54.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp54">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp55">
+                <description>Set of DSCP values that shall be remarked to DSCP 55.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp55">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp56">
+                <description>Set of DSCP values that shall be remarked to DSCP 56.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp56">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp57">
+                <description>Set of DSCP values that shall be remarked to DSCP 57.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp57">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp58">
+                <description>Set of DSCP values that shall be remarked to DSCP 58.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp58">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp59">
+                <description>Set of DSCP values that shall be remarked to DSCP 59.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp59">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp6">
+                <description>Set of DSCP values that shall be remarked to DSCP 6.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp6">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp60">
+                <description>Set of DSCP values that shall be remarked to DSCP 60.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp60">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp61">
+                <description>Set of DSCP values that shall be remarked to DSCP 61.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp61">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp62">
+                <description>Set of DSCP values that shall be remarked to DSCP 62.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp62">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp63">
+                <description>Set of DSCP values that shall be remarked to DSCP 63.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp63">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp7">
+                <description>Set of DSCP values that shall be remarked to DSCP 7.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp7">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp8">
+                <description>Set of DSCP values that shall be remarked to DSCP 8.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp8">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscp9">
+                <description>Set of DSCP values that shall be remarked to DSCP 9.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpDscpMap_dscp9">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>64</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="dscpDscpMapId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="DscpPcpMap">
+            <description>A DSCP to PCP map.</description>
+            <attribute name="defaultPcp">
+                <description>The PCP value that should be used for non-mapped DSCP values.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_defaultPcp">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RtnQosProfiles</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dscpPcpMapId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="pcp0">
+                <description>The set of DSCP values that shall be mapped to PCP 0.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp0">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp1">
+                <description>The set of DSCP values that shall be mapped to PCP 1.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp1">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp2">
+                <description>The set of DSCP values that shall be mapped to PCP 2.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp2">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp3">
+                <description>The set of DSCP values that shall be mapped to PCP 3.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp3">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp4">
+                <description>The set of DSCP values that shall be mapped to PCP 4.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp4">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp5">
+                <description>The set of DSCP values that shall be mapped to PCP 5.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp5">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp6">
+                <description>The set of DSCP values that shall be mapped to PCP 6.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp6">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp7">
+                <description>The set of DSCP values that shall be mapped to PCP 7.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_pcp7">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMap_userLabel">
+                        <mimName>RtnQosProfiles</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="DscpPcpMapDefault">
+            <description>Default DSCP to PCP map.</description>
+            <systemCreated/>
+            <preliminary/>
+            <attribute name="defaultPcp">
+                <description>The PCP value that should be used for non-mapped DSCP values.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_defaultPcp">
+                        <defaultValue>0</defaultValue>
+                        <mimName>RtnQosProfiles</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="dscpPcpMapDefaultId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="pcp0">
+                <description>The set of DSCP values that shall be mapped to PCP 0.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp0">
+                            <defaultValue>0</defaultValue>
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <seqDefaultValue>
+                            <defaultValue>0</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp1">
+                <description>The set of DSCP values that shall be mapped to PCP 1.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp1">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp2">
+                <description>The set of DSCP values that shall be mapped to PCP 2.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp2">
+                            <defaultValue>10,12,14</defaultValue>
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <seqDefaultValue>
+                            <defaultValue>10</defaultValue>
+                            <defaultValue>12</defaultValue>
+                            <defaultValue>14</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp3">
+                <description>The set of DSCP values that shall be mapped to PCP 3.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp3">
+                            <defaultValue>18,20,22</defaultValue>
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <seqDefaultValue>
+                            <defaultValue>18</defaultValue>
+                            <defaultValue>20</defaultValue>
+                            <defaultValue>22</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp4">
+                <description>The set of DSCP values that shall be mapped to PCP 4.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp4">
+                            <defaultValue>8,16,26,28</defaultValue>
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <seqDefaultValue>
+                            <defaultValue>8</defaultValue>
+                            <defaultValue>16</defaultValue>
+                            <defaultValue>26</defaultValue>
+                            <defaultValue>28</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp5">
+                <description>The set of DSCP values that shall be mapped to PCP 5.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp5">
+                            <defaultValue>34,36,38,46</defaultValue>
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <seqDefaultValue>
+                            <defaultValue>34</defaultValue>
+                            <defaultValue>36</defaultValue>
+                            <defaultValue>38</defaultValue>
+                            <defaultValue>46</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp6">
+                <description>The set of DSCP values that shall be mapped to PCP 6.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp6">
+                            <defaultValue>32,40,48</defaultValue>
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <seqDefaultValue>
+                            <defaultValue>32</defaultValue>
+                            <defaultValue>40</defaultValue>
+                            <defaultValue>48</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp7">
+                <description>The set of DSCP values that shall be mapped to PCP 7.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_pcp7">
+                            <defaultValue>51,54</defaultValue>
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <seqDefaultValue>
+                            <defaultValue>51</defaultValue>
+                            <defaultValue>54</defaultValue>
+                        </seqDefaultValue>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQosProfiles_DscpPcpMapDefault_userLabel">
+                        <mimName>RtnQosProfiles</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="PcpPcpMap">
+            <description>A PCP to PCP map.
+Used for remarking of the PCP value.</description>
+            <attribute name="defaultPcp">
+                <description>The PCP value to be used for non-mapped PCP values.
+
+If not defined, no remarking is made for otherwise non-mapped PCP values.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_defaultPcp">
+                        <mimName>RtnQosProfiles</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="pcp0">
+                <description>Set of PCP values that shall be remarked to PCP 0.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp0">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp1">
+                <description>Set of PCP values that shall be remarked to PCP 1.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp1">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp2">
+                <description>Set of PCP values that shall be remarked to PCP 2.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp2">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp3">
+                <description>Set of PCP values that shall be remarked to PCP 3.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp3">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp4">
+                <description>Set of PCP values that shall be remarked to PCP 4.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp4">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp5">
+                <description>Set of PCP values that shall be remarked to PCP 5.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp5">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp6">
+                <description>Set of PCP values that shall be remarked to PCP 6.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp6">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcp7">
+                <description>Set of PCP values that shall be remarked to PCP 7.</description>
+                <dataType>
+                    <sequence>
+                        <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_pcp7">
+                            <mimName>RtnQosProfiles</mimName>
+                        </derivedDataTypeRef>
+                        <minLength>0</minLength>
+                        <maxLength>8</maxLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="pcpPcpMapId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="userLabel">
+                <description>Label for free use.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RtnQosProfiles_PcpPcpMap_userLabel">
+                        <mimName>RtnQosProfiles</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="QosProfiles">
+            <description>Mapping of a set of DSCP values to a PCP.</description>
+            <systemCreated/>
+            <root/>
+            <attribute name="qosProfilesId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="QosProfiles_to_DscpDscpMap">
+            <containment>
+                <parent>
+                    <hasClass name="QosProfiles">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="DscpDscpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QosProfiles_to_DscpPcpMap">
+            <containment>
+                <parent>
+                    <hasClass name="QosProfiles">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="DscpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QosProfiles_to_DscpPcpMapDefault">
+            <preliminary/>
+            <containment>
+                <parent>
+                    <hasClass name="QosProfiles">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="DscpPcpMapDefault">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="QosProfiles_to_PcpPcpMap">
+            <containment>
+                <parent>
+                    <hasClass name="QosProfiles">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="PcpPcpMap">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_QosProfiles">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="QosProfiles">
+                        <mimName>RtnQosProfiles</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>1</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

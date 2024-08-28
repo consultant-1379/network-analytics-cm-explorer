@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2017 Ericsson AB. 
+	All rights reserved 
+
+	DX ECIM Tool-chain generated this file on Sep 7, 2017 1:45:23 PM using:
+	* com.ericsson.ecim.m2m 2.14.5.201511210257
+	* com.ericsson.ecim.dsl 2.14.5.201511210257
+	* com.ericsson.ecim.edm 2.14.5.201511210257
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>G</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate/>
+        </momIdentity>
+        <createdBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </createdBy>
+        <approvedBy>
+            <signature>EAB/FJP/TA UABJOCL</signature>
+        </approvedBy>
+    </momMetaData>
+    <mim author="EAB/FJP/TA UABJOCL" contact="EAB/FJP/TA UABJOCL" correction="0" date="" docNo="" name="RsyncNtp" namespace="urn:com:ericsson:ecim:RsyncNtp" namespacePrefix="rsyncntp" organization="" release="2" revision="" variant="Model" version="2">
+        <description>Transport NTP Model.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down then normal users are precluded from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>This indicates a log full condition.</description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="NtpFrequencySyncStatus">
+            <description>NTP frequency synchronization status.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="RsyncNtpLibrary"/>
+                <extension name="originatingMimRelease" value="0"/>
+            </domainExtension>
+            <enumMember name="UNKNOWN">
+                <description>No status information available.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NO_FAULT">
+                <description>No defect detected.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="PDV_PROBLEM">
+                <description>High Packet Delay Variation (PDV) detected.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="UNREACHABLE_REFERENCE">
+                <description>NTP server unreachable.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="HIGH_PACKET_DROP">
+                <description>NTP packet drop detected.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="LOW_STRATUM">
+                <description>NTP server indicates that its quality is unreliable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="LI_ERROR">
+                <description>NTP server indicates that its quality is unreliable.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="QL_TOO_LOW">
+                <description>adminQL/minQL configuration gives too low QL for synchronization.</description>
+                <value>7</value>
+                <deprecated/>
+            </enumMember>
+            <enumMember name="UNRESOLVED_SERVER_ADDRESS">
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>The operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+                <extension name="originatingMimRelease" value="6"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description> The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description> The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="RsyncNtp_NtpFrequencySync_dscp">
+            <baseType>
+                <uint8>
+                    <range>
+                        <min>0</min>
+                        <max>63</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>63</max>
+                        </subrange>
+                    </ranges>
+                </uint8>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="RsyncNtp_NtpFrequencySync_syncServerNtpIpAddress">
+            <baseType>
+                <string>
+                    <validValues>^(([1-9]|22[0-3]|2[01][0-9]|1[013456789][0-9]|12[012345689]|[1-9][0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]))$|^((([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9]))$</validValues>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="Ntp">
+            <description>This MO class is the top class for NTP management.</description>
+            <root/>
+            <attribute name="ntpId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+        </class>
+        <class name="NtpFrequencySync">
+            <description>This MO class models a NTP frequency reference used for Network Synchronization.
+The addressIPv4Reference attribute is the reference to the source IPv4 address to be used in NTP protocol exchange with NTP server.</description>
+            <attribute name="addressIPv4Reference">
+                <description>Specifies a reference to an AddressIPv4 MO.
+
+The IP address of the referenced AddressIPv4 MO will be the source IPv4 address to be used in NTP protocol exchange with the NTP server.</description>
+                <mandatory/>
+                <dataType>
+                    <moRef name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </moRef>
+                </dataType>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status.
+
+It contains details about operationalState.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>RsyncNtp</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="cachedIpAddress">
+                <description>The IPv4 address of the NTP  server obtained from a DNS.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="dscp">
+                <description>The DSCP value used for SNTP/UDP/IP transmitted packets.</description>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncNtp_NtpFrequencySync_dscp">
+                        <defaultValue>54</defaultValue>
+                        <mimName>RsyncNtp</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ingressUdpPort">
+                <description>The ingress UDP port number used by the NTP frequency synchronization reference.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="ntpFrequencySyncId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="ntpFrequencySyncStatus">
+                <description>Indicates the detailed fault status of the NTP frequency synchronization reference.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="NtpFrequencySyncStatus">
+                            <mimName>RsyncNtp</mimName>
+                        </enumRef>
+                        <minLength>1</minLength>
+                        <maxLength>6</maxLength>
+                        <nonUnique/>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>The operational state.</description>
+                <readOnly/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>RsyncNtp</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description>Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="syncServerNtpIpAddress">
+                <description>The IPv4 address or domain name of the NTP server.</description>
+                <mandatory/>
+                <dataType>
+                    <derivedDataTypeRef name="RsyncNtp_NtpFrequencySync_syncServerNtpIpAddress">
+                        <mimName>RsyncNtp</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="Ntp_to_NtpFrequencySync">
+            <containment>
+                <parent>
+                    <hasClass name="Ntp">
+                        <mimName>RsyncNtp</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="NtpFrequencySync">
+                        <mimName>RsyncNtp</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>8</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+        <relationship name="NtpFrequencySync_addressIPv4Reference_to_AddressIPv4_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="addressIPv4Reference">
+                    <hasClass name="AddressIPv4">
+                        <mimName>RtnL3InterfaceIPv4</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="NtpFrequencySync">
+                        <mimName>RsyncNtp</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="Transport_to_Ntp">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Transport">
+                        <mimName>ECIM_Top</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="Ntp">
+                        <mimName>RsyncNtp</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

@@ -1,0 +1,3579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+  <dtdVersion>H</dtdVersion>
+  <mib name="Authorization_CXP2020013_1" release="0" version="1">
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>Bts_Application_Administrator</value>
+      </slot>
+      <slot name="roleName">
+        <value>Bts_Application_Administrator</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>ENodeB_Application_User</value>
+      </slot>
+      <slot name="roleName">
+        <value>ENodeB_Application_User</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>Support_Application_User</value>
+      </slot>
+      <slot name="roleName">
+        <value>Support_Application_User</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>Transport_Application_SecurityAdministrator</value>
+      </slot>
+      <slot name="roleName">
+        <value>Transport_Application_SecurityAdministrator</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>ENodeB_Application_Administrator</value>
+      </slot>
+      <slot name="roleName">
+        <value>ENodeB_Application_Administrator</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>Support_Application_Administrator</value>
+      </slot>
+      <slot name="roleName">
+        <value>Support_Application_Administrator</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>Bts_Application_User</value>
+      </slot>
+      <slot name="roleName">
+        <value>Bts_Application_User</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>NodeB_Application_User</value>
+      </slot>
+      <slot name="roleName">
+        <value>NodeB_Application_User</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>Transport_Application_Administrator</value>
+      </slot>
+      <slot name="roleName">
+        <value>Transport_Application_Administrator</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>ENodeB_Application_SecurityAdministrator</value>
+      </slot>
+      <slot name="roleName">
+        <value>ENodeB_Application_SecurityAdministrator</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1">
+      <hasClass name="Role">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="roleId">
+        <value>NodeB_Application_Administrator</value>
+      </slot>
+      <slot name="roleName">
+        <value>NodeB_Application_Administrator</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,BfdProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_10</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_10</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Lm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmRWX_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmRWX_3</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_12</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_12</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,Cabinet,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_3</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,Cabinet,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_31</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_31</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,UcToolFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_15</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_15</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,SctpEndpoint,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_5</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_7</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_7</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,IpsecProposalProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_SecurityAdministrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplSecAdmR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplSecAdmR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_6</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_58</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_58</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,AmoFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplRX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplRX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,LogM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_5</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,ExternalNode,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_37</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_37</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,AntennaUnitGroup,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_26</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_26</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,Rrc,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_12</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_12</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,FmAlarm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_8</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,EquipmentSupportSystem,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_40</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_40</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,FmAlarm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_13</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_13</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Router,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_3</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Bridge,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport$</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_7</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_7</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,Cdma2000Network,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_34</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_34</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_60</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_60</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,CellSleepNodeFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmRWX_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmRWX_4</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_6</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,FieldReplaceableUnit,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_5</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,AutoCellCapEstFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_13</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_13</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_33</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_33</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,UtraNetwork,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_13</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_13</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,FieldReplaceableUnit,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_24</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_24</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,Rcs,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_14</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_14</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Sctp,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_SecurityAdministrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplSecAdmRWX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplSecAdmRWX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,SecurityHandling,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_4</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_4</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_67</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_67</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,TestModeFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_8</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,DlComp,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_44</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_44</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,LogM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_9</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_9</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_5</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_11</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_11</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,EUtranCellTDD,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_16</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_16</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,SctpProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_9</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_9</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,PmEventM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,BtsFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_32</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_32</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,UlCompGroup,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_20</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_20</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,PreschedulingProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_5</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,AntennaUnitGroup,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_43</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_43</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Lm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_8</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,LagPort,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_25</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_25</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,RlfProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_9</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_9</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,DrxProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_14</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_14</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,ExternalNode,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_6</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_21</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_21</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,PwsCmas,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_49</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_49</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,PmFlexCounterFilter,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_68</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_68</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,UnlicensedAccessFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_12</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_12</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,LogM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_8</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_51</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_51</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,AnrPciConflictDrxProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_46</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_46</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,TimerProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_71</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_71</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,EricssonLeanCarrierFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_56</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_56</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,PpControlTermination,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmR_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmR_4</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_47</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_47</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,NbIotCell,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_8</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_6</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Ikev2PolicyProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_7</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_7</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,RiLink,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_45</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_45</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,MceFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_11</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_11</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,ConsumedEnergyMeasurement,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_36</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_36</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_7</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_7</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_4</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_39</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_39</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,RiLink,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_SecurityAdministrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplSecAdmR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplSecAdmR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,MceFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_8</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,HwGroup,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_10</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_10</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Ntp,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_30</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_30</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,TermPointToMme,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_70</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_70</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,CellResources,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_52</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_52</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,GUtraNetwork,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_7</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_7</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeBFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_7</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_7</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,SupportUnit,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplRX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplRX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,LogM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_8</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,FmAlarm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_10</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_10</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,ConsumedEnergyMeasurement,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_12</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_12</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,EUtraNetwork,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_73</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_73</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,NodePerformance,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_38</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_38</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,FieldReplaceableUnit,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_14</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_14</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,LogM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmR_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmR_5</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Fm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_19</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_19</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,PmEventService,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_61</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_61</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,FlexibleQoSFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmRWX_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmRWX_6</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Lm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_10</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_10</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Lm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_5</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_3</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,AirIfLoadProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_17</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_17</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,HwGroup,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_11</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_11</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,MceFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_64</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_64</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,PreschedProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_4</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,EthernetOamLocalMep,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_19</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_19</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,VlanPort,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_72</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_72</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,MeasCellGroup,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_42</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_42</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,PmEventM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplRX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplRX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,LogM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_15</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_15</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,EcBus,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_57</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_57</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,RpUserPlaneTermination,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_6</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,EcBus,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_48</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_48</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,PlmnInfo,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_10</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_10</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,EUtranCellFDD,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmRWX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmRWX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_27</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_27</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,SectorCarrier,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_41</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_41</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_12</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_12</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,QosProfiles,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_65</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_65</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,ResourcePartitionGroup,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_15</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_15</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,Mbms,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmRWX_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmRWX_5</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,PmEventM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_62</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_62</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,ImeisvTable,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_4</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplAdmRWX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplAdmRWX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeBFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_6</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,CarrierAggregationFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_18</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_18</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,TransportAutomationAgent,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_76</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_76</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,EndcProfilePredefined,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_29</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_29</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,SubscriberProfileID,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_66</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_66</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,TermPointToSGW,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_4</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,AnrFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_63</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_63</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,MdtConfiguration,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_4</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,FieldReplaceableUnit,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_5</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,EthernetPort,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_5</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_5</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_10</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_10</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,PmEventM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_59</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_59</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,Band46UnlicensedProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_9</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_9</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Lldp,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_23</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_23</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,RadioBearerTable,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_11</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_11</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Ptp,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_35</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_35</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_17</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_17</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,Paging,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_11</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_11</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_9</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_9</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,PmEventM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_SecurityAdministrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplSecAdmRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplSecAdmRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,EquipmentSupport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_SecurityAdministrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplSecAdmR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplSecAdmR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBRpFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_SecurityAdministrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportSecAdmRWX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportSecAdmRWX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,PacketCapture$</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_9</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_9</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,OnSiteActivities,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_12</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_12</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBRpFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_9</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_9</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Pm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_74</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_74</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,NbIdleModeLoadDistr,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_14</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_14</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,LoadBalancingFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_11</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_11</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Lm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplAdmRWX_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplAdmRWX_3</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_75</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_75</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,EndcProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_55</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_55</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBRpFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_53</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_53</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,ResourcePartitions,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_50</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_50</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,AdditionalCoreNetwork,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplRX_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplRX_1</value>
+      </slot>
+      <slot name="permission">
+        <value>5</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,SysM,Schema</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_16</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_16</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,NonPlannedPciDrxProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmR_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmR_4</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_13</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_13</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,GeraNetwork,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmR_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmR_2</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_18</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_18</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,ParameterChangeRequests,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_1</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_1</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,BtsFunction,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_2</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_2</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,AdmissionControl,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_3</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_3</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplR_16</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplR_16</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,SupportUnit,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_8</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_8</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,Lm,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplR_4</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplR_4</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_28</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_28</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,SrbTable,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Transport_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>TransportAdmRWX_17</value>
+      </slot>
+      <slot name="ruleName">
+        <value>TransportAdmRWX_17</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Transport,Synchronization,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Support_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>SupportApplAdmRWX_10</value>
+      </slot>
+      <slot name="ruleName">
+        <value>SupportApplAdmRWX_10</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,NodeSupport,OnSiteActivities,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=Bts_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>BtsApplR_6</value>
+      </slot>
+      <slot name="ruleName">
+        <value>BtsApplR_6</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,Equipment,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=NodeB_Application_User">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>NodeBApplR_7</value>
+      </slot>
+      <slot name="ruleName">
+        <value>NodeBApplR_7</value>
+      </slot>
+      <slot name="permission">
+        <value>4</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,SystemFunctions,PmEventM,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_54</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_54</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,SubscriberGroupProfile,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_22</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_22</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,QciTable,*</value>
+      </slot>
+    </object>
+    <object parentDn="LocalAuthorizationMethod=1,Role=ENodeB_Application_Administrator">
+      <hasClass name="Rule">
+        <mimName>ECIM_Local_Authorization</mimName>
+      </hasClass>
+      <slot name="ruleId">
+        <value>ENodeBApplAdmRWX_69</value>
+      </slot>
+      <slot name="ruleName">
+        <value>ENodeBApplAdmRWX_69</value>
+      </slot>
+      <slot name="permission">
+        <value>7</value>
+      </slot>
+      <slot name="ruleData">
+        <value>ManagedElement,ENodeBFunction,NbIdleModeLoadDistr,*</value>
+      </slot>
+    </object>
+  </mib>
+</models>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="1" date="" docNo="" name="ReqEcPort" namespace="urn:com:ericsson:ecim:ReqEcPort" namespacePrefix="reqecport" organization="" release="0" revision="0" version="4">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="NONE"/>
+        </domainExtension>
+        <derivedDataType name="RegExprHubPosition">
+            <description>Valid values:&#13;
+		  [Ain, A1, A2, A3, A4, A5, A6, A7, A8, Bin, B1, B2, B3, B4, B5, B6, B7, B8, A, B, C, D, E, X, Y, SAU, NA, CLU, BPA]</description>
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>3</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>3</max>
+                        </subrange>
+                    </stringLength>
+                    <validValues>\bNA\b|\bSAU\b|\bCLU\b|\b[A-B][1-8]\b|\b[A-E]\b|\b[X-Y]\b|\bAin\b|\bBin\b|\bBPA\b</validValues>
+                </string>
+            </baseType>
+            <validationRules>
+                <rule exceptionText="" format="posix_ere" name="Pattern Constraint"><![CDATA[\bNA\b|\bSAU\b|\bCLU\b|\b[A-B][1-8]\b|\b[A-E]\b|\b[X-Y]\b|\bAin\b|\bBin\b|\bBPA\b]]></rule>
+            </validationRules>
+        </derivedDataType>
+        <derivedDataType name="ReqEcPort_EcPort_cascadingOrder">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>7</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>7</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <class name="EcPort">
+            <description>This MO represents one port in a FieldReplaceableUnit MO.&#13;
+ &#13;
+</description>
+            <root/>
+            <attribute name="ecPortId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="cascadingOrder">
+                <description>The cascading order when there are multiple hubs or units connected in a cascade chain.&#13;
+The first unit in a cascade chain has value 1.&#13;
+If the EC-bus isn’t connected in cascade then the value shall be set to 0 (not applicable).</description>
+                <dataType>
+                    <derivedDataTypeRef name="ReqEcPort_EcPort_cascadingOrder">
+                        <defaultValue>0</defaultValue>
+                        <mimName>ReqEcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+                <dependencies>If the EC-bus isn’t connected in cascade then the value shall be set to 0 (not applicable).</dependencies>
+            </attribute>
+            <attribute name="hubPosition">
+                <description>The hub port that the external node or FRU is connected to.&#13;
+&#13;
+	Must be set for FieldReplaceableUnit MOs of type DU or Baseband, TCU or Baseband T, BFU, PSU, PDU, EMU, SCU, SAU, CLU, SUP and BPA.&#13;
+	Must be set for ExternalNode MOs on the primary node.&#13;
+	System-updated attribute to reflect actual port.&#13;
+&#13;
+	In case attribute is updated by system, the system cannot detect what kind of hub is used.&#13;
+	The system will reflect hub position as if the hub is an SHU.&#13;
+	See actual hub-specific lookup table to get label found on SCU or SUP.&#13;
+&#13;
+	Value:&#13;
+	Based on label for used port on hw.&#13;
+&#13;
+	Valid values:&#13;
+	Ain, A0, A1, A2, A3, A4, A5, A6, A7, A8, Bin, B0, B1, B2, B3, B4, B5, B6, B7, B8, A, B, C, D, E, X, Y, SAU, NA, CLU, BPA&#13;
+	NA: Might be used in existing configurations for SCU and SUP.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <derivedDataTypeRef name="RegExprHubPosition">
+                        <mimName>ReqEcPort</mimName>
+                    </derivedDataTypeRef>
+                </dataType>
+            </attribute>
+            <attribute name="ecBusRef">
+                <description>The EcBus to which the EcPort is connected. &#13;
+</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <isNillable/>
+                <dataType>
+                    <moRef name="ManagedObject"/>
+                </dataType>
+            </attribute>
+        </class>
+        <relationship name="EcPort_ecBusRef_to_EcBus_reservedBy">
+            <biDirectionalAssociation>
+                <associationEnd name="ecBusRef">
+                    <hasClass name="EcBus">
+                        <mimName>ReqEcBus</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                    <isReserving/>
+                </associationEnd>
+                <associationEnd name="reservedBy">
+                    <hasClass name="EcPort">
+                        <mimName>ReqEcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </associationEnd>
+            </biDirectionalAssociation>
+        </relationship>
+    </mim>
+    <interMim>
+        <relationship name="FieldReplaceableUnit_to_EcPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="FieldReplaceableUnit">
+                        <mimName>ReqFieldReplaceableUnit</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EcPort">
+                        <mimName>ReqEcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                        <max>1</max>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+    <interMim>
+        <relationship name="ExternalNode_to_EcPort">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="false"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="ExternalNode">
+                        <mimName>ReqExternalNode</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="EcPort">
+                        <mimName>ReqEcPort</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>

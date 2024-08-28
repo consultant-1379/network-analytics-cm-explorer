@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright (c) 2018 Ericsson AB.
+	All rights reserved
+
+	DX ECIM Tool-chain generated this file on Jul 6, 2018 10:07:22 AM using:
+	* com.ericsson.ecim.m2m 2.16.0.201712111005
+	* com.ericsson.ecim.dsl 2.16.0.201712111005
+	* com.ericsson.ecim.edm 2.16.0.201712111005
+--><!DOCTYPE models SYSTEM "mp.dtd">
+<models>
+    <dtdVersion>H</dtdVersion>
+    <momMetaData>
+        <momTitle>title</momTitle>
+        <momSubTitle>sub title</momSubTitle>
+        <momIdentity>
+            <docNum>0</docNum>
+            <docLang>English</docLang>
+            <docRev>0</docRev>
+            <docDate>date</docDate>
+        </momIdentity>
+    </momMetaData>
+    <mim author="" contact="" correction="0" date="" docNo="" name="ReqSupportUnit" namespace="urn:com:ericsson:ecim:ReqSupportUnit" namespacePrefix="reqsupportunit" organization="" release="0" revision="" version="3">
+        <description>.</description>
+        <domainExtension domain="ECIM">
+            <extension name="immNamespace" value="MOM_NAME"/>
+        </domainExtension>
+        <struct name="SuAddressInfo">
+            <description>The address elements of the support unit, one set per host the support unit is connected to. Note that a support unit can be directly connected to one or several hosts by one support unit bus for each host. Alternatively, it can be connected indirectly by another support unit, which in turn is connected to the hosts. If indirectly connected, the support unit is referred to as a "hosted support unit".</description>
+            <structMember name="hostObjectReference">
+                <description>LDN or FRO ID of the support unit host.</description>
+                <string/>
+            </structMember>
+            <structMember name="hostPortNumber">
+                <description>Port on the host that the support unit is connected to by the support unit bus.</description>
+                <int32/>
+            </structMember>
+            <structMember name="supportUnitBusAddress">
+                <description>The high level data link control (HDLC) address of the support unit on the support unit bus.</description>
+                <int32/>
+            </structMember>
+            <structMember name="supportUnitHostPortNumber">
+                <description>Port on the support unit the host is connected to by the support unit bus.</description>
+                <int32/>
+            </structMember>
+            <structMember name="hostedSupportUnitReference">
+                <description>Reference to a hosted support unit. The support unit that terminates the support unit bus interface has reference 0. Hosted support units have a reference &gt; 0.</description>
+                <derivedDataTypeRef name="ReqSupportUnit_SuAddressInfo_hostedSupportUnitReference">
+                    <mimName>ReqSupportUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="SpecialIndicator">
+            <description>Special indicator data.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="5"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="ReqFieldReplaceableUnit"/>
+            </domainExtension>
+            <structMember name="indicatorStatus">
+                <description>The current status of the special Indicator.</description>
+                <enumRef name="IndicatorStatus">
+                    <mimName>ReqSupportUnit</mimName>
+                </enumRef>
+            </structMember>
+            <structMember name="indicatorName">
+                <description>The name of the special indicator.</description>
+                <derivedDataTypeRef name="ReqFieldReplaceableUnit_SpecialIndicator_indicatorName">
+                    <mimName>ReqSupportUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <struct name="ApcProductData">
+            <description>.&#13;
+</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="4"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="ReqCabinet"/>
+            </domainExtension>
+            <structMember name="productionDate">
+                <description>The production date is represented in two ways:&#13;
+&#13;
+- the preferred syntax is four-digits for the year, two digits for the month, and two digits for the day.&#13;
+Example: 19991231&#13;
+&#13;
+- the date is also be represented by two digits for the year, followed by the letter W for week, and two digits for the number of the week.&#13;
+Example: 99W52</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productionDate">
+                    <mimName>ReqSupportUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productName">
+                <description>The name of the product.</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productName">
+                    <mimName>ReqSupportUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productNumber">
+                <description>The product number of the product.&#13;
+&#13;
+Examples: ABC 101 001, CXC 123 456, 1/BFD 101 999&#13;
+</description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productNumber">
+                    <mimName>ReqSupportUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="productRevision">
+                <description>The revision state of the product.&#13;
+&#13;
+Examples: R1, R1A, R1A02, P7B </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_productRevision">
+                    <mimName>ReqSupportUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+            <structMember name="serialNumber">
+                <description>The serial number of the product. </description>
+                <derivedDataTypeRef name="ReqCabinet_ApcProductData_serialNumber">
+                    <mimName>ReqSupportUnit</mimName>
+                </derivedDataTypeRef>
+            </structMember>
+        </struct>
+        <enum name="AdmState">
+            <description>Administrative state of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="LOCKED">
+                <description>The resource is administratively prohibited from performing services for its users.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="UNLOCKED">
+                <description>The resource is administratively permitted to perform services for its users.&#13;
+This is independent of its inherent operability.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="SHUTTINGDOWN">
+                <description>Use of the resource is administratively permitted to existing instances of use only.&#13;
+While the system remains in the shutting down state the manager may at any time cause the managed object to revert to the locked state.</description>
+                <value>2</value>
+            </enumMember>
+        </enum>
+        <enum name="ProvidedServices">
+            <description>Services provided by the support unit.</description>
+            <enumMember name="POWER_SUPPLY">
+                <description>Supplies power.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="POWER_DISTRIBUTION">
+                <description>Distributes power.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="FAN">
+                <description>Provides air flow, typically for cooling purposes.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="EXTERNAL_ALARM_PORTS">
+                <description>Provides external alarm ports.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="BATTERY_BACKUP">
+                <description>Provides battery backup.</description>
+                <value>4</value>
+            </enumMember>
+        </enum>
+        <enum name="IndicatorStatus">
+            <description>IndicatorStatus.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="5"/>
+                <extension name="originatingMimRelease" value="3"/>
+                <extension name="originatingMimName" value="ReqFieldReplaceableUnit"/>
+            </domainExtension>
+            <enumMember name="NOT_APPLICABLE">
+                <description>The indicator is not supported.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="NOT_AVAILABLE">
+                <description>The indicator state is currently not available.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="OFF">
+                <description>The indicator is off.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="STEADY_ON">
+                <description>The indicator is on continuously.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="SLOW_BLINK">
+                <description>The indicator blinks slowly.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="FAST_BLINK">
+                <description>The indicator blinks quickly.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_STEADY_ON">
+                <description>The indicator blinks twice and is then on for a short time. This cycle is then repeated.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="DOUBLE_FLASH_AND_OFF">
+                <description>The indicator blinks twice and is then off for a short time. This cycle is then repeated.</description>
+                <value>8</value>
+            </enumMember>
+        </enum>
+        <enum name="AvailStatus">
+            <description>The availability status is used to qualify the operational state.&#13;
+ It indicates why the operational state has changed its value. </description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="IN_TEST">
+                <description>The resource is undergoing a test procedure. &#13;
+If the administrative state is locked or  shutting down, normal users are prevented from using the resource.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="FAILED">
+                <description>The resource has an internal fault that prevents it from operating.</description>
+                <value>1</value>
+            </enumMember>
+            <enumMember name="POWER_OFF">
+                <description>The resource requires power to be applied and is not powered on.</description>
+                <value>2</value>
+            </enumMember>
+            <enumMember name="OFF_LINE">
+                <description>The resource requires a routine operation to be performed.&#13;
+This routine operation is to place the resource online and make it available for use. The operation may be manual or automatic, or both. The operational state is disabled.</description>
+                <value>3</value>
+            </enumMember>
+            <enumMember name="OFF_DUTY">
+                <description>The resource has been made inactive by an internal control process.</description>
+                <value>4</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY">
+                <description>The resource cannot operate because some other resource on which it depends is unavailable.</description>
+                <value>5</value>
+            </enumMember>
+            <enumMember name="DEGRADED">
+                <description>The service available from the resource is degraded in some respect.</description>
+                <value>6</value>
+            </enumMember>
+            <enumMember name="NOT_INSTALLED">
+                <description>The resource represented by the managed object is not present, or is incomplete.</description>
+                <value>7</value>
+            </enumMember>
+            <enumMember name="LOG_FULL">
+                <description>Indicates a log full condition.&#13;
+The semantics are defined in CCITT Rec. X.735 | ISO/IEC 10164-6. </description>
+                <value>8</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_LOCKED">
+                <description>The administrative state of a resource that this resource depends on is locked.&#13;
+ or the availability status of the other resource is dependency locked.  </description>
+                <value>9</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_FAILED">
+                <description>The availability status of a resource that this resource depends on is failed or dependency failed.</description>
+                <value>10</value>
+            </enumMember>
+            <enumMember name="DEPENDENCY_SHUTTINGDOWN">
+                <description>The administrative state of a resource that this resource depends on is shutting down.&#13;
+ or the availability status of the other resource is dependency shutting down. </description>
+                <value>11</value>
+            </enumMember>
+        </enum>
+        <enum name="OperState">
+            <description>Operational states of a resource.</description>
+            <domainExtension domain="ECIM">
+                <extension name="originatingMimVersion" value="2"/>
+                <extension name="originatingMimRelease" value="1"/>
+                <extension name="originatingMimName" value="ECIM_CommonLibrary"/>
+            </domainExtension>
+            <enumMember name="DISABLED">
+                <description>The resource is  totally inoperable.</description>
+                <value>0</value>
+            </enumMember>
+            <enumMember name="ENABLED">
+                <description>The resource is partially or fully operable.</description>
+                <value>1</value>
+            </enumMember>
+        </enum>
+        <derivedDataType name="ReqSupportUnit_SuAddressInfo_hostedSupportUnitReference">
+            <baseType>
+                <int32>
+                    <range>
+                        <min>0</min>
+                        <max>8</max>
+                    </range>
+                    <ranges>
+                        <subrange>
+                            <min>0</min>
+                            <max>8</max>
+                        </subrange>
+                    </ranges>
+                </int32>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqFieldReplaceableUnit_SpecialIndicator_indicatorName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>0</min>
+                        <max>128</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>0</min>
+                            <max>128</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productionDate">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>5</min>
+                        <max>8</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>5</min>
+                            <max>8</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productName">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>32</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>32</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>24</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>24</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_productRevision">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>7</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>7</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <derivedDataType name="ReqCabinet_ApcProductData_serialNumber">
+            <baseType>
+                <string>
+                    <lengthRange>
+                        <min>1</min>
+                        <max>13</max>
+                    </lengthRange>
+                    <stringLength>
+                        <subrange>
+                            <min>1</min>
+                            <max>13</max>
+                        </subrange>
+                    </stringLength>
+                </string>
+            </baseType>
+        </derivedDataType>
+        <class name="SupportUnit">
+            <description>A unit that provides support to adjacent units, in terms of power, climate and/or external alarms. &#13;
+&#13;
+RDNs of these MOs are SupportUnit=1, SupportUnit=2 and so on. Autocreated when the support unit is detected by the system.</description>
+            <systemCreated/>
+            <root/>
+            <action name="deregisterSupportUnit">
+                <description>Deregisters the support unit in the support unit hosts. That is, the SupportUnit MO is removed from the supportUnitRef attribute in the corresponding AuxPlugInUnit MOs. When the SupportUnit MO no longer is referred to (the reservedBy attribute has become empty), the SupportUnit MO is automatically deleted.&#13;
+Transaction required: Yes</description>
+                <domainExtension domain="CoreMW">
+                    <extension name="admOpId" value="0"/>
+                </domainExtension>
+                <returnType>
+                    <void/>
+                </returnType>
+                <specification/>
+                <precondition>The support unit HW is disconnected from the corresponding PIUs (otherwise the SupportUnit MO will be recreated).</precondition>
+            </action>
+            <attribute name="supportUnitId">
+                <description>The value component of the RDN.</description>
+                <mandatory/>
+                <noNotification/>
+                <restricted/>
+                <key/>
+                <dataType>
+                    <string/>
+                </dataType>
+            </attribute>
+            <attribute name="administrativeState">
+                <description>Defines the administrative state.</description>
+                <dataType>
+                    <enumRef name="AdmState">
+                        <defaultValue>UNLOCKED</defaultValue>
+                        <mimName>ReqSupportUnit</mimName>
+                    </enumRef>
+                </dataType>
+                <takesEffect>IMMEDIATELY</takesEffect>
+            </attribute>
+            <attribute name="availabilityStatus">
+                <description>The availability status. It contains details about operationalState.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="AvailStatus">
+                            <mimName>ReqSupportUnit</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="operationalState">
+                <description>Defines the operational state.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="OperState">
+                        <mimName>ReqSupportUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="faultIndicator">
+                <description>Fault status of the support unit as shown by the fault indicator on the unit. &#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = The indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = No hardware fault.&#13;
+• STEADY_ON = Hardware fault.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="IndicatorStatus">
+                        <mimName>ReqSupportUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="operationalIndicator">
+                <description>Operational status of the support unit as shown by the operational indicator on the unit.&#13;
+&#13;
+Possible values:&#13;
+• NOT_APPLICABLE = The indicator is not supported.&#13;
+• NOT_AVAILABLE = The indicator state is currently not available.&#13;
+• OFF = No power.&#13;
+• STEADY_ON = Operational, the unit can perform its intended purpose.&#13;
+• SLOW_BLINK = Dependent resource missing, the unit is non-operational.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <noNotification/>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <enumRef name="IndicatorStatus">
+                        <mimName>ReqSupportUnit</mimName>
+                    </enumRef>
+                </dataType>
+            </attribute>
+            <attribute name="productData">
+                <description>Product data of the support unit.</description>
+                <domainExtension domain="ECIM">
+                    <extension name="isNillable" value="true"/>
+                </domainExtension>
+                <readOnly/>
+                <isNillable/>
+                <dataType>
+                    <structRef name="ApcProductData">
+                        <mimName>ReqSupportUnit</mimName>
+                    </structRef>
+                </dataType>
+            </attribute>
+            <attribute name="providedServices">
+                <description>Services provided by the support unit.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <enumRef name="ProvidedServices">
+                            <mimName>ReqSupportUnit</mimName>
+                        </enumRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="reservedBy">
+                <description> Contains a list of MO instances that reserve this MO instance.</description>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <moRef name="ManagedObject"/>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="specialIndicator">
+                <description>Current status of special indicators on the unit.
+The possible status values and semantics of these vary depending on the name of the indicator.
+
+Possible values:
+Fan [&lt;no.&gt;] Fault Indicator
+• OFF = Fans connected and no fault exists in the fan or fan group, or optional fan or fan group not connected.
+• STEADY_ON = A HW fault exists in this fan or fan group.</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="SpecialIndicator">
+                            <mimName>ReqSupportUnit</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+            <attribute name="suAddressInfo">
+                <description>The address elements of the support unit, one set per host the support unit is connected to. Note that a support unit can be directly connected to one or several hosts by one support unit bus for each host. Alternatively, it can be connected indirectly by another support unit, which in turn is connected to the hosts. If indirectly connected, the support unit is referred to as a "hosted support unit".</description>
+                <noNotification/>
+                <readOnly/>
+                <dataType>
+                    <sequence>
+                        <structRef name="SuAddressInfo">
+                            <mimName>ReqSupportUnit</mimName>
+                        </structRef>
+                        <minLength>0</minLength>
+                    </sequence>
+                </dataType>
+            </attribute>
+        </class>
+    </mim>
+    <interMim>
+        <relationship name="Equipment_to_SupportUnit">
+            <domainExtension domain="CoreMW">
+                <extension name="splitImmDn" value="true"/>
+            </domainExtension>
+            <containment>
+                <parent>
+                    <hasClass name="Equipment">
+                        <mimName>ReqEquipment</mimName>
+                    </hasClass>
+                </parent>
+                <child>
+                    <hasClass name="SupportUnit">
+                        <mimName>ReqSupportUnit</mimName>
+                    </hasClass>
+                    <cardinality>
+                        <min>0</min>
+                    </cardinality>
+                </child>
+                <domainExtension domain="ECIM">
+                    <extension name="canCreate" value="true"/>
+                    <extension name="canDelete" value="true"/>
+                </domainExtension>
+                <noNotification/>
+            </containment>
+        </relationship>
+    </interMim>
+</models>
